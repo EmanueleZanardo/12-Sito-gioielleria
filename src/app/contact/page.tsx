@@ -79,7 +79,7 @@ function ContactFormComponent() {
     try {
       const result = await sendConfirmationEmail(undefined, formData);
 
-      if (result.message.includes('success')) {
+      if ((result.message ?? '').includes('success')) {
         toast({
           title: "Email di conferma inviata",
           description: "Abbiamo inviato un riepilogo della tua richiesta alla tua casella di posta.",

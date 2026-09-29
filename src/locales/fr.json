@@ -114,7 +114,7 @@
         "label": "Message",
         "placeholder": "Votre message..."
       },
-       "photo": {
+      "photo": {
         "label": "Joindre une image (facultatif)"
       },
       "submit": "Envoyer le message"
@@ -232,20 +232,28 @@
     }
   },
   "orders": {
-    "title": "Gestion des commandes",
-    "subtitle": "Suivez le statut de vos commandes actuelles et passées. Veuillez noter qu'il s'agit d'un exemple.",
-    "table": {
-      "orderId": "ID Commande",
-      "item": "Article",
-      "date": "Date",
-      "status": "Statut"
-    },
-    "status": {
-      "shipped": "Expédié",
-      "inProduction": "En production",
-      "delivered": "Livré",
-      "awaitingConfirmation": "En attente de confirmation"
-    }
+    "title": "Comment commander",
+    "subtitle": "Chaque bijou GDC est réalisé sur commande. Voici comment cela fonctionne, étape par étape.",
+    "steps": [
+      {
+        "title": "1. Choisissez votre bijou",
+        "text": "Parcourez la galerie ou dessinez une pièce unique dans la section Créer un bijou."
+      },
+      {
+        "title": "2. Envoyez-nous votre demande",
+        "text": "Remplissez le formulaire de contact ou le formulaire de commande personnalisée : nous répondrons avec un devis et des délais."
+      },
+      {
+        "title": "3. Confirmation et fabrication",
+        "text": "Après votre confirmation, le bijou est fabriqué à la main dans notre laboratoire."
+      },
+      {
+        "title": "4. Livraison",
+        "text": "Nous vous tenons informé de l'avancement jusqu'à la livraison de la pièce finie."
+      }
+    ],
+    "ctaCustom": "Créez votre bijou",
+    "ctaContact": "Contactez-nous"
   },
   "services": {
     "title": "Nos Services",

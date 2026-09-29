@@ -64,7 +64,7 @@
         "name": "Geschnitztes Effektband"
       },
       "group_006": {
-        "name": "Saphir-Ring" 
+        "name": "Saphir-Ring"
       },
       "group_007": {
         "name": "Gehämmertes Gold-Ehering"
@@ -232,20 +232,28 @@
     }
   },
   "orders": {
-    "title": "Auftragsverwaltung",
-    "subtitle": "Verfolgen Sie den Status Ihrer aktuellen und vergangenen Bestellungen. Bitte beachten Sie, dass dies eine Beispielansicht ist.",
-    "table": {
-      "orderId": "Bestell-ID",
-      "item": "Artikel",
-      "date": "Datum",
-      "status": "Status"
-    },
-    "status": {
-      "shipped": "Versendet",
-      "inProduction": "In Produktion",
-      "delivered": "Geliefert",
-      "awaitingConfirmation": "Wartet auf Bestätigung"
-    }
+    "title": "So bestellen Sie",
+    "subtitle": "Jedes GDC-Schmuckstück wird auf Bestellung gefertigt. So funktioniert es, Schritt für Schritt.",
+    "steps": [
+      {
+        "title": "1. Wählen Sie Ihr Schmuckstück",
+        "text": "Stöbern Sie in der Galerie oder entwerfen Sie ein Unikat im Bereich Schmuck kreieren."
+      },
+      {
+        "title": "2. Senden Sie uns Ihre Anfrage",
+        "text": "Füllen Sie das Kontaktformular oder das Bestellformular aus: Wir antworten mit Angebot und Zeitplan."
+      },
+      {
+        "title": "3. Bestätigung und Fertigung",
+        "text": "Nach Ihrer Bestätigung wird das Schmuckstück in unserer Werkstatt von Hand gefertigt."
+      },
+      {
+        "title": "4. Lieferung",
+        "text": "Wir halten Sie über den Fortschritt auf dem Laufenden bis zur Lieferung des fertigen Stücks."
+      }
+    ],
+    "ctaCustom": "Kreieren Sie Ihr Schmuckstück",
+    "ctaContact": "Kontaktieren Sie uns"
   },
   "services": {
     "title": "Unsere Dienstleistungen",

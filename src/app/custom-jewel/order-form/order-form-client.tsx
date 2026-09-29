@@ -222,7 +222,7 @@ function OrderFormClient() {
       try {
         const result = await sendConfirmationEmail(undefined, formData);
         
-        if (result.message.includes('success')) {
+        if ((result.message ?? '').includes('success')) {
             toast({
                 title: t('form.toast.title'),
                 description: t('form.toast.description'),

@@ -22,8 +22,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: 'https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png',
-        width: 1200,
-        height: 630,
+        width: 606,
+        height: 412,
         alt: 'GDC Jewellery Lab',
       },
     ],
@@ -42,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="it" className="dark">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

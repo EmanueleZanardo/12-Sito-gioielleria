@@ -7,8 +7,24 @@ import './globals.css';
 import { ShareDialog } from '@/components/share/share-dialog';
 
 export const metadata: Metadata = {
-  title: 'GDC | Jewellery Lab',
-  description: 'Handcrafted jewelry with a touch of elegance.',
+  metadataBase: new URL('https://gdc-jewellery-lab.vercel.app'),
+  title: {
+    default: 'GDC | Jewellery Lab',
+    template: '%s | GDC Jewellery Lab',
+  },
+  description: 'Handcrafted jewelry with a touch of elegance. Custom jewel design, gallery and atelier services by GDC Jewellery Lab.',
+  openGraph: {
+    title: 'GDC | Jewellery Lab',
+    description: 'Handcrafted jewelry with a touch of elegance.',
+    url: 'https://gdc-jewellery-lab.vercel.app',
+    siteName: 'GDC Jewellery Lab',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'GDC | Jewellery Lab',
+    description: 'Handcrafted jewelry with a touch of elegance.',
+  },
 };
 
 export default function RootLayout({

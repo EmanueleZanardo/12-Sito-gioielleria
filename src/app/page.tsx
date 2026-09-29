@@ -71,7 +71,7 @@ export default function Home() {
             {t('hero.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4">
-            <Button asChild size="sm" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10 font-bold text-sm md:text-lg py-3 px-6 md:py-4 md:px-6 rounded-sm">
+            <Button asChild size="sm" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10 hover:text-white hover:border-white active:bg-white/20 active:text-white visited:text-white focus-visible:text-white font-bold text-sm md:text-lg py-3 px-6 md:py-4 md:px-6 rounded-sm">
               <Link href="/#gallery">{t('hero.galleryButton')}</Link>
             </Button>
             <Button asChild size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm md:text-lg py-3 px-6 md:py-4 md:px-6 rounded-sm">

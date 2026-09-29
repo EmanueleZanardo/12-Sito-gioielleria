@@ -1,0 +1,267 @@
+{
+  "common": {
+    "nav": {
+      "home": "HOME",
+      "gallery": "GALLERY",
+      "createJewel": "CREATE JEWEL",
+      "services": "SERVICES",
+      "about": "ABOUT US",
+      "contact": "CONTACT",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "mainMenu": "Main Menu"
+    },
+    "footer": {
+      "tagline": "Creating timeless jewelry that tells your story.",
+      "rights": "All rights reserved."
+    },
+    "share": {
+      "button": "Share Store",
+      "title": "Share This Store",
+      "description": "Let your friends know about GDC!",
+      "text": "Check out this amazing jewelry store: {{url}}",
+      "telegramText": "Check out this amazing jewelry store!",
+      "toast": {
+        "copied": "Copied!",
+        "linkCopied": "Store link has been copied to your clipboard.",
+        "error": "Error",
+        "copyFailed": "Could not copy the link. Please try again.",
+        "notAvailable": "Not available",
+        "notAvailableDescription": "Sharing via {{name}} is not yet supported."
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "alt": "Goldsmith workshop background",
+      "subtitle": "Discover the timeless elegance of handcrafted jewelry, where every piece tells a story of artistry and passion.",
+      "galleryButton": "GALLERY",
+      "createButton": "CREATE YOUR JEWEL"
+    },
+    "gallery": {
+      "title": "Gallery",
+      "subtitle": "Each creation is a unique piece, forged with passion and mastery."
+    },
+    "cta": {
+      "title": "Have an idea?",
+      "subtitle": "Let's create your custom jewelry piece together.",
+      "button": "Create Your Jewel"
+    },
+    "collections": {
+      "group_001": {
+        "name": "Quartz point pendant"
+      },
+      "group_002": {
+        "name": "Ruby pendant"
+      },
+      "group_003": {
+        "name": "Ethiopian opal ring"
+      },
+      "group_004": {
+        "name": "Quartz pendant necklace"
+      },
+      "group_005": {
+        "name": "Carved effect band"
+      },
+      "group_006": {
+        "name": "Sapphire ring"
+      },
+      "group_007": {
+        "name": " Hammered gold wedding rings"
+      }
+    }
+  },
+  "about": {
+    "title": "GDC: Jewels that Create Emotions",
+    "subtitle": "A tradition of craftsmanship, a passion for perfection.",
+    "artisanAlt": "Artisan at work",
+    "paragraph1": "GDC was born from a mix of deep passion for craftsmanship, jewelry, and the ability to create unique objects, and the passion for seeing people get emotional thanks to a jewel made with my own hands. The real push to found this laboratory was not just my passion but the awareness of the emotional impact of the work done. It all began with an unexpected moment: the delivery of a custom-made ring, where the client's emotion was so intense that it translated into tears of joy.",
+    "paragraph2": "This episode transformed a passion into a mission. GDC does not sell precious items, but creates feelings translated into gold and precious gems, works destined to become part of your emotional heritage.",
+    "section1": {
+      "title": "Mastery, Transparency, and Dedication",
+      "text": "After years of training and over 10 years of work and refinement in goldsmithing techniques, I have developed my expertise."
+    },
+    "section2": {
+      "title": "Your Jewel, Your Story",
+      "text": "Whether you want an engagement ring created from scratch or the revision of a family heirloom, GDC offers you a unique piece, built with dedication and destined to become part of your emotional heritage."
+    },
+    "section3": {
+      "title": "Start Creating",
+      "text": "Contact us for an initial consultation. Tell us your idea, and we will transform it into a\ncustom-made masterpiece."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We'd love to hear from you. Whether you have a question about our collections or want to start a custom project, our team is ready to assist you.",
+    "contactInfo": {
+      "title": "Contact Information"
+    },
+    "form": {
+      "title": "Send Us a Message",
+      "name": {
+        "label": "Name",
+        "placeholder": "Your name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Your email"
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "Product question"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Your message..."
+      },
+      "photo": {
+        "label": "Attach Image (Optional)"
+      },
+      "submit": "Send Message"
+    },
+    "infoButton": "Request Information",
+    "prefill": {
+      "subject": "Inquiry about {{jewelryName}}",
+      "message": "Hello, I would like more information about the {{jewelryName}} piece."
+    }
+  },
+  "customJewel": {
+    "title": "Create Your Custom Jewel",
+    "subtitle": "Choose how to bring your vision to life. Use our AI assistant to visualize your ideas, or fill out the form to collaborate directly with our artisans.",
+    "selection": {
+      "aiGenerator": {
+        "title": "Create with AI",
+        "description": "Turn your ideas into images. Describe your ideal jewel and let the AI show you a preview."
+      },
+      "orderForm": {
+        "title": "Custom Order Form",
+        "description": "Already have a clear idea? Fill out the form to send the details to our artisans and get a quote."
+      },
+      "comingSoon": "Coming Soon"
+    },
+    "imageGenerator": {
+      "title": "AI Image Generator",
+      "pageSubtitle": "Don't just imagine it, see it. Describe the jewelry you want to create, and our AI will visualize it for you.",
+      "description": "Describe the jewelry you want to create.",
+      "placeholder": "e.g., 'a delicate gold necklace with a single pearl pendant'",
+      "button": "Generate Image",
+      "orderButton": "Order This Design",
+      "error": {
+        "title": "Error",
+        "description": "Please describe the image to generate.",
+        "apiTitle": "AI Image Generation Error",
+        "apiDescription": "Sorry, we couldn't generate an image at this time. Please try again."
+      },
+      "generatedImageTitle": "Generated Image",
+      "generatedImageAlt": "AI generated jewelry"
+    },
+    "form": {
+      "title": "Custom Order Form",
+      "pageSubtitle": "Fill out the fields below to send your custom jewelry request directly to our artisans. We will contact you shortly.",
+       "jewelryType": {
+        "label": "Jewelry Type",
+        "description": "Select the type of jewel you want to create."
+      },
+      "materials": {
+        "label": "Materials",
+        "description": "Choose one or more materials."
+      },
+      "stones": {
+        "label": "Precious Stones",
+        "description": "Add one or more stones to your design."
+      },
+      "types": {
+        "ring": "Ring",
+        "necklace": "Necklace",
+        "earrings": "Earrings",
+        "bracelet": "Bracelet",
+        "pendant": "Pendant",
+        "brooch": "Brooch",
+        "cufflinks": "Cufflinks",
+        "anklet": "Anklet",
+        "choker": "Choker"
+      },
+      "materialsList": {
+        "yellow_gold": "Yellow Gold",
+        "white_gold": "White Gold",
+        "rose_gold": "Rose Gold",
+        "silver": "Silver",
+        "platinum": "Platinum",
+        "copper": "Copper"
+      },
+      "stonesList": {
+        "diamond": "Diamond",
+        "ruby": "Ruby",
+        "sapphire": "Sapphire",
+        "emerald": "Emerald",
+        "amethyst": "Amethyst",
+        "aquamarine": "Aquamarine",
+        "opal": "Opal",
+        "pearl": "Pearl",
+        "garnet": "Garnet",
+        "topaz": "Topaz",
+        "quartz": "Quartz"
+      },
+      "description": {
+        "label": "Detailed Description",
+        "placeholder": "Describe the design, any symbols, engravings, or other details.",
+        "description": "Provide any details that help us understand your vision."
+      },
+      "photo": {
+        "label": "Attach Image (Optional)",
+        "description": "Upload a reference image or sketch."
+      },
+      "aiImage": {
+        "label": "Image from AI Generator",
+        "alt": "AI-generated jewelry design",
+        "description": "This image was imported from the AI Generator."
+      },
+      "name": {
+        "label": "Your Name",
+        "placeholder": "Jane Doe"
+      },
+      "email": {
+        "label": "Your Email",
+        "placeholder": "jane.doe@example.com"
+      },
+      "submit": "Submit Request",
+      "toast": {
+        "title": "Request Submitted!",
+        "description": "Thank you! We will review your custom jewelry request and contact you shortly."
+      }
+    }
+  },
+  "orders": {
+    "title": "Order Management",
+    "subtitle": "Track the status of your current and past orders. Please note this is a sample view.",
+    "table": {
+      "orderId": "Order ID",
+      "item": "Item",
+      "date": "Date",
+      "status": "Status"
+    },
+    "status": {
+      "shipped": "Shipped",
+      "inProduction": "In Production",
+      "delivered": "Delivered",
+      "awaitingConfirmation": "Awaiting Confirmation"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "We offer a full range of services for the care and customization of your jewelry and watches.",
+    "listTitle": "List of Services",
+    "serviceList": {
+      "customDesign": "Custom jewelry design and creation",
+      "sizing": "Ring and bracelet sizing",
+      "vintageRestore": "Restoration or modification of vintage jewelry",
+      "revitalization": "Complete refurbishment of any type of jewelry",
+      "watchBattery": "Watch battery replacement",
+      "watchRestore": "Sizing and complete restoration of watch bracelets"
+    },
+    "cta": {
+      "text": "Need a service that isn't listed? Have questions about our processes? Don't hesitate to contact us.",
+      "button": "Request Information"
+    }
+  }
+}

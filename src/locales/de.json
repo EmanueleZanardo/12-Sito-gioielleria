@@ -1,0 +1,267 @@
+{
+  "common": {
+    "nav": {
+      "home": "HOME",
+      "gallery": "GALERIE",
+      "createJewel": "SCHMUCK ERSTELLEN",
+      "services": "SERVICELEISTUNGEN",
+      "about": "ÜBER UNS",
+      "contact": "KONTAKT",
+      "openMenu": "Menü öffnen",
+      "closeMenu": "Menü schließen",
+      "mainMenu": "Hauptmenü"
+    },
+    "footer": {
+      "tagline": "Zeitlosen Schmuck kreieren, der Ihre Geschichte erzählt.",
+      "rights": "Alle Rechte vorbehalten."
+    },
+    "share": {
+      "button": "Shop teilen",
+      "title": "Diesen Shop teilen",
+      "description": "Lassen Sie Ihre Freunde von GDC wissen!",
+      "text": "Schauen Sie sich diesen erstaunlichen Schmuckladen an: {{url}}",
+      "telegramText": "Schauen Sie sich diesen erstaunlichen Schmuckladen an!",
+      "toast": {
+        "copied": "Kopiert!",
+        "linkCopied": "Der Shop-Link wurde in die Zwischenablage kopiert.",
+        "error": "Fehler",
+        "copyFailed": "Link konnte nicht kopiert werden. Bitte versuchen Sie es erneut.",
+        "notAvailable": "Nicht verfügbar",
+        "notAvailableDescription": "Teilen über {{name}} wird noch nicht unterstützt."
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "alt": "Hintergrund einer Goldschmiedewerkstatt",
+      "subtitle": "Entdecken Sie die zeitlose Eleganz von handgefertigtem Schmuck, bei dem jedes Stück eine Geschichte von Kunstfertigkeit und Leidenschaft erzählt.",
+      "galleryButton": "GALERIE",
+      "createButton": "ERSTELLEN SIE IHR SCHMUCKSTÜCK"
+    },
+    "gallery": {
+      "title": "Galerie",
+      "subtitle": "Jede Kreation ist ein Unikat, geschmiedet mit Leidenschaft und Meisterschaft."
+    },
+    "cta": {
+      "title": "Haben Sie eine Idee?",
+      "subtitle": "Lassen Sie uns gemeinsam Ihr individuelles Schmuckstück kreieren.",
+      "button": "Erstellen Sie Ihr Schmuckstück"
+    },
+    "collections": {
+      "group_001": {
+        "name": "Quarzspitzen-Anhänger"
+      },
+      "group_002": {
+        "name": "Rubin-Anhänger"
+      },
+      "group_003": {
+        "name": "Äthiopischer Opalring"
+      },
+      "group_004": {
+        "name": "Quarz-Anhänger-Halskette"
+      },
+      "group_005": {
+        "name": "Geschnitztes Effektband"
+      },
+      "group_006": {
+        "name": "Saphir-Ring" 
+      },
+      "group_007": {
+        "name": "Gehämmertes Gold-Ehering"
+      }
+    }
+  },
+  "about": {
+    "title": "GDC: Schmuck, der Emotionen schafft",
+    "subtitle": "Eine Tradition der Handwerkskunst, eine Leidenschaft für Perfektion.",
+    "artisanAlt": "Handwerker bei der Arbeit",
+    "paragraph1": "GDC entstand aus einer Mischung aus tiefer Leidenschaft für Handwerkskunst, Schmuck und der Fähigkeit, einzigartige Objekte zu schaffen, sowie der Leidenschaft, Menschen zu sehen, die durch ein von meinen Händen gefertigtes Schmuckstück emotional berührt werden. Der wahre Anstoß zur Gründung dieses Labors war nicht nur meine Leidenschaft, sondern das Bewusstsein für die emotionale Wirkung der geleisteten Arbeit. Alles begann mit einem unerwarteten Moment: der Übergabe eines maßgefertigten Rings, bei dem die Emotion der Kundin so intensiv war, dass sie in Freudentränen ausbrach.",
+    "paragraph2": "Diese Episode verwandelte eine Leidenschaft in eine Mission. GDC verkauft keine Kostbarkeiten, sondern schafft Gefühle, die in Gold und Edelsteine übersetzt werden, Werke, die dazu bestimmt sind, Teil Ihres emotionalen Erbes zu werden.",
+    "section1": {
+      "title": "Meisterschaft, Transparenz und Hingabe",
+      "text": "Nach Jahren der Ausbildung und über 10 Jahren Arbeit und Verfeinerung der Goldschmiedetechniken habe ich meine Kompetenz entwickelt."
+    },
+    "section2": {
+      "title": "Ihr Schmuck, Ihre Geschichte",
+      "text": "Ob Sie einen von Grund auf neu geschaffenen Verlobungsring oder die Überarbeitung eines Familienerbstücks wünschen, GDC bietet Ihnen ein einzigartiges Stück, das mit Hingabe gefertigt und dazu bestimmt ist, Teil Ihres emotionalen Erbes zu werden."
+    },
+    "section3": {
+      "title": "Beginnen Sie mit der Kreation",
+      "text": "Kontaktieren Sie uns für eine erste Beratung. Erzählen Sie uns Ihre Idee, und wir werden sie in ein\nmaßgeschneidertes Meisterwerk verwandeln."
+    }
+  },
+  "contact": {
+    "title": "Kontaktieren Sie uns",
+    "subtitle": "Wir würden uns freuen, von Ihnen zu hören. Ob Sie eine Frage zu unseren Kollektionen haben oder ein individuelles Projekt beginnen möchten, unser Team ist bereit, Ihnen zu helfen.",
+    "contactInfo": {
+      "title": "Kontaktinformationen"
+    },
+    "form": {
+      "title": "Senden Sie uns eine Nachricht",
+      "name": {
+        "label": "Name",
+        "placeholder": "Ihr Name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Ihre E-Mail"
+      },
+      "subject": {
+        "label": "Betreff",
+        "placeholder": "Produktfrage"
+      },
+      "message": {
+        "label": "Nachricht",
+        "placeholder": "Ihre Nachricht..."
+      },
+      "photo": {
+        "label": "Bild anhängen (optional)"
+      },
+      "submit": "Nachricht senden"
+    },
+    "infoButton": "Informationen anfordern",
+    "prefill": {
+      "subject": "Anfrage zu {{jewelryName}}",
+      "message": "Hallo, ich hätte gerne mehr Informationen über das Schmuckstück {{jewelryName}}."
+    }
+  },
+  "customJewel": {
+    "title": "Erstellen Sie Ihr individuelles Schmuckstück",
+    "subtitle": "Wählen Sie, wie Sie Ihre Vision zum Leben erwecken möchten. Nutzen Sie unseren KI-Assistenten, um Ihre Ideen zu visualisieren, oder füllen Sie das Formular aus, um direkt mit unseren Handwerkern zusammenzuarbeiten.",
+    "selection": {
+      "aiGenerator": {
+        "title": "Mit KI erstellen",
+        "description": "Verwandeln Sie Ihre Ideen in Bilder. Beschreiben Sie Ihr ideales Schmuckstück und lassen Sie sich von der KI eine Vorschau zeigen."
+      },
+      "orderForm": {
+        "title": "Individuelles Bestellformular",
+        "description": "Haben Sie bereits eine klare Vorstellung? Füllen Sie das Formular aus, um die Details an unsere Handwerker zu senden und ein Angebot zu erhalten."
+      },
+      "comingSoon": "Demnächst verfügbar"
+    },
+    "imageGenerator": {
+      "title": "KI-Bildgenerator",
+      "pageSubtitle": "Stellen Sie es sich nicht nur vor, sehen Sie es. Beschreiben Sie den Schmuck, den Sie kreieren möchten, und unsere KI wird ihn für Sie visualisieren.",
+      "description": "Beschreiben Sie den Schmuck, den Sie kreieren möchten.",
+      "placeholder": "z.B. 'eine zarte Goldkette mit einem einzelnen Perlenanhänger'",
+      "button": "Bild generieren",
+      "orderButton": "Dieses Design bestellen",
+      "error": {
+        "title": "Fehler",
+        "description": "Bitte beschreiben Sie das zu generierende Bild.",
+        "apiTitle": "Fehler bei der KI-Bilderzeugung",
+        "apiDescription": "Entschuldigung, wir konnten im Moment kein Bild generieren. Bitte versuchen Sie es erneut."
+      },
+      "generatedImageTitle": "Generiertes Bild",
+      "generatedImageAlt": "KI-generierter Schmuck"
+    },
+    "form": {
+      "title": "Individuelle Bestellanforderung",
+      "pageSubtitle": "Füllen Sie die folgenden Felder aus, um Ihre individuelle Schmuckanfrage direkt an unsere Handwerker zu senden. Wir werden Sie in Kürze kontaktieren.",
+      "jewelryType": {
+        "label": "Schmucktyp",
+        "description": "Wählen Sie den Schmucktyp aus, den Sie erstellen möchten."
+      },
+      "materials": {
+        "label": "Materialien",
+        "description": "Wählen Sie ein oder mehrere Materialien."
+      },
+      "stones": {
+        "label": "Edelsteine",
+        "description": "Fügen Sie Ihrem Design einen oder mehrere Steine hinzu."
+      },
+      "types": {
+        "ring": "Ring",
+        "necklace": "Halskette",
+        "earrings": "Ohrringe",
+        "bracelet": "Armband",
+        "pendant": "Anhänger",
+        "brooch": "Brosche",
+        "cufflinks": "Manschettenknöpfe",
+        "anklet": "Fußkettchen",
+        "choker": "Halsband"
+      },
+      "materialsList": {
+        "yellow_gold": "Gelbgold",
+        "white_gold": "Weißgold",
+        "rose_gold": "Roségold",
+        "silver": "Silber",
+        "platinum": "Platin",
+        "copper": "Kupfer"
+      },
+      "stonesList": {
+        "diamond": "Diamant",
+        "ruby": "Rubin",
+        "sapphire": "Saphir",
+        "emerald": "Smaragd",
+        "amethyst": "Amethyst",
+        "aquamarine": "Aquamarin",
+        "opal": "Opal",
+        "pearl": "Perle",
+        "garnet": "Granat",
+        "topaz": "Topas",
+        "quartz": "Quarz"
+      },
+      "description": {
+        "label": "Detaillierte Beschreibung",
+        "placeholder": "Beschreiben Sie das Design, Symbole, Gravuren oder andere Details.",
+        "description": "Geben Sie alle Details an, die uns helfen, Ihre Vision zu verstehen."
+      },
+      "photo": {
+        "label": "Bild anhängen (optional)",
+        "description": "Laden Sie ein Referenzbild oder eine Skizze hoch."
+      },
+      "aiImage": {
+        "label": "Bild aus dem AI Generator",
+        "alt": "AI-generiertes Schmuckdesign",
+        "description": "Dieses Bild wurde aus dem AI Generator importiert."
+      },
+      "name": {
+        "label": "Ihr Name",
+        "placeholder": "Jane Doe"
+      },
+      "email": {
+        "label": "Ihre E-Mail",
+        "placeholder": "jane.doe@example.com"
+      },
+      "submit": "Anfrage senden",
+      "toast": {
+        "title": "Anfrage gesendet!",
+        "description": "Vielen Dank! Wir werden Ihre individuelle Schmuckanfrage prüfen und Sie in Kürze kontaktieren."
+      }
+    }
+  },
+  "orders": {
+    "title": "Auftragsverwaltung",
+    "subtitle": "Verfolgen Sie den Status Ihrer aktuellen und vergangenen Bestellungen. Bitte beachten Sie, dass dies eine Beispielansicht ist.",
+    "table": {
+      "orderId": "Bestell-ID",
+      "item": "Artikel",
+      "date": "Datum",
+      "status": "Status"
+    },
+    "status": {
+      "shipped": "Versendet",
+      "inProduction": "In Produktion",
+      "delivered": "Geliefert",
+      "awaitingConfirmation": "Wartet auf Bestätigung"
+    }
+  },
+  "services": {
+    "title": "Unsere Dienstleistungen",
+    "subtitle": "Wir bieten eine umfassende Palette von Dienstleistungen für die Pflege und Anpassung Ihrer Schmuckstücke und Uhren.",
+    "listTitle": "Liste der Dienstleistungen",
+    "serviceList": {
+      "customDesign": "Design und Herstellung von individuellem Schmuck",
+      "sizing": "Größenanpassung von Ringen und Armbändern",
+      "vintageRestore": "Restaurierung oder Umarbeitung von Vintage-Schmuck",
+      "revitalization": "Komplette Erneuerung jeder Art von Schmuck",
+      "watchBattery": "Batteriewechsel bei Uhren",
+      "watchRestore": "Größenanpassung und vollständige Restaurierung von Uhrenarmbändern"
+    },
+    "cta": {
+      "text": "Benötigen Sie eine Dienstleistung, die nicht aufgeführt ist? Haben Sie Fragen zu unseren Verfahren? Zögern Sie nicht, uns zu kontaktieren.",
+      "button": "Informationen anfordern"
+    }
+  }
+}

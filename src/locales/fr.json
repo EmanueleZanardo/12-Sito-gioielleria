@@ -1,0 +1,267 @@
+{
+  "common": {
+    "nav": {
+      "home": "ACCUEIL",
+      "gallery": "GALERIE",
+      "createJewel": "CRÉER BIJOU",
+      "services": "SERVICES",
+      "about": "À PROPOS",
+      "contact": "CONTACT",
+      "openMenu": "Ouvrir le menu",
+      "closeMenu": "Fermer le menu",
+      "mainMenu": "Menu Principal"
+    },
+    "footer": {
+      "tagline": "Créer des bijoux intemporels qui racontent votre histoire.",
+      "rights": "Tous droits réservés."
+    },
+    "share": {
+      "button": "Partager la boutique",
+      "title": "Partager cette boutique",
+      "description": "Faites connaître GDC à vos amis !",
+      "text": "Découvrez cette incroyable bijouterie : {{url}}",
+      "telegramText": "Découvrez cette incroyable bijouterie !",
+      "toast": {
+        "copied": "Copié !",
+        "linkCopied": "Le lien de la boutique a été copié dans le presse-papiers.",
+        "error": "Erreur",
+        "copyFailed": "Impossible de copier le lien. Veuillez réessayer.",
+        "notAvailable": "Indisponible",
+        "notAvailableDescription": "Le partage via {{name}} n'est pas encore pris en charge."
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "alt": "Atelier d'orfèvre en arrière-plan",
+      "subtitle": "Découvrez l'élégance intemporelle de bijoux artisanaux, où chaque pièce raconte une histoire d'art et de passion.",
+      "galleryButton": "GALERIE",
+      "createButton": "CRÉEZ VOTRE BIJOU"
+    },
+    "gallery": {
+      "title": "Galerie",
+      "subtitle": "Chaque création est une pièce unique, forgée avec passion et maîtrise."
+    },
+    "cta": {
+      "title": "Vous avez une idée ?",
+      "subtitle": "Créons ensemble votre bijou personnalisé.",
+      "button": "Créez votre bijou"
+    },
+    "collections": {
+      "group_001": {
+        "name": "Pendentif pointe de quartz"
+      },
+      "group_002": {
+        "name": "Pendentif rubis"
+      },
+      "group_003": {
+        "name": "Bague opale d'Éthiopie"
+      },
+      "group_004": {
+        "name": "Collier pendentif quartz"
+      },
+      "group_005": {
+        "name": "Bande effet sculpté"
+      },
+      "group_006": {
+        "name": "Bague saphir"
+      },
+      "group_007": {
+        "name": "Alliances en or martelé"
+      }
+    }
+  },
+  "about": {
+    "title": "GDC : Des Bijoux qui Créent des Émotions",
+    "subtitle": "Une tradition d'artisanat, une passion pour la perfection.",
+    "artisanAlt": "Artisan au travail",
+    "paragraph1": "GDC est né d'un mélange de passion profonde pour l'artisanat, la joaillerie, et la capacité de créer des objets uniques, ainsi que de la passion de voir les gens s'émouvoir grâce à un bijou fabriqué de mes propres mains. La véritable impulsion pour fonder ce laboratoire n'a pas été seulement ma passion, mais la prise de conscience de l'impact émotionnel du travail accompli. Tout a commencé par un moment inattendu : la livraison d'une bague sur mesure, où l'émotion de la cliente a été si intense qu'elle s'est traduite par des larmes de joie.",
+    "paragraph2": "Cet épisode a transformé une passion en mission. GDC ne vend pas d'objets précieux, mais crée des sentiments traduits en or et en pierres précieuses, des œuvres destinées à faire partie de votre héritage émotionnel.",
+    "section1": {
+      "title": "Maîtrise, Transparence et Dévouement",
+      "text": "Après des années de formation et plus de 10 ans de travail et de perfectionnement des techniques d'orfèvrerie, j'ai développé mon expertise."
+    },
+    "section2": {
+      "title": "Votre Bijou, Votre Histoire",
+      "text": "Que vous souhaitiez une bague de fiançailles créée de toutes pièces ou la révision d'un héritage familial, GDC vous offre une pièce unique, construite avec dévouement et destinée à faire partie de votre héritage émotionnel."
+    },
+    "section3": {
+      "title": "Commencez la Création",
+      "text": "Contactez-nous pour une première consultation. Racontez-nous votre idée, et nous la transformerons en un\nchef-d'œuvre sur mesure."
+    }
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Nous serions ravis de vous entendre. Que vous ayez une question sur nos collections ou que vous souhaitiez commencer un projet personnalisé, notre équipe est prête à vous aider.",
+    "contactInfo": {
+      "title": "Coordonnées"
+    },
+    "form": {
+      "title": "Envoyez-nous un message",
+      "name": {
+        "label": "Nom",
+        "placeholder": "Votre nom"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Votre email"
+      },
+      "subject": {
+        "label": "Sujet",
+        "placeholder": "Question sur un produit"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Votre message..."
+      },
+       "photo": {
+        "label": "Joindre une image (facultatif)"
+      },
+      "submit": "Envoyer le message"
+    },
+    "infoButton": "Demander des informations",
+    "prefill": {
+      "subject": "Demande d'informations sur {{jewelryName}}",
+      "message": "Bonjour, j'aimerais avoir plus d'informations sur le bijou {{jewelryName}}."
+    }
+  },
+  "customJewel": {
+    "title": "Créez Votre Bijou Personnalisé",
+    "subtitle": "Choisissez comment donner vie à votre vision. Utilisez notre assistant IA pour visualiser vos idées, ou remplissez le formulaire pour collaborer directement avec nos artisans.",
+    "selection": {
+      "aiGenerator": {
+        "title": "Créer avec l'IA",
+        "description": "Transformez vos idées en images. Décrivez votre bijou idéal et laissez l'IA vous montrer un aperçu."
+      },
+      "orderForm": {
+        "title": "Formulaire de Commande Personnalisée",
+        "description": "Vous avez déjà une idée claire ? Remplissez le formulaire pour envoyer les détails à nos artisans et obtenir un devis."
+      },
+      "comingSoon": "Bientôt disponible"
+    },
+    "imageGenerator": {
+      "title": "Générateur d'images IA",
+      "pageSubtitle": "Ne vous contentez pas de l'imaginer, visualisez-le. Décrivez le bijou que vous souhaitez créer, et notre IA le visualisera pour vous.",
+      "description": "Décrivez le bijou que vous souhaitez créer.",
+      "placeholder": "ex: 'un collier en or délicat avec un pendentif perle unique'",
+      "button": "Générer une image",
+      "orderButton": "Commander ce design",
+      "error": {
+        "title": "Erreur",
+        "description": "Veuillez décrire l'image à générer.",
+        "apiTitle": "Erreur de génération d'image IA",
+        "apiDescription": "Désolé, nous n'avons pas pu générer d'image pour le moment. Veuillez réessayer."
+      },
+      "generatedImageTitle": "Image générée",
+      "generatedImageAlt": "Bijou généré par IA"
+    },
+    "form": {
+      "title": "Formulaire de commande personnalisée",
+      "pageSubtitle": "Remplissez les champs ci-dessous pour envoyer votre demande de bijou personnalisé directement à nos artisans. Nous vous contacterons sous peu.",
+      "jewelryType": {
+        "label": "Type de bijou",
+        "description": "Sélectionnez le type de bijou que vous souhaitez créer."
+      },
+      "materials": {
+        "label": "Matériaux",
+        "description": "Choisissez un ou plusieurs matériaux."
+      },
+      "stones": {
+        "label": "Pierres Précieuses",
+        "description": "Ajoutez une ou plusieurs pierres à votre design."
+      },
+      "types": {
+        "ring": "Bague",
+        "necklace": "Collier",
+        "earrings": "Boucles d'oreilles",
+        "bracelet": "Bracelet",
+        "pendant": "Pendentif",
+        "brooch": "Broche",
+        "cufflinks": "Boutons de manchette",
+        "anklet": "Chaîne de cheville",
+        "choker": "Ras de cou"
+      },
+      "materialsList": {
+        "yellow_gold": "Or Jaune",
+        "white_gold": "Or Blanc",
+        "rose_gold": "Or Rose",
+        "silver": "Argent",
+        "platinum": "Platine",
+        "copper": "Cuivre"
+      },
+      "stonesList": {
+        "diamond": "Diamant",
+        "ruby": "Rubis",
+        "sapphire": "Saphir",
+        "emerald": "Émeraude",
+        "amethyst": "Améthyste",
+        "aquamarine": "Aigue-marine",
+        "opal": "Opale",
+        "pearl": "Perle",
+        "garnet": "Grenat",
+        "topaz": "Topaze",
+        "quartz": "Quartz"
+      },
+      "description": {
+        "label": "Description détaillée",
+        "placeholder": "Décrivez le design, les symboles, les gravures ou autres détails.",
+        "description": "Fournissez tous les détails qui nous aident à comprendre votre vision."
+      },
+      "photo": {
+        "label": "Joindre une image (facultatif)",
+        "description": "Téléchargez une image de référence ou un croquis."
+      },
+      "aiImage": {
+        "label": "Image du générateur d'IA",
+        "alt": "Conception de bijoux générée par l'IA",
+        "description": "Cette image a été importée du générateur d'IA."
+      },
+      "name": {
+        "label": "Votre nom",
+        "placeholder": "Jane Doe"
+      },
+      "email": {
+        "label": "Votre e-mail",
+        "placeholder": "jane.doe@example.com"
+      },
+      "submit": "Soumettre la demande",
+      "toast": {
+        "title": "Demande soumise !",
+        "description": "Merci ! Nous examinerons votre demande de bijou personnalisé et vous contacterons sous peu."
+      }
+    }
+  },
+  "orders": {
+    "title": "Gestion des commandes",
+    "subtitle": "Suivez le statut de vos commandes actuelles et passées. Veuillez noter qu'il s'agit d'un exemple.",
+    "table": {
+      "orderId": "ID Commande",
+      "item": "Article",
+      "date": "Date",
+      "status": "Statut"
+    },
+    "status": {
+      "shipped": "Expédié",
+      "inProduction": "En production",
+      "delivered": "Livré",
+      "awaitingConfirmation": "En attente de confirmation"
+    }
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Nous offrons une gamme complète de services pour l'entretien et la personnalisation de vos bijoux et montres.",
+    "listTitle": "Liste des Services",
+    "serviceList": {
+      "customDesign": "Conception et création de bijoux personnalisés",
+      "sizing": "Mise à taille de bagues et bracelets",
+      "vintageRestore": "Restauration ou modification de bijoux vintage",
+      "revitalization": "Remise à neuf complète de tout type de bijou",
+      "watchBattery": "Changement de pile de montre",
+      "watchRestore": "Mise à taille et restauration complète de bracelets de montre"
+    },
+    "cta": {
+      "text": "Besoin d'un service qui n'est pas listé ? Des questions sur nos procédés ? N'hésitez pas à nous contacter.",
+      "button": "Demander des Informations"
+    }
+  }
+}

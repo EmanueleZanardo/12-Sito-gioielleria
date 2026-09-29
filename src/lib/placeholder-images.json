@@ -1,0 +1,83 @@
+{
+  "heroImage": {
+    "imageUrl": "https://images.unsplash.com/photo-1611652033952-a85328bf4a12?q=80&w=1974&auto=format&fit=crop",
+    "imageHint": "jewelry background"
+  },
+  "placeholderImages": [
+    {
+      "id": "prod_001",
+      "imageUrl": "https://picsum.photos/seed/prod001/600/800",
+      "imageHint": "gold ring"
+    },
+    {
+      "id": "prod_002",
+      "imageUrl": "https://picsum.photos/seed/prod002/600/800",
+      "imageHint": "silver necklace"
+    },
+    {
+      "id": "prod_003",
+      "imageUrl": "https://picsum.photos/seed/prod003/600/800",
+      "imageHint": "diamond earrings"
+    },
+    {
+      "id": "prod_004",
+      "imageUrl": "https://picsum.photos/seed/prod004/600/800",
+      "imageHint": "pearl bracelet"
+    },
+    {
+      "id": "prod_005",
+      "imageUrl": "https://picsum.photos/seed/prod005/600/800",
+      "imageHint": "emerald pendant"
+    },
+    {
+      "id": "prod_006",
+      "imageUrl": "https://picsum.photos/seed/prod006/600/800",
+      "imageHint": "sapphire brooch"
+    },
+    {
+      "id": "gallery_001",
+      "imageUrl": "https://picsum.photos/seed/gal001/600/400",
+      "imageHint": "woman wearing necklace"
+    },
+    {
+      "id": "gallery_002",
+      "imageUrl": "https://picsum.photos/seed/gal002/600/400",
+      "imageHint": "hand with rings"
+    },
+    {
+      "id": "gallery_003",
+      "imageUrl": "https://picsum.photos/seed/gal003/400/600",
+      "imageHint": "earrings detail"
+    },
+    {
+      "id": "gallery_004",
+      "imageUrl": "https://picsum.photos/seed/gal004/600/400",
+      "imageHint": "man wearing bracelet"
+    },
+    {
+      "id": "gallery_005",
+      "imageUrl": "https://picsum.photos/seed/gal005/400/600",
+      "imageHint": "jewelry on display"
+    },
+    {
+      "id": "gallery_006",
+      "imageUrl": "https://picsum.photos/seed/gal006/600/400",
+      "imageHint": "wedding rings"
+    },
+    {
+      "id": "gallery_007",
+      "imageUrl": "https://picsum.photos/seed/gal007/600/400",
+      "imageHint": "vintage locket"
+    },
+    {
+      "id": "gallery_008",
+      "imageUrl": "https://picsum.photos/seed/gal008/400/600",
+      "imageHint": "pendant closeup"
+    },
+    {
+      "id": "gallery_009",
+      "imageUrl": "https://picsum.photos/seed/gal009/600/400",
+      "imageHint": "gemstone collection"
+    }
+  ]
+}

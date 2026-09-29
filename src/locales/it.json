@@ -1,0 +1,267 @@
+{
+  "common": {
+    "nav": {
+      "home": "HOME",
+      "gallery": "GALLERIA",
+      "createJewel": "CREA GIOIELLO",
+      "services": "SERVIZI",
+      "about": "CHI SIAMO",
+      "contact": "CONTATTI",
+      "openMenu": "Apri menu",
+      "closeMenu": "Chiudi menu",
+      "mainMenu": "Menu Principale"
+    },
+    "footer": {
+      "tagline": "Creiamo gioielli senza tempo che raccontano la tua storia.",
+      "rights": "Tutti i diritti riservati."
+    },
+    "share": {
+      "button": "Condividi lo Store",
+      "title": "Condividi Questo Store",
+      "description": "Fai conoscere GDC ai tuoi amici!",
+      "text": "Dai un'occhiata a questo fantastico store di gioielli: {{url}}",
+      "telegramText": "Dai un'occhiata a questo fantastico store di gioielli!",
+      "toast": {
+        "copied": "Copiato!",
+        "linkCopied": "Il link dello store è stato copiato negli appunti.",
+        "error": "Errore",
+        "copyFailed": "Impossibile copiare il link. Riprova.",
+        "notAvailable": "Non disponibile",
+        "notAvailableDescription": "La condivisione tramite {{name}} non è ancora supportata."
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "alt": "Sfondo laboratorio orafo",
+      "subtitle": "Scopri l'eleganza senza tempo dei gioielli artigianali, dove ogni pezzo racconta una storia di arte e passione.",
+      "galleryButton": "GALLERIA",
+      "createButton": "CREA IL TUO GIOIELLO"
+    },
+    "gallery": {
+      "title": "Galleria",
+      "subtitle": "Ogni creazione è un pezzo unico, forgiato con passione e maestria."
+    },
+    "cta": {
+      "title": "Hai un'idea?",
+      "subtitle": "Realizziamo insieme il tuo gioiello personalizzato.",
+      "button": "Crea il tuo Gioiello"
+    },
+    "collections": {
+      "group_001": {
+        "name": "Pendente punta di quarzo"
+      },
+      "group_002": {
+        "name": "Ciondolo rubino"
+      },
+      "group_003": {
+        "name": "Anello opale etiope"
+      },
+      "group_004": {
+        "name": "Collana pendente quarzo"
+      },
+      "group_005": {
+        "name": "Fascia effetto intagliato"
+      },
+      "group_006": {
+        "name": "Anello zaffiro"
+      },      
+      "group_007": {
+        "name": "Fedi oro battuto"
+      }
+    }
+  },
+  "about": {
+    "title": "GDC Jewellery Lab: Gioielli che creano emozioni",
+    "subtitle": "Una tradizione di artigianato, una passione per la perfezione.",
+    "artisanAlt": "Artigiano al lavoro",
+    "paragraph1": "GDC nasce da un mix tra la profonda passione per l'artigianalità, la gioielleria e il poter creare oggetti unici, e la passione nel vedere persone emozionarsi grazie ad un gioiello realizzato con le mie mani. La vera spinta a fondare questo laboratorio non è stata solo la mia passione ma la consapevolezza dell'impatto emotivo del lavoro svolto. Tutto ha avuto inizio con un momento inatteso: la consegna di un anello su misura, dove l'emozione della cliente è stata così intensa da tradursi in lacrime di gioia.",
+    "paragraph2": "Questo episodio ha trasformato una passione in una missione. GDC non vende preziosi, ma crea sentimenti tradotti in oro e gemme preziose, opere destinate a diventare parte della vostra eredità emotiva.",
+    "section1": {
+      "title": "Maestria, Trasparenza e Dedizione",
+      "text": "Dopo anni di formazione e oltre 10 anni di lavoro e perfezionamento nelle tecniche orafe, ho sviluppato la mia competenza"
+    },
+    "section2": {
+      "title": "Il Tuo Gioiello, La Tua Storia",
+      "text": "Che tu voglia un anello di fidanzamento creato da zero o la revisione di un cimelio di famiglia, GDC ti offre un pezzo unico, costruito con dedizione e destinato a diventare parte della tua eredità emotiva."
+    },
+    "section3": {
+      "title": "Inizia la Creazione",
+      "text": "Contattaci per un primo consulto. Raccontaci la tua idea, e la trasformeremo in un\ncapolavoro su misura."
+    }
+  },
+  "contact": {
+    "title": "Contattaci",
+    "subtitle": "Saremmo felici di sentirti. Che tu abbia una domanda sulle nostre collezioni o voglia iniziare un progetto personalizzato, il nostro team è pronto ad aiutarti.",
+    "contactInfo": {
+      "title": "Informazioni di Contatto"
+    },
+    "form": {
+      "title": "Inviaci un Messaggio",
+      "name": {
+        "label": "Nome",
+        "placeholder": "Il tuo nome"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "La tua email"
+      },
+      "subject": {
+        "label": "Oggetto",
+        "placeholder": "Domanda su un prodotto"
+      },
+      "message": {
+        "label": "Messaggio",
+        "placeholder": "Il tuo messaggio..."
+      },
+      "photo": {
+        "label": "Allega Immagine (Opzionale)"
+      },
+      "submit": "Invia Messaggio"
+    },
+    "infoButton": "Richiedi Informazioni",
+    "prefill": {
+      "subject": "Richiesta informazioni riguardo a {{jewelryName}}",
+      "message": "Salve, vorrei maggiori informazioni riguardo al gioiello {{jewelryName}}."
+    }
+  },
+  "customJewel": {
+    "title": "Crea il Tuo Gioiello Personalizzato",
+    "subtitle": "Scegli come dare vita alla tua visione. Usa il nostro assistente AI per visualizzare le tue idee o compila il modulo per collaborare direttamente con i nostri artigiani.",
+    "selection": {
+      "aiGenerator": {
+        "title": "Crea con l'IA",
+        "description": "Trasforma le tue idee in immagini. Descrivi il tuo gioiello ideale e lascia che l'IA ti mostri un'anteprima."
+      },
+      "orderForm": {
+        "title": "Modulo Ordine Personalizzato",
+        "description": "Hai già un'idea chiara? Compila il modulo per inviare i dettagli ai nostri artigiani e ricevere un preventivo."
+      },
+      "comingSoon": "Coming Soon"
+    },
+    "imageGenerator": {
+      "title": "Generatore di Immagini AI",
+      "pageSubtitle": "Non solo immaginarlo, guardalo. Descrivi il gioiello che vuoi creare e la nostra IA lo visualizzerà per te.",
+      "description": "Descrivi il gioiello che vuoi creare.",
+      "placeholder": "es. 'una delicata collana d'oro con un unico pendente di perla'",
+      "button": "Genera Immagine",
+      "orderButton": "Ordina questo design",
+      "error": {
+        "title": "Errore",
+        "description": "Per favore, descrivi l'immagine da generare.",
+        "apiTitle": "Errore Generazione Immagine AI",
+        "apiDescription": "Spiacenti, non è stato possibile generare un'immagine in questo momento. Per favore, riprova."
+      },
+      "generatedImageTitle": "Immagine Generata",
+      "generatedImageAlt": "Gioiello generato da AI"
+    },
+    "form": {
+      "title": "Modulo Ordine Personalizzato",
+      "pageSubtitle": "Compila i campi sottostanti per inviare la tua richiesta di gioiello personalizzato direttamente ai nostri artigiani. Ti contatteremo al più presto.",
+      "jewelryType": {
+        "label": "Tipo di Gioiello",
+        "description": "Seleziona il tipo di gioiello che vuoi creare."
+      },
+      "materials": {
+        "label": "Materiali",
+        "description": "Scegli uno o più materiali."
+      },
+      "stones": {
+        "label": "Pietre Preziose",
+        "description": "Aggiungi una o più pietre al tuo design."
+      },
+      "types": {
+        "ring": "Anello",
+        "necklace": "Collana",
+        "earrings": "Orecchini",
+        "bracelet": "Bracciale",
+        "pendant": "Pendente",
+        "brooch": "Spilla",
+        "cufflinks": "Gemelli",
+        "anklet": "Cavigliera",
+        "choker": "Girocollo"
+      },
+      "materialsList": {
+        "yellow_gold": "Oro Giallo",
+        "white_gold": "Oro Bianco",
+        "rose_gold": "Oro Rosa",
+        "silver": "Argento",
+        "platinum": "Platino",
+        "copper": "Rame"
+      },
+      "stonesList": {
+        "diamond": "Diamante",
+        "ruby": "Rubino",
+        "sapphire": "Zaffiro",
+        "emerald": "Smeraldo",
+        "amethyst": "Ametista",
+        "aquamarine": "Acquamarina",
+        "opal": "Opale",
+        "pearl": "Perla",
+        "garnet": "Granato",
+        "topaz": "Topazio",
+        "quartz": "Quarzo"
+      },
+      "description": {
+        "label": "Descrizione Dettagliata",
+        "placeholder": "Descrivi il design, eventuali simboli, incisioni o altri dettagli.",
+        "description": "Fornisci ogni dettaglio che ci aiuti a capire la tua visione."
+      },
+      "photo": {
+        "label": "Allega Immagine (Opzionale)",
+        "description": "Carica un'immagine di riferimento o uno schizzo."
+      },
+       "aiImage": {
+        "label": "Immagine dal Generatore AI",
+        "alt": "Design di gioiello generato dall'IA",
+        "description": "Questa immagine è stata importata dal generatore AI."
+      },
+      "name": {
+        "label": "Il tuo Nome",
+        "placeholder": "Jane Doe"
+      },
+      "email": {
+        "label": "La tua Email",
+        "placeholder": "jane.doe@example.com"
+      },
+      "submit": "Invia Richiesta",
+      "toast": {
+        "title": "Richiesta Inviata!",
+        "description": "Grazie! Esamineremo la tua richiesta di gioiello personalizzato e ti contatteremo a breve."
+      }
+    }
+  },
+  "orders": {
+    "title": "Gestione Ordini",
+    "subtitle": "Traccia lo stato dei tuoi ordini attuali e passati. Si prega di notare che questa è una vista di esempio.",
+    "table": {
+      "orderId": "ID Ordine",
+      "item": "Articolo",
+      "date": "Data",
+      "status": "Stato"
+    },
+    "status": {
+      "shipped": "Spedito",
+      "inProduction": "In Produzione",
+      "delivered": "Consegnato",
+      "awaitingConfirmation": "In attesa di Conferma"
+    }
+  },
+  "services": {
+    "title": "I Nostri Servizi",
+    "subtitle": "Offriamo una gamma completa di servizi per la cura e la personalizzazione dei tuoi gioielli e orologi.",
+    "listTitle": "Elenco dei Servizi",
+    "serviceList": {
+      "customDesign": "Design e realizzazione gioielli personalizzati",
+      "sizing": "Messa in misura anelli e bracciali",
+      "vintageRestore": "Restauro o modifica gioielli vintage",
+      "revitalization": "Rimessa a nuovo completa di ogni tipo di gioiello",
+      "watchBattery": "Cambio pila orologi",
+      "watchRestore": "Messa in misura e restauro completo bracciali orologi"
+    },
+    "cta": {
+      "text": "Hai bisogno di un servizio che non è in elenco? Hai domande sui nostri processi? Non esitare a contattarci.",
+      "button": "Richiedi Informazioni"
+    }
+  }
+}

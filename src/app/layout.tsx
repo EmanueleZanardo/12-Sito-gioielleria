@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     template: '%s | GDC Jewellery Lab',
   },
   description: 'Handcrafted jewelry with a touch of elegance. Custom jewel design, gallery and atelier services by GDC Jewellery Lab.',
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'GDC | Jewellery Lab',
     description: 'Handcrafted jewelry with a touch of elegance.',

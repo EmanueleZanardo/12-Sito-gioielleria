@@ -19,11 +19,20 @@ export const metadata: Metadata = {
     url: 'https://gdc-jewellery-lab.vercel.app',
     siteName: 'GDC Jewellery Lab',
     type: 'website',
+    images: [
+      {
+        url: 'https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png',
+        width: 1200,
+        height: 630,
+        alt: 'GDC Jewellery Lab',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'GDC | Jewellery Lab',
     description: 'Handcrafted jewelry with a touch of elegance.',
+    images: ['https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png'],
   },
 };
 

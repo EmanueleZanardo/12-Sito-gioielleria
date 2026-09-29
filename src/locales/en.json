@@ -67,7 +67,7 @@
         "name": "Sapphire ring"
       },
       "group_007": {
-        "name": " Hammered gold wedding rings"
+        "name": "Hammered gold wedding rings"
       }
     }
   },
@@ -158,7 +158,7 @@
     "form": {
       "title": "Custom Order Form",
       "pageSubtitle": "Fill out the fields below to send your custom jewelry request directly to our artisans. We will contact you shortly.",
-       "jewelryType": {
+      "jewelryType": {
         "label": "Jewelry Type",
         "description": "Select the type of jewel you want to create."
       },
@@ -232,20 +232,28 @@
     }
   },
   "orders": {
-    "title": "Order Management",
-    "subtitle": "Track the status of your current and past orders. Please note this is a sample view.",
-    "table": {
-      "orderId": "Order ID",
-      "item": "Item",
-      "date": "Date",
-      "status": "Status"
-    },
-    "status": {
-      "shipped": "Shipped",
-      "inProduction": "In Production",
-      "delivered": "Delivered",
-      "awaitingConfirmation": "Awaiting Confirmation"
-    }
+    "title": "How to Order",
+    "subtitle": "Every GDC piece is made to order. Here is how it works, step by step.",
+    "steps": [
+      {
+        "title": "1. Choose your jewel",
+        "text": "Browse the gallery or design a one-of-a-kind piece in the Create Jewel section."
+      },
+      {
+        "title": "2. Send us your request",
+        "text": "Fill in the contact form or the custom order form: we will reply with a quote and timelines."
+      },
+      {
+        "title": "3. Confirmation and crafting",
+        "text": "Once you confirm, your jewel is handcrafted in our laboratory."
+      },
+      {
+        "title": "4. Delivery",
+        "text": "We keep you updated on progress until the finished piece is delivered."
+      }
+    ],
+    "ctaCustom": "Create your jewel",
+    "ctaContact": "Contact us"
   },
   "services": {
     "title": "Our Services",

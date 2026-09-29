@@ -65,7 +65,7 @@
       },
       "group_006": {
         "name": "Anello zaffiro"
-      },      
+      },
       "group_007": {
         "name": "Fedi oro battuto"
       }
@@ -211,7 +211,7 @@
         "label": "Allega Immagine (Opzionale)",
         "description": "Carica un'immagine di riferimento o uno schizzo."
       },
-       "aiImage": {
+      "aiImage": {
         "label": "Immagine dal Generatore AI",
         "alt": "Design di gioiello generato dall'IA",
         "description": "Questa immagine è stata importata dal generatore AI."
@@ -232,20 +232,28 @@
     }
   },
   "orders": {
-    "title": "Gestione Ordini",
-    "subtitle": "Traccia lo stato dei tuoi ordini attuali e passati. Si prega di notare che questa è una vista di esempio.",
-    "table": {
-      "orderId": "ID Ordine",
-      "item": "Articolo",
-      "date": "Data",
-      "status": "Stato"
-    },
-    "status": {
-      "shipped": "Spedito",
-      "inProduction": "In Produzione",
-      "delivered": "Consegnato",
-      "awaitingConfirmation": "In attesa di Conferma"
-    }
+    "title": "Come ordinare",
+    "subtitle": "Ogni gioiello GDC è realizzato su misura. Ecco come funziona, passo dopo passo.",
+    "steps": [
+      {
+        "title": "1. Scegli il tuo gioiello",
+        "text": "Sfoglia la galleria o disegna un pezzo unico nella sezione Crea Gioiello."
+      },
+      {
+        "title": "2. Inviaci la richiesta",
+        "text": "Compila il modulo di contatto o il modulo d'ordine personalizzato: ti risponderemo con preventivo e tempistiche."
+      },
+      {
+        "title": "3. Conferma e produzione",
+        "text": "Dopo la tua conferma, il gioiello viene realizzato a mano nel nostro laboratorio."
+      },
+      {
+        "title": "4. Consegna",
+        "text": "Ti aggiorniamo sullo stato di avanzamento fino alla consegna del pezzo finito."
+      }
+    ],
+    "ctaCustom": "Crea il tuo gioiello",
+    "ctaContact": "Contattaci"
   },
   "services": {
     "title": "I Nostri Servizi",

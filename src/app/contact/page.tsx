@@ -159,12 +159,12 @@ function ContactFormComponent() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="name">{t('form.name.label')}</Label>
-                  <Input id="name" placeholder={t('form.name.placeholder')} required aria-invalid={!!errors.name} {...register('name')} />
+                  <Input id="name" placeholder={t('form.name.placeholder')} required autoComplete="name" aria-invalid={!!errors.name} {...register('name')} />
                   {errors.name && <p className="text-sm font-medium text-destructive">{errors.name.message}</p>}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">{t('form.email.label')}</Label>
-                  <Input id="email" type="email" placeholder={t('form.email.placeholder')} required aria-invalid={!!errors.email} {...register('email')} />
+                  <Input id="email" type="email" placeholder={t('form.email.placeholder')} required autoComplete="email" aria-invalid={!!errors.email} {...register('email')} />
                   {errors.email && <p className="text-sm font-medium text-destructive">{errors.email.message}</p>}
                 </div>
               </div>

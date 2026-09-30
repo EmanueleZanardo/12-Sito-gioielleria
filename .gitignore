@@ -43,3 +43,9 @@ next-env.d.ts
 # firebase
 firebase-debug.log
 firestore-debug.log
+
+# firebase studio export residues (mai in repo)
+.agents/
+metadata.json
+push_to_github.py
+skills-lock.json

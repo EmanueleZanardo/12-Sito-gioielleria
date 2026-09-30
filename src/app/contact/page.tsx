@@ -227,7 +227,25 @@ function ContactFormComponent() {
 export default function ContactPage() {
   const { t } = useTranslation('contact');
   return (
-    <Suspense fallback={<div>{t('loading')}</div>}>
+    <Suspense
+      fallback={
+        <div
+          className="container mx-auto px-4 py-12 max-w-2xl"
+          aria-busy="true"
+        >
+          <div className="animate-pulse space-y-6" role="status">
+            <span className="sr-only">{t('loading')}</span>
+            <div className="h-8 w-2/3 rounded bg-muted" />
+            <div className="space-y-4">
+              <div className="h-10 rounded bg-muted" />
+              <div className="h-10 rounded bg-muted" />
+              <div className="h-10 rounded bg-muted" />
+              <div className="h-28 rounded bg-muted" />
+            </div>
+          </div>
+        </div>
+      }
+    >
       <ContactFormComponent />
     </Suspense>
   )

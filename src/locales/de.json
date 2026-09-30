@@ -115,7 +115,9 @@
         "placeholder": "Ihre Nachricht..."
       },
       "photo": {
-        "label": "Bild anhängen (optional)"
+        "label": "Bild anhängen (optional)",
+        "remove": "Bild entfernen",
+        "remove": "Bild entfernen"
       },
       "submit": "Nachricht senden"
     },

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import type { ProductImage } from '@/lib/data';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -32,6 +33,17 @@ export function ImageLightbox({ image, onClose, onNext, onPrevious }: ImageLight
     e.stopPropagation();
     onNext();
   };
+
+  // Navigazione da tastiera: Esc chiude, frecce scorrono le immagini
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+      else if (e.key === 'ArrowRight') onNext();
+      else if (e.key === 'ArrowLeft') onPrevious();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose, onNext, onPrevious]);
   
   return (
     <AnimatePresence>

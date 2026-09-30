@@ -27,7 +27,6 @@ export function ProductCard({ product, groupName, onImageClick }: ProductCardPro
             isProd007 ? "object-bottom" : "object-center"
         )}
         sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-        data-ai-hint={product.imageHint}
         quality={80}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

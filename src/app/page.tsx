@@ -11,10 +11,36 @@ import { ImageLightbox } from '@/components/image-lightbox';
 import { useTranslation } from '@/hooks/use-translation';
 import { ProductCard } from '@/components/product-card';
 import { ShareDialog } from '@/components/share/share-dialog';
+import { Badge } from '@/components/ui/badge';
+import { Check, MessageCircle, ArrowRight } from 'lucide-react';
+
+const TEASER_COLLECTIONS = [
+  {
+    href: '/collections',
+    imageUrl: 'https://i.postimg.cc/htZry19G/Gemini-Generated-Image-cwx29lcwx29lcwx2.png',
+    key: 'rings' as const,
+  },
+  {
+    href: '/collections',
+    imageUrl: 'https://i.postimg.cc/Dww6PMbF/Gemini-Generated-Image-lr2kymlr2kymlr2k.png',
+    key: 'necklaces' as const,
+  },
+  {
+    href: '/collections',
+    imageUrl: 'https://i.postimg.cc/HkpNxLcF/photo-2026-04-24-07-41-22.jpg',
+    key: 'weddingRings' as const,
+  },
+];
 
 export default function Home() {
   const { t } = useTranslation('home');
+  const { t: tCol } = useTranslation('collections');
   const [lightboxImageIndex, setLightboxImageIndex] = useState<number | null>(null);
+
+  // WhatsApp con recapito già presente nel sito (pagina contatti)
+  const whatsappUrl = `https://wa.me/393451114337?text=${encodeURIComponent(
+    t('customJewel.whatsappPrefill')
+  )}`;
 
   const allProducts = orderedProducts.map(product => ({
     ...product,
@@ -45,6 +71,15 @@ export default function Home() {
   };
   
   const currentProduct = lightboxImageIndex !== null ? allProducts[lightboxImageIndex] : null;
+
+  // URL delle immagini adiacenti per il preload nella lightbox
+  const preloadSrcs =
+    lightboxImageIndex !== null
+      ? [
+          allProducts[(lightboxImageIndex + 1) % allProducts.length].imageUrl,
+          allProducts[(lightboxImageIndex - 1 + allProducts.length) % allProducts.length].imageUrl,
+        ]
+      : [];
 
 
   return (
@@ -112,26 +147,106 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center my-16 md:my-24 px-4 relative z-10">
-            <h2 className="font-headline text-2xl md:text-4xl text-foreground">{t('cta.title')}</h2>
-            <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
-              {t('cta.subtitle')}
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90"
-              >
-                <Link href="/custom-jewel">{t('cta.button')}</Link>
+          {/* Collections teaser */}
+          <div className="mt-8 md:mt-12">
+            <div className="text-center mb-8">
+              <h2 className="font-headline text-2xl md:text-4xl text-foreground">
+                {tCol('teaser.title')}
+              </h2>
+              <p className="text-lg text-muted-foreground mt-3 max-w-2xl mx-auto">
+                {tCol('teaser.subtitle')}
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+              {TEASER_COLLECTIONS.map((item, index) => (
+                <motion.div
+                  key={item.key}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Link
+                    href={item.href}
+                    className="group relative block aspect-[4/3] overflow-hidden rounded-lg border border-white/10 shadow-lg"
+                  >
+                    <Image
+                      src={item.imageUrl}
+                      alt={tCol(`${item.key}.name`)}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      quality={80}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 flex items-center justify-between">
+                      <span className="font-headline text-lg md:text-xl font-bold text-white">
+                        {tCol(`${item.key}.name`)}
+                      </span>
+                      <ArrowRight className="h-5 w-5 text-white transition-transform duration-300 group-hover:translate-x-1" />
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+            <div className="text-center mt-8">
+              <Button asChild variant="outline" size="lg">
+                <Link href="/collections">
+                  {tCol('teaser.viewAll')}
+                  <ArrowRight className="h-4 w-4 ml-2" />
+                </Link>
               </Button>
+            </div>
+          </div>
+
+          {/* Su Misura — conversion band */}
+          <div className="my-16 md:my-24 px-4 relative z-10">
+            <div className="bg-muted/60 border border-border rounded-lg px-6 py-10 md:py-14 max-w-4xl mx-auto text-center">
+              <Badge variant="secondary" className="mb-4 text-sm px-4 py-1">
+                {t('customJewel.badge')}
+              </Badge>
+              <h2 className="font-headline text-2xl md:text-4xl text-foreground max-w-2xl mx-auto">
+                {t('customJewel.title')}
+              </h2>
+              <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
+                {t('customJewel.subtitle')}
+              </p>
+              <ul className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8 text-base font-medium text-foreground/90">
+                {['p1', 'p2', 'p3'].map((k) => (
+                  <li key={k} className="flex items-center gap-2">
+                    <Check className="h-5 w-5 text-primary shrink-0" />
+                    {t(`customJewel.${k}`)}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold"
+                >
+                  <Link href="/custom-jewel/order-form">
+                    {t('customJewel.buttonOrder')}
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="font-bold">
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    {t('customJewel.buttonWhatsapp')}
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
       </section>
-      {currentProduct && (
+      {currentProduct && lightboxImageIndex !== null && (
         <ImageLightbox
           image={currentProduct}
+          index={lightboxImageIndex}
+          total={allProducts.length}
+          preloadSrcs={preloadSrcs}
           onClose={handleCloseLightbox}
           onNext={handleNext}
           onPrevious={handlePrevious}

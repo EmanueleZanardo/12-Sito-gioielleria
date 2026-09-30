@@ -115,7 +115,9 @@
         "placeholder": "Your message..."
       },
       "photo": {
-        "label": "Attach Image (Optional)"
+        "label": "Attach Image (Optional)",
+        "remove": "Remove image",
+        "remove": "Remove image"
       },
       "submit": "Send Message"
     },

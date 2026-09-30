@@ -25,7 +25,6 @@ export default function AboutPage() {
                 alt={t('artisanAlt')}
                 fill
                 className="object-cover"
-                data-ai-hint="artisan hands"
               />
           </div>
           <div className="space-y-6 text-lg text-foreground/80 leading-relaxed">

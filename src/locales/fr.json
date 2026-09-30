@@ -69,6 +69,17 @@
       "group_007": {
         "name": "Alliances en or martelé"
       }
+    },
+    "customJewel": {
+      "badge": "Sur mesure",
+      "title": "Vous ne trouvez pas le bijou que vous imaginez ? Nous le créons.",
+      "subtitle": "Dessinons ensemble une pièce unique, façonnée à la main dans notre atelier. Consultation gratuite, dessin validé par vous, devis clair avant de commencer.",
+      "p1": "Une pièce unique au monde",
+      "p2": "Des mesures parfaites pour vous",
+      "p3": "Devis gratuit, sans engagement",
+      "buttonOrder": "Créez votre bijou",
+      "buttonWhatsapp": "Écrivez-nous sur WhatsApp",
+      "whatsappPrefill": "Bonjour ! Je voudrais des informations sur un bijou sur mesure."
     }
   },
   "about": {
@@ -116,7 +127,6 @@
       },
       "photo": {
         "label": "Joindre une image (facultatif)",
-        "remove": "Supprimer l'image",
         "remove": "Supprimer l'image"
       },
       "submit": "Envoyer le message"
@@ -232,6 +242,74 @@
         "title": "Demande soumise !",
         "description": "Merci ! Nous examinerons votre demande de bijou personnalisé et vous contacterons sous peu."
       }
+    },
+    "v2": {
+      "hero": {
+        "badge": "Créations sur mesure",
+        "title": "Le bijou que vous imaginez, façonné à la main pour vous",
+        "subtitle": "Chaque pièce naît d'une conversation : racontez-nous votre idée — un dessin, une photo ou même juste une émotion — et nous la transformons en un bijou unique, pensé pour vous. Consultation et devis toujours gratuits, sans engagement.",
+        "ctaOrder": "Demandez votre devis gratuit",
+        "ctaWhatsapp": "Écrivez-nous sur WhatsApp",
+        "whatsappPrefill": "Bonjour ! Je voudrais des informations sur un bijou sur mesure.",
+        "note": "Nous répondons généralement sous 24 heures."
+      },
+      "steps": {
+        "label": "Comment ça marche",
+        "title": "Du désir au bijou, en 4 étapes",
+        "1": {
+          "title": "Consultation gratuite",
+          "text": "Racontez-nous votre idée : un dessin, une photo ou même juste une émotion. Nous vous écoutons, vous conseillons sur les matériaux et les pierres, et trouvons ensemble la bonne direction. Sans engagement."
+        },
+        "2": {
+          "title": "Conception et dessin",
+          "text": "Nous transformons l'idée en un dessin concret, avec mesures, matériaux et devis détaillé. Rien n'est réalisé sans votre approbation."
+        },
+        "3": {
+          "title": "Création artisanale",
+          "text": "Le bijou prend forme dans notre atelier, travaillé à la main avec soin dans chaque détail. Nous vous tenons informé de l'avancement."
+        },
+        "4": {
+          "title": "Livraison",
+          "text": "Contrôle final de qualité et livraison de votre pièce unique, prête à porter ou à offrir."
+        }
+      },
+      "why": {
+        "label": "Pourquoi le sur mesure",
+        "title": "Un bijou standard ne sera jamais à vous comme celui-ci",
+        "1": {
+          "title": "Vraiment unique",
+          "text": "Personne d'autre au monde ne possédera une pièce identique : dessin, proportions et détails naissent de votre histoire."
+        },
+        "2": {
+          "title": "Ajustement parfait",
+          "text": "Des mesures pensées pour vous — doigt, poignet, cou : le bijou s'adapte à celle ou celui qui le porte, et non l'inverse."
+        },
+        "3": {
+          "title": "Budget sur mesure",
+          "text": "Or 18 ct, argent ou pierres différentes : nous construisons le projet autour de votre budget, avec un devis clair avant de commencer."
+        }
+      },
+      "faq": {
+        "label": "Questions fréquentes",
+        "title": "Tout ce que vous voulez savoir",
+        "q1": "Combien de temps faut-il pour réaliser un bijou sur mesure ?",
+        "a1": "Cela dépend de la complexité du projet : en général, du dessin approuvé à la livraison, il faut compter quelques semaines. Pour les occasions spéciales (mariages, anniversaires, naissances), nous vous conseillons de nous contacter à l'avance afin de planifier ensemble les délais sans précipitation.",
+        "q2": "Quels matériaux utilisez-vous ? L'or est-il garanti ?",
+        "a2": "Nous travaillons principalement l'or 18 ct (jaune, blanc et rose), l'argent 925 et le platine, avec des pierres naturelles sélectionnées. Le titre de l'or est garanti et poinçonné conformément à la réglementation en vigueur.",
+        "q3": "Puis-je modifier le dessin avant la réalisation ?",
+        "a3": "Oui, bien sûr. Le projet est défini avec vous et rien n'est réalisé sans votre approbation du dessin et du devis. Même pendant la fabrication, lorsque c'est possible, nous accueillons les modifications que vous nous demandez.",
+        "q4": "La consultation et le devis sont-ils gratuits ?",
+        "a4": "Oui : la consultation initiale et le devis sont toujours gratuits et sans engagement.",
+        "q5": "Puis-je faire transformer un bijou que je possède déjà ?",
+        "a5": "Oui : nous restaurons et transformons les bijoux existants ou de famille, pour donner une nouvelle vie aux pièces auxquelles vous tenez. Racontez-nous ce que vous avez en tête et nous trouverons ensemble la meilleure solution."
+      },
+      "cta": {
+        "title": "Votre idée mérite de devenir un bijou",
+        "subtitle": "Remplissez le formulaire en quelques minutes : nous vous recontacterons avec un devis gratuit et sans engagement.",
+        "buttonOrder": "Lancez votre projet",
+        "buttonPhone": "Appelez-nous : 345 1114337",
+        "note": "Vous préférez parler ? Appelez-nous ou écrivez-nous sur WhatsApp : nous répondons généralement sous 24 heures."
+      }
     }
   },
   "orders": {
@@ -274,5 +352,57 @@
       "text": "Besoin d'un service qui n'est pas listé ? Des questions sur nos procédés ? N'hésitez pas à nous contacter.",
       "button": "Demander des Informations"
     }
+  },
+  "lightbox": {
+    "close": "Fermer",
+    "previous": "Image précédente",
+    "next": "Image suivante"
+  },
+  "collections": {
+    "hero": {
+      "title": "Les Collections",
+      "subtitle": "Des pièces uniques forgées à la main dans notre atelier. Chaque création peut être adaptée à vos goûts : la même émotion, sur mesure pour vous."
+    },
+    "rings": {
+      "name": "Bagues",
+      "tagline": "Le détail qui ne passe pas inaperçu",
+      "description": "Or 750 et argent 925 avec saphirs, opales d’Éthiopie et finitions gravées à la main. Une bague GDC ne suit pas les modes : elle les crée."
+    },
+    "necklaces": {
+      "name": "Colliers & Pendentifs",
+      "tagline": "La lumière, près du cœur",
+      "description": "Pointes de quartz brut, rubis taille cœur, tranches de quartz à chlorite : des pierres authentiques montées sur chaînes en argent 925 et or 750."
+    },
+    "weddingRings": {
+      "name": "Alliances",
+      "tagline": "Pour toujours, martelées à la main",
+      "description": "Alliances en or 750 à effet martelé : chaque coup de marteau rend votre paire unique, comme le jour où vous les échangerez."
+    },
+    "earrings": {
+      "name": "Boucles d’oreilles",
+      "tagline": "Sur mesure pour vous",
+      "description": "Pas de boucles d’oreilles dans la galerie ? Aucun problème : nous les dessinons ensemble, à partir de vos idées, vos pierres, votre style."
+    },
+    "bracelets": {
+      "name": "Bracelets",
+      "tagline": "Sur mesure pour vous",
+      "description": "Pas de bracelets dans la galerie ? Aucun problème : nous le créons ensemble, à partir de vos idées, vos matériaux, votre style."
+    },
+    "requestSimilar": "Demander une pièce similaire",
+    "designTogether": "Dessinons-la ensemble",
+    "viewInGallery": "Voir dans la galerie",
+    "piecesInGallery": "{{count}} créations dans la galerie",
+    "madeToOrder": "Sur commande uniquement",
+    "banner": {
+      "title": "Vous imaginez autre chose ?",
+      "subtitle": "Chaque collection est un point de départ : racontez-nous votre idée et nous la forgeons ensemble, à la main, dans notre atelier.",
+      "cta": "Créez votre bijou"
+    },
+    "teaser": {
+      "title": "Explorez les collections",
+      "subtitle": "Bagues, colliers, alliances : des pièces uniques prêtes à devenir vôtres — ou le point de départ d’une création sur mesure.",
+      "viewAll": "Découvrir toutes les collections"
+    },
+    "prefillPrompt": "Je voudrais une pièce similaire à « {{name}} » vue sur la page Collections. J’aimerais l’adapter à mes goûts."
   }
 }

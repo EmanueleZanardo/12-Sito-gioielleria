@@ -21,6 +21,7 @@
       "button": "Partager la boutique",
       "title": "Partager cette boutique",
       "description": "Faites connaître GDC à vos amis !",
+      "copy": "Copier le lien",
       "text": "Découvrez cette incroyable bijouterie : {{url}}",
       "telegramText": "Découvrez cette incroyable bijouterie !",
       "toast": {

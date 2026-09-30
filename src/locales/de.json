@@ -21,6 +21,7 @@
       "button": "Shop teilen",
       "title": "Diesen Shop teilen",
       "description": "Lassen Sie Ihre Freunde von GDC wissen!",
+      "copy": "Link kopieren",
       "text": "Schauen Sie sich diesen erstaunlichen Schmuckladen an: {{url}}",
       "telegramText": "Schauen Sie sich diesen erstaunlichen Schmuckladen an!",
       "toast": {

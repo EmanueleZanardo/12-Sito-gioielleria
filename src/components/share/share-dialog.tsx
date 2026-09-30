@@ -118,10 +118,10 @@ export function ShareDialog({ className, size = 'icon', ...props }: ShareDialogP
             <label htmlFor="link" className="sr-only">
               Link
             </label>
-            <Input id="link" defaultValue={storeUrl} readOnly />
+            <Input id="link" defaultValue={storeUrl} readOnly onFocus={(e) => e.target.select()} />
           </div>
           <Button type="button" size="sm" className="px-3" onClick={copyToClipboard}>
-            <span className="sr-only">Copy</span>
+            <span className="sr-only">{t('share.copy')}</span>
             <Copy className="h-4 w-4" />
           </Button>
         </div>

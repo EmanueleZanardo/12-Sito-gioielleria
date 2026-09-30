@@ -21,6 +21,7 @@
       "button": "Condividi lo Store",
       "title": "Condividi Questo Store",
       "description": "Fai conoscere GDC ai tuoi amici!",
+      "copy": "Copia link",
       "text": "Dai un'occhiata a questo fantastico store di gioielli: {{url}}",
       "telegramText": "Dai un'occhiata a questo fantastico store di gioielli!",
       "toast": {

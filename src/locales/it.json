@@ -32,6 +32,13 @@
         "notAvailable": "Non disponibile",
         "notAvailableDescription": "La condivisione tramite {{name}} non è ancora supportata."
       }
+    },
+    "carousel": {
+      "previous": "Slide precedente",
+      "next": "Slide successiva"
+    },
+    "dialog": {
+      "close": "Chiudi"
     }
   },
   "home": {

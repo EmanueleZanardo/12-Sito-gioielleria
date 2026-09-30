@@ -32,6 +32,13 @@
         "notAvailable": "Nicht verfügbar",
         "notAvailableDescription": "Teilen über {{name}} wird noch nicht unterstützt."
       }
+    },
+    "carousel": {
+      "previous": "Vorherige Folie",
+      "next": "Nächste Folie"
+    },
+    "dialog": {
+      "close": "Schließen"
     }
   },
   "home": {

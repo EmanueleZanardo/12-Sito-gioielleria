@@ -203,20 +203,24 @@ export function ImageLightbox({
         >
           <X className="h-6 w-6" />
         </button>
-        <button
-          onClick={handlePreviousClick}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-[101] text-foreground bg-background/50 rounded-full p-2 hover:bg-card transition-colors"
-          aria-label={tLb('previous')}
-        >
-          <ChevronLeft className="h-6 w-6" />
-        </button>
-        <button
-          onClick={handleNextClick}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-[101] text-foreground bg-background/50 rounded-full p-2 hover:bg-card transition-colors"
-          aria-label={tLb('next')}
-        >
-          <ChevronRight className="h-6 w-6" />
-        </button>
+        {total > 1 && (
+          <button
+            onClick={handlePreviousClick}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-[101] text-foreground bg-background/50 rounded-full p-2 hover:bg-card transition-colors"
+            aria-label={tLb('previous')}
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+        )}
+        {total > 1 && (
+          <button
+            onClick={handleNextClick}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-[101] text-foreground bg-background/50 rounded-full p-2 hover:bg-card transition-colors"
+            aria-label={tLb('next')}
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+        )}
       </motion.div>
     </AnimatePresence>
   );

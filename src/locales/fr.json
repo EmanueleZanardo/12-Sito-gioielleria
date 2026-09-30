@@ -32,6 +32,13 @@
         "notAvailable": "Indisponible",
         "notAvailableDescription": "Le partage via {{name}} n'est pas encore pris en charge."
       }
+    },
+    "carousel": {
+      "previous": "Diapositive précédente",
+      "next": "Diapositive suivante"
+    },
+    "dialog": {
+      "close": "Fermer"
     }
   },
   "home": {

@@ -69,6 +69,17 @@
       "group_007": {
         "name": "Hammered gold wedding rings"
       }
+    },
+    "customJewel": {
+      "badge": "Custom made",
+      "title": "Can’t find the jewel you have in mind? We’ll create it.",
+      "subtitle": "We design a unique piece together, handcrafted in our workshop. Free consultation, design approved by you, clear quote before we start.",
+      "p1": "A one-of-a-kind piece",
+      "p2": "Perfect measurements for you",
+      "p3": "Free quote, no obligation",
+      "buttonOrder": "Create your jewel",
+      "buttonWhatsapp": "Message us on WhatsApp",
+      "whatsappPrefill": "Hello! I’d like information about a custom jewel."
     }
   },
   "about": {
@@ -116,7 +127,6 @@
       },
       "photo": {
         "label": "Attach Image (Optional)",
-        "remove": "Remove image",
         "remove": "Remove image"
       },
       "submit": "Send Message"
@@ -232,6 +242,74 @@
         "title": "Request Submitted!",
         "description": "Thank you! We will review your custom jewelry request and contact you shortly."
       }
+    },
+    "v2": {
+      "hero": {
+        "badge": "Custom creations",
+        "title": "The jewel you have in mind, handcrafted for you",
+        "subtitle": "Every piece starts with a conversation: tell us your idea — a sketch, a photo, or even just a feeling — and we’ll turn it into a one-of-a-kind jewel made for you. Consultation and quote are always free, with no obligation.",
+        "ctaOrder": "Request your free quote",
+        "ctaWhatsapp": "Message us on WhatsApp",
+        "whatsappPrefill": "Hello! I’d like information about a custom jewel.",
+        "note": "We usually reply within 24 hours."
+      },
+      "steps": {
+        "label": "How it works",
+        "title": "From desire to jewel, in 4 steps",
+        "1": {
+          "title": "Free consultation",
+          "text": "Tell us your idea: a sketch, a photo, or even just a feeling. We listen, advise you on materials and stones, and find the right direction together. No obligation."
+        },
+        "2": {
+          "title": "Design and drawing",
+          "text": "We turn the idea into a concrete design, with measurements, materials and a detailed quote. Nothing is made without your approval."
+        },
+        "3": {
+          "title": "Handcrafted creation",
+          "text": "The jewel takes shape in our workshop, handcrafted with care in every detail. We keep you updated on the progress."
+        },
+        "4": {
+          "title": "Delivery",
+          "text": "Final quality check and delivery of your unique piece, ready to wear or to gift."
+        }
+      },
+      "why": {
+        "label": "Why custom",
+        "title": "A standard jewel will never be yours like this one",
+        "1": {
+          "title": "Truly unique",
+          "text": "No one else in the world will own an identical piece: design, proportions and details are born from your story."
+        },
+        "2": {
+          "title": "Perfect fit",
+          "text": "Measurements designed for you — finger, wrist, neck: the jewel adapts to its wearer, not the other way around."
+        },
+        "3": {
+          "title": "A budget made to measure",
+          "text": "18kt gold, silver or different stones: we build the project around your budget, with a clear quote before we start."
+        }
+      },
+      "faq": {
+        "label": "Frequently asked questions",
+        "title": "Everything you want to know",
+        "q1": "How long does it take to create a custom jewel?",
+        "a1": "It depends on the complexity of the project: generally, from the approved design to delivery it takes a few weeks. For special occasions (weddings, anniversaries, births) we recommend contacting us in advance, so we can plan the timing together without rushing.",
+        "q2": "Which materials do you use? Is the gold guaranteed?",
+        "a2": "We mainly work with 18kt gold (yellow, white and rose), 925 silver and platinum, with selected natural stones. The gold fineness is guaranteed and hallmarked in accordance with current regulations.",
+        "q3": "Can I change the design before it is made?",
+        "a3": "Yes, absolutely. The project is defined together with you and nothing is made without your approval of the design and the quote. Even during crafting, whenever possible, we welcome the changes you ask for.",
+        "q4": "Are the consultation and the quote free?",
+        "a4": "Yes: the initial consultation and the quote are always free and without obligation.",
+        "q5": "Can I have a jewel I already own transformed?",
+        "a5": "Yes: we restore and transform existing or family jewels, giving new life to pieces you care about. Tell us what you have in mind and we’ll find the best solution together."
+      },
+      "cta": {
+        "title": "Your idea deserves to become a jewel",
+        "subtitle": "Fill out the form in a few minutes: we’ll get back to you with a free, no-obligation quote.",
+        "buttonOrder": "Start your project",
+        "buttonPhone": "Call us: 345 1114337",
+        "note": "Prefer to talk? Call us or message us on WhatsApp: we usually reply within 24 hours."
+      }
     }
   },
   "orders": {
@@ -274,5 +352,57 @@
       "text": "Need a service that isn't listed? Have questions about our processes? Don't hesitate to contact us.",
       "button": "Request Information"
     }
+  },
+  "lightbox": {
+    "close": "Close",
+    "previous": "Previous image",
+    "next": "Next image"
+  },
+  "collections": {
+    "hero": {
+      "title": "The Collections",
+      "subtitle": "One-of-a-kind pieces hand-forged in our workshop. Every creation can be adapted to your taste: the same emotion, tailor-made for you."
+    },
+    "rings": {
+      "name": "Rings",
+      "tagline": "The detail that never goes unnoticed",
+      "description": "750 gold and 925 silver with sapphires, Ethiopian opals and hand-engraved finishes. A GDC ring doesn’t follow trends: it sets them."
+    },
+    "necklaces": {
+      "name": "Necklaces & Pendants",
+      "tagline": "Light, worn close",
+      "description": "Raw quartz points, heart-cut rubies, chlorite quartz slices: genuine stones set on 925 silver and 750 gold chains."
+    },
+    "weddingRings": {
+      "name": "Wedding Rings",
+      "tagline": "Forever, hand-hammered",
+      "description": "750 gold wedding rings with hammered finish: every hammer blow makes your pair unique, just like the day you exchange them."
+    },
+    "earrings": {
+      "name": "Earrings",
+      "tagline": "Made to measure for you",
+      "description": "No earrings in the gallery? No problem: we design them together, starting from your ideas, your stones, your style."
+    },
+    "bracelets": {
+      "name": "Bracelets",
+      "tagline": "Made to measure for you",
+      "description": "No bracelets in the gallery? No problem: we create one together, starting from your ideas, your materials, your style."
+    },
+    "requestSimilar": "Request a similar piece",
+    "designTogether": "Let’s design it together",
+    "viewInGallery": "See in gallery",
+    "piecesInGallery": "{{count}} pieces in gallery",
+    "madeToOrder": "Made to order only",
+    "banner": {
+      "title": "Have something different in mind?",
+      "subtitle": "Every collection is a starting point: tell us your idea and we forge it together, by hand, in our workshop.",
+      "cta": "Create your jewel"
+    },
+    "teaser": {
+      "title": "Explore the collections",
+      "subtitle": "Rings, necklaces, wedding bands: one-of-a-kind pieces ready to become yours — or the starting point for a bespoke creation.",
+      "viewAll": "Discover all collections"
+    },
+    "prefillPrompt": "I would like a piece similar to «{{name}}» seen on the Collections page. I would love to adapt it to my taste."
   }
 }

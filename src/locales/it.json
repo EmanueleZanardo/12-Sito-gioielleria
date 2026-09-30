@@ -125,7 +125,8 @@
     "prefill": {
       "subject": "Richiesta informazioni riguardo a {{jewelryName}}",
       "message": "Salve, vorrei maggiori informazioni riguardo al gioiello {{jewelryName}}."
-    }
+    },
+    "loading": "Caricamento…"
   },
   "customJewel": {
     "title": "Crea il Tuo Gioiello Personalizzato",

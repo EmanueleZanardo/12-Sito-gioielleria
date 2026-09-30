@@ -25,10 +25,10 @@ export const metadata: Metadata = {
     locale: 'it_IT',
     images: [
       {
-        url: 'https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png',
-        width: 606,
-        height: 412,
-        alt: 'GDC Jewellery Lab',
+        url: '/og-cover.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'GDC Jewellery Lab — laboratorio orafo artigianale',
       },
     ],
   },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'GDC Jewellery Lab | Gioielli Artigianali su Misura',
     description: 'Gioielli su misura fatti a mano in oro 18kt, diamanti e pietre preziose. Restauro, riparazioni e preventivo gratuito.',
-    images: ['https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png'],
+    images: ['https://gdc-jewellery-lab.vercel.app/og-cover.jpg'],
   },
 };
 
@@ -52,8 +52,7 @@ export default function RootLayout({
     description:
       'Laboratorio orafo artigianale. Gioielli su misura fatti a mano in oro 18kt, diamanti e pietre preziose, restauro e riparazioni.',
     url: 'https://gdc-jewellery-lab.vercel.app',
-    image:
-      'https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png',
+    image: 'https://gdc-jewellery-lab.vercel.app/og-cover.jpg',
     telephone: '+393451114337',
     email: 'laboratorio.ticino@gmail.com',
     sameAs: ['https://www.instagram.com/gdc_jewellery_lab'],

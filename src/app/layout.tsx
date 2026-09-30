@@ -16,6 +16,10 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://gdc-jewellery-lab.vercel.app'),
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
   title: {
     default: 'GDC Jewellery Lab | Gioielli Artigianali su Misura',
     template: '%s | GDC Jewellery Lab',

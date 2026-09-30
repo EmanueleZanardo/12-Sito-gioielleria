@@ -101,8 +101,13 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
             const isSelected = isMultiple ? field.value?.includes(item.id) : field.value === item.id;
             return (
               <CarouselItem key={item.id} className="basis-1/3 sm:basis-1/4 md:basis-1/5 lg:basis-1/6 pl-2">
-                <div onClick={() => handleSelect(item.id)} className="p-1">
-                  <Label 
+                <button
+                  type="button"
+                  onClick={() => handleSelect(item.id)}
+                  aria-pressed={isSelected}
+                  className="p-1 block w-full rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                >
+                  <span
                     className={cn(
                       "flex flex-col items-center justify-center rounded-md border-2 border-muted bg-popover p-4 aspect-square hover:bg-accent hover:text-accent-foreground cursor-pointer transition-colors relative",
                       isSelected && "border-primary"
@@ -122,8 +127,8 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
                     ) : null}
                     <span className="text-center text-xs font-medium">{getItemLabel(item)}</span>
                     {isSelected && <CheckCircle2 className="w-5 h-5 text-primary absolute top-1 right-1" />}
-                  </Label>
-                </div>
+                  </span>
+                </button>
               </CarouselItem>
             );
           })}
@@ -369,12 +374,12 @@ function OrderFormClient() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t">
               <div className="space-y-2">
                   <Label htmlFor="name">{t('form.name.label')}</Label>
-                  <Input id="name" {...register("name")} placeholder={t('form.name.placeholder')} />
+                  <Input id="name" {...register("name")} autoComplete="name" placeholder={t('form.name.placeholder')} />
                   {errors.name && <p className="text-sm font-medium text-destructive">{errors.name.message}</p>}
               </div>
               <div className="space-y-2">
                   <Label htmlFor="email">{t('form.email.label')}</Label>
-                  <Input id="email" {...register("email")} type="email" placeholder={t('form.email.placeholder')} />
+                  <Input id="email" {...register("email")} type="email" autoComplete="email" placeholder={t('form.email.placeholder')} />
                   {errors.email && <p className="text-sm font-medium text-destructive">{errors.email.message}</p>}
               </div>
               </div>

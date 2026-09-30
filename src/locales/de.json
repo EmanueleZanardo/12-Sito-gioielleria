@@ -69,6 +69,17 @@
       "group_007": {
         "name": "Gehämmertes Gold-Ehering"
       }
+    },
+    "customJewel": {
+      "badge": "Maßanfertigung",
+      "title": "Finden Sie das Schmuckstück nicht, das Sie im Kopf haben? Wir fertigen es.",
+      "subtitle": "Gemeinsam entwerfen wir ein Unikat, handgefertigt in unserer Werkstatt. Kostenlose Beratung, von Ihnen freigegebenes Design, klarer Kostenvoranschlag vor Beginn.",
+      "p1": "Ein weltweit einzigartiges Stück",
+      "p2": "Perfekte Maße für Sie",
+      "p3": "Kostenloser Kostenvoranschlag, unverbindlich",
+      "buttonOrder": "Ihr Schmuckstück gestalten",
+      "buttonWhatsapp": "Schreiben Sie uns auf WhatsApp",
+      "whatsappPrefill": "Hallo! Ich hätte gerne Informationen zu einem maßgefertigten Schmuckstück."
     }
   },
   "about": {
@@ -116,7 +127,6 @@
       },
       "photo": {
         "label": "Bild anhängen (optional)",
-        "remove": "Bild entfernen",
         "remove": "Bild entfernen"
       },
       "submit": "Nachricht senden"
@@ -232,6 +242,74 @@
         "title": "Anfrage gesendet!",
         "description": "Vielen Dank! Wir werden Ihre individuelle Schmuckanfrage prüfen und Sie in Kürze kontaktieren."
       }
+    },
+    "v2": {
+      "hero": {
+        "badge": "Maßanfertigungen",
+        "title": "Das Schmuckstück, das Sie im Kopf haben – handgefertigt für Sie",
+        "subtitle": "Jedes Stück beginnt mit einem Gespräch: Erzählen Sie uns Ihre Idee – eine Zeichnung, ein Foto oder auch nur ein Gefühl – und wir verwandeln sie in ein einzigartiges Schmuckstück, ganz für Sie gedacht. Beratung und Kostenvoranschlag sind immer kostenlos und unverbindlich.",
+        "ctaOrder": "Kostenlosen Kostenvoranschlag anfordern",
+        "ctaWhatsapp": "Schreiben Sie uns auf WhatsApp",
+        "whatsappPrefill": "Hallo! Ich hätte gerne Informationen zu einem maßgefertigten Schmuckstück.",
+        "note": "Wir antworten in der Regel innerhalb von 24 Stunden."
+      },
+      "steps": {
+        "label": "So funktioniert's",
+        "title": "Vom Wunsch zum Schmuckstück – in 4 Schritten",
+        "1": {
+          "title": "Kostenlose Beratung",
+          "text": "Erzählen Sie uns Ihre Idee: eine Zeichnung, ein Foto oder auch nur ein Gefühl. Wir hören zu, beraten Sie zu Materialien und Steinen und finden gemeinsam die richtige Richtung. Unverbindlich."
+        },
+        "2": {
+          "title": "Entwurf und Zeichnung",
+          "text": "Wir verwandeln die Idee in eine konkrete Zeichnung – mit Maßen, Materialien und detailliertem Kostenvoranschlag. Nichts wird ohne Ihre Freigabe gefertigt."
+        },
+        "3": {
+          "title": "Handwerkliche Fertigung",
+          "text": "Das Schmuckstück nimmt in unserer Werkstatt Gestalt an – von Hand gearbeitet, mit Sorgfalt in jedem Detail. Wir halten Sie über den Fortschritt auf dem Laufenden."
+        },
+        "4": {
+          "title": "Lieferung",
+          "text": "Finale Qualitätskontrolle und Lieferung Ihres Unikats – bereit zum Tragen oder Verschenken."
+        }
+      },
+      "why": {
+        "label": "Warum Maßanfertigung",
+        "title": "Ein Standardschmuckstück wird nie so Ihres sein wie dieses",
+        "1": {
+          "title": "Wirklich einzigartig",
+          "text": "Niemand sonst auf der Welt wird ein identisches Stück besitzen: Design, Proportionen und Details entstehen aus Ihrer Geschichte."
+        },
+        "2": {
+          "title": "Perfekte Passform",
+          "text": "Maße, die für Sie gedacht sind – Finger, Handgelenk, Hals: Das Schmuckstück passt sich dem Träger an, nicht umgekehrt."
+        },
+        "3": {
+          "title": "Budget nach Maß",
+          "text": "18-kt-Gold, Silber oder verschiedene Steine: Wir bauen das Projekt um Ihr Budget herum – mit klarem Kostenvoranschlag vor Beginn."
+        }
+      },
+      "faq": {
+        "label": "Häufige Fragen",
+        "title": "Alles, was Sie wissen möchten",
+        "q1": "Wie lange dauert die Anfertigung eines maßgefertigten Schmuckstücks?",
+        "a1": "Das hängt von der Komplexität des Projekts ab: In der Regel vergehen von der freigegebenen Zeichnung bis zur Lieferung einige Wochen. Für besondere Anlässe (Hochzeiten, Jubiläen, Geburten) empfehlen wir, uns rechtzeitig zu kontaktieren, damit wir die Termine gemeinsam und ohne Eile planen können.",
+        "q2": "Welche Materialien verwenden Sie? Ist das Gold garantiert?",
+        "a2": "Wir arbeiten hauptsächlich mit 18-kt-Gold (Gelb-, Weiß- und Roségold), 925er Silber und Platin sowie ausgewählten Natursteinen. Der Feingehalt des Goldes ist garantiert und gemäß den geltenden Vorschriften punziert.",
+        "q3": "Kann ich den Entwurf vor der Fertigung noch ändern?",
+        "a3": "Ja, selbstverständlich. Das Projekt wird gemeinsam mit Ihnen festgelegt, und nichts wird ohne Ihre Freigabe von Zeichnung und Kostenvoranschlag gefertigt. Auch während der Fertigung berücksichtigen wir – wo möglich – Ihre Änderungswünsche.",
+        "q4": "Sind Beratung und Kostenvoranschlag kostenlos?",
+        "a4": "Ja: Die Erstberatung und der Kostenvoranschlag sind immer kostenlos und unverbindlich.",
+        "q5": "Kann ich ein Schmuckstück, das ich bereits besitze, umarbeiten lassen?",
+        "a5": "Ja: Wir restaurieren und arbeiten bestehende Schmuckstücke oder Familienschmuck um und geben Stücken, die Ihnen am Herzen liegen, neues Leben. Erzählen Sie uns, was Sie im Kopf haben, und wir finden gemeinsam die beste Lösung."
+      },
+      "cta": {
+        "title": "Ihre Idee verdient es, ein Schmuckstück zu werden",
+        "subtitle": "Füllen Sie das Formular in wenigen Minuten aus: Wir melden uns mit einem kostenlosen, unverbindlichen Kostenvoranschlag.",
+        "buttonOrder": "Starten Sie Ihr Projekt",
+        "buttonPhone": "Rufen Sie uns an: 345 1114337",
+        "note": "Lieber persönlich sprechen? Rufen Sie uns an oder schreiben Sie uns auf WhatsApp: Wir antworten in der Regel innerhalb von 24 Stunden."
+      }
     }
   },
   "orders": {
@@ -274,5 +352,57 @@
       "text": "Benötigen Sie eine Dienstleistung, die nicht aufgeführt ist? Haben Sie Fragen zu unseren Verfahren? Zögern Sie nicht, uns zu kontaktieren.",
       "button": "Informationen anfordern"
     }
+  },
+  "lightbox": {
+    "close": "Schließen",
+    "previous": "Vorheriges Bild",
+    "next": "Nächstes Bild"
+  },
+  "collections": {
+    "hero": {
+      "title": "Die Kollektionen",
+      "subtitle": "Unikate, in unserer Werkstatt von Hand geschmiedet. Jede Kreation kann an Ihren Geschmack angepasst werden: dieselbe Emotion, maßgeschneidert für Sie."
+    },
+    "rings": {
+      "name": "Ringe",
+      "tagline": "Das Detail, das nie unbemerkt bleibt",
+      "description": "750er Gold und 925er Silber mit Saphiren, äthiopischen Opalen und handgravierten Oberflächen. Ein GDC-Ring folgt keinen Trends: Er setzt sie."
+    },
+    "necklaces": {
+      "name": "Halsketten & Anhänger",
+      "tagline": "Licht, nah getragen",
+      "description": "Rohe Quarzspitzen, Rubine im Herzschliff, Quarzscheiben mit Chlorit: echte Steine auf Ketten aus 925er Silber und 750er Gold."
+    },
+    "weddingRings": {
+      "name": "Eheringe",
+      "tagline": "Für immer, von Hand gehämmert",
+      "description": "Eheringe aus 750er Gold mit Hammerschlag-Finish: Jeder Hammerschlag macht Ihr Paar einzigartig – wie der Tag, an dem Sie sie tauschen."
+    },
+    "earrings": {
+      "name": "Ohrringe",
+      "tagline": "Maßgeschneidert für Sie",
+      "description": "Noch keine Ohrringe in der Galerie? Kein Problem: Wir entwerfen sie gemeinsam – ausgehend von Ihren Ideen, Ihren Steinen, Ihrem Stil."
+    },
+    "bracelets": {
+      "name": "Armbänder",
+      "tagline": "Maßgeschneidert für Sie",
+      "description": "Noch keine Armbänder in der Galerie? Kein Problem: Wir kreieren gemeinsam eines – ausgehend von Ihren Ideen, Ihren Materialien, Ihrem Stil."
+    },
+    "requestSimilar": "Ähnliches Stück anfragen",
+    "designTogether": "Gemeinsam entwerfen",
+    "viewInGallery": "In Galerie ansehen",
+    "piecesInGallery": "{{count}} Kreationen in der Galerie",
+    "madeToOrder": "Nur auf Bestellung",
+    "banner": {
+      "title": "Etwas anderes im Sinn?",
+      "subtitle": "Jede Kollektion ist ein Ausgangspunkt: Erzählen Sie uns Ihre Idee und wir schmieden sie gemeinsam – von Hand, in unserer Werkstatt.",
+      "cta": "Ihr Schmuckstück kreieren"
+    },
+    "teaser": {
+      "title": "Kollektionen entdecken",
+      "subtitle": "Ringe, Halsketten, Eheringe: Unikate, bereit, Ihre zu werden – oder der Ausgangspunkt für eine Maßanfertigung.",
+      "viewAll": "Alle Kollektionen entdecken"
+    },
+    "prefillPrompt": "Ich hätte gerne ein ähnliches Stück wie „{{name}}“ von der Kollektionsseite. Ich würde es gerne an meinen Geschmack anpassen."
   }
 }

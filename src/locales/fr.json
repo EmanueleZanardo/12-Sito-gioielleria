@@ -125,7 +125,8 @@
     "prefill": {
       "subject": "Demande d'informations sur {{jewelryName}}",
       "message": "Bonjour, j'aimerais avoir plus d'informations sur le bijou {{jewelryName}}."
-    }
+    },
+    "loading": "Chargement…"
   },
   "customJewel": {
     "title": "Créez Votre Bijou Personnalisé",

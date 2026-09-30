@@ -3,6 +3,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { LanguageProvider } from '@/context/language-context';
+import { SkipLink } from '@/components/skip-link';
 import './globals.css';
 import { ShareDialog } from '@/components/share/share-dialog';
 
@@ -189,9 +190,10 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         <LanguageProvider>
+            <SkipLink />
             <div className="flex min-h-screen flex-col">
               <Header />
-              <main className="flex-grow">{children}</main>
+              <main id="main-content" className="flex-grow">{children}</main>
               <Footer />
             </div>
             <div className="fixed bottom-6 right-6 z-50">

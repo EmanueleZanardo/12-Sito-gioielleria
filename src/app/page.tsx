@@ -95,7 +95,6 @@ export default function Home() {
           className="object-cover object-bottom"
           quality={80}
           priority
-          data-ai-hint={heroImage.imageHint}
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 flex flex-col items-center space-y-6 px-4">

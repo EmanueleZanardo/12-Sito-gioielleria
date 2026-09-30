@@ -139,7 +139,7 @@ function OrderFormClient() {
   const { t } = useTranslation('customJewel');
   const { toast } = useToast();
   const searchParams = useSearchParams();
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
   
   const { register, handleSubmit, watch, setValue, control, formState: { errors, isSubmitting }, reset } = useForm<CustomOrderFormValues>({
     resolver: zodResolver(customOrderSchema),
@@ -155,6 +155,11 @@ function OrderFormClient() {
       aiImageUrl: '',
     },
   });
+
+  // Merge react-hook-form ref with our own so the "remove photo" button
+  // can actually reset the native file input (otherwise re-selecting the
+  // same file fires no change event and the preview never comes back).
+  const { ref: photoRegisterRef, ...photoRegister } = register('photo');
   
   const aiImageUrl = watch('aiImageUrl');
 
@@ -334,7 +339,11 @@ function OrderFormClient() {
                   id="photo"
                   accept="image/*"
                   className="sr-only"
-                  {...register('photo')}
+                  {...photoRegister}
+                  ref={(e) => {
+                    photoRegisterRef(e);
+                    fileInputRef.current = e;
+                  }}
               />
               <p className="text-sm text-muted-foreground">{t('form.photo.description')}</p>
               {displayPhoto && (
@@ -346,10 +355,8 @@ function OrderFormClient() {
                       variant="destructive"
                       size="icon"
                       className="absolute top-1 right-1 h-6 w-6"
-                      onClick={() => {
-                          setValue('photo', null);
-                          if(fileInputRef.current) fileInputRef.current.value = '';
-                      }}
+                      onClick={removePhoto}
+                      aria-label={t('form.photo.remove')}
                       >
                       <X className="h-4 w-4" />
                       </Button>

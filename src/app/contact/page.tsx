@@ -225,8 +225,9 @@ function ContactFormComponent() {
 }
 
 export default function ContactPage() {
+  const { t } = useTranslation('contact');
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>{t('loading')}</div>}>
       <ContactFormComponent />
     </Suspense>
   )

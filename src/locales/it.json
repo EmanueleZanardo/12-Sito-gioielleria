@@ -69,6 +69,17 @@
       "group_007": {
         "name": "Fedi oro battuto"
       }
+    },
+    "customJewel": {
+      "badge": "Su misura",
+      "title": "Non trovi il gioiello che hai in mente? Lo creiamo noi.",
+      "subtitle": "Disegniamo insieme un pezzo unico, realizzato a mano nel nostro laboratorio. Consulenza gratuita, disegno approvato da te, preventivo chiaro prima di iniziare.",
+      "p1": "Un pezzo unico al mondo",
+      "p2": "Misure perfette per te",
+      "p3": "Preventivo gratuito, senza impegno",
+      "buttonOrder": "Crea il tuo gioiello",
+      "buttonWhatsapp": "Scrivici su WhatsApp",
+      "whatsappPrefill": "Ciao! Vorrei informazioni su un gioiello su misura."
     }
   },
   "about": {
@@ -116,7 +127,6 @@
       },
       "photo": {
         "label": "Allega Immagine (Opzionale)",
-        "remove": "Rimuovi immagine",
         "remove": "Rimuovi immagine"
       },
       "submit": "Invia Messaggio"
@@ -232,6 +242,74 @@
         "title": "Richiesta Inviata!",
         "description": "Grazie! Esamineremo la tua richiesta di gioiello personalizzato e ti contatteremo a breve."
       }
+    },
+    "v2": {
+      "hero": {
+        "badge": "Creazioni su misura",
+        "title": "Il gioiello che hai in mente, realizzato a mano per te",
+        "subtitle": "Ogni pezzo nasce da una conversazione: raccontaci la tua idea — un disegno, una foto o anche solo un’emozione — e la trasformiamo in un gioiello unico, pensato per te. Consulenza e preventivo sempre gratuiti, senza impegno.",
+        "ctaOrder": "Richiedi il tuo preventivo gratuito",
+        "ctaWhatsapp": "Scrivici su WhatsApp",
+        "whatsappPrefill": "Ciao! Vorrei informazioni su un gioiello su misura.",
+        "note": "Rispondiamo in genere entro 24 ore."
+      },
+      "steps": {
+        "label": "Come funziona",
+        "title": "Dal desiderio al gioiello, in 4 passi",
+        "1": {
+          "title": "Consulenza gratuita",
+          "text": "Raccontaci la tua idea: un disegno, una foto o anche solo un’emozione. Ti ascoltiamo, ti consigliamo materiali e pietre e capiamo insieme la direzione giusta. Senza impegno."
+        },
+        "2": {
+          "title": "Progettazione e disegno",
+          "text": "Trasformiamo l’idea in un disegno concreto, con misure, materiali e un preventivo dettagliato. Nulla viene realizzato senza la tua approvazione."
+        },
+        "3": {
+          "title": "Creazione artigianale",
+          "text": "Il gioiello prende forma nel nostro laboratorio, lavorato a mano con cura in ogni dettaglio. Ti teniamo aggiornato sull’avanzamento."
+        },
+        "4": {
+          "title": "Consegna",
+          "text": "Controllo finale di qualità e consegna del tuo pezzo unico, pronto da indossare o da regalare."
+        }
+      },
+      "why": {
+        "label": "Perché su misura",
+        "title": "Un gioiello standard non sarà mai tuo come questo",
+        "1": {
+          "title": "Davvero unico",
+          "text": "Nessun altro al mondo avrà un pezzo uguale: disegno, proporzioni e dettagli nascono dalla tua storia."
+        },
+        "2": {
+          "title": "Vestibilità perfetta",
+          "text": "Misure pensate per te — dito, polso, collo: il gioiello si adatta a chi lo indossa, non il contrario."
+        },
+        "3": {
+          "title": "Budget su misura",
+          "text": "Oro 18kt, argento o pietre diverse: costruiamo il progetto intorno al tuo budget, con un preventivo chiaro prima di iniziare."
+        }
+      },
+      "faq": {
+        "label": "Domande frequenti",
+        "title": "Tutto quello che vuoi sapere",
+        "q1": "Quanto tempo serve per realizzare un gioiello su misura?",
+        "a1": "Dipende dalla complessità del progetto: in genere, dal disegno approvato alla consegna passano alcune settimane. Per occasioni speciali (matrimoni, anniversari, nascite) ti consigliamo di contattarci con anticipo, così pianifichiamo insieme le tempistiche senza fretta.",
+        "q2": "Che materiali usate? L’oro è garantito?",
+        "a2": "Lavoriamo principalmente oro 18kt (giallo, bianco e rosa), argento 925 e platino, con pietre naturali selezionate. Il titolo dell’oro è garantito e punzonato secondo le normative vigenti.",
+        "q3": "Posso modificare il disegno prima della realizzazione?",
+        "a3": "Sì, assolutamente. Il progetto viene definito insieme a te e nulla viene realizzato senza la tua approvazione del disegno e del preventivo. Anche durante la lavorazione, quando possibile, accogliamo le modifiche che ci chiedi.",
+        "q4": "La consulenza e il preventivo sono gratuiti?",
+        "a4": "Sì: la consulenza iniziale e il preventivo sono sempre gratuiti e senza impegno.",
+        "q5": "Posso far trasformare un gioiello che ho già?",
+        "a5": "Sì: restauriamo e trasformiamo gioielli esistenti o di famiglia, dando nuova vita a pezzi a cui tieni. Raccontaci cosa hai in mente e valuteremo insieme la soluzione migliore."
+      },
+      "cta": {
+        "title": "La tua idea merita di diventare un gioiello",
+        "subtitle": "Compila il modulo in pochi minuti: ti ricontattiamo con un preventivo gratuito e senza impegno.",
+        "buttonOrder": "Inizia il tuo progetto",
+        "buttonPhone": "Chiamaci: 345 1114337",
+        "note": "Preferisci parlare? Chiamaci o scrivici su WhatsApp: ti risponderemo in genere entro 24 ore."
+      }
     }
   },
   "orders": {
@@ -274,5 +352,57 @@
       "text": "Hai bisogno di un servizio che non è in elenco? Hai domande sui nostri processi? Non esitare a contattarci.",
       "button": "Richiedi Informazioni"
     }
+  },
+  "lightbox": {
+    "close": "Chiudi",
+    "previous": "Immagine precedente",
+    "next": "Immagine successiva"
+  },
+  "collections": {
+    "hero": {
+      "title": "Le Collezioni",
+      "subtitle": "Pezzi unici forgiati a mano nel nostro laboratorio. Ogni creazione può essere adattata ai tuoi gusti: la stessa emozione, su misura per te."
+    },
+    "rings": {
+      "name": "Anelli",
+      "tagline": "Il dettaglio che non passa inosservato",
+      "description": "Oro 750 e argento 925 con zaffiri, opali etiopi e lavorazioni incise a mano. Un anello GDC non segue le mode: le crea."
+    },
+    "necklaces": {
+      "name": "Collane e Pendenti",
+      "tagline": "La luce, al collo",
+      "description": "Punte di quarzo grezzo, rubini taglio cuore, fette di quarzo con clorite: pietre vere montate su catene in argento 925 e oro 750."
+    },
+    "weddingRings": {
+      "name": "Fedi",
+      "tagline": "Per sempre, battute a mano",
+      "description": "Fedi in oro 750 con effetto martellatura: ogni colpo di martello rende la vostra coppia unica, come il giorno in cui ve le scambierete."
+    },
+    "earrings": {
+      "name": "Orecchini",
+      "tagline": "Su misura per te",
+      "description": "Nessun orecchino in galleria? Nessun problema: li disegniamo insieme partendo dalle tue idee, dalle tue pietre, dal tuo stile."
+    },
+    "bracelets": {
+      "name": "Bracciali",
+      "tagline": "Su misura per te",
+      "description": "Nessun bracciale in galleria? Nessun problema: lo creiamo insieme partendo dalle tue idee, dai tuoi materiali, dal tuo stile."
+    },
+    "requestSimilar": "Richiedi un pezzo simile",
+    "designTogether": "Disegniamolo insieme",
+    "viewInGallery": "Vedi in galleria",
+    "piecesInGallery": "{{count}} creazioni in galleria",
+    "madeToOrder": "Solo su misura",
+    "banner": {
+      "title": "Hai in mente qualcosa di diverso?",
+      "subtitle": "Ogni collezione è un punto di partenza: raccontaci la tua idea e la forgiamo insieme, a mano, nel nostro laboratorio.",
+      "cta": "Crea il tuo gioiello"
+    },
+    "teaser": {
+      "title": "Esplora le collezioni",
+      "subtitle": "Anelli, collane, fedi: pezzi unici già pronti a diventare tuoi — o il punto di partenza per una creazione su misura.",
+      "viewAll": "Scopri tutte le collezioni"
+    },
+    "prefillPrompt": "Vorrei un pezzo simile a «{{name}}» visto nella pagina Collezioni. Mi piacerebbe adattarlo ai miei gusti."
   }
 }

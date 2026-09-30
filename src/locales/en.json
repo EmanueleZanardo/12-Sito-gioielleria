@@ -125,7 +125,8 @@
     "prefill": {
       "subject": "Inquiry about {{jewelryName}}",
       "message": "Hello, I would like more information about the {{jewelryName}} piece."
-    }
+    },
+    "loading": "Loading…"
   },
   "customJewel": {
     "title": "Create Your Custom Jewel",

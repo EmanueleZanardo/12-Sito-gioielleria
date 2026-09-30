@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     url: 'https://gdc-jewellery-lab.vercel.app',
     siteName: 'GDC Jewellery Lab',
     type: 'website',
+    locale: 'it_IT',
     images: [
       {
         url: 'https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png',

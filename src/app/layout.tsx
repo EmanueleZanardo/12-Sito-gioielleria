@@ -45,12 +45,29 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'JewelryStore',
+    name: 'GDC Jewellery Lab',
+    description:
+      'Laboratorio orafo artigianale. Gioielli su misura fatti a mano in oro 18kt, diamanti e pietre preziose, restauro e riparazioni.',
+    url: 'https://gdc-jewellery-lab.vercel.app',
+    image:
+      'https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png',
+    telephone: '+393451114337',
+    email: 'laboratorio.ticino@gmail.com',
+    sameAs: ['https://www.instagram.com/gdc_jewellery_lab'],
+  };
   return (
     <html lang="it" className="dark">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body className="font-body antialiased">
         <LanguageProvider>

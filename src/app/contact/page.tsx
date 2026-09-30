@@ -30,7 +30,7 @@ type ContactFormValues = z.infer<typeof contactSchema>;
 function ContactFormComponent() {
   const { t } = useTranslation('contact');
   const { toast } = useToast();
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
   const searchParams = useSearchParams();
   
   const { register, handleSubmit, formState: { errors, isSubmitting }, watch, setValue, reset } = useForm<ContactFormValues>({
@@ -43,6 +43,11 @@ function ContactFormComponent() {
       photo: null,
     },
   });
+
+  // Merge react-hook-form ref with our own so the "remove photo" button
+  // can actually reset the native file input (otherwise re-selecting the
+  // same file fires no change event and the preview never comes back).
+  const { ref: photoRegisterRef, ...photoRegister } = register('photo');
   
   useEffect(() => {
     const subject = searchParams.get('subject');
@@ -182,7 +187,11 @@ function ContactFormComponent() {
                       type="file"
                       className="sr-only"
                       accept="image/*"
-                      {...register('photo')}
+                      {...photoRegister}
+                      ref={(e) => {
+                        photoRegisterRef(e);
+                        fileInputRef.current = e;
+                      }}
                   />
                   {errors.photo && <p className="text-sm font-medium text-destructive">{errors.photo.message as string}</p>}
               </div>
@@ -196,12 +205,8 @@ function ContactFormComponent() {
                         variant="destructive"
                         size="icon"
                         className="absolute top-1 right-1 h-6 w-6"
-                        onClick={() => {
-                            setValue('photo', null);
-                            if (fileInputRef.current) {
-                              fileInputRef.current.value = '';
-                            }
-                        }}
+                        onClick={removePhoto}
+                        aria-label={t('form.photo.remove')}
                       >
                         <X className="h-4 w-4" />
                       </Button>

@@ -9,16 +9,16 @@ import { ShareDialog } from '@/components/share/share-dialog';
 export const metadata: Metadata = {
   metadataBase: new URL('https://gdc-jewellery-lab.vercel.app'),
   title: {
-    default: 'GDC | Jewellery Lab',
+    default: 'GDC Jewellery Lab | Gioielli Artigianali su Misura',
     template: '%s | GDC Jewellery Lab',
   },
-  description: 'Handcrafted jewelry with a touch of elegance. Custom jewel design, gallery and atelier services by GDC Jewellery Lab.',
+  description: 'GDC Jewellery Lab: laboratorio orafo artigianale. Gioielli su misura fatti a mano in oro 18kt, diamanti e pietre preziose, restauro e riparazioni. Preventivo gratuito.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'GDC | Jewellery Lab',
-    description: 'Handcrafted jewelry with a touch of elegance.',
+    title: 'GDC Jewellery Lab | Gioielli Artigianali su Misura',
+    description: 'Gioielli su misura fatti a mano in oro 18kt, diamanti e pietre preziose. Restauro, riparazioni e preventivo gratuito.',
     url: 'https://gdc-jewellery-lab.vercel.app',
     siteName: 'GDC Jewellery Lab',
     type: 'website',
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GDC | Jewellery Lab',
-    description: 'Handcrafted jewelry with a touch of elegance.',
+    title: 'GDC Jewellery Lab | Gioielli Artigianali su Misura',
+    description: 'Gioielli su misura fatti a mano in oro 18kt, diamanti e pietre preziose. Restauro, riparazioni e preventivo gratuito.',
     images: ['https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png'],
   },
 };

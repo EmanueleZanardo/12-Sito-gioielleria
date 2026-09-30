@@ -115,7 +115,9 @@
         "placeholder": "Votre message..."
       },
       "photo": {
-        "label": "Joindre une image (facultatif)"
+        "label": "Joindre une image (facultatif)",
+        "remove": "Supprimer l'image",
+        "remove": "Supprimer l'image"
       },
       "submit": "Envoyer le message"
     },

@@ -221,11 +221,11 @@
       },
       "name": {
         "label": "Votre nom",
-        "placeholder": "Jane Doe"
+        "placeholder": "Votre nom et prénom"
       },
       "email": {
         "label": "Votre e-mail",
-        "placeholder": "jane.doe@example.com"
+        "placeholder": "nom@exemple.com"
       },
       "submit": "Soumettre la demande",
       "toast": {

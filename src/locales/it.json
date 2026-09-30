@@ -115,7 +115,9 @@
         "placeholder": "Il tuo messaggio..."
       },
       "photo": {
-        "label": "Allega Immagine (Opzionale)"
+        "label": "Allega Immagine (Opzionale)",
+        "remove": "Rimuovi immagine",
+        "remove": "Rimuovi immagine"
       },
       "submit": "Invia Messaggio"
     },

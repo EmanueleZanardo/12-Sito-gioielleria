@@ -37,12 +37,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.genkit/*
 .env*
-
-# firebase
-firebase-debug.log
-firestore-debug.log
 
 # firebase studio export residues (mai in repo)
 .agents/

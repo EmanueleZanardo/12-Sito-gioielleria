@@ -3,6 +3,9 @@ const nextConfig = {
   /* config options here */
   poweredByHeader: false, // non esporre X-Powered-By: Next.js (igiene di sicurezza)
   images: {
+    // AVIF/WebP negoziati via Accept header: meno peso sulle gallery, zero
+    // cambio di design (il browser sceglie il formato migliore supportato).
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',

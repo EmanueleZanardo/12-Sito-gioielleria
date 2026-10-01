@@ -20,21 +20,28 @@ import { sendConfirmationEmail } from '@/lib/actions';
 import { jewelryTypeIds, jewelryTypeImages, materialData, stoneData } from '@/lib/order-form-data';
 import { Label } from '@/components/ui/label';
 
-const customOrderSchema = z.object({
-  jewelryType: z.string({ required_error: 'Please select a jewelry type.' }),
-  materials: z.array(z.string()).refine((value) => value.some((item) => item), {
-    message: 'You have to select at least one material.',
-  }),
-  stones: z.array(z.string()).optional(),
-  description: z.string().min(10, 'Please provide a more detailed description.'),
-  photo: z.any().optional(),
-  aiPrompt: z.string().optional(),
-  aiImageUrl: z.string().optional(),
-  name: z.string().min(2, 'Please enter your name.'),
-  email: z.string().email('Please enter a valid email address.'),
-});
+function OrderFormClient() {
+  const { t } = useTranslation('customJewel');
+  const { toast } = useToast();
+  const searchParams = useSearchParams();
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-type CustomOrderFormValues = z.infer<typeof customOrderSchema>;
+  // Messaggi di validazione localizzati (zod accetta messaggi dinamici).
+  const customOrderSchema = z.object({
+    jewelryType: z.string({ required_error: t('form.validation.jewelryType') }),
+    materials: z.array(z.string()).refine((value) => value.some((item) => item), {
+      message: t('form.validation.materials'),
+    }),
+    stones: z.array(z.string()).optional(),
+    description: z.string().min(10, t('form.validation.description')),
+    photo: z.any().optional(),
+    aiPrompt: z.string().optional(),
+    aiImageUrl: z.string().optional(),
+    name: z.string().min(2, t('form.validation.name')),
+    email: z.string().email(t('form.validation.email')),
+  });
+
+  type CustomOrderFormValues = z.infer<typeof customOrderSchema>;
 
 
 function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: string }>({
@@ -140,12 +147,6 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
   );
 }
 
-function OrderFormClient() {
-  const { t } = useTranslation('customJewel');
-  const { toast } = useToast();
-  const searchParams = useSearchParams();
-  const fileInputRef = useRef<HTMLInputElement | null>(null);
-  
   const { register, handleSubmit, watch, setValue, control, formState: { errors, isSubmitting }, reset } = useForm<CustomOrderFormValues>({
     resolver: zodResolver(customOrderSchema),
     defaultValues: {
@@ -200,10 +201,10 @@ function OrderFormClient() {
     }
     messageBody += `\n${t('form.description.label')}:\n${data.description}\n`;
     if (data.aiPrompt) {
-        messageBody += `\nPrompt AI originale: ${data.aiPrompt}\n`;
+        messageBody += `\n${t('form.aiPromptLabel')}: ${data.aiPrompt}\n`;
     }
     if (data.aiImageUrl) {
-        messageBody += `Immagine generata da AI: ${data.aiImageUrl}\n`;
+        messageBody += `${t('form.aiImageLabel')}: ${data.aiImageUrl}\n`;
     }
     return messageBody;
   }
@@ -227,7 +228,7 @@ function OrderFormClient() {
           }
       });
       formData.set('message', createFullMessage(data));
-      formData.set('subject', 'Richiesta Ordine Personalizzato');
+      formData.set('subject', t('form.emailSubject'));
 
       try {
         const result = await sendConfirmationEmail(undefined, formData);
@@ -238,21 +239,21 @@ function OrderFormClient() {
                 description: t('form.toast.description'),
             });
             toast({
-                title: "Email di conferma inviata",
-                description: "Abbiamo inviato un riepilogo della tua richiesta alla tua casella di posta.",
+                title: t('form.confirmation.title'),
+                description: t('form.confirmation.description'),
             });
             reset();
         } else {
             toast({
-                title: 'Errore',
-                description: result.message || "Si è verificato un problema con l'invio della richiesta.",
+                title: t('form.errorTitle'),
+                description: result.message || t('form.errorSend'),
                 variant: 'destructive',
             });
         }
       } catch (error) {
          toast({
-            title: 'Errore',
-            description: "Si è verificato un problema imprevisto.",
+            title: t('form.errorTitle'),
+            description: t('form.errorUnexpected'),
             variant: 'destructive',
         });
       }

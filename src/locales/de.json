@@ -50,7 +50,16 @@
     },
     "gallery": {
       "title": "Galerie",
-      "subtitle": "Jede Kreation ist ein Unikat, geschmiedet mit Leidenschaft und Meisterschaft."
+      "subtitle": "Jede Kreation ist ein Unikat, geschmiedet mit Leidenschaft und Meisterschaft.",
+      "descriptions": {
+        "group_001": "Kette und Anhänger aus 925er Silber mit roher Quarzspitze — handgefertigte Fassung",
+        "group_002": "Halskette mit Anhänger aus 750er Gold und Rubin im Herzschliff",
+        "group_003": "Ring aus 925er Silber mit äthiopischem Opal im Cabochonschliff",
+        "group_004": "Halskette mit Anhänger aus 925er Silber und Quarzscheibe mit Chlorit-Einschlüssen",
+        "group_005": "Band aus 925er Silber mit handgeschnitzter Oberfläche",
+        "group_006": "Ring aus 750er Gold mit Saphir im Tropfenschliff — handmattierte Gravur",
+        "group_007": "Eheringe aus 750er Gold mit handgehämmertter Oberfläche"
+      }
     },
     "cta": {
       "title": "Haben Sie eine Idee?",
@@ -147,39 +156,23 @@
       "subject": "Anfrage zu {{jewelryName}}",
       "message": "Hallo, ich hätte gerne mehr Informationen über das Schmuckstück {{jewelryName}}."
     },
-    "loading": "Wird geladen…"
+    "loading": "Wird geladen…",
+    "toast": {
+      "successTitle": "Bestätigungs-E-Mail gesendet",
+      "successDesc": "Wir haben eine Zusammenfassung Ihrer Anfrage an Ihr Postfach gesendet.",
+      "errorTitle": "Fehler",
+      "errorSend": "Die Bestätigungs-E-Mail konnte nicht gesendet werden.",
+      "errorUnexpected": "Ein unerwartetes Problem ist aufgetreten."
+    },
+    "validation": {
+      "name": "Bitte geben Sie Ihren Namen ein.",
+      "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "subject": "Bitte geben Sie einen Betreff ein.",
+      "message": "Bitte geben Sie eine ausführlichere Nachricht ein (mindestens 10 Zeichen)."
+    }
   },
   "customJewel": {
-    "title": "Erstellen Sie Ihr individuelles Schmuckstück",
-    "subtitle": "Wählen Sie, wie Sie Ihre Vision zum Leben erwecken möchten. Nutzen Sie unseren KI-Assistenten, um Ihre Ideen zu visualisieren, oder füllen Sie das Formular aus, um direkt mit unseren Handwerkern zusammenzuarbeiten.",
     "loading": "Wird geladen…",
-    "selection": {
-      "aiGenerator": {
-        "title": "Mit KI erstellen",
-        "description": "Verwandeln Sie Ihre Ideen in Bilder. Beschreiben Sie Ihr ideales Schmuckstück und lassen Sie sich von der KI eine Vorschau zeigen."
-      },
-      "orderForm": {
-        "title": "Individuelles Bestellformular",
-        "description": "Haben Sie bereits eine klare Vorstellung? Füllen Sie das Formular aus, um die Details an unsere Handwerker zu senden und ein Angebot zu erhalten."
-      },
-      "comingSoon": "Demnächst verfügbar"
-    },
-    "imageGenerator": {
-      "title": "KI-Bildgenerator",
-      "pageSubtitle": "Stellen Sie es sich nicht nur vor, sehen Sie es. Beschreiben Sie den Schmuck, den Sie kreieren möchten, und unsere KI wird ihn für Sie visualisieren.",
-      "description": "Beschreiben Sie den Schmuck, den Sie kreieren möchten.",
-      "placeholder": "z.B. 'eine zarte Goldkette mit einem einzelnen Perlenanhänger'",
-      "button": "Bild generieren",
-      "orderButton": "Dieses Design bestellen",
-      "error": {
-        "title": "Fehler",
-        "description": "Bitte beschreiben Sie das zu generierende Bild.",
-        "apiTitle": "Fehler bei der KI-Bilderzeugung",
-        "apiDescription": "Entschuldigung, wir konnten im Moment kein Bild generieren. Bitte versuchen Sie es erneut."
-      },
-      "generatedImageTitle": "Generiertes Bild",
-      "generatedImageAlt": "KI-generierter Schmuck"
-    },
     "form": {
       "title": "Individuelle Bestellanforderung",
       "pageSubtitle": "Füllen Sie die folgenden Felder aus, um Ihre individuelle Schmuckanfrage direkt an unsere Handwerker zu senden. Wir werden Sie in Kürze kontaktieren.",
@@ -255,6 +248,23 @@
       "toast": {
         "title": "Anfrage gesendet!",
         "description": "Vielen Dank! Wir werden Ihre individuelle Schmuckanfrage prüfen und Sie in Kürze kontaktieren."
+      },
+      "confirmation": {
+        "title": "Bestätigungs-E-Mail gesendet",
+        "description": "Wir haben eine Zusammenfassung Ihrer Anfrage an Ihr Postfach gesendet."
+      },
+      "errorTitle": "Fehler",
+      "errorSend": "Beim Senden Ihrer Anfrage ist ein Problem aufgetreten.",
+      "errorUnexpected": "Ein unerwartetes Problem ist aufgetreten.",
+      "emailSubject": "Anfrage für individuelle Anfertigung",
+      "aiPromptLabel": "Originaler KI-Prompt",
+      "aiImageLabel": "KI-generiertes Bild",
+      "validation": {
+        "jewelryType": "Bitte wählen Sie eine Schmuckart.",
+        "materials": "Bitte wählen Sie mindestens ein Material.",
+        "description": "Bitte geben Sie eine ausführlichere Beschreibung ein (mindestens 10 Zeichen).",
+        "name": "Bitte geben Sie Ihren Namen ein.",
+        "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein."
       }
     },
     "v2": {

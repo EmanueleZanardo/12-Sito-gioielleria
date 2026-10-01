@@ -7,7 +7,10 @@ export default function OrderFormPage() {
   const { t } = useTranslation('customJewel');
 
   return (
-    <div className="bg-background py-8 md:py-12">
+    // overflow-x-clip: il carosello embla dei selettori può generare qualche px
+    // di overflow orizzontale a livello documento (rilevato nel check UX live);
+    // clip lo contiene senza creare uno scroll container annidato.
+    <div className="bg-background py-8 md:py-12 overflow-x-clip">
         <div className="text-center mb-8 px-4">
             <h1 className="font-headline text-4xl md:text-5xl text-foreground">
             {t('form.title')}

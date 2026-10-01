@@ -2,9 +2,9 @@ import type { MetadataRoute } from 'next';
 
 const BASE_URL = 'https://gdc-jewellery-lab.vercel.app';
 
-// Statico e aggiornato a ogni release SEO: non usare new Date() in build,
-// altrimenti ogni deploy produce una sitemap "nuova" senza cambiamenti reali.
-const LAST_MODIFIED = '2026-09-30';
+// Statico e aggiornato manualmente ogni volta che il copy delle pagine cambia:
+// ultimo aggiornamento copy galleria (descrizioni + nome gruppo) il 2026-10-01.
+const LAST_MODIFIED = '2026-10-01';
 
 type RouteEntry = {
   path: string;

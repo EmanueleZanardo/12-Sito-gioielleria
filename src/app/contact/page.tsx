@@ -179,13 +179,13 @@ function ContactFormComponent() {
                 {errors.message && <p id="message-error" role="alert" className="text-sm font-medium text-destructive">{errors.message.message}</p>}
               </div>
               <div className="space-y-2">
-                  <Label htmlFor="photo" className="cursor-pointer inline-block w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm text-muted-foreground hover:bg-accent hover:text-accent-foreground">
+                  <Label htmlFor="photo" className="cursor-pointer inline-block w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 peer-focus-visible:ring-2 peer-focus-visible:ring-ring peer-focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm text-muted-foreground hover:bg-accent hover:text-accent-foreground">
                     {t('form.photo.label')}
                   </Label>
                   <Input
                       id="photo"
                       type="file"
-                      className="sr-only"
+                      className="sr-only peer"
                       accept="image/*"
                       {...photoRegister}
                       ref={(e) => {

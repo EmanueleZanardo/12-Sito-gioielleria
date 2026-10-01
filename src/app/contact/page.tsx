@@ -159,24 +159,24 @@ function ContactFormComponent() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="name">{t('form.name.label')}</Label>
-                  <Input id="name" placeholder={t('form.name.placeholder')} required autoComplete="name" aria-invalid={!!errors.name} {...register('name')} />
-                  {errors.name && <p className="text-sm font-medium text-destructive">{errors.name.message}</p>}
+                  <Input id="name" placeholder={t('form.name.placeholder')} required autoComplete="name" aria-invalid={!!errors.name} aria-describedby={errors.name ? 'name-error' : undefined} {...register('name')} />
+                  {errors.name && <p id="name-error" role="alert" className="text-sm font-medium text-destructive">{errors.name.message}</p>}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">{t('form.email.label')}</Label>
-                  <Input id="email" type="email" placeholder={t('form.email.placeholder')} required autoComplete="email" aria-invalid={!!errors.email} {...register('email')} />
-                  {errors.email && <p className="text-sm font-medium text-destructive">{errors.email.message}</p>}
+                  <Input id="email" type="email" placeholder={t('form.email.placeholder')} required autoComplete="email" aria-invalid={!!errors.email} aria-describedby={errors.email ? 'email-error' : undefined} {...register('email')} />
+                  {errors.email && <p id="email-error" role="alert" className="text-sm font-medium text-destructive">{errors.email.message}</p>}
                 </div>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="subject">{t('form.subject.label')}</Label>
-                <Input id="subject" placeholder={t('form.subject.placeholder')} required aria-invalid={!!errors.subject} {...register('subject')} />
-                {errors.subject && <p className="text-sm font-medium text-destructive">{errors.subject.message}</p>}
+                <Input id="subject" placeholder={t('form.subject.placeholder')} required aria-invalid={!!errors.subject} aria-describedby={errors.subject ? 'subject-error' : undefined} {...register('subject')} />
+                {errors.subject && <p id="subject-error" role="alert" className="text-sm font-medium text-destructive">{errors.subject.message}</p>}
               </div>
               <div className="space-y-2">
                 <Label htmlFor="message">{t('form.message.label')}</Label>
-                <Textarea id="message" placeholder={t('form.message.placeholder')} rows={5} required aria-invalid={!!errors.message} {...register('message')} />
-                {errors.message && <p className="text-sm font-medium text-destructive">{errors.message.message}</p>}
+                <Textarea id="message" placeholder={t('form.message.placeholder')} rows={5} required aria-invalid={!!errors.message} aria-describedby={errors.message ? 'message-error' : undefined} {...register('message')} />
+                {errors.message && <p id="message-error" role="alert" className="text-sm font-medium text-destructive">{errors.message.message}</p>}
               </div>
               <div className="space-y-2">
                   <Label htmlFor="photo" className="cursor-pointer inline-block w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm text-muted-foreground hover:bg-accent hover:text-accent-foreground">

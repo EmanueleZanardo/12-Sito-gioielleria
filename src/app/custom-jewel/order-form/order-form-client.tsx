@@ -374,13 +374,13 @@ function OrderFormClient() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t">
               <div className="space-y-2">
                   <Label htmlFor="name">{t('form.name.label')}</Label>
-                  <Input id="name" {...register("name")} autoComplete="name" placeholder={t('form.name.placeholder')} />
-                  {errors.name && <p className="text-sm font-medium text-destructive">{errors.name.message}</p>}
+                  <Input id="name" autoComplete="name" aria-invalid={!!errors.name} aria-describedby={errors.name ? 'order-name-error' : undefined} placeholder={t('form.name.placeholder')} {...register("name")} />
+                  {errors.name && <p id="order-name-error" role="alert" className="text-sm font-medium text-destructive">{errors.name.message}</p>}
               </div>
               <div className="space-y-2">
                   <Label htmlFor="email">{t('form.email.label')}</Label>
-                  <Input id="email" {...register("email")} type="email" autoComplete="email" placeholder={t('form.email.placeholder')} />
-                  {errors.email && <p className="text-sm font-medium text-destructive">{errors.email.message}</p>}
+                  <Input id="email" type="email" autoComplete="email" aria-invalid={!!errors.email} aria-describedby={errors.email ? 'order-email-error' : undefined} placeholder={t('form.email.placeholder')} {...register("email")} />
+                  {errors.email && <p id="order-email-error" role="alert" className="text-sm font-medium text-destructive">{errors.email.message}</p>}
               </div>
               </div>
               <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-lg py-6" disabled={isSubmitting}>

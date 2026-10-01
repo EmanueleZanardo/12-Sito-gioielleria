@@ -127,7 +127,7 @@ export function Header() {
             <div className="hidden md:flex items-center space-x-4">
                <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                   <Button variant="ghost" size="sm" className="flex items-center gap-1 text-sm bg-transparent border-none">
+                   <Button variant="ghost" size="sm" aria-label={t('nav.language')} className="flex items-center gap-1 text-sm bg-transparent border-none">
                     {language.toUpperCase()}
                     <ChevronDown className="h-4 w-4" />
                   </Button>
@@ -195,7 +195,7 @@ export function Header() {
                          <div className="flex items-center justify-center space-x-6 p-6 border-t">
                             <DropdownMenu>
                               <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className="flex items-center gap-2 text-lg">
+                                <Button variant="ghost" aria-label={t('nav.language')} className="flex items-center gap-2 text-lg">
                                   {language.toUpperCase()}
                                   <ChevronDown className="h-5 w-5" />
                                 </Button>

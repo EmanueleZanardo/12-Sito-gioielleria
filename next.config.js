@@ -31,6 +31,13 @@ const nextConfig = {
             // Tutte le immagini del sito arrivano da i.postimg.cc: preconnect riduce la latenza di caricamento.
             value: '<https://i.postimg.cc>; rel=preconnect, <https://i.postimg.cc>; rel=dns-prefetch',
           },
+          // Baseline sicurezza OWASP: zero rischio di rottura, niente CSP (troppo
+          // invasiva senza test visivo completo: Next inline scripts/styles, font, postimg).
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          // SAMEORIGIN (non DENY): blocca il clickjacking esterno ma lascia aperta
+          // la porta a eventuali embed same-origin futuri (es. anteprime interne).
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
         ],
       },
     ];

@@ -112,6 +112,7 @@ export function Header() {
                       link.onClick(e);
                   }
               }}
+              aria-current={isLinkActive(link) ? "page" : undefined}
               className={cn(
                 "transition-colors hover:text-primary",
                 isLinkActive(link) ? "text-primary" : "text-foreground/60"
@@ -179,6 +180,7 @@ export function Header() {
                                   }
                                   setIsMobileMenuOpen(false);
                                 }}
+                                aria-current={isLinkActive(link) ? "page" : undefined}
                                 className={cn(
                                     "text-xl font-medium font-nav transition-colors hover:text-primary pl-4",
                                     isLinkActive(link) ? "text-primary" : "text-foreground/80"

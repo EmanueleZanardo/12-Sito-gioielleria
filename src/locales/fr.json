@@ -137,7 +137,8 @@
       },
       "photo": {
         "label": "Joindre une image (facultatif)",
-        "remove": "Supprimer l'image"
+        "remove": "Supprimer l'image",
+        "previewAlt": "Aperçu de l'image"
       },
       "submit": "Envoyer le message"
     },
@@ -232,7 +233,9 @@
       },
       "photo": {
         "label": "Joindre une image (facultatif)",
-        "description": "Téléchargez une image de référence ou un croquis."
+        "description": "Téléchargez une image de référence ou un croquis.",
+        "remove": "Supprimer l'image",
+        "previewAlt": "Aperçu de l'image téléversée"
       },
       "aiImage": {
         "label": "Image du générateur d'IA",

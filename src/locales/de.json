@@ -137,7 +137,8 @@
       },
       "photo": {
         "label": "Bild anhängen (optional)",
-        "remove": "Bild entfernen"
+        "remove": "Bild entfernen",
+        "previewAlt": "Bildvorschau"
       },
       "submit": "Nachricht senden"
     },
@@ -232,7 +233,9 @@
       },
       "photo": {
         "label": "Bild anhängen (optional)",
-        "description": "Laden Sie ein Referenzbild oder eine Skizze hoch."
+        "description": "Laden Sie ein Referenzbild oder eine Skizze hoch.",
+        "remove": "Bild entfernen",
+        "previewAlt": "Vorschau des hochgeladenen Bildes"
       },
       "aiImage": {
         "label": "Bild aus dem AI Generator",

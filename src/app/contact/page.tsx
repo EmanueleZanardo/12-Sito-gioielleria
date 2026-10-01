@@ -199,7 +199,7 @@ function ContactFormComponent() {
                 {displayPhoto && (
                   <div className="space-y-2">
                     <div className="relative w-24 h-24 rounded-md overflow-hidden border">
-                      <Image src={URL.createObjectURL(displayPhoto)} alt="Anteprima immagine" fill className="object-cover" />
+                      <Image src={URL.createObjectURL(displayPhoto)} alt={t('form.photo.previewAlt')} fill sizes="96px" className="object-cover" />
                       <Button
                         type="button"
                         variant="destructive"

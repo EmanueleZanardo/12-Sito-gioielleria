@@ -137,7 +137,8 @@
       },
       "photo": {
         "label": "Allega Immagine (Opzionale)",
-        "remove": "Rimuovi immagine"
+        "remove": "Rimuovi immagine",
+        "previewAlt": "Anteprima immagine"
       },
       "submit": "Invia Messaggio"
     },
@@ -232,7 +233,9 @@
       },
       "photo": {
         "label": "Allega Immagine (Opzionale)",
-        "description": "Carica un'immagine di riferimento o uno schizzo."
+        "description": "Carica un'immagine di riferimento o uno schizzo.",
+        "remove": "Rimuovi immagine",
+        "previewAlt": "Anteprima immagine caricata"
       },
       "aiImage": {
         "label": "Immagine dal Generatore AI",

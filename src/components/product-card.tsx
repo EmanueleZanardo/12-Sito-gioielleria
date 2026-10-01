@@ -45,8 +45,11 @@ export function ProductCard({ product, groupName, onImageClick }: ProductCardPro
         sizes="(max-width: 1200px) 33vw, 25vw"
         quality={80}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      <div className="absolute bottom-0 left-0 p-4 md:p-6 text-white translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+      {/* Overlay scuro: su desktop appare all'hover; su dispositivi touch
+          (hover: none) e con focus da tastiera è sempre visibile perché
+          altrimenti nome/descrizione del prodotto resterebbero inaccessibili. */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 [@media(hover:none)]:opacity-100 transition-opacity duration-300" />
+      <div className="absolute bottom-0 left-0 p-4 md:p-6 text-white translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 [@media(hover:none)]:translate-y-0 [@media(hover:none)]:opacity-100 transition-all duration-300">
         <h3 className="font-headline text-lg md:text-xl font-bold">{groupName}</h3>
         <p className="text-sm text-stone-200 mt-1">{product.description}</p>
       </div>

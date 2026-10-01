@@ -195,7 +195,7 @@ export default function RootLayout({
       <body className="font-body antialiased">
         <LanguageProvider>
             <SkipLink />
-            <div className="flex min-h-screen flex-col">
+            <div className="flex min-h-screen flex-col overflow-x-clip">
               <Header />
               <main id="main-content" className="flex-grow">{children}</main>
               <Footer />

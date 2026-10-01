@@ -17,21 +17,22 @@ import { useToast } from '@/hooks/use-toast';
 import { Label } from '@/components/ui/label';
 import { useSearchParams } from 'next/navigation';
 
-const contactSchema = z.object({
-  name: z.string().min(1, 'Please enter your name.'),
-  email: z.string().email('Please enter a valid email address.'),
-  subject: z.string().min(1, 'Please enter a subject.'),
-  message: z.string().min(10, 'Please provide a more detailed message.'),
-  photo: z.any().optional(),
-});
-
-type ContactFormValues = z.infer<typeof contactSchema>;
-
 function ContactFormComponent() {
   const { t } = useTranslation('contact');
   const { toast } = useToast();
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const searchParams = useSearchParams();
+
+  // Messaggi di validazione localizzati (zod accetta messaggi dinamici).
+  const contactSchema = z.object({
+    name: z.string().min(1, t('validation.name')),
+    email: z.string().email(t('validation.email')),
+    subject: z.string().min(1, t('validation.subject')),
+    message: z.string().min(10, t('validation.message')),
+    photo: z.any().optional(),
+  });
+
+  type ContactFormValues = z.infer<typeof contactSchema>;
   
   const { register, handleSubmit, formState: { errors, isSubmitting }, watch, setValue, reset } = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
@@ -86,21 +87,21 @@ function ContactFormComponent() {
 
       if ((result.message ?? '').includes('success')) {
         toast({
-          title: "Email di conferma inviata",
-          description: "Abbiamo inviato un riepilogo della tua richiesta alla tua casella di posta.",
+          title: t('toast.successTitle'),
+          description: t('toast.successDesc'),
         });
         reset();
       } else {
         toast({
-          title: "Errore",
-          description: result.message || "Non è stato possibile inviare l'email di conferma.",
+          title: t('toast.errorTitle'),
+          description: result.message || t('toast.errorSend'),
           variant: 'destructive',
         });
       }
     } catch (error) {
        toast({
-        title: "Errore",
-        description: "Si è verificato un problema imprevisto.",
+        title: t('toast.errorTitle'),
+        description: t('toast.errorUnexpected'),
         variant: 'destructive',
       });
     }

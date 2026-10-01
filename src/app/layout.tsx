@@ -4,6 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { LanguageProvider } from '@/context/language-context';
+import { MotionProvider } from '@/components/motion-provider';
 import { SkipLink } from '@/components/skip-link';
 import './globals.css';
 import { ShareDialog } from '@/components/share/share-dialog';
@@ -206,6 +207,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased">
+        <MotionProvider>
         <LanguageProvider>
             <SkipLink />
             <div className="flex min-h-screen flex-col overflow-x-clip">
@@ -218,6 +220,7 @@ export default function RootLayout({
             </div>
             <Toaster />
         </LanguageProvider>
+        </MotionProvider>
       </body>
     </html>
   );

@@ -115,7 +115,7 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
                   >
                      {item.imageUrl ? (
                         <div className="relative w-10 h-10 mb-2">
-                            <Image src={item.imageUrl} alt={getItemLabel(item)} fill className="object-contain" />
+                            <Image src={item.imageUrl} alt={getItemLabel(item)} fill sizes="40px" className="object-contain" />
                         </div>
                     ) : item.color ? (
                         <div className="w-10 h-10 mb-2 flex items-center justify-center">
@@ -313,7 +313,7 @@ function OrderFormClient() {
                   <div className="space-y-2">
                       <Label>{t('form.aiImage.label')}</Label>
                       <div className="relative w-40 h-40 rounded-md overflow-hidden border">
-                      <Image src={aiImageUrl} alt={t('form.aiImage.alt')} fill className="object-cover" />
+                      <Image src={aiImageUrl} alt={t('form.aiImage.alt')} fill sizes="160px" className="object-cover" />
                       <Button
                           type="button"
                           variant="destructive"

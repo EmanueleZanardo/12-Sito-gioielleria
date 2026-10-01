@@ -24,6 +24,7 @@ export default function AboutPage() {
                 src="https://i.postimg.cc/LXdq3QbJ/su-misura.jpg"
                 alt={t('artisanAlt')}
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
           </div>

@@ -125,43 +125,6 @@ export default function RootLayout({
         ],
       },
       {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'Come posso ottenere un preventivo per un gioiello su misura?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Compila il modulo di contatto o il modulo d\u2019ordine personalizzato: ti risponderemo con preventivo e tempistiche senza impegno.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Quali materiali utilizzate?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Realizziamo i gioielli a mano in oro 18kt, con diamanti e pietre preziose selezionate.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Che servizi offrite oltre alla creazione su misura?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Messa in misura di anelli e bracciali, restauro e modifica di gioielli vintage, rimessa a nuovo completa di ogni tipo di gioiello, cambio pila orologi e restauro bracciali orologi.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Come funziona l\u2019ordine di un gioiello personalizzato?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Scegli il tuo gioiello o disegna un pezzo unico, inviaci la richiesta tramite modulo, dopo la conferma viene realizzato a mano nel nostro laboratorio e ti aggiorniamo fino alla consegna del pezzo finito.',
-            },
-          },
-        ],
-      },
-      {
         '@type': 'BreadcrumbList',
         itemListElement: [
           {

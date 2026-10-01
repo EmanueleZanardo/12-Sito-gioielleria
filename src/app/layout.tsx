@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { Montserrat } from 'next/font/google';
 import { Toaster } from '@/components/ui/toaster';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
@@ -6,6 +7,18 @@ import { LanguageProvider } from '@/context/language-context';
 import { SkipLink } from '@/components/skip-link';
 import './globals.css';
 import { ShareDialog } from '@/components/share/share-dialog';
+
+// Montserrat self-hosted via next/font: elimina la <link> render-blocking
+// verso fonts.googleapis.com (e risolve il warning eslint no-page-custom-font).
+// display=swap per evitare FOIT; i font Belleza/Lora non erano usati da
+// nessun componente (solo Montserrat in tailwind fontFamily), quindi non
+// vengono più caricati.
+const montserrat = Montserrat({
+  subsets: ['latin', 'latin-ext'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-montserrat',
+});
 
 export const viewport: Viewport = {
   // Il sito è sempre dark (className="dark" su <html>): color-scheme dark
@@ -185,12 +198,8 @@ export default function RootLayout({
     ],
   };
   return (
-    <html lang="it" className="dark">
+    <html lang="it" className={`${montserrat.variable} dark`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://i.postimg.cc" />
-        <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

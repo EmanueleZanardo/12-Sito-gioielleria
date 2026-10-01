@@ -67,12 +67,12 @@ export default function CustomJewelPage() {
           <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold">
             <Link href="/custom-jewel/order-form">
               {t('v2.hero.ctaOrder')}
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight aria-hidden="true" className="ml-2 h-5 w-5" />
             </Link>
           </Button>
           <Button asChild size="lg" variant="outline" className="font-bold">
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="mr-2 h-5 w-5" />
+              <MessageCircle aria-hidden="true" className="mr-2 h-5 w-5" />
               {t('v2.hero.ctaWhatsapp')}
             </a>
           </Button>
@@ -185,18 +185,18 @@ export default function CustomJewelPage() {
               <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold">
                 <Link href="/custom-jewel/order-form">
                   {t('v2.cta.buttonOrder')}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight aria-hidden="true" className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="font-bold">
                 <a href={PHONE_TEL}>
-                  <Phone className="mr-2 h-5 w-5" />
+                  <Phone aria-hidden="true" className="mr-2 h-5 w-5" />
                   {t('v2.cta.buttonPhone')}
                 </a>
               </Button>
             </div>
             <p className="text-sm text-muted-foreground mt-6 flex items-center justify-center gap-2">
-              <Check className="h-4 w-4 text-primary" />
+              <Check aria-hidden="true" className="h-4 w-4 text-primary" />
               {t('v2.cta.note')}
             </p>
           </CardContent>

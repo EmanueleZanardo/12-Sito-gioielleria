@@ -28,7 +28,7 @@ export function Footer() {
           </p>
           <div className="flex justify-center space-x-6 my-6">
             <Link href="https://www.instagram.com/gdc_jewellery_lab?igsh=MWY1azQ2ejRwODN2Mg==" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-foreground/60 hover:text-primary">
-              <Instagram className="h-6 w-6" />
+              <Instagram aria-hidden="true" className="h-6 w-6" />
               <span>@gdc_jewellery_lab</span>
             </Link>
           </div>

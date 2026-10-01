@@ -323,7 +323,7 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
                           onClick={clearAiImage}
                           aria-label={t('form.photo.remove')}
                       >
-                          <X className="h-4 w-4" />
+                          <X aria-hidden="true" className="h-4 w-4" />
                       </Button>
                       </div>
                       <p className="text-xs text-muted-foreground">{t('form.aiImage.description')}</p>
@@ -365,7 +365,7 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
                       onClick={removePhoto}
                       aria-label={t('form.photo.remove')}
                       >
-                      <X className="h-4 w-4" />
+                      <X aria-hidden="true" className="h-4 w-4" />
                       </Button>
                   </div>
                   </div>
@@ -386,7 +386,7 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
               </div>
               </div>
               <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-lg py-6" disabled={isSubmitting}>
-                  {isSubmitting ? <Loader2 className="animate-spin" /> : t('form.submit')}
+                  {isSubmitting ? <Loader2 aria-hidden="true" className="animate-spin" /> : t('form.submit')}
               </Button>
             </div>
         </form>

@@ -103,7 +103,7 @@ export default function CollectionsPage() {
                     />
                   ) : (
                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-primary/20 via-card to-card p-8 text-center">
-                      <Sparkles className="h-12 w-12 text-primary mb-4" />
+                      <Sparkles aria-hidden="true" className="h-12 w-12 text-primary mb-4" />
                       <p className="font-headline text-lg text-foreground/80">
                         {t(`${collection.id}.tagline`)}
                       </p>
@@ -118,7 +118,7 @@ export default function CollectionsPage() {
                         </span>
                       ) : (
                         <span className="inline-flex items-center gap-1.5">
-                          <Sparkles className="h-3.5 w-3.5" />
+                          <Sparkles aria-hidden="true" className="h-3.5 w-3.5" />
                           {t('madeToOrder')}
                         </span>
                       )}
@@ -141,7 +141,7 @@ export default function CollectionsPage() {
                     <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 w-full">
                       <Link href={orderHref}>
                         {collection.imageUrl ? t('requestSimilar') : t('designTogether')}
-                        <ArrowRight className="h-4 w-4 ml-2" />
+                        <ArrowRight aria-hidden="true" className="h-4 w-4 ml-2" />
                       </Link>
                     </Button>
                     {collection.pieces.length > 0 && (
@@ -160,7 +160,7 @@ export default function CollectionsPage() {
       {/* Banner finale su misura */}
       <section className="container mx-auto px-4 pb-16 md:pb-24">
         <div className="relative overflow-hidden rounded-lg bg-primary/10 border border-primary/20 px-6 py-12 md:py-16 text-center">
-          <Sparkles className="h-10 w-10 text-primary mx-auto mb-4" />
+          <Sparkles aria-hidden="true" className="h-10 w-10 text-primary mx-auto mb-4" />
           <h2 className="font-headline text-2xl md:text-4xl text-foreground">
             {t('banner.title')}
           </h2>
@@ -170,7 +170,7 @@ export default function CollectionsPage() {
           <Button asChild size="lg" className="mt-8 bg-primary text-primary-foreground hover:bg-primary/90">
             <Link href="/custom-jewel/order-form">
               {t('banner.cta')}
-              <ArrowRight className="h-4 w-4 ml-2" />
+              <ArrowRight aria-hidden="true" className="h-4 w-4 ml-2" />
             </Link>
           </Button>
         </div>

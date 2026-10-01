@@ -190,7 +190,7 @@ export default function Home() {
                       <span className="font-headline text-lg md:text-xl font-bold text-white">
                         {tCol(`${item.key}.name`)}
                       </span>
-                      <ArrowRight className="h-5 w-5 text-white transition-transform duration-300 group-hover:translate-x-1" />
+                      <ArrowRight aria-hidden="true" className="h-5 w-5 text-white transition-transform duration-300 group-hover:translate-x-1" />
                     </div>
                   </Link>
                 </motion.div>
@@ -200,7 +200,7 @@ export default function Home() {
               <Button asChild variant="outline" size="lg">
                 <Link href="/collections">
                   {tCol('teaser.viewAll')}
-                  <ArrowRight className="h-4 w-4 ml-2" />
+                  <ArrowRight aria-hidden="true" className="h-4 w-4 ml-2" />
                 </Link>
               </Button>
             </div>
@@ -221,7 +221,7 @@ export default function Home() {
               <ul className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8 text-base font-medium text-foreground/90">
                 {['p1', 'p2', 'p3'].map((k) => (
                   <li key={k} className="flex items-center gap-2">
-                    <Check className="h-5 w-5 text-primary shrink-0" />
+                    <Check aria-hidden="true" className="h-5 w-5 text-primary shrink-0" />
                     {t(`customJewel.${k}`)}
                   </li>
                 ))}
@@ -234,12 +234,12 @@ export default function Home() {
                 >
                   <Link href="/custom-jewel/order-form">
                     {t('customJewel.buttonOrder')}
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    <ArrowRight aria-hidden="true" className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="font-bold">
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="mr-2 h-5 w-5" />
+                    <MessageCircle aria-hidden="true" className="mr-2 h-5 w-5" />
                     {t('customJewel.buttonWhatsapp')}
                   </a>
                 </Button>

@@ -34,7 +34,7 @@ export default function ServicesPage() {
           <Card className="w-full max-w-2xl bg-card">
             <CardHeader>
               <CardTitle className="flex items-center gap-3 font-headline text-2xl">
-                <Settings className="h-6 w-6 text-primary" />
+                <Settings aria-hidden="true" className="h-6 w-6 text-primary" />
                 {t('listTitle')}
               </CardTitle>
             </CardHeader>
@@ -42,7 +42,7 @@ export default function ServicesPage() {
               <ul className="space-y-4">
                 {serviceList.map((serviceKey) => (
                   <li key={serviceKey} className="flex items-start">
-                    <Check className="h-5 w-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <Check aria-hidden="true" className="h-5 w-5 text-primary mt-1 mr-3 flex-shrink-0" />
                     <span className="text-foreground/90">{t(`serviceList.${serviceKey}`)}</span>
                   </li>
                 ))}

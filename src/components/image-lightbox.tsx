@@ -201,7 +201,7 @@ export function ImageLightbox({
           className="absolute top-4 right-4 z-[101] text-foreground bg-background/50 rounded-full p-2 hover:bg-card transition-colors"
           aria-label={tLb('close')}
         >
-          <X className="h-6 w-6" />
+          <X aria-hidden="true" className="h-6 w-6" />
         </button>
         {total > 1 && (
           <button
@@ -209,7 +209,7 @@ export function ImageLightbox({
             className="absolute left-4 top-1/2 -translate-y-1/2 z-[101] text-foreground bg-background/50 rounded-full p-2 hover:bg-card transition-colors"
             aria-label={tLb('previous')}
           >
-            <ChevronLeft className="h-6 w-6" />
+            <ChevronLeft aria-hidden="true" className="h-6 w-6" />
           </button>
         )}
         {total > 1 && (
@@ -218,7 +218,7 @@ export function ImageLightbox({
             className="absolute right-4 top-1/2 -translate-y-1/2 z-[101] text-foreground bg-background/50 rounded-full p-2 hover:bg-card transition-colors"
             aria-label={tLb('next')}
           >
-            <ChevronRight className="h-6 w-6" />
+            <ChevronRight aria-hidden="true" className="h-6 w-6" />
           </button>
         )}
       </motion.div>

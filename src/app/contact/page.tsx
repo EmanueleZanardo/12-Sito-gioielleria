@@ -136,14 +136,14 @@ function ContactFormComponent() {
                 </a>
               </div>
               <div className="flex items-center gap-4">
-                <Phone className="h-6 w-6 text-primary" />
+                <Phone aria-hidden="true" className="h-6 w-6 text-primary" />
                 <a href="tel:+393451114337" className="text-foreground/80 hover:text-primary">
                   345 111 4337
                 </a>
               </div>
               <div className="flex items-center gap-4 pt-4">
                   <Link href="https://www.instagram.com/gdc_jewellery_lab?igsh=MWY1azQ2ejRwODN2Mg==" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/80 hover:text-primary">
-                    <Instagram className="h-6 w-6" />
+                    <Instagram aria-hidden="true" className="h-6 w-6" />
                     <span>@gdc_jewellery_lab</span>
                   </Link>
               </div>
@@ -209,13 +209,13 @@ function ContactFormComponent() {
                         onClick={removePhoto}
                         aria-label={t('form.photo.remove')}
                       >
-                        <X className="h-4 w-4" />
+                        <X aria-hidden="true" className="h-4 w-4" />
                       </Button>
                     </div>
                   </div>
                 )}
                  <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90" disabled={isSubmitting}>
-                  {isSubmitting ? <Loader2 className="animate-spin" /> : t('form.submit')}
+                  {isSubmitting ? <Loader2 aria-hidden="true" className="animate-spin" /> : t('form.submit')}
                 </Button>
               </form>
           </CardContent>

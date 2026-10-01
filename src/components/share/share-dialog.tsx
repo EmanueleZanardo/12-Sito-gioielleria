@@ -102,7 +102,7 @@ export function ShareDialog({ className, size = 'icon', ...props }: ShareDialogP
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="outline" size={size} className={cn("backdrop-blur-sm", className)} {...props}>
-          <Share2 />
+          <Share2 aria-hidden="true" />
           <span className="sr-only">{t('share.button')}</span>
         </Button>
       </DialogTrigger>
@@ -122,7 +122,7 @@ export function ShareDialog({ className, size = 'icon', ...props }: ShareDialogP
           </div>
           <Button type="button" size="sm" className="px-3" onClick={copyToClipboard}>
             <span className="sr-only">{t('share.copy')}</span>
-            <Copy className="h-4 w-4" />
+            <Copy aria-hidden="true" className="h-4 w-4" />
           </Button>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
@@ -134,7 +134,7 @@ export function ShareDialog({ className, size = 'icon', ...props }: ShareDialogP
                 rel="noopener noreferrer"
                 className={`flex flex-col items-center justify-center space-y-2 p-3 rounded-lg transition-colors hover:bg-secondary ${option.color}`}
             >
-                <option.Icon className="h-8 w-8" />
+                <option.Icon aria-hidden="true" className="h-8 w-8" />
                 <span className="text-xs font-medium text-foreground">{option.name}</span>
             </a>
             ))}

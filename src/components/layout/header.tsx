@@ -129,7 +129,7 @@ export function Header() {
                 <DropdownMenuTrigger asChild>
                    <Button variant="ghost" size="sm" aria-label={t('nav.language')} className="flex items-center gap-1 text-sm bg-transparent border-none">
                     {language.toUpperCase()}
-                    <ChevronDown className="h-4 w-4" />
+                    <ChevronDown aria-hidden="true" className="h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
@@ -148,7 +148,7 @@ export function Header() {
                 </DropdownMenuContent>
               </DropdownMenu>
               <a href="https://www.instagram.com/gdc_jewellery_lab?igsh=MWY1azQ2ejRwODN2Mg==" aria-label={t('nav.instagram')} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary">
-                <Instagram className="h-5 w-5" />
+                <Instagram aria-hidden="true" className="h-5 w-5" />
               </a>
             </div>
 
@@ -156,7 +156,7 @@ export function Header() {
                 <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                     <SheetTrigger asChild>
                     <Button variant="ghost" size="icon">
-                        <Menu className="h-6 w-6" />
+                        <Menu aria-hidden="true" className="h-6 w-6" />
                         <span className="sr-only">{t('nav.openMenu')}</span>
                     </Button>
                     </SheetTrigger>
@@ -197,7 +197,7 @@ export function Header() {
                               <DropdownMenuTrigger asChild>
                                 <Button variant="ghost" aria-label={t('nav.language')} className="flex items-center gap-2 text-lg">
                                   {language.toUpperCase()}
-                                  <ChevronDown className="h-5 w-5" />
+                                  <ChevronDown aria-hidden="true" className="h-5 w-5" />
                                 </Button>
                               </DropdownMenuTrigger>
                               <DropdownMenuContent>
@@ -216,7 +216,7 @@ export function Header() {
                               </DropdownMenuContent>
                             </DropdownMenu>
                             <a href="https://www.instagram.com/gdc_jewellery_lab?igsh=MWY1azQ2ejRwODN2Mg==" aria-label={t('nav.instagram')} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary">
-                                <Instagram className="h-6 w-6" />
+                                <Instagram aria-hidden="true" className="h-6 w-6" />
                             </a>
                         </div>
                     </div>

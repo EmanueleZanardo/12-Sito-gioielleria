@@ -50,7 +50,16 @@
     },
     "gallery": {
       "title": "Gallery",
-      "subtitle": "Each creation is a unique piece, forged with passion and mastery."
+      "subtitle": "Each creation is a unique piece, forged with passion and mastery.",
+      "descriptions": {
+        "group_001": "Sterling silver chain and pendant with a raw quartz point — handmade setting",
+        "group_002": "Necklace with an 18k gold pendant and a heart-cut ruby",
+        "group_003": "Sterling silver ring with an Ethiopian opal in cabochon cut",
+        "group_004": "Necklace with a sterling silver pendant and a quartz slice with chlorite inclusions",
+        "group_005": "Sterling silver band with a hand-carved finish",
+        "group_006": "18k gold ring with a pear-cut sapphire — hand-satinated engraving",
+        "group_007": "18k gold wedding rings with a hand-hammered finish"
+      }
     },
     "cta": {
       "title": "Have an idea?",
@@ -147,39 +156,23 @@
       "subject": "Inquiry about {{jewelryName}}",
       "message": "Hello, I would like more information about the {{jewelryName}} piece."
     },
-    "loading": "Loading…"
+    "loading": "Loading…",
+    "toast": {
+      "successTitle": "Confirmation email sent",
+      "successDesc": "We've sent a summary of your request to your inbox.",
+      "errorTitle": "Error",
+      "errorSend": "The confirmation email could not be sent.",
+      "errorUnexpected": "An unexpected problem occurred."
+    },
+    "validation": {
+      "name": "Please enter your name.",
+      "email": "Please enter a valid email address.",
+      "subject": "Please enter a subject.",
+      "message": "Please provide a more detailed message (minimum 10 characters)."
+    }
   },
   "customJewel": {
-    "title": "Create Your Custom Jewel",
-    "subtitle": "Choose how to bring your vision to life. Use our AI assistant to visualize your ideas, or fill out the form to collaborate directly with our artisans.",
     "loading": "Loading…",
-    "selection": {
-      "aiGenerator": {
-        "title": "Create with AI",
-        "description": "Turn your ideas into images. Describe your ideal jewel and let the AI show you a preview."
-      },
-      "orderForm": {
-        "title": "Custom Order Form",
-        "description": "Already have a clear idea? Fill out the form to send the details to our artisans and get a quote."
-      },
-      "comingSoon": "Coming Soon"
-    },
-    "imageGenerator": {
-      "title": "AI Image Generator",
-      "pageSubtitle": "Don't just imagine it, see it. Describe the jewelry you want to create, and our AI will visualize it for you.",
-      "description": "Describe the jewelry you want to create.",
-      "placeholder": "e.g., 'a delicate gold necklace with a single pearl pendant'",
-      "button": "Generate Image",
-      "orderButton": "Order This Design",
-      "error": {
-        "title": "Error",
-        "description": "Please describe the image to generate.",
-        "apiTitle": "AI Image Generation Error",
-        "apiDescription": "Sorry, we couldn't generate an image at this time. Please try again."
-      },
-      "generatedImageTitle": "Generated Image",
-      "generatedImageAlt": "AI generated jewelry"
-    },
     "form": {
       "title": "Custom Order Form",
       "pageSubtitle": "Fill out the fields below to send your custom jewelry request directly to our artisans. We will contact you shortly.",
@@ -255,6 +248,23 @@
       "toast": {
         "title": "Request Submitted!",
         "description": "Thank you! We will review your custom jewelry request and contact you shortly."
+      },
+      "confirmation": {
+        "title": "Confirmation email sent",
+        "description": "We've sent a summary of your request to your inbox."
+      },
+      "errorTitle": "Error",
+      "errorSend": "There was a problem sending your request.",
+      "errorUnexpected": "An unexpected problem occurred.",
+      "emailSubject": "Custom Order Request",
+      "aiPromptLabel": "Original AI prompt",
+      "aiImageLabel": "AI-generated image",
+      "validation": {
+        "jewelryType": "Please select a jewelry type.",
+        "materials": "You have to select at least one material.",
+        "description": "Please provide a more detailed description (minimum 10 characters).",
+        "name": "Please enter your name.",
+        "email": "Please enter a valid email address."
       }
     },
     "v2": {

@@ -98,6 +98,10 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 flex flex-col items-center space-y-6 px-4">
+          {/* h1 nascosto visivamente: la hero usa il logo come brand, ma la
+              pagina deve avere un h1 descrittivo per SEO e screen reader.
+              "Galleria" sotto diventa h2 per mantenere la gerarchia. */}
+          <h1 className="sr-only">GDC Jewellery Lab — {t('hero.subtitle')}</h1>
           <div className="relative h-64 w-full max-w-[360px] md:h-80 md:w-[640px] md:max-w-none">
             <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt="GDC Jewellery Lab Logo" fill sizes="(max-width: 768px) 360px, 640px" priority className="object-contain" />
           </div>
@@ -119,9 +123,9 @@ export default function Home() {
       <section id="gallery" className="scroll-mt-16">
         <div className="container mx-auto px-4 py-16 md:py-24">
           <div className="text-center mb-12">
-            <h1 className="font-headline text-3xl md:text-5xl text-foreground drop-shadow-md">
+            <h2 className="font-headline text-3xl md:text-5xl text-foreground drop-shadow-md">
               {t('gallery.title')}
-            </h1>
+            </h2>
             <p className="text-lg text-foreground/80 mt-2 max-w-2xl mx-auto drop-shadow-sm">
               {t('gallery.subtitle')}
             </p>

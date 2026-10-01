@@ -152,6 +152,7 @@
   "customJewel": {
     "title": "Erstellen Sie Ihr individuelles Schmuckstück",
     "subtitle": "Wählen Sie, wie Sie Ihre Vision zum Leben erwecken möchten. Nutzen Sie unseren KI-Assistenten, um Ihre Ideen zu visualisieren, oder füllen Sie das Formular aus, um direkt mit unseren Handwerkern zusammenzuarbeiten.",
+    "loading": "Wird geladen…",
     "selection": {
       "aiGenerator": {
         "title": "Mit KI erstellen",

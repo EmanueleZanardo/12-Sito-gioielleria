@@ -65,6 +65,7 @@ export const metadata: Metadata = {
     siteName: 'GDC Jewellery Lab',
     type: 'website',
     locale: 'it_IT',
+    alternateLocale: ['en_US', 'fr_FR', 'de_DE'],
     images: [
       {
         url: '/og-cover.jpg',

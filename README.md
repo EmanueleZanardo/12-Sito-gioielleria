@@ -1,11 +1,45 @@
 # GDC Jewellery Lab — Sito
 
 Sito vetrina del laboratorio orafo GDC (Ticino, CH). App **Next.js 14** (App Router),
-i18n IT/EN/FR/DE, form di contatto con invio email via Gmail SMTP.
+i18n IT/EN/FR/DE, galleria collezioni, form di contatto e modulo ordine personalizzato
+con invio email via Gmail SMTP.
 
-Migrato fuori da Firebase: nessun servizio Firebase/Genkit è più in uso
-(`apphosting.yaml` rimosso, nessuna dipendenza `firebase`/`genkit`).
-Il sito originale su Firebase resta acceso ma non viene più toccato.
+Sito live: https://gdc-jewellery-lab.vercel.app/
+
+Migrato fuori da Firebase (29/09/2026): nessun servizio Firebase/Genkit è più in uso.
+Il sito originale su Firebase resta acceso ma **non viene toccato** finché Vercel non è stabile.
+
+## Pagine
+
+- `/` — Home: hero, galleria (21 creazioni in 7 gruppi), teaser collezioni, fascia "su misura"
+- `/collections` — Le Collezioni: Anelli, Collane e Pendenti, Fedi (con pezzi in galleria) + Orecchini e Bracciali (solo su misura, ancora senza scatti)
+- `/custom-jewel` — Crea il tuo gioiello: come funziona, perché su misura, FAQ, CTA preventivo/WhatsApp
+- `/custom-jewel/order-form` — Modulo ordine personalizzato (tipo, materiali, pietre, descrizione, foto, contatti)
+- `/orders` — Come ordinare (4 passi)
+- `/services` — Servizi: design su misura, messa in misura, restauro, rimessa a nuovo, orologi
+- `/about` — Chi siamo
+- `/contact` — Contatti + form con allegato immagine e email di conferma automatica
+
+## Contenuti (i18n)
+
+Tutti i testi sono in `src/locales/{it,en,fr,de}.json` (stesso set di chiavi nelle 4 lingue).
+- Descrizioni galleria: `home.gallery.descriptions.<group_id>` (per lingua).
+- Dati galleria (immagini, gruppi): `src/lib/data.ts`.
+- Dati modulo ordine (tipi, materiali, pietre): `src/lib/order-form-data.ts`.
+
+Regole editoriali (preferenze registrate):
+- Niente riflessi di luce sul diamante nelle immagini (foto e video).
+- Mai il nome del titolare nei contenuti pubblici.
+- I prompt per immagini/video generati si preparano solo come **bozze da approvare** — mai generare senza via libera. Vedi `docs/PROPOSTE-CONTENUTI.md`.
+
+## Documentazione
+
+- `docs/PROPOSTE-CONTENUTI.md` — copy galleria, bozze prompt immagini/video (⏳ da approvare, non generare), note operative asset.
+- `docs/GLOSSARIO-TERMINOLOGIA.md` — terminologia gioielleria it/en/fr/de per traduzioni coerenti.
+- `docs/blueprint.md` — architettura e stato attuale del sito (aggiornato post-Firebase).
+- `STATUS.md` — stato operativo, QA, blocchi.
+- `COME_CONFIGURARE_DOMINIO.md` — collegare un dominio personalizzato via Vercel.
+- `COME_FARE_UN_BACKUP.md` — come fare un backup del progetto.
 
 ## Sviluppo locale
 

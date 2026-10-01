@@ -44,7 +44,10 @@ export default function Home() {
 
   const allProducts = orderedProducts.map(product => ({
     ...product,
-    groupName: t(`collections.${product.groupInfo.id}.name`)
+    groupName: t(`collections.${product.groupInfo.id}.name`),
+    // Descrizione localizzata (home.gallery.descriptions): la caption della
+    // galleria segue la lingua attiva invece di restare sempre in italiano.
+    description: t(`gallery.descriptions.${product.groupInfo.id}`)
   }));
 
   const handleImageClick = (product: ProductImage) => {

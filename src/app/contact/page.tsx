@@ -137,7 +137,7 @@ function ContactFormComponent() {
               <div className="flex items-center gap-4">
                 <Phone className="h-6 w-6 text-primary" />
                 <a href="tel:+393451114337" className="text-foreground/80 hover:text-primary">
-                  345 1114337
+                  345 111 4337
                 </a>
               </div>
               <div className="flex items-center gap-4 pt-4">

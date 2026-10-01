@@ -320,7 +320,7 @@
         "title": "Your idea deserves to become a jewel",
         "subtitle": "Fill out the form in a few minutes: we’ll get back to you with a free, no-obligation quote.",
         "buttonOrder": "Start your project",
-        "buttonPhone": "Call us: 345 1114337",
+        "buttonPhone": "Call us: 345 111 4337",
         "note": "Prefer to talk? Call us or message us on WhatsApp: we usually reply within 24 hours."
       }
     }
@@ -417,5 +417,11 @@
       "viewAll": "Discover all collections"
     },
     "prefillPrompt": "I would like a piece similar to «{{name}}» seen on the Collections page. I would love to adapt it to my taste."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "It looks like this page does not exist or has been moved. Go back home or browse our collections.",
+    "backHome": "Back to home",
+    "browseCollections": "Browse the collections"
   }
 }

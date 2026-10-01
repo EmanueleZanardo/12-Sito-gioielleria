@@ -320,7 +320,7 @@
         "title": "Ihre Idee verdient es, ein Schmuckstück zu werden",
         "subtitle": "Füllen Sie das Formular in wenigen Minuten aus: Wir melden uns mit einem kostenlosen, unverbindlichen Kostenvoranschlag.",
         "buttonOrder": "Starten Sie Ihr Projekt",
-        "buttonPhone": "Rufen Sie uns an: 345 1114337",
+        "buttonPhone": "Rufen Sie uns an: 345 111 4337",
         "note": "Lieber persönlich sprechen? Rufen Sie uns an oder schreiben Sie uns auf WhatsApp: Wir antworten in der Regel innerhalb von 24 Stunden."
       }
     }
@@ -417,5 +417,11 @@
       "viewAll": "Alle Kollektionen entdecken"
     },
     "prefillPrompt": "Ich hätte gerne ein ähnliches Stück wie „{{name}}“ von der Kollektionsseite. Ich würde es gerne an meinen Geschmack anpassen."
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Diese Seite scheint nicht zu existieren oder wurde verschoben. Kehren Sie zur Startseite zurück oder entdecken Sie unsere Kollektionen.",
+    "backHome": "Zurück zur Startseite",
+    "browseCollections": "Kollektionen entdecken"
   }
 }

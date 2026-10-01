@@ -320,7 +320,7 @@
         "title": "La tua idea merita di diventare un gioiello",
         "subtitle": "Compila il modulo in pochi minuti: ti ricontattiamo con un preventivo gratuito e senza impegno.",
         "buttonOrder": "Inizia il tuo progetto",
-        "buttonPhone": "Chiamaci: 345 1114337",
+        "buttonPhone": "Chiamaci: 345 111 4337",
         "note": "Preferisci parlare? Chiamaci o scrivici su WhatsApp: ti risponderemo in genere entro 24 ore."
       }
     }
@@ -417,5 +417,11 @@
       "viewAll": "Scopri tutte le collezioni"
     },
     "prefillPrompt": "Vorrei un pezzo simile a «{{name}}» visto nella pagina Collezioni. Mi piacerebbe adattarlo ai miei gusti."
+  },
+  "notFound": {
+    "title": "Pagina non trovata",
+    "description": "Sembra che questa pagina non esista o sia stata spostata. Torna alla home o esplora le nostre collezioni.",
+    "backHome": "Torna alla home",
+    "browseCollections": "Esplora le collezioni"
   }
 }

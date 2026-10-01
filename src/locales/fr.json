@@ -152,6 +152,7 @@
   "customJewel": {
     "title": "Créez Votre Bijou Personnalisé",
     "subtitle": "Choisissez comment donner vie à votre vision. Utilisez notre assistant IA pour visualiser vos idées, ou remplissez le formulaire pour collaborer directement avec nos artisans.",
+    "loading": "Chargement…",
     "selection": {
       "aiGenerator": {
         "title": "Créer avec l'IA",

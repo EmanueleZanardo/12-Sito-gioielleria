@@ -50,7 +50,16 @@
     },
     "gallery": {
       "title": "Galleria",
-      "subtitle": "Ogni creazione è un pezzo unico, forgiato con passione e maestria."
+      "subtitle": "Ogni creazione è un pezzo unico, forgiato con passione e maestria.",
+      "descriptions": {
+        "group_001": "Catena e pendente in argento 925 con punta di quarzo grezzo — montatura artigianale",
+        "group_002": "Collana con pendente in oro 750 e rubino taglio cuore",
+        "group_003": "Anello in argento 925 con opale etiope taglio cabochon",
+        "group_004": "Collana con ciondolo in argento 925 e fetta di quarzo con inclusioni di clorite",
+        "group_005": "Fascia in argento 925 con finitura a intaglio, realizzata a mano",
+        "group_006": "Anello in oro 750 con zaffiro taglio goccia — incisione satinata fatta a mano",
+        "group_007": "Fedi in oro 750 con finitura martellata a mano"
+      }
     },
     "cta": {
       "title": "Hai un'idea?",
@@ -147,39 +156,23 @@
       "subject": "Richiesta informazioni riguardo a {{jewelryName}}",
       "message": "Salve, vorrei maggiori informazioni riguardo al gioiello {{jewelryName}}."
     },
-    "loading": "Caricamento…"
+    "loading": "Caricamento…",
+    "toast": {
+      "successTitle": "Email di conferma inviata",
+      "successDesc": "Abbiamo inviato un riepilogo della tua richiesta alla tua casella di posta.",
+      "errorTitle": "Errore",
+      "errorSend": "Non è stato possibile inviare l'email di conferma.",
+      "errorUnexpected": "Si è verificato un problema imprevisto."
+    },
+    "validation": {
+      "name": "Inserisci il tuo nome.",
+      "email": "Inserisci un indirizzo email valido.",
+      "subject": "Inserisci un oggetto.",
+      "message": "Fornisci un messaggio più dettagliato (minimo 10 caratteri)."
+    }
   },
   "customJewel": {
-    "title": "Crea il Tuo Gioiello Personalizzato",
-    "subtitle": "Scegli come dare vita alla tua visione. Usa il nostro assistente AI per visualizzare le tue idee o compila il modulo per collaborare direttamente con i nostri artigiani.",
     "loading": "Caricamento…",
-    "selection": {
-      "aiGenerator": {
-        "title": "Crea con l'IA",
-        "description": "Trasforma le tue idee in immagini. Descrivi il tuo gioiello ideale e lascia che l'IA ti mostri un'anteprima."
-      },
-      "orderForm": {
-        "title": "Modulo Ordine Personalizzato",
-        "description": "Hai già un'idea chiara? Compila il modulo per inviare i dettagli ai nostri artigiani e ricevere un preventivo."
-      },
-      "comingSoon": "Prossimamente"
-    },
-    "imageGenerator": {
-      "title": "Generatore di Immagini AI",
-      "pageSubtitle": "Non solo immaginarlo, guardalo. Descrivi il gioiello che vuoi creare e la nostra IA lo visualizzerà per te.",
-      "description": "Descrivi il gioiello che vuoi creare.",
-      "placeholder": "es. 'una delicata collana d'oro con un unico pendente di perla'",
-      "button": "Genera Immagine",
-      "orderButton": "Ordina questo design",
-      "error": {
-        "title": "Errore",
-        "description": "Per favore, descrivi l'immagine da generare.",
-        "apiTitle": "Errore Generazione Immagine AI",
-        "apiDescription": "Spiacenti, non è stato possibile generare un'immagine in questo momento. Per favore, riprova."
-      },
-      "generatedImageTitle": "Immagine Generata",
-      "generatedImageAlt": "Gioiello generato da AI"
-    },
     "form": {
       "title": "Modulo Ordine Personalizzato",
       "pageSubtitle": "Compila i campi sottostanti per inviare la tua richiesta di gioiello personalizzato direttamente ai nostri artigiani. Ti contatteremo al più presto.",
@@ -255,6 +248,23 @@
       "toast": {
         "title": "Richiesta Inviata!",
         "description": "Grazie! Esamineremo la tua richiesta di gioiello personalizzato e ti contatteremo a breve."
+      },
+      "confirmation": {
+        "title": "Email di conferma inviata",
+        "description": "Abbiamo inviato un riepilogo della tua richiesta alla tua casella di posta."
+      },
+      "errorTitle": "Errore",
+      "errorSend": "Si è verificato un problema con l'invio della richiesta.",
+      "errorUnexpected": "Si è verificato un problema imprevisto.",
+      "emailSubject": "Richiesta Ordine Personalizzato",
+      "aiPromptLabel": "Prompt AI originale",
+      "aiImageLabel": "Immagine generata da AI",
+      "validation": {
+        "jewelryType": "Seleziona un tipo di gioiello.",
+        "materials": "Seleziona almeno un materiale.",
+        "description": "Fornisci una descrizione più dettagliata (minimo 10 caratteri).",
+        "name": "Inserisci il tuo nome.",
+        "email": "Inserisci un indirizzo email valido."
       }
     },
     "v2": {

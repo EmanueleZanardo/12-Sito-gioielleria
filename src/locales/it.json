@@ -20,10 +20,10 @@
     "share": {
       "button": "Condividi lo Store",
       "title": "Condividi Questo Store",
-      "description": "Fai conoscere GDC ai tuoi amici!",
+      "description": "Condividi le creazioni GDC con chi ami.",
       "copy": "Copia link",
-      "text": "Dai un'occhiata a questo fantastico store di gioielli: {{url}}",
-      "telegramText": "Dai un'occhiata a questo fantastico store di gioielli!",
+      "text": "Scopri le creazioni di GDC Jewellery Lab — gioielli artigianali realizzati a mano, unici come le storie che raccontano: {{url}}",
+      "telegramText": "Scopri GDC Jewellery Lab: gioielli artigianali realizzati a mano, unici come le storie che raccontano.",
       "toast": {
         "copied": "Copiato!",
         "linkCopied": "Il link dello store è stato copiato negli appunti.",
@@ -100,7 +100,7 @@
     "paragraph2": "Questo episodio ha trasformato una passione in una missione. GDC non vende preziosi, ma crea sentimenti tradotti in oro e gemme preziose, opere destinate a diventare parte della vostra eredità emotiva.",
     "section1": {
       "title": "Maestria, Trasparenza e Dedizione",
-      "text": "Dopo anni di formazione e oltre 10 anni di lavoro e perfezionamento nelle tecniche orafe, ho sviluppato la mia competenza"
+      "text": "Dopo anni di formazione e oltre dieci anni di lavoro al banco orafo, ho affinato ogni tecnica fino a farne una seconda natura: dalla modellazione alla fusione, dall'incastonatura alla finitura a mano. È questa competenza — paziente, precisa, mai affrettata — che si riflette in ogni gioiello che esce dal laboratorio."
     },
     "section2": {
       "title": "Il Tuo Gioiello, La Tua Storia",
@@ -394,12 +394,12 @@
     "earrings": {
       "name": "Orecchini",
       "tagline": "Su misura per te",
-      "description": "Nessun orecchino in galleria? Nessun problema: li disegniamo insieme partendo dalle tue idee, dalle tue pietre, dal tuo stile."
+      "description": "Nessun orecchino in galleria — per ora. Sarà il tuo il primo: lo disegniamo insieme partendo dalle tue idee, dalle tue pietre, dal tuo stile."
     },
     "bracelets": {
       "name": "Bracciali",
       "tagline": "Su misura per te",
-      "description": "Nessun bracciale in galleria? Nessun problema: lo creiamo insieme partendo dalle tue idee, dai tuoi materiali, dal tuo stile."
+      "description": "Nessun bracciale in galleria — per ora. Sarà il tuo il primo: lo creiamo insieme partendo dalle tue idee, dai tuoi materiali, dal tuo stile."
     },
     "requestSimilar": "Richiedi un pezzo simile",
     "designTogether": "Disegniamolo insieme",

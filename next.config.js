@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   /* config options here */
+  poweredByHeader: false, // non esporre X-Powered-By: Next.js (igiene di sicurezza)
   images: {
     remotePatterns: [
       {

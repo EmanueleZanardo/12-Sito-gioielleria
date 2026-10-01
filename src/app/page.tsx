@@ -93,6 +93,7 @@ export default function Home() {
           alt={t('hero.alt')}
           fill
           className="object-cover object-bottom"
+          sizes="100vw"
           quality={80}
           priority
         />

@@ -38,6 +38,13 @@ const nextConfig = {
           // SAMEORIGIN (non DENY): blocca il clickjacking esterno ma lascia aperta
           // la porta a eventuali embed same-origin futuri (es. anteprime interne).
           { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          // Permissions-Policy: il sito non usa mai camera/microfono/geolocalizzazione
+          // (l'upload foto del form contatti è un <input type="file">, non getUserMedia:
+          // il file picker nativo non è governato da questo header e continua a funzionare).
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()',
+          },
         ],
       },
     ];

@@ -50,7 +50,16 @@
     },
     "gallery": {
       "title": "Galerie",
-      "subtitle": "Chaque création est une pièce unique, forgée avec passion et maîtrise."
+      "subtitle": "Chaque création est une pièce unique, forgée avec passion et maîtrise.",
+      "descriptions": {
+        "group_001": "Chaîne et pendentif en argent 925 avec pointe de quartz brut — monture artisanale",
+        "group_002": "Collier avec pendentif en or 750 et rubis taille cœur",
+        "group_003": "Bague en argent 925 avec opale d’Éthiopie taille cabochon",
+        "group_004": "Collier avec pendentif en argent 925 et tranche de quartz aux inclusions de chlorite",
+        "group_005": "Bande en argent 925 à la finition sculptée, réalisée à la main",
+        "group_006": "Bague en or 750 avec saphir taille poire — gravure satinée faite à la main",
+        "group_007": "Alliances en or 750 à la finition martelée à la main"
+      }
     },
     "cta": {
       "title": "Vous avez une idée ?",
@@ -147,39 +156,23 @@
       "subject": "Demande d'informations sur {{jewelryName}}",
       "message": "Bonjour, j'aimerais avoir plus d'informations sur le bijou {{jewelryName}}."
     },
-    "loading": "Chargement…"
+    "loading": "Chargement…",
+    "toast": {
+      "successTitle": "Email de confirmation envoyée",
+      "successDesc": "Nous avons envoyé un récapitulatif de votre demande dans votre boîte de réception.",
+      "errorTitle": "Erreur",
+      "errorSend": "L'email de confirmation n'a pas pu être envoyé.",
+      "errorUnexpected": "Un problème inattendu est survenu."
+    },
+    "validation": {
+      "name": "Veuillez saisir votre nom.",
+      "email": "Veuillez saisir une adresse email valide.",
+      "subject": "Veuillez saisir un objet.",
+      "message": "Veuillez fournir un message plus détaillé (minimum 10 caractères)."
+    }
   },
   "customJewel": {
-    "title": "Créez Votre Bijou Personnalisé",
-    "subtitle": "Choisissez comment donner vie à votre vision. Utilisez notre assistant IA pour visualiser vos idées, ou remplissez le formulaire pour collaborer directement avec nos artisans.",
     "loading": "Chargement…",
-    "selection": {
-      "aiGenerator": {
-        "title": "Créer avec l'IA",
-        "description": "Transformez vos idées en images. Décrivez votre bijou idéal et laissez l'IA vous montrer un aperçu."
-      },
-      "orderForm": {
-        "title": "Formulaire de Commande Personnalisée",
-        "description": "Vous avez déjà une idée claire ? Remplissez le formulaire pour envoyer les détails à nos artisans et obtenir un devis."
-      },
-      "comingSoon": "Bientôt disponible"
-    },
-    "imageGenerator": {
-      "title": "Générateur d'images IA",
-      "pageSubtitle": "Ne vous contentez pas de l'imaginer, visualisez-le. Décrivez le bijou que vous souhaitez créer, et notre IA le visualisera pour vous.",
-      "description": "Décrivez le bijou que vous souhaitez créer.",
-      "placeholder": "ex: 'un collier en or délicat avec un pendentif perle unique'",
-      "button": "Générer une image",
-      "orderButton": "Commander ce design",
-      "error": {
-        "title": "Erreur",
-        "description": "Veuillez décrire l'image à générer.",
-        "apiTitle": "Erreur de génération d'image IA",
-        "apiDescription": "Désolé, nous n'avons pas pu générer d'image pour le moment. Veuillez réessayer."
-      },
-      "generatedImageTitle": "Image générée",
-      "generatedImageAlt": "Bijou généré par IA"
-    },
     "form": {
       "title": "Formulaire de commande personnalisée",
       "pageSubtitle": "Remplissez les champs ci-dessous pour envoyer votre demande de bijou personnalisé directement à nos artisans. Nous vous contacterons sous peu.",
@@ -255,6 +248,23 @@
       "toast": {
         "title": "Demande soumise !",
         "description": "Merci ! Nous examinerons votre demande de bijou personnalisé et vous contacterons sous peu."
+      },
+      "confirmation": {
+        "title": "Email de confirmation envoyée",
+        "description": "Nous avons envoyé un récapitulatif de votre demande dans votre boîte de réception."
+      },
+      "errorTitle": "Erreur",
+      "errorSend": "Un problème est survenu lors de l'envoi de votre demande.",
+      "errorUnexpected": "Un problème inattendu est survenu.",
+      "emailSubject": "Demande de commande personnalisée",
+      "aiPromptLabel": "Prompt IA original",
+      "aiImageLabel": "Image générée par IA",
+      "validation": {
+        "jewelryType": "Veuillez sélectionner un type de bijou.",
+        "materials": "Veuillez sélectionner au moins un matériau.",
+        "description": "Veuillez fournir une description plus détaillée (minimum 10 caractères).",
+        "name": "Veuillez saisir votre nom.",
+        "email": "Veuillez saisir une adresse email valide."
       }
     },
     "v2": {

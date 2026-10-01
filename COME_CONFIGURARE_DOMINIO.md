@@ -1,58 +1,39 @@
-# Come Configurare un Dominio Personalizzato
+# Come Configurare un Dominio Personalizzato (Vercel)
 
-Associare un dominio personalizzato (es. `www.iltuosito.com`) al tuo progetto è un'operazione che si svolge interamente sulla console di Firebase. Ecco una guida passo dopo passo.
+Collegare un dominio personalizzato (es. `www.gdcjewels.com`) al sito si fa dalla
+dashboard di **Vercel** (il sito è migrato lì dal 29/09/2026; Firebase non è più in uso).
+Il dominio `gdcjewels.com` è già di proprietà, in un contratto IONOS separato.
 
 ---
 
 ### Prerequisiti
 
-*   **Avere un Dominio**: Devi aver già acquistato un nome di dominio da un registrar (come GoDaddy, Aruba, Namecheap, Google Domains, etc.).
-*   **Accesso al Progetto Firebase**: Devi poter accedere alla console del tuo progetto Firebase.
+*   Accesso al progetto Vercel `gdc-jewellery-lab`.
+*   Accesso al pannello del registrar dove è registrato il dominio (IONOS).
 
 ---
 
-### Procedura Dettagliata
+### Procedura
 
-1.  **Accedi alla Console di Firebase**:
-    *   Apri il tuo browser e vai su [https://console.firebase.google.com/](https://console.firebase.google.com/).
-    *   Seleziona il progetto su cui stai lavorando (quello per il tuo sito di gioielli).
+1.  **Aggiungi il dominio su Vercel**:
+    *   Apri il progetto su [vercel.com](https://vercel.com) → **Settings → Domains**.
+    *   Clicca **Add** e inserisci il dominio (es. `gdcjewels.com`, poi ripeti per `www.gdcjewels.com`).
+    *   Vercel mostra i record DNS da configurare.
 
-2.  **Vai alla Sezione Hosting**:
-    *   Nel menu a sinistra, cerca e fai clic su **Build**, poi seleziona **Hosting**.
+2.  **Configura il DNS sul registrar** (IONOS: pannello → Domini → DNS):
+    *   Per l'apice (`gdcjewels.com`): **record A** → `76.76.21.21` (IP indicato da Vercel).
+    *   Per `www`: **record CNAME** → `cname.vercel-dns.com`.
+    *   **Consiglio**: configura sia la versione con `www` che quella senza; Vercel reindirizza automaticamente una sull'altra.
 
-3.  **Aggiungi Dominio Personalizzato**:
-    *   Nella dashboard di Hosting, vedrai il dominio di default fornito da Firebase (solitamente qualcosa come `nome-progetto.web.app`).
-    *   Cerca e fai clic sul pulsante **"Aggiungi dominio personalizzato"** (o "Add custom domain").
+3.  **Attendi la verifica**:
+    *   Torna su Vercel → Settings → Domains: lo stato passa a **Valid Configuration**.
+    *   La propagazione DNS può richiedere da pochi minuti a qualche ora. Vercel emette automaticamente il **certificato SSL** (HTTPS).
 
-4.  **Inserisci il Tuo Dominio**:
-    *   Ti verrà chiesto di inserire il nome del dominio che desideri collegare (es. `www.iltuogioiello.com`).
-    *   **Consiglio**: Inizia con `www.` per configurare sia `iltuogioiello.com` che `www.iltuogioiello.com`. Firebase ti aiuterà a gestire entrambi.
-    *   Fai clic su **Continua**.
+4.  **Verifica finale**: apri `https://www.gdcjewels.com` e `https://gdcjewels.com` — entrambi devono mostrare il sito con lucchetto HTTPS.
 
-5.  **Verifica della Proprietà del Dominio**:
-    *   Questo è il passaggio più importante. Firebase deve assicurarsi che tu sia il proprietario del dominio.
-    *   Ti fornirà un **record TXT**. Si tratta di una stringa di testo (es. `google-site-verification=...`).
-    *   **Copia questo valore.**
-    *   Ora, devi andare sul sito del tuo provider di dominio (dove hai acquistato il dominio), accedere al tuo account e trovare le **impostazioni DNS** per il tuo dominio.
-    *   Aggiungi un **nuovo record di tipo TXT** e incolla il valore che hai copiato da Firebase.
-        *   **Host/Nome**: di solito puoi mettere `@` o lasciare vuoto.
-        *   **Valore/Value**: incolla la stringa di verifica di Firebase.
-    *   Salva le modifiche nel pannello DNS del tuo provider.
+---
 
-6.  **Attendi la Verifica**:
-    *   Torna alla console di Firebase e fai clic su **Verifica**.
-    *   **Attenzione**: Potrebbero volerci alcuni minuti (o in rari casi, ore) prima che le modifiche al DNS siano visibili a Firebase. Se la verifica fallisce subito, attendi un po' e riprova.
+### Note
 
-7.  **Configura i Record Finali (Puntamento)**:
-    *   Una volta che la proprietà è verificata, Firebase ti mostrerà i **record DNS finali** da aggiungere.
-    *   Si tratterà di uno o più **record di tipo A**.
-    *   Torna di nuovo alle impostazioni DNS del tuo provider di dominio.
-    *   **Elimina eventuali record A esistenti** per il tuo dominio (spesso ce n'è uno "di parcheggio" predefinito).
-    *   Aggiungi i nuovi record A forniti da Firebase. Questi record puntano il tuo dominio ai server di Google.
-
-8.  **Completamento e Propagazione**:
-    *   Una volta aggiunti i record A, torna su Firebase e completa la procedura.
-    *   Lo stato del tuo dominio personalizzato in Firebase passerà da "Verifica in corso" a "Connesso". Verrà anche emesso automaticamente un **certificato SSL** per garantire la connessione HTTPS.
-    *   Anche in questo caso, la propagazione dei record A può richiedere tempo (da pochi minuti a 24-48 ore). Durante questo periodo, il sito potrebbe non essere raggiungibile dal nuovo dominio.
-
-Una volta completato, il tuo sito sarà visibile a tutti tramite il tuo dominio personalizzato!
+*   Non serve toccare il sito Firebase originale (resta acceso ma non viene più usato).
+*   Se in futuro il dominio cambia, basta ripetere la procedura: i DNS puntano sempre a Vercel, mai al codice.

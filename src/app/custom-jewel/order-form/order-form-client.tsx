@@ -396,8 +396,29 @@ function OrderFormClient() {
 
 
 export function OrderForm() {
+  const { t } = useTranslation('customJewel');
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    // Fallback accessibile: skeleton animate-pulse + testo tradotto per
+    // screen reader, stesso pattern della pagina /contact (coerenza UX/a11y).
+    <Suspense
+      fallback={
+        <div
+          className="container mx-auto px-4 py-12 max-w-2xl"
+          aria-busy="true"
+        >
+          <div className="animate-pulse space-y-6" role="status">
+            <span className="sr-only">{t('loading')}</span>
+            <div className="h-8 w-2/3 rounded bg-muted" />
+            <div className="space-y-4">
+              <div className="h-10 rounded bg-muted" />
+              <div className="h-10 rounded bg-muted" />
+              <div className="h-10 rounded bg-muted" />
+              <div className="h-28 rounded bg-muted" />
+            </div>
+          </div>
+        </div>
+      }
+    >
       <OrderFormClient />
     </Suspense>
   )

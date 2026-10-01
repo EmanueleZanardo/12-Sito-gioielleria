@@ -152,6 +152,7 @@
   "customJewel": {
     "title": "Create Your Custom Jewel",
     "subtitle": "Choose how to bring your vision to life. Use our AI assistant to visualize your ideas, or fill out the form to collaborate directly with our artisans.",
+    "loading": "Loading…",
     "selection": {
       "aiGenerator": {
         "title": "Create with AI",

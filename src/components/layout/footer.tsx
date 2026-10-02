@@ -13,6 +13,7 @@ export function Footer() {
     { href: "/custom-jewel", label: t('nav.createJewel') },
     { href: "/services", label: t('nav.services') },
     { href: "/about", label: t('nav.about') },
+    { href: "/orders", label: t('nav.orders') },
     { href: "/contact", label: t('nav.contact') },
   ];
 

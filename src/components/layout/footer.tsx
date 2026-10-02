@@ -21,7 +21,7 @@ export function Footer() {
       <div className="container mx-auto px-6 py-8">
         <div className="flex flex-col items-center text-center">
           <Link href="/" className="flex items-center space-x-2 mb-4">
-            <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt="GDC Jewellery Lab Logo" width={186} height={75} className="object-contain" />
+            <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt={t('footer.logoAlt')} width={186} height={75} className="object-contain" />
           </Link>
           <p className="max-w-md text-muted-foreground">
             {t('footer.tagline')}

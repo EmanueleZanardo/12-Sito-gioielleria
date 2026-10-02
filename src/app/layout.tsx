@@ -119,6 +119,7 @@ export default function RootLayout({
         url: baseUrl,
         image:
           'https://gdc-jewellery-lab.vercel.app/og-cover.jpg',
+        logo: 'https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png',
         telephone: '+393451114337',
         email: 'laboratorio.ticino@gmail.com',
         priceRange: '€€',

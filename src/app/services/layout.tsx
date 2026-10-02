@@ -33,7 +33,12 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'I Nostri Servizi | GDC Jewellery Lab',
-    images: ['/og-cover.jpg'],
+    images: [
+      {
+        url: '/og-cover.jpg',
+        alt: 'GDC Jewellery Lab — Servizi orafo: restauro e riparazioni',
+      },
+    ],
   },
 };
 

@@ -23,6 +23,18 @@ const FormSchema = z.object({
   message: z.string().min(10, { message: 'Per favore, inserisci un messaggio più dettagliato.' }),
 });
 
+// I campi utente finiscono interpolati nei template HTML delle email:
+// escaping per evitare HTML injection (es. tag <img> traccianti) nelle
+// email ricevute dal laboratorio e di conferma all'utente.
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -48,6 +60,16 @@ export async function sendConfirmationEmail(prevState: State | undefined, formDa
   }
 
   const { name, email, subject, message } = validatedFields.data;
+
+  // Versioni sicure per i template HTML delle email (escape prima di
+  // convertire gli a-capo in <br>).
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
+  const safeSubject = escapeHtml(subject);
+  const safeMessage = escapeHtml(message).replace(/\n/g, '<br>');
+  const safeMessagePreview =
+    escapeHtml(message.substring(0, 200)).replace(/\n/g, '<br>') +
+    (message.length > 200 ? '...' : '');
   
   // Handle file upload separately
   const photo = formData.get('photo') as File | null;
@@ -72,14 +94,16 @@ export async function sendConfirmationEmail(prevState: State | undefined, formDa
   const labMailOptions = {
     from: process.env.GMAIL_EMAIL,
     to: 'laboratorio.ticino@gmail.com',
+    // replyTo: la risposta da Gmail va direttamente al cliente invece che a sé stessi
+    replyTo: email,
     subject: `[${requestId}] Nuova richiesta da ${name}: ${subject}`,
     html: `
       <p><strong>ID Richiesta:</strong> ${requestId}</p>
-      <p><strong>Nome:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Oggetto:</strong> ${subject}</p>
+      <p><strong>Nome:</strong> ${safeName}</p>
+      <p><strong>Email:</strong> ${safeEmail}</p>
+      <p><strong>Oggetto:</strong> ${safeSubject}</p>
       <p><strong>Messaggio:</strong></p>
-      <p>${message.replace(/\n/g, '<br>')}</p>
+      <p>${safeMessage}</p>
       ${attachments.length > 0 ? '<p><strong>Allegato presente.</strong></p>' : ''}
     `,
     attachments: attachments,
@@ -90,14 +114,14 @@ export async function sendConfirmationEmail(prevState: State | undefined, formDa
     to: email,
     subject: `Conferma della tua richiesta a GDC [${requestId}]`,
     html: `
-      <h1>Grazie per averci contattato, ${name}!</h1>
+      <h1>Grazie per averci contattato, ${safeName}!</h1>
       <p>Abbiamo ricevuto la tua richiesta e ti risponderemo il prima possibile.</p>
       <p>Il tuo ID di riferimento è: <strong>${requestId}</strong>. Conservalo per future comunicazioni.</p>
       <hr>
       <p><strong>Riepilogo della tua richiesta:</strong></p>
-      <p><strong>Oggetto:</strong> ${subject}</p>
+      <p><strong>Oggetto:</strong> ${safeSubject}</p>
       <p><strong>Messaggio:</strong></p>
-      <p>${message.substring(0, 200).replace(/\n/g, '<br>')}${message.length > 200 ? '...' : ''}</p>
+      <p>${safeMessagePreview}</p>
       <br>
       <p>Cordiali saluti,</p>
       <p><strong>GDC Jewellery Lab</strong></p>

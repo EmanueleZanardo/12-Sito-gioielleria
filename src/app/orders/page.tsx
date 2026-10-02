@@ -21,16 +21,18 @@ export default function OrdersPage() {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+        {/* Lista ordinata semantica: i passi sono sequenziali, gli screen reader
+            annunciano "elenco di 4 elementi" mantenendo l'ordine dei passi. */}
+        <ol className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto list-none p-0">
           {Array.from({ length: STEP_COUNT }, (_, i) => (
-            <div key={i} className="border rounded-lg bg-card p-6">
+            <li key={i} className="border rounded-lg bg-card p-6">
               <h2 className="font-headline text-xl text-foreground mb-2">
                 {t(`steps.${i}.title`)}
               </h2>
               <p className="text-muted-foreground">{t(`steps.${i}.text`)}</p>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
           <Button asChild size="lg">

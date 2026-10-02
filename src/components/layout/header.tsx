@@ -157,7 +157,10 @@ export function Header() {
                     <SheetTrigger asChild>
                     <Button variant="ghost" size="icon" aria-expanded={isMobileMenuOpen} aria-controls="mobile-menu">
                         <Menu aria-hidden="true" className="h-6 w-6" />
-                        <span className="sr-only">{t('nav.openMenu')}</span>
+                        {/* Etichetta coerente con aria-expanded: a menu aperto il
+                            pulsante chiude, quindi annuncia "Chiudi menu" (la chiave
+                            closeMenu esisteva già nei 4 locali ma non era usata). */}
+                        <span className="sr-only">{isMobileMenuOpen ? t('nav.closeMenu') : t('nav.openMenu')}</span>
                     </Button>
                     </SheetTrigger>
                     <SheetContent side="right" className="w-full" id="mobile-menu">

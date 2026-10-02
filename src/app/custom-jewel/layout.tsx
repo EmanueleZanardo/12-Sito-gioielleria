@@ -31,7 +31,12 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Crea il Tuo Gioiello Personalizzato | GDC Jewellery Lab',
-    images: ['/og-cover.jpg'],
+    images: [
+      {
+        url: '/og-cover.jpg',
+        alt: 'GDC Jewellery Lab — Crea il tuo gioiello su misura',
+      },
+    ],
   },
 };
 

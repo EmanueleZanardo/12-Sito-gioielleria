@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import type { ProductImage } from '@/lib/data';
 import { cn } from '@/lib/utils';
+import { ZoomIn } from 'lucide-react';
 
 interface ProductCardProps {
   product: ProductImage;
@@ -45,12 +46,13 @@ export function ProductCard({ product, groupName, onImageClick }: ProductCardPro
         sizes="(max-width: 1200px) 33vw, 25vw"
         quality={80}
       />
-      {/* Overlay scuro: su desktop appare all'hover; su dispositivi touch
-          (hover: none) e con focus da tastiera è sempre visibile perché
-          altrimenti nome/descrizione del prodotto resterebbero inaccessibili. */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 [@media(hover:none)]:opacity-100 transition-opacity duration-300" />
-      <div className="absolute bottom-0 left-0 p-4 md:p-6 text-white translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 [@media(hover:none)]:translate-y-0 [@media(hover:none)]:opacity-100 transition-all duration-300">
-        <h3 className="font-headline text-lg md:text-xl font-bold">{groupName}</h3>
+      {/* Anteprima pulita: nessuna scritta sull'immagine (su richiesta Emanuele
+          03/10). Nome e descrizione restano in aria-label e nella lightbox.
+          Su desktop l'icona lente all'hover segnala che la card si ingrandisce. */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 [@media(hover:none)]:hidden transition-opacity duration-300">
+        <span className="rounded-full bg-black/55 p-3 backdrop-blur-sm">
+          <ZoomIn aria-hidden="true" className="h-6 w-6 text-white" />
+        </span>
       </div>
     </div>
   );

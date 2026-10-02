@@ -16,7 +16,14 @@ export const metadata: Metadata = {
     description:
       'Compila il modulo d\u2019ordine: ti risponderemo con preventivo e tempistiche.',
     url: 'https://gdc-jewellery-lab.vercel.app/custom-jewel/order-form',
-    images: ['/og-cover.jpg'],
+    images: [
+      {
+        url: '/og-cover.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'GDC Jewellery Lab — Ordina il tuo gioiello personalizzato',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',

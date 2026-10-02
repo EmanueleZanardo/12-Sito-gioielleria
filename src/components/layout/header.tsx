@@ -155,12 +155,12 @@ export function Header() {
             <div className="md:hidden">
                 <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                     <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon">
+                    <Button variant="ghost" size="icon" aria-expanded={isMobileMenuOpen} aria-controls="mobile-menu">
                         <Menu aria-hidden="true" className="h-6 w-6" />
                         <span className="sr-only">{t('nav.openMenu')}</span>
                     </Button>
                     </SheetTrigger>
-                    <SheetContent side="right" className="w-full">
+                    <SheetContent side="right" className="w-full" id="mobile-menu">
                     <div className="flex flex-col h-full">
                         <SheetHeader className="p-4 border-b">
                           <SheetTitle className="sr-only">{t('nav.mainMenu')}</SheetTitle>

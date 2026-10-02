@@ -137,18 +137,13 @@ export default function CollectionsPage() {
                     {t(`${collection.id}.description`)}
                   </p>
 
-                  <div className="mt-6 flex flex-col gap-3">
+                  <div className="mt-6">
                     <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 w-full">
                       <Link href={orderHref}>
                         {collection.imageUrl ? t('requestSimilar') : t('designTogether')}
                         <ArrowRight aria-hidden="true" className="h-4 w-4 ml-2" />
                       </Link>
                     </Button>
-                    {collection.pieces.length > 0 && (
-                      <Button asChild variant="outline" className="w-full">
-                        <Link href="/#gallery">{t('viewInGallery')}</Link>
-                      </Button>
-                    )}
                   </div>
                 </div>
               </motion.article>

@@ -16,6 +16,8 @@ export const metadata: Metadata = {
     description:
       'Compila il modulo d\u2019ordine: ti risponderemo con preventivo e tempistiche.',
     url: 'https://gdc-jewellery-lab.vercel.app/custom-jewel/order-form',
+    locale: 'it_IT',
+    alternateLocale: ['en_US', 'fr_FR', 'de_DE'],
     images: [
       {
         url: '/og-cover.jpg',

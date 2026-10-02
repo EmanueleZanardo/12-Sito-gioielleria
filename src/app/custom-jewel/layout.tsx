@@ -19,7 +19,14 @@ export const metadata: Metadata = {
     description:
       'Raccontaci la tua idea: realizziamo insieme un gioiello unico fatto a mano in oro 18kt, diamanti e pietre preziose.',
     url: 'https://gdc-jewellery-lab.vercel.app/custom-jewel',
-    images: ['/og-cover.jpg'],
+    images: [
+      {
+        url: '/og-cover.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'GDC Jewellery Lab — Crea il tuo gioiello su misura',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',

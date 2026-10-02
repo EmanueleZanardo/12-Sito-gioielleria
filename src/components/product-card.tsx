@@ -40,10 +40,10 @@ export function ProductCard({ product, groupName, onImageClick }: ProductCardPro
             "object-cover transition-transform duration-300 scale-110 group-hover:scale-125",
             isProd007 ? "object-bottom" : "object-center"
         )}
-        // La griglia è columns-3 su tutti i breakpoint: ogni card occupa ~33vw
-        // sotto i 1200px. Il vecchio "(max-width: 768px) 50vw" sovrastimava e
-        // faceva scaricare immagini più grandi del necessario su mobile.
-        sizes="(max-width: 1200px) 33vw, 25vw"
+        // La griglia è columns-2 su telefono (<640px, card ~50vw) e columns-3
+        // da sm in su (~33vw sotto i 1200px): sizes aggiornato di conseguenza
+        // per scaricare immagini della risoluzione giusta.
+        sizes="(max-width: 640px) 50vw, (max-width: 1200px) 33vw, 25vw"
         quality={80}
       />
       {/* Anteprima pulita: nessuna scritta sull'immagine (su richiesta Emanuele

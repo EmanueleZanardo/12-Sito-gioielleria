@@ -161,6 +161,18 @@ export default function RootLayout({
             name: 'Contatti',
             item: `${baseUrl}/contact`,
           },
+          {
+            '@type': 'ListItem',
+            position: 6,
+            name: 'Collezioni',
+            item: `${baseUrl}/collections`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 7,
+            name: 'Come Ordinare',
+            item: `${baseUrl}/orders`,
+          },
         ],
       },
     ],

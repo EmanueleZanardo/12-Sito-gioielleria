@@ -24,7 +24,12 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Le Collezioni | GDC Jewellery Lab',
-    images: ['/og-cover.jpg'],
+    images: [
+      {
+        url: '/og-cover.jpg',
+        alt: 'GDC Jewellery Lab — Collezioni di gioielli artigianali',
+      },
+    ],
   },
 };
 

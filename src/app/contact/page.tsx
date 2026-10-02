@@ -130,7 +130,7 @@ function ContactFormComponent() {
             </CardHeader>
             <CardContent className="space-y-6 text-lg">
               <div className="flex items-center gap-4">
-                <Mail className="h-6 w-6 text-primary" />
+                <Mail aria-hidden="true" className="h-6 w-6 text-primary" />
                 <a href="mailto:laboratorio.ticino@gmail.com" className="text-foreground/80 hover:text-primary break-all">
                   laboratorio.ticino@gmail.com
                 </a>

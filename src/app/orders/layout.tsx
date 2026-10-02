@@ -12,6 +12,8 @@ export const metadata: Metadata = {
     description:
       'Ogni gioiello GDC è realizzato su misura. Ecco come funziona, passo dopo passo.',
     url: 'https://gdc-jewellery-lab.vercel.app/orders',
+    locale: 'it_IT',
+    alternateLocale: ['en_US', 'fr_FR', 'de_DE'],
     images: [
       {
         url: '/og-cover.jpg',

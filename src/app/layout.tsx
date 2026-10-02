@@ -94,7 +94,12 @@ export const metadata: Metadata = {
     title: 'GDC Jewellery Lab | Gioielli Artigianali su Misura',
     description:
       'Gioielli su misura fatti a mano in oro 18kt, diamanti e pietre preziose. Restauro, riparazioni e preventivo gratuito.',
-    images: ['/og-cover.jpg'],
+    images: [
+      {
+        url: '/og-cover.jpg',
+        alt: 'GDC Jewellery Lab — Gioielli artigianali su misura',
+      },
+    ],
   },
 };
 

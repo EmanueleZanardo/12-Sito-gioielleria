@@ -9,6 +9,11 @@ import de from '@/locales/de.json';
 
 const translations: Record<string, any> = { en, it, fr, de };
 
+// La lingua scelta dal visitatore viene ricordata tra le visite: al primo
+// mount si rilegge la preferenza salvata, ad ogni cambio si riscrive.
+// Chiave namespaced per non collidere con altri siti sullo stesso dominio.
+const LANGUAGE_STORAGE_KEY = 'gdc-jewellery-lab:language';
+
 interface LanguageContextType {
   language: string;
   setLanguage: (language: string) => void;
@@ -19,10 +24,29 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState('it');
-  
+
+  // Ripristina la lingua scelta in una visita precedente (solo client).
+  useEffect(() => {
+    try {
+      const stored = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
+      if (stored && translations[stored]) {
+        setLanguage(stored);
+      }
+    } catch {
+      // localStorage non disponibile (es. navigazione privata restrittiva):
+      // si resta sulla lingua di default senza rompere nulla.
+    }
+  }, []);
+
   useEffect(() => {
     // You can also sync this with localStorage or a user setting
     document.documentElement.lang = language;
+    try {
+      window.localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+    } catch {
+      // scrittura non disponibile: la preferenza non viene persistita,
+      // il sito continua a funzionare con la lingua corrente.
+    }
   }, [language]);
 
   const value = {

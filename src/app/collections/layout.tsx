@@ -12,6 +12,8 @@ export const metadata: Metadata = {
     description:
       'Anelli, collane, fedi, orecchini e bracciali artigianali in oro 18kt: pezzi unici già pronti o il punto di partenza per la tua creazione su misura.',
     url: 'https://gdc-jewellery-lab.vercel.app/collections',
+    locale: 'it_IT',
+    alternateLocale: ['en_US', 'fr_FR', 'de_DE'],
     images: [
       {
         url: '/og-cover.jpg',

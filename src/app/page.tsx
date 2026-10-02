@@ -107,7 +107,7 @@ export default function Home() {
               "Galleria" sotto diventa h2 per mantenere la gerarchia. */}
           <h1 className="sr-only">GDC Jewellery Lab — {t('hero.subtitle')}</h1>
           <div className="relative h-64 w-full max-w-[360px] md:h-80 md:w-[640px] md:max-w-none">
-            <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt="GDC Jewellery Lab Logo" fill sizes="(max-width: 768px) 360px, 640px" priority className="object-contain" />
+            <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt={t('hero.logoAlt')} fill sizes="(max-width: 768px) 360px, 640px" priority className="object-contain" />
           </div>
           <p className="max-w-2xl text-base md:text-xl text-stone-200">
             {t('hero.subtitle')}

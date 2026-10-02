@@ -135,7 +135,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="columns-3 gap-4 md:gap-8">
+          {/* Griglia masonry: 2 colonne su telefono (anteprime più grandi,
+              layout mobile pulito), 3 colonne da sm in su. */}
+          <div className="columns-2 sm:columns-3 gap-4 md:gap-8">
             {allProducts.map((product, index) => (
               <motion.div
                 key={product.id}

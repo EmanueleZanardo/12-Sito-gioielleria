@@ -234,9 +234,15 @@ export default function ContactPage() {
           className="container mx-auto px-4 py-12 max-w-2xl"
           aria-busy="true"
         >
+          {/* h1 reale anche nello skeleton: la pagina usa useSearchParams
+              (client-only), quindi senza heading nel fallback l'SSR servirebbe
+              ai crawler solo "Caricamento…". Testo identico a quello del form
+              reale: nessun flash, nessun mismatch di hydration. */}
+          <h1 className="font-headline text-4xl md:text-5xl text-foreground text-center mb-8">
+            {t('title')}
+          </h1>
           <div className="animate-pulse space-y-6" role="status">
             <span className="sr-only">{t('loading')}</span>
-            <div className="h-8 w-2/3 rounded bg-muted" />
             <div className="space-y-4">
               <div className="h-10 rounded bg-muted" />
               <div className="h-10 rounded bg-muted" />

@@ -24,11 +24,10 @@ const montserrat = Montserrat({
 export const viewport: Viewport = {
   // Il sito è sempre dark (className="dark" su <html>): color-scheme dark
   // allinea scrollbars e controlli nativi (input, date picker) al tema scuro.
+  // themeColor unico (niente media query): con tema di sistema chiaro la
+  // barra del browser resterebbe beige chiaro su un sito sempre scuro.
   colorScheme: 'dark',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f7f3ea' },
-    { media: '(prefers-color-scheme: dark)', color: '#0d0b08' },
-  ],
+  themeColor: '#0d0b08',
 };
 
 export const metadata: Metadata = {

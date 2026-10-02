@@ -12,7 +12,14 @@ export const metadata: Metadata = {
     description:
       'Saremmo felici di sentirti: inizia il tuo progetto personalizzato o richiedi un preventivo gratuito.',
     url: 'https://gdc-jewellery-lab.vercel.app/contact',
-    images: ['/og-cover.jpg'],
+    images: [
+      {
+        url: '/og-cover.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'GDC Jewellery Lab — Contatti e preventivo gratuito',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',

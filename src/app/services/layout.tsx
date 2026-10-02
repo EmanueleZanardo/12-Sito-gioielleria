@@ -21,6 +21,8 @@ export const metadata: Metadata = {
     description:
       'Cura e personalizzazione dei tuoi gioielli e orologi: restauro, riparazioni, messa in misura e design personalizzato.',
     url: 'https://gdc-jewellery-lab.vercel.app/services',
+    locale: 'it_IT',
+    alternateLocale: ['en_US', 'fr_FR', 'de_DE'],
     images: [
       {
         url: '/og-cover.jpg',

@@ -1,6 +1,11 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 01/10/2026 ~02:00 CEST**
+**Ultimo aggiornamento: 02/10/2026 ~02:00 CEST**
+
+## 02/10/2026 ~02:00 CEST — aggiornamento documentale giornaliero
+- QA 01/10 23:36 CEST: FAQPage JSON-LD spostato su /custom-jewel e allineato alle 5 domande visibili (SEO structured data); tsc pulito, build 14/14 exit 0.
+- **ALERT 01/10 ~20:36: deploy Vercel FERMO ~2h** — il live serviva la build pre-19:33 (header sicurezza e commit blitz non live). Da riverificare.
+- Routine contenuti Instagram `gdc_jewellery_lab` resta IN PAUSA (ordine 25/09); pubblicazione automatica NON autorizzata. Esito cancellazione storia di prova (25/09) non ancora confermato.
 
 ## Stato
 - Sito live su https://gdc-jewellery-lab.vercel.app/ (migrato fuori da Firebase il 29/09/2026).

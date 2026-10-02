@@ -12,7 +12,14 @@ export const metadata: Metadata = {
     description:
       'Una tradizione di artigianato, una passione per la perfezione. Gioielli che creano emozioni.',
     url: 'https://gdc-jewellery-lab.vercel.app/about',
-    images: ['/og-cover.jpg'],
+    images: [
+      {
+        url: '/og-cover.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'GDC Jewellery Lab — Chi siamo, laboratorio orafo artigianale',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',

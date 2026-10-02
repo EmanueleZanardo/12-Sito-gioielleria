@@ -188,13 +188,15 @@ function ContactFormComponent() {
                       type="file"
                       className="sr-only peer"
                       accept="image/*"
+                      aria-invalid={!!errors.photo}
+                      aria-describedby={errors.photo ? 'photo-error' : undefined}
                       {...photoRegister}
                       ref={(e) => {
                         photoRegisterRef(e);
                         fileInputRef.current = e;
                       }}
                   />
-                  {errors.photo && <p className="text-sm font-medium text-destructive">{errors.photo.message as string}</p>}
+                  {errors.photo && <p id="photo-error" role="alert" className="text-sm font-medium text-destructive">{errors.photo.message as string}</p>}
               </div>
 
                 {displayPhoto && (

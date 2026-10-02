@@ -1,11 +1,24 @@
 'use client';
 
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from '@/hooks/use-translation';
 
 export default function NotFound() {
   const { t } = useTranslation('notFound');
+  const pageTitle = t('title');
+
+  // La 404 eredita il <title> generico del layout: la tab del browser mostra
+  // invece un titolo specifico e localizzato ("Pagina non trovata — GDC
+  // Jewellery Lab"). Ripristinato all'uscita dalla pagina.
+  useEffect(() => {
+    const previous = document.title;
+    document.title = `${pageTitle} — GDC Jewellery Lab`;
+    return () => {
+      document.title = previous;
+    };
+  }, [pageTitle]);
 
   return (
     <div className="bg-background">

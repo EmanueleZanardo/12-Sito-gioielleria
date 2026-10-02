@@ -133,16 +133,16 @@ export function Header() {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  <DropdownMenuItem onSelect={() => setLanguage("it")}>
+                  <DropdownMenuItem onSelect={() => setLanguage("it")} aria-current={language === "it" ? "true" : undefined}>
                     IT
                   </DropdownMenuItem>
-                  <DropdownMenuItem onSelect={() => setLanguage("en")}>
+                  <DropdownMenuItem onSelect={() => setLanguage("en")} aria-current={language === "en" ? "true" : undefined}>
                     EN
                   </DropdownMenuItem>
-                  <DropdownMenuItem onSelect={() => setLanguage("fr")}>
+                  <DropdownMenuItem onSelect={() => setLanguage("fr")} aria-current={language === "fr" ? "true" : undefined}>
                     FR
                   </DropdownMenuItem>
-                  <DropdownMenuItem onSelect={() => setLanguage("de")}>
+                  <DropdownMenuItem onSelect={() => setLanguage("de")} aria-current={language === "de" ? "true" : undefined}>
                     DE
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -201,16 +201,16 @@ export function Header() {
                                 </Button>
                               </DropdownMenuTrigger>
                               <DropdownMenuContent>
-                                <DropdownMenuItem onSelect={() => {setLanguage("it"); setIsMobileMenuOpen(false);}}>
+                                <DropdownMenuItem onSelect={() => {setLanguage("it"); setIsMobileMenuOpen(false);}} aria-current={language === "it" ? "true" : undefined}>
                                   IT
                                 </DropdownMenuItem>
-                                <DropdownMenuItem onSelect={() => {setLanguage("en"); setIsMobileMenuOpen(false);}}>
+                                <DropdownMenuItem onSelect={() => {setLanguage("en"); setIsMobileMenuOpen(false);}} aria-current={language === "en" ? "true" : undefined}>
                                   EN
                                 </DropdownMenuItem>
-                                <DropdownMenuItem onSelect={() => {setLanguage("fr"); setIsMobileMenuOpen(false);}}>
+                                <DropdownMenuItem onSelect={() => {setLanguage("fr"); setIsMobileMenuOpen(false);}} aria-current={language === "fr" ? "true" : undefined}>
                                   FR
                                 </DropdownMenuItem>
-                                <DropdownMenuItem onSelect={() => {setLanguage("de"); setIsMobileMenuOpen(false);}}>
+                                <DropdownMenuItem onSelect={() => {setLanguage("de"); setIsMobileMenuOpen(false);}} aria-current={language === "de" ? "true" : undefined}>
                                   DE
                                 </DropdownMenuItem>
                               </DropdownMenuContent>

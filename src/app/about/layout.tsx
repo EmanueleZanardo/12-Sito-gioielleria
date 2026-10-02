@@ -12,6 +12,8 @@ export const metadata: Metadata = {
     description:
       'Una tradizione di artigianato, una passione per la perfezione. Gioielli che creano emozioni.',
     url: 'https://gdc-jewellery-lab.vercel.app/about',
+    locale: 'it_IT',
+    alternateLocale: ['en_US', 'fr_FR', 'de_DE'],
     images: [
       {
         url: '/og-cover.jpg',

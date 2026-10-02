@@ -346,6 +346,8 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
                   id="photo"
                   accept="image/*"
                   className="sr-only peer"
+                  aria-invalid={!!errors.photo}
+                  aria-describedby={errors.photo ? 'photo-error' : undefined}
                   {...photoRegister}
                   ref={(e) => {
                     photoRegisterRef(e);
@@ -370,7 +372,7 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
                   </div>
                   </div>
               )}
-              {errors.photo && <p className="text-sm font-medium text-destructive">{errors.photo.message as string}</p>}
+              {errors.photo && <p id="photo-error" role="alert" className="text-sm font-medium text-destructive">{errors.photo.message as string}</p>}
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t">

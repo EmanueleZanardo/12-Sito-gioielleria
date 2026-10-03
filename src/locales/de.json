@@ -181,7 +181,8 @@
         "remove": "Bild entfernen",
         "previewAlt": "Bildvorschau"
       },
-      "submit": "Nachricht senden"
+      "submit": "Nachricht senden",
+      "requiredHint": "Mit * gekennzeichnete Felder sind Pflichtfelder"
     },
     "infoButton": "Informationen anfordern",
     "prefill": {
@@ -297,7 +298,8 @@
         "description": "Bitte geben Sie eine ausführlichere Beschreibung ein (mindestens 10 Zeichen).",
         "name": "Bitte geben Sie Ihren Namen ein.",
         "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein."
-      }
+      },
+      "requiredHint": "Mit * gekennzeichnete Felder sind Pflichtfelder"
     },
     "v2": {
       "hero": {

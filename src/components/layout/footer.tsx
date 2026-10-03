@@ -18,19 +18,20 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-secondary/50 border-t">
-      <div className="container mx-auto px-6 py-8">
+    <footer className="bg-[#0a0806] border-t border-gold/20">
+      <div className="container mx-auto px-6 py-12">
         <div className="flex flex-col items-center text-center">
-          <Link href="/" className="flex items-center space-x-2 mb-4">
-            <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt={t('footer.logoAlt')} width={186} height={75} className="object-contain" />
+          <Link href="/" className="flex items-center space-x-2 mb-5">
+            <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt={t('footer.logoAlt')} width={200} height={80} className="object-contain" />
           </Link>
-          <p className="max-w-md text-muted-foreground">
+          <div className="gold-divider !my-4" aria-hidden="true" />
+          <p className="max-w-md font-headline text-xl italic text-ivory/85 lux-title">
             {t('footer.tagline')}
           </p>
-          <div className="flex justify-center space-x-6 my-6">
-            <Link href="https://www.instagram.com/gdc_jewellery_lab?igsh=MWY1azQ2ejRwODN2Mg==" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-foreground/60 hover:text-primary">
+          <div className="flex justify-center space-x-6 my-7">
+            <Link href="https://www.instagram.com/gdc_jewellery_lab?igsh=MWY1azQ2ejRwODN2Mg==" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-foreground/60 hover:text-gold transition-colors">
               <Instagram aria-hidden="true" className="h-6 w-6" />
-              <span>@gdc_jewellery_lab</span>
+              <span className="tracking-wide">@gdc_jewellery_lab</span>
             </Link>
           </div>
           <div className="flex flex-wrap justify-center -mx-4">
@@ -38,14 +39,14 @@ export function Footer() {
               <Link
                 key={label}
                 href={href}
-                className="mx-4 text-sm text-foreground/80 hover:text-primary transition-colors"
+                className="mx-4 my-1 text-[13px] uppercase tracking-[0.14em] text-foreground/70 hover:text-gold transition-colors"
               >
                 {label}
               </Link>
             ))}
           </div>
         </div>
-        <hr className="my-6 border-border" />
+        <hr className="my-8 border-gold/15" />
         <div className="text-center">
           <p className="text-sm text-muted-foreground">
             &copy; {new Date().getFullYear()} GDC Jewellery Lab. {t('footer.rights')}

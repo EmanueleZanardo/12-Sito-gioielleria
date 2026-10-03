@@ -49,6 +49,16 @@ const COLLECTIONS: CollectionDef[] = [
   },
 ];
 
+/** id ancora di categoria per il deep-link (QA 03/10: card homepage
+ *  e redirect /collections/<slug> puntano qui) */
+const COLLECTION_ANCHORS: Record<CollectionDef['id'], string> = {
+  rings: 'anelli',
+  necklaces: 'collane-e-pendenti',
+  weddingRings: 'fedi',
+  earrings: 'orecchini',
+  bracelets: 'bracciali',
+};
+
 export default function CollectionsPage() {
   const { t } = useTranslation('collections');
 
@@ -85,7 +95,8 @@ export default function CollectionsPage() {
             return (
               <motion.article
                 key={collection.id}
-                className="group relative flex flex-col overflow-hidden rounded-xl border border-gold/15 bg-card shadow-lg transition-all duration-500 hover:border-gold/50 hover:shadow-[0_14px_44px_rgba(201,168,106,0.14)]"
+                id={COLLECTION_ANCHORS[collection.id]}
+                className="group relative flex flex-col overflow-hidden rounded-xl border border-gold/15 bg-card shadow-lg transition-all duration-500 hover:border-gold/50 hover:shadow-[0_14px_44px_rgba(201,168,106,0.14)] scroll-mt-24"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}

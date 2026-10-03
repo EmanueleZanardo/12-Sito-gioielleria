@@ -1,6 +1,11 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 03/10/2026 ~02:00 CEST**
+**Ultimo aggiornamento: 03/10/2026 ~07:30 CEST**
+## 03/10/2026 ~07:30 CEST — ciclo QA orario 06:36
+- QA live via browser (8 pagine + /custom-jewel/order-form): tutto 200, nessuna immagine rotta (23 postimg.cc verificate HEAD 200), meta/OG completi, nessun placeholder, stati bottoni outline OK (GALLERIA resta gold dopo click), nessun errore JS.
+- Bug fixati (10 file, commit 277e945): (1) MEDIUM /collections/anelli|collane-e-pendenti|fedi rispondevano 404 → redirect permanenti alle ancore #anelli/#collane-e-pendenti/#fedi in /collections (next.config.js); (2) card teaser homepage ora puntano alle ancore di categoria, non alla pagina generica; (3) link COLLEZIONI aggiunto nel footer (chiavi i18n it/en/fr/de); (4) gruppi Tipo/Materiali/Pietre del form ordine → fieldset/legend associati (a11y); (5) required su nome/email del form ordine; (6) noindex su /custom-jewel/order-form (bug SEO #8 = miglioria del ciclo).
+- tsc --noEmit 0 errori, npm run build 15/15 exit 0. Push via Contents API (SHA blob 40 char) verificato su commits/main: 277e945.
+- Residui QA: emulazione mobile 390px non possibile con i tool disponibili (evidenze markup OK: viewport meta, classi responsive, hamburger menu, overflow-x-clip); /collections earrings/bracelets mostrano intenzionalmente card "Solo su misura" (design, non bug).
 ## 03/10/2026 ~02:20 CEST — integrazione eventi 02/10–03/10
 - **03/10 00:27–00:44 CEST — modifica galleria su richiesta di Emanuele**: rimosse descrizioni e nomi categoria dalle anteprime galleria (solo icona lente su hover); masonry `columns-2 sm:columns-3`; push verificato 0d27456 (build 15/15).
 

@@ -181,7 +181,8 @@
         "remove": "Rimuovi immagine",
         "previewAlt": "Anteprima immagine"
       },
-      "submit": "Invia Messaggio"
+      "submit": "Invia Messaggio",
+      "requiredHint": "Campi con * sono obbligatori"
     },
     "infoButton": "Richiedi Informazioni",
     "prefill": {
@@ -297,7 +298,8 @@
         "description": "Fornisci una descrizione più dettagliata (minimo 10 caratteri).",
         "name": "Inserisci il tuo nome.",
         "email": "Inserisci un indirizzo email valido."
-      }
+      },
+      "requiredHint": "Campi con * sono obbligatori"
     },
     "v2": {
       "hero": {

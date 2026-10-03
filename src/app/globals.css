@@ -36,35 +36,37 @@
     --fallback-end: hsl(var(--secondary));
   }
 
+  /* Lusso scuro: nero caldo profondo, avorio, oro champagne.
+     Il sito è sempre dark (className="dark" su <html>). */
   .dark {
-    --background: 0 0% 10%;
-    --foreground: 0 0% 90%;
+    --background: 24 18% 5%;        /* nero caldo #0f0c09 */
+    --foreground: 40 32% 93%;       /* avorio #f3ecdd */
 
-    --card: 0 0% 15%;
-    --card-foreground: 0 0% 90%;
+    --card: 26 16% 8%;
+    --card-foreground: 40 32% 93%;
 
-    --popover: 0 0% 15%;
-    --popover-foreground: 0 0% 90%;
+    --popover: 26 16% 9%;
+    --popover-foreground: 40 32% 93%;
 
-    --primary: 0 0% 85%;
-    --primary-foreground: 0 0% 10%;
+    --primary: 39 46% 60%;          /* oro champagne #c9a86a */
+    --primary-foreground: 24 40% 8%;/* testo scuro su oro */
 
-    --secondary: 0 0% 20%;
-    --secondary-foreground: 0 0% 90%;
+    --secondary: 30 14% 13%;
+    --secondary-foreground: 40 32% 93%;
 
-    --muted: 0 0% 25%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 28 12% 16%;
+    --muted-foreground: 38 12% 62%; /* avorio spento */
 
-    --accent: 0 0% 50%;
-    --accent-foreground: 0 0% 10%;
-    
-    --destructive: 0 0% 60%;
+    --accent: 39 46% 60%;
+    --accent-foreground: 24 40% 8%;
+
+    --destructive: 0 55% 55%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 25%;
-    --input: 0 0% 25%;
-    --ring: 0 0% 85%;
-    
+    --border: 38 18% 20%;
+    --input: 30 14% 16%;
+    --ring: 39 46% 60%;
+
     --fallback-start: hsl(var(--background));
     --fallback-end: hsl(var(--secondary));
   }
@@ -77,7 +79,60 @@
   body {
     @apply bg-background text-foreground;
   }
+  ::selection {
+    background: hsl(39 46% 60% / 0.85);
+    color: #14100a;
+  }
 }
+
+/* ---------- Dettagli lusso ---------- */
+@layer components {
+  /* Eyebrow: etichetta piccola maiuscola spaziata, oro champagne */
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #C9A86A;
+    letter-spacing: 0.32em;
+  }
+
+  /* Divisore oro con rombo centrale */
+  .gold-divider {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    height: 1px;
+    width: 10rem;
+    background-color: rgb(201 168 106 / 0.4);
+  }
+  .gold-divider::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 0.5rem;
+    width: 0.5rem;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background-color: #C9A86A;
+  }
+
+  /* Titolo serif con bilanciamento righe */
+  .lux-title {
+    text-wrap: balance;
+  }
+}
+
+/* Scrollbar sottile in tema */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: hsl(var(--background)); }
+::-webkit-scrollbar-thumb {
+  background: hsl(38 18% 28%);
+  border-radius: 8px;
+  border: 2px solid hsl(var(--background));
+}
+::-webkit-scrollbar-thumb:hover { background: hsl(39 46% 45%); }
 
 
 /* Rispetto preferenze utenti con disturbi da movimento: disabilita animazioni */

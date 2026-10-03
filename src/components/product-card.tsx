@@ -29,7 +29,7 @@ export function ProductCard({ product, groupName, onImageClick }: ProductCardPro
       tabIndex={0}
       aria-label={`${groupName} — ${product.description}`}
       onKeyDown={handleKeyDown}
-      className="relative aspect-[4/5] w-full shadow-lg rounded-lg overflow-hidden group border-2 border-white/10 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+      className="relative aspect-[4/5] w-full shadow-lg rounded-xl overflow-hidden group border border-gold/15 hover:border-gold/50 hover:shadow-[0_14px_44px_rgba(201,168,106,0.16)] transition-all duration-500 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       onClick={onImageClick}
     >
       <Image

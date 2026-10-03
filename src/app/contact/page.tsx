@@ -157,7 +157,7 @@ function ContactFormComponent() {
                 </a>
               </div>
               <div className="flex items-center gap-4 pt-4">
-                  <Link href="https://www.instagram.com/gdc_jewellery_lab?igsh=MWY1azQ2ejRwODN2Mg==" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/80 hover:text-primary">
+                  <Link href="https://www.instagram.com/gdc_jewellery_lab" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/80 hover:text-primary">
                     <Instagram aria-hidden="true" className="h-6 w-6" />
                     <span>@gdc_jewellery_lab</span>
                   </Link>

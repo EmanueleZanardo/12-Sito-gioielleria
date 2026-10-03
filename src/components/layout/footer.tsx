@@ -10,6 +10,9 @@ export function Footer() {
 
   const navLinks = [
     { href: "/#gallery", label: t('nav.gallery') },
+    // QA 03/10: mancava il link alle collezioni nel footer (raggiungibili
+    // solo dalle card in homepage).
+    { href: "/collections", label: t('nav.collections') },
     { href: "/custom-jewel", label: t('nav.createJewel') },
     { href: "/services", label: t('nav.services') },
     { href: "/about", label: t('nav.about') },

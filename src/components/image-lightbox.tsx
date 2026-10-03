@@ -143,7 +143,7 @@ export function ImageLightbox({
               <p className="text-xs font-nav uppercase tracking-[0.3em] text-primary">
                 GDC Jewellery Lab
               </p>
-              <h2 className="font-headline text-2xl md:text-3xl font-bold uppercase tracking-wider mt-2">
+              <h2 className="font-headline text-3xl md:text-4xl font-medium mt-3 lux-title">
                 {image.groupName}
               </h2>
               <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">

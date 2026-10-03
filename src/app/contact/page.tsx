@@ -15,6 +15,7 @@ import { JsonLd, breadcrumbList, SITE_URL } from '@/components/json-ld';
 import { sendConfirmationEmail } from '@/lib/actions';
 import { useToast } from '@/hooks/use-toast';
 import { Label } from '@/components/ui/label';
+import { RequiredMark } from '@/components/required-mark';
 import { useSearchParams } from 'next/navigation';
 
 function ContactFormComponent() {
@@ -178,23 +179,23 @@ function ContactFormComponent() {
             <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name">{t('form.name.label')}</Label>
+                  <Label htmlFor="name">{t('form.name.label')}<RequiredMark /></Label>
                   <Input id="name" placeholder={t('form.name.placeholder')} required autoComplete="name" aria-invalid={!!errors.name} aria-describedby={errors.name ? 'name-error' : undefined} {...register('name')} />
                   {errors.name && <p id="name-error" role="alert" className="text-sm font-medium text-destructive">{errors.name.message}</p>}
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">{t('form.email.label')}</Label>
+                  <Label htmlFor="email">{t('form.email.label')}<RequiredMark /></Label>
                   <Input id="email" type="email" placeholder={t('form.email.placeholder')} required autoComplete="email" aria-invalid={!!errors.email} aria-describedby={errors.email ? 'email-error' : undefined} {...register('email')} />
                   {errors.email && <p id="email-error" role="alert" className="text-sm font-medium text-destructive">{errors.email.message}</p>}
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="subject">{t('form.subject.label')}</Label>
+                <Label htmlFor="subject">{t('form.subject.label')}<RequiredMark /></Label>
                 <Input id="subject" placeholder={t('form.subject.placeholder')} required aria-invalid={!!errors.subject} aria-describedby={errors.subject ? 'subject-error' : undefined} {...register('subject')} />
                 {errors.subject && <p id="subject-error" role="alert" className="text-sm font-medium text-destructive">{errors.subject.message}</p>}
               </div>
               <div className="space-y-2">
-                <Label htmlFor="message">{t('form.message.label')}</Label>
+                <Label htmlFor="message">{t('form.message.label')}<RequiredMark /></Label>
                 <Textarea id="message" placeholder={t('form.message.placeholder')} rows={5} required aria-invalid={!!errors.message} aria-describedby={errors.message ? 'message-error' : undefined} {...register('message')} />
                 {errors.message && <p id="message-error" role="alert" className="text-sm font-medium text-destructive">{errors.message.message}</p>}
               </div>
@@ -235,6 +236,7 @@ function ContactFormComponent() {
                     </div>
                   </div>
                 )}
+                <p className="text-sm text-muted-foreground">{t('form.requiredHint')}</p>
                  <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90" disabled={isSubmitting}>
                   {isSubmitting ? <Loader2 aria-hidden="true" className="animate-spin" /> : t('form.submit')}
                 </Button>

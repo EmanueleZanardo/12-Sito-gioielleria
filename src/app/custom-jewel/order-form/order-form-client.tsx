@@ -19,6 +19,7 @@ import type { UseEmblaCarouselType } from 'embla-carousel-react';
 import { sendConfirmationEmail } from '@/lib/actions';
 import { jewelryTypeIds, jewelryTypeImages, materialData, stoneData } from '@/lib/order-form-data';
 import { Label } from '@/components/ui/label';
+import { RequiredMark } from '@/components/required-mark';
 
 function OrderFormClient() {
   const { t } = useTranslation('customJewel');
@@ -342,7 +343,7 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
               )}
 
               <div className="space-y-2">
-              <Label htmlFor='description' className="text-lg font-semibold">{t('form.description.label')}</Label>
+              <Label htmlFor='description' className="text-lg font-semibold">{t('form.description.label')}<RequiredMark /></Label>
               <Textarea id='description' {...register("description")} rows={5} placeholder={t('form.description.placeholder')} aria-invalid={!!errors.description} aria-describedby={errors.description ? 'description-help order-description-error' : 'description-help'} />
               <p id="description-help" className="text-sm text-muted-foreground">{t('form.description.description')}</p>
               {errors.description && <p id="order-description-error" role="alert" className="text-sm font-medium text-destructive">{errors.description.message}</p>}
@@ -388,16 +389,17 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t">
               <div className="space-y-2">
-                  <Label htmlFor="name">{t('form.name.label')}</Label>
+                  <Label htmlFor="name">{t('form.name.label')}<RequiredMark /></Label>
                   <Input id="name" required autoComplete="name" aria-invalid={!!errors.name} aria-describedby={errors.name ? 'order-name-error' : undefined} placeholder={t('form.name.placeholder')} {...register("name")} />
                   {errors.name && <p id="order-name-error" role="alert" className="text-sm font-medium text-destructive">{errors.name.message}</p>}
               </div>
               <div className="space-y-2">
-                  <Label htmlFor="email">{t('form.email.label')}</Label>
+                  <Label htmlFor="email">{t('form.email.label')}<RequiredMark /></Label>
                   <Input id="email" type="email" required autoComplete="email" aria-invalid={!!errors.email} aria-describedby={errors.email ? 'order-email-error' : undefined} placeholder={t('form.email.placeholder')} {...register("email")} />
                   {errors.email && <p id="order-email-error" role="alert" className="text-sm font-medium text-destructive">{errors.email.message}</p>}
               </div>
               </div>
+              <p className="text-sm text-muted-foreground">{t('form.requiredHint')}</p>
               <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-lg py-6" disabled={isSubmitting}>
                   {isSubmitting ? <Loader2 aria-hidden="true" className="animate-spin" /> : t('form.submit')}
               </Button>

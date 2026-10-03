@@ -20,6 +20,7 @@ import { useSearchParams } from 'next/navigation';
 
 function ContactFormComponent() {
   const { t } = useTranslation('contact');
+  const { t: tCommon } = useTranslation('common');
   const { toast } = useToast();
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const searchParams = useSearchParams();
@@ -95,7 +96,10 @@ function ContactFormComponent() {
       } else {
         toast({
           title: t('toast.errorTitle'),
-          description: result.message || t('toast.errorSend'),
+          // QA 04/10: se l'invio fallisce (es. server di posta non attivo),
+          // indica subito il canale funzionante invece di lasciare il
+          // visitatore senza via d'uscita.
+          description: `${result.message || t('toast.errorSend')} — ${tCommon('whatsapp.formFallback')} +39 345 111 4337`,
           variant: 'destructive',
         });
       }
@@ -240,6 +244,20 @@ function ContactFormComponent() {
                  <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90" disabled={isSubmitting}>
                   {isSubmitting ? <Loader2 aria-hidden="true" className="animate-spin" /> : t('form.submit')}
                 </Button>
+                {/* QA 04/10: alternativa visibile mentre il server di posta
+                    non è attivo — il visitatore ha sempre un canale che
+                    funziona, senza cambiare il design. */}
+                <p className="text-center text-sm text-muted-foreground">
+                  {tCommon('whatsapp.formFallback')}{' '}
+                  <a
+                    href="https://wa.me/393451114337"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-2 visited:text-muted-foreground hover:text-primary"
+                  >
+                    +39 345 111 4337
+                  </a>
+                </p>
               </form>
           </CardContent>
         </Card>

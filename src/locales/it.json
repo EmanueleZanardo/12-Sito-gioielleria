@@ -47,7 +47,8 @@
     "whatsapp": {
       "label": "Scrivici su WhatsApp",
       "prefill": "Ciao! Vorrei informazioni su un gioiello.",
-      "ariaLabel": "Contattaci su WhatsApp"
+      "ariaLabel": "Contattaci su WhatsApp",
+      "formFallback": "Oppure scrivici direttamente su WhatsApp al"
     }
   },
   "home": {

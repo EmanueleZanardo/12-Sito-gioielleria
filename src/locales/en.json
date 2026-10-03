@@ -47,7 +47,8 @@
     "whatsapp": {
       "label": "Message us on WhatsApp",
       "prefill": "Hi! I'd like information about a jewel.",
-      "ariaLabel": "Contact us on WhatsApp"
+      "ariaLabel": "Contact us on WhatsApp",
+      "formFallback": "Or message us directly on WhatsApp at"
     }
   },
   "home": {

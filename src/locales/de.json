@@ -47,7 +47,8 @@
     "whatsapp": {
       "label": "Schreiben Sie uns auf WhatsApp",
       "prefill": "Hallo! Ich hätte gerne Informationen zu einem Schmuckstück.",
-      "ariaLabel": "Kontaktieren Sie uns auf WhatsApp"
+      "ariaLabel": "Kontaktieren Sie uns auf WhatsApp",
+      "formFallback": "Oder schreiben Sie uns direkt auf WhatsApp unter"
     }
   },
   "home": {

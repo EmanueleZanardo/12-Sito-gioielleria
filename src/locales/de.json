@@ -63,7 +63,8 @@
         "group_005": "Band aus 925er Silber mit handgeschnitzter Oberfläche",
         "group_006": "Ring aus 750er Gold mit Saphir im Tropfenschliff — handmattierte Gravur",
         "group_007": "Eheringe aus 750er Gold mit handgehämmertter Oberfläche"
-      }
+      },
+      "eyebrow": "Die Kollektion"
     },
     "cta": {
       "title": "Haben Sie eine Idee?",
@@ -428,7 +429,8 @@
     "teaser": {
       "title": "Kollektionen entdecken",
       "subtitle": "Ringe, Halsketten, Eheringe: Unikate, bereit, Ihre zu werden – oder der Ausgangspunkt für eine Maßanfertigung.",
-      "viewAll": "Alle Kollektionen entdecken"
+      "viewAll": "Alle Kollektionen entdecken",
+      "eyebrow": "Unsere Kollektionen"
     },
     "prefillPrompt": "Ich hätte gerne ein ähnliches Stück wie „{{name}}“ von der Kollektionsseite. Ich würde es gerne an meinen Geschmack anpassen."
   },

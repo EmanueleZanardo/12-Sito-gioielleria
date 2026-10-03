@@ -149,7 +149,7 @@ export function Header() {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <a href="https://www.instagram.com/gdc_jewellery_lab?igsh=MWY1azQ2ejRwODN2Mg==" aria-label={t('nav.instagram')} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-gold transition-colors">
+              <a href="https://www.instagram.com/gdc_jewellery_lab" aria-label={t('nav.instagram')} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-gold transition-colors">
                 <Instagram aria-hidden="true" className="h-5 w-5" />
               </a>
             </div>
@@ -220,7 +220,7 @@ export function Header() {
                                 </DropdownMenuItem>
                               </DropdownMenuContent>
                             </DropdownMenu>
-                            <a href="https://www.instagram.com/gdc_jewellery_lab?igsh=MWY1azQ2ejRwODN2Mg==" aria-label={t('nav.instagram')} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-gold transition-colors">
+                            <a href="https://www.instagram.com/gdc_jewellery_lab" aria-label={t('nav.instagram')} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-gold transition-colors">
                                 <Instagram aria-hidden="true" className="h-6 w-6" />
                             </a>
                         </div>

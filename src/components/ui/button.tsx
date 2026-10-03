@@ -16,7 +16,12 @@ const buttonVariants = cva(
           "border border-input bg-background hover:bg-accent hover:text-accent-foreground visited:text-current",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80 visited:text-secondary-foreground",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+        ghost:
+          /* QA 03/10 22:36: visited:text-current come le altre variant — ghost
+             oggi è usato solo su <button>, ma se domani un ghost diventa
+             asChild con <a>, il colore visited del browser non sporcherà
+             più il testo ereditato. */
+          "hover:bg-accent hover:text-accent-foreground visited:text-current",
         link: "text-primary underline-offset-4 hover:underline visited:text-primary",
       },
       size: {

@@ -181,7 +181,8 @@
         "remove": "Remove image",
         "previewAlt": "Image preview"
       },
-      "submit": "Send Message"
+      "submit": "Send Message",
+      "requiredHint": "Fields marked * are required"
     },
     "infoButton": "Request Information",
     "prefill": {
@@ -297,7 +298,8 @@
         "description": "Please provide a more detailed description (minimum 10 characters).",
         "name": "Please enter your name.",
         "email": "Please enter a valid email address."
-      }
+      },
+      "requiredHint": "Fields marked * are required"
     },
     "v2": {
       "hero": {

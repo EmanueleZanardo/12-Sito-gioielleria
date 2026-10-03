@@ -25,7 +25,7 @@ export function WhatsAppFloat() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t('whatsapp.ariaLabel')}
-        className="group flex items-center gap-2.5 rounded-full border border-gold/40 bg-[#171106]/95 py-2.5 pl-2.5 pr-2.5 text-sm font-semibold text-gold shadow-[0_8px_28px_rgba(0,0,0,0.55)] backdrop-blur transition-all duration-300 hover:border-gold hover:text-gold-light hover:shadow-[0_8px_32px_rgba(201,168,106,0.25)] sm:pr-5"
+        className="group flex items-center gap-2.5 rounded-full border border-gold/40 bg-[#171106]/95 py-2.5 pl-2.5 pr-2.5 text-sm font-semibold text-gold visited:text-gold shadow-[0_8px_28px_rgba(0,0,0,0.55)] backdrop-blur transition-all duration-300 hover:border-gold hover:text-gold-light hover:shadow-[0_8px_32px_rgba(201,168,106,0.25)] sm:pr-5"
       >
         <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gold text-[#171106] transition-transform duration-300 group-hover:scale-105">
           <MessageCircle aria-hidden="true" className="h-5 w-5" />

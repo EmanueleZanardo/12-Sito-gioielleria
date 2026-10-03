@@ -35,7 +35,7 @@ export function Footer() {
             {/* QA 03/10 11:36: <a> nativo per URL esterno (era next/link):
                 stesso motivo del fix in contact/page.tsx, pattern coerente
                 con header.tsx. */}
-            <a href="https://www.instagram.com/gdc_jewellery_lab" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-foreground/60 hover:text-gold transition-colors">
+            <a href="https://www.instagram.com/gdc_jewellery_lab" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-foreground/60 visited:text-foreground/60 hover:text-gold transition-colors">
               <Instagram aria-hidden="true" className="h-6 w-6" />
               <span className="tracking-wide">@gdc_jewellery_lab</span>
             </a>

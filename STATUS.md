@@ -1,6 +1,9 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
 **Ultimo aggiornamento: 03/10/2026 ~02:00 CEST**
+## 03/10/2026 ~02:20 CEST — integrazione eventi 02/10–03/10
+- **03/10 00:27–00:44 CEST — modifica galleria su richiesta di Emanuele**: rimosse descrizioni e nomi categoria dalle anteprime galleria (solo icona lente su hover); masonry `columns-2 sm:columns-3`; push verificato 0d27456 (build 15/15).
+
 
 ## 03/10/2026 ~02:00 CEST — aggiornamento documentale giornaliero
 - Cicli QA 02/10 tutti VERDI, bug critici nessuno: 06:36 themeColor ridotto a #0d0b08 (commit af1f814); 07:36 fix escapeHtml() nelle email del form (commit 5993dc2; il ciclo ha subìto il reboot VM 07:41, build ucciso e rilanciato); 20:36 aria-hidden sull'icona Mail (a536f0f); 21:36 og:locale it_IT + alternate en_US/fr_FR/de_DE (b65e7a5); 22:36 aria-current sui selettori lingua (31aeea1); 23:36 passi "Come funziona" in <ol>/<li> semantici (121d3aa). HEAD main: 75b5238 (toggle menu mobile annuncia "Chiudi menu", a11y).

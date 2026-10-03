@@ -135,6 +135,11 @@ export default function RootLayout({
   return (
     <html lang="it" className={`${montserrat.variable} ${cormorant.variable} dark`}>
       <head>
+        {/* QA 03/10 20:36: tutte le immagini prodotto sono su i.postimg.cc
+            (cross-origin): il preconnect + dns-prefetch riduce la latenza di
+            handshake TCP/TLS sul primo fetch immagini (hero + gallery). */}
+        <link rel="preconnect" href="https://i.postimg.cc" />
+        <link rel="dns-prefetch" href="https://i.postimg.cc" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

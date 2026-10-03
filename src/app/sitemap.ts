@@ -20,7 +20,8 @@ const ROUTES: RouteEntry[] = [
   { path: '/orders', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/collections', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/contact', changeFrequency: 'yearly', priority: 0.7 },
-  { path: '/custom-jewel/order-form', changeFrequency: 'yearly', priority: 0.6 },
+  // /custom-jewel/order-form NON in sitemap: ha robots index:false (noindex)
+  // — Google indicizza solo le pagine vetrina (miglioria SEO ciclo 03/10 09:36).
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

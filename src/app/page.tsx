@@ -16,17 +16,19 @@ import { Check, MessageCircle, ArrowRight } from 'lucide-react';
 
 const TEASER_COLLECTIONS = [
   {
-    href: '/collections',
+    // QA 03/10: le card puntano alle ancore di categoria in /collections,
+    // non più alla pagina generica.
+    href: '/collections#anelli',
     imageUrl: 'https://i.postimg.cc/htZry19G/Gemini-Generated-Image-cwx29lcwx29lcwx2.png',
     key: 'rings' as const,
   },
   {
-    href: '/collections',
+    href: '/collections#collane-e-pendenti',
     imageUrl: 'https://i.postimg.cc/Dww6PMbF/Gemini-Generated-Image-lr2kymlr2kymlr2k.png',
     key: 'necklaces' as const,
   },
   {
-    href: '/collections',
+    href: '/collections#fedi',
     imageUrl: 'https://i.postimg.cc/HkpNxLcF/photo-2026-04-24-07-41-22.jpg',
     key: 'weddingRings' as const,
   },

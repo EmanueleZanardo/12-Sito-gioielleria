@@ -11,11 +11,19 @@ export default {
     extend: {
       fontFamily: {
         body: ['var(--font-montserrat)', 'sans-serif'],
-        headline: ['var(--font-montserrat)', 'sans-serif'],
+        headline: ['var(--font-cormorant)', 'Georgia', 'serif'],
         nav: ['var(--font-montserrat)', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {
+        // Oro champagne e avorio: accenti lusso (il resto dei token
+        // --primary/--accent è definito in globals.css).
+        gold: {
+          DEFAULT: '#C9A86A',
+          light: '#E6CF9E',
+          dark: '#9A7B45',
+        },
+        ivory: '#F5F0E6',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

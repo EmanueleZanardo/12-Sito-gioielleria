@@ -1,10 +1,48 @@
 import type { MetadataRoute } from 'next';
+import fs from 'node:fs';
+import path from 'node:path';
 
 const BASE_URL = 'https://gdc-jewellery-lab.vercel.app';
 
-// Statico e aggiornato manualmente ogni volta che il copy delle pagine cambia:
-// ultimo aggiornamento copy galleria (descrizioni + nome gruppo) il 2026-10-01.
-const LAST_MODIFIED = '2026-10-01';
+// QA 03/10 (miglioria ciclo): lastmod dinamico per route, calcolato in fase di
+// build dall'mtime dei file che determinano il contenuto visibile della pagina
+// (page.tsx/layout.tsx della route + copy condiviso). Niente più date statiche
+// da aggiornare a mano — se cambia il copy, la sitemap lo riflette da sola.
+// Nota: dopo un clone fresco tutti i file hanno l'mtime del clone; resta un
+// valore onesto (data dell'ultimo deploy del contenuto).
+
+// Copy condiviso: se cambiano, potenzialmente cambiano tutte le pagine.
+const SHARED_COPY_FILES = [
+  'src/locales/it.json',
+  'src/locales/en.json',
+  'src/locales/fr.json',
+  'src/locales/de.json',
+  'src/lib/data.ts',
+];
+
+function mtimeOrNull(p: string): number | null {
+  try {
+    return fs.statSync(p).mtimeMs;
+  } catch {
+    return null;
+  }
+}
+
+function lastModifiedFor(routePath: string): Date {
+  const seg = routePath.replace(/^\//, '');
+  const appDir = path.join(process.cwd(), 'src', 'app');
+  const candidates = [
+    path.join(appDir, seg, 'page.tsx'),
+    path.join(appDir, seg, 'layout.tsx'),
+    ...SHARED_COPY_FILES.map((f) => path.join(process.cwd(), f)),
+  ];
+  let latest: number | null = null;
+  for (const c of candidates) {
+    const m = mtimeOrNull(c);
+    if (m !== null && (latest === null || m > latest)) latest = m;
+  }
+  return new Date(latest ?? Date.now());
+}
 
 type RouteEntry = {
   path: string;
@@ -27,7 +65,7 @@ const ROUTES: RouteEntry[] = [
 export default function sitemap(): MetadataRoute.Sitemap {
   return ROUTES.map((route) => ({
     url: `${BASE_URL}${route.path}`,
-    lastModified: LAST_MODIFIED,
+    lastModified: lastModifiedFor(route.path),
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));

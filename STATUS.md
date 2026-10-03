@@ -1,6 +1,12 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 03/10/2026 ~09:36 CEST**
+**Ultimo aggiornamento: 03/10/2026 ~10:36 CEST**
+## 03/10/2026 ~10:36 CEST — ciclo QA orario 10:36
+- QA live: homepage, /gallery (rewrite → /#gallery), /custom-jewel, /orders, /contact, /about, /services, /collections, /custom-jewel/order-form → tutti 200; sitemap.xml, robots.txt, og-cover.jpg → 200. 0 placeholder (lorem/todo/xxx/example.com) su 5 pagine. 3/3 immagini postimg.cc campionate HEAD 200. Meta OG/Twitter/canonical completi su tutte le pagine.
+- Form (sorgente): contact e order-form con label/htmlFor, required, aria-invalid/aria-describedby, zod — markup a11y integro. Bottone GALLERIA confermato con `visited:text-gold`/`focus-visible` (nessun cambio colore post-click).
+- Bug trovati: NESSUNO.
+- Miglioria del ciclo (igiene URL/privacy): rimosso il parametro tracking `?igsh=...` dai 5 link al profilo Instagram (contact/page.tsx, footer, header ×2, share-dialog) → `https://www.instagram.com/gdc_jewellery_lab`.
+- tsc --noEmit 0 errori, npm run build 15/15 exit 0. Push via Contents API (SHA blob 40 char) verificato su commits/main.
 ## 03/10/2026 ~09:36 CEST — ciclo QA orario 09:36
 - QA live via browser task (read-only): homepage OK; /contact OK (form con campi Nome/Email/Oggetto/Messaggio + upload immagine, tutti con label); /orders OK (pagina informativa, nessun form); /custom-jewel OK; /gallery → redirect /#gallery OK (carosello infinito x3, nessuna immagine rotta); bottone GALLERIA confermato oro dopo click (nessun cambio :visited/:active/:focus). Nessun placeholder, nessun errore visibile. Mobile 390px non testabile (limite tool, residuo noto).
 - Test automatici: 5/5 pagine 200, 19 link interni nessun 404, 23 immagini postimg.cc tutte 200, meta/OG/Twitter completi, og-cover.jpg 200, robots.txt e sitemap.xml 200.

@@ -9,7 +9,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Mail, Phone, Instagram, Loader2, X } from 'lucide-react';
-import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslation } from '@/hooks/use-translation';
 import { sendConfirmationEmail } from '@/lib/actions';
@@ -157,10 +156,14 @@ function ContactFormComponent() {
                 </a>
               </div>
               <div className="flex items-center gap-4 pt-4">
-                  <Link href="https://www.instagram.com/gdc_jewellery_lab" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/80 hover:text-primary">
+                  {/* QA 03/10 11:36: <a> nativo per URL esterno (era next/link):
+                      Link è pensato per la navigazione interna con prefetch e
+                      non aggiunge nulla agli URL esterni; <a> è il pattern già
+                      usato per lo stesso link in header.tsx. */}
+                  <a href="https://www.instagram.com/gdc_jewellery_lab" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/80 hover:text-primary">
                     <Instagram aria-hidden="true" className="h-6 w-6" />
                     <span>@gdc_jewellery_lab</span>
-                  </Link>
+                  </a>
               </div>
             </CardContent>
           </Card>

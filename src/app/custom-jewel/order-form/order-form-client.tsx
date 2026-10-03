@@ -332,9 +332,9 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
 
               <div className="space-y-2">
               <Label htmlFor='description' className="text-lg font-semibold">{t('form.description.label')}</Label>
-              <Textarea id='description' {...register("description")} rows={5} placeholder={t('form.description.placeholder')} aria-describedby="description-help" />
+              <Textarea id='description' {...register("description")} rows={5} placeholder={t('form.description.placeholder')} aria-invalid={!!errors.description} aria-describedby={errors.description ? 'description-help order-description-error' : 'description-help'} />
               <p id="description-help" className="text-sm text-muted-foreground">{t('form.description.description')}</p>
-              {errors.description && <p className="text-sm font-medium text-destructive">{errors.description.message}</p>}
+              {errors.description && <p id="order-description-error" role="alert" className="text-sm font-medium text-destructive">{errors.description.message}</p>}
               </div>
               
               <div className="space-y-2">

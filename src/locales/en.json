@@ -63,7 +63,8 @@
         "group_005": "Sterling silver band with a hand-carved finish",
         "group_006": "18k gold ring with a pear-cut sapphire — hand-satinated engraving",
         "group_007": "18k gold wedding rings with a hand-hammered finish"
-      }
+      },
+      "eyebrow": "The Collection"
     },
     "cta": {
       "title": "Have an idea?",
@@ -428,7 +429,8 @@
     "teaser": {
       "title": "Explore the collections",
       "subtitle": "Rings, necklaces, wedding bands: one-of-a-kind pieces ready to become yours — or the starting point for a bespoke creation.",
-      "viewAll": "Discover all collections"
+      "viewAll": "Discover all collections",
+      "eyebrow": "Our Collections"
     },
     "prefillPrompt": "I would like a piece similar to «{{name}}» seen on the Collections page. I would love to adapt it to my taste."
   },

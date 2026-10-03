@@ -1,6 +1,12 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 03/10/2026 ~09:10 CEST**
+**Ultimo aggiornamento: 03/10/2026 ~09:36 CEST**
+## 03/10/2026 ~09:36 CEST — ciclo QA orario 09:36
+- QA live via browser task (read-only): homepage OK; /contact OK (form con campi Nome/Email/Oggetto/Messaggio + upload immagine, tutti con label); /orders OK (pagina informativa, nessun form); /custom-jewel OK; /gallery → redirect /#gallery OK (carosello infinito x3, nessuna immagine rotta); bottone GALLERIA confermato oro dopo click (nessun cambio :visited/:active/:focus). Nessun placeholder, nessun errore visibile. Mobile 390px non testabile (limite tool, residuo noto).
+- Test automatici: 5/5 pagine 200, 19 link interni nessun 404, 23 immagini postimg.cc tutte 200, meta/OG/Twitter completi, og-cover.jpg 200, robots.txt e sitemap.xml 200.
+- Bug trovati: NESSUNO.
+- Miglioria (SEO): `/custom-jewel/order-form` ha robots index:false ma era ancora in sitemap.xml (contraddizione) → rimosso da `src/app/sitemap.ts` (7 URL, solo pagine vetrina indicizzabili).
+- tsc --noEmit 0 errori, npm run build 15/15 exit 0. Push via Contents API (SHA blob 40 char) verificato su commits/main.
 ## 03/10/2026 ~09:10 CEST — fix bug overflow orizzontale (segnalazione QA visuale 08:36)
 - La QA visuale live ha rilevato scroll orizzontale a LIVELLO DOCUMENTO su /contact (~2897px vs viewport 1920px, ~977px di area vuota) e /custom-jewel/order-form (~2440 vs 1920, ~520px). Bottone GALLERIA confermato oro dopo click (visited:text-gold, nessuno stile viola); /collections OK; footer link tutti OK; mobile 390px non testabile (residuo noto).
 - Root cause: la guardia `overflow-x-clip` sul wrapper del layout (commit 859f58d) non basta — qualcosa sfugge al clip del div. NOTA: la prima diagnosi del browser ("utility assente dal CSS") era errata: la regola `.overflow-x-clip{overflow-x:clip}` è presente sia nel CSS locale che in quello live, e la classe è nell'HTML.

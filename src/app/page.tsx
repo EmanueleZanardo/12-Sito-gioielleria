@@ -386,7 +386,7 @@ export default function Home() {
                     <ArrowRight aria-hidden="true" className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="font-semibold rounded-full px-8 border-gold/50 text-gold hover:bg-gold/10 hover:text-gold-light hover:border-gold tracking-[0.12em] uppercase text-sm">
+                <Button asChild size="lg" variant="outline" className="font-semibold rounded-full px-8 border-gold/50 text-gold hover:bg-gold/10 hover:text-gold-light hover:border-gold active:bg-gold/20 active:text-gold-light visited:text-gold focus-visible:text-gold-light tracking-[0.12em] uppercase text-sm">
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                     <MessageCircle aria-hidden="true" className="mr-2 h-5 w-5" />
                     {t('customJewel.buttonWhatsapp')}

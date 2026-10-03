@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Mail, Phone, Instagram, Loader2, X } from 'lucide-react';
 import Image from 'next/image';
 import { useTranslation } from '@/hooks/use-translation';
+import { JsonLd, breadcrumbList, SITE_URL } from '@/components/json-ld';
 import { sendConfirmationEmail } from '@/lib/actions';
 import { useToast } from '@/hooks/use-toast';
 import { Label } from '@/components/ui/label';
@@ -247,7 +248,17 @@ function ContactFormComponent() {
 
 export default function ContactPage() {
   const { t } = useTranslation('contact');
+  const { t: tCommon } = useTranslation('common');
   return (
+    <>
+      {/* Briciole schema.org per SEO (non visibili) — fuori dal Suspense così
+          finiscono nell'HTML prerenderizzato anche per i crawler senza JS */}
+      <JsonLd
+        data={breadcrumbList([
+          { name: 'Home', url: `${SITE_URL}/` },
+          { name: tCommon('nav.contact'), url: `${SITE_URL}/contact` },
+        ])}
+      />
     <Suspense
       fallback={
         <div
@@ -275,5 +286,6 @@ export default function ContactPage() {
     >
       <ContactFormComponent />
     </Suspense>
+    </>
   )
 }

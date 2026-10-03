@@ -2,12 +2,21 @@
 
 import Image from 'next/image';
 import { useTranslation } from '@/hooks/use-translation';
+import { JsonLd, breadcrumbList, SITE_URL } from '@/components/json-ld';
 
 export default function AboutPage() {
   const { t } = useTranslation('about');
+  const { t: tCommon } = useTranslation('common');
 
   return (
     <div className="bg-background">
+      {/* Briciole schema.org per SEO (non visibili) */}
+      <JsonLd
+        data={breadcrumbList([
+          { name: 'Home', url: `${SITE_URL}/` },
+          { name: tCommon('nav.about'), url: `${SITE_URL}/about` },
+        ])}
+      />
       <div className="mx-auto px-4 pt-8 pb-16 md:pt-12 md:pb-24">
         <div className="text-center mb-12">
           <h1 className="font-headline text-4xl md:text-5xl text-foreground">

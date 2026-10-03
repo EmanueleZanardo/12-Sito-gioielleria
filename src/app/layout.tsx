@@ -8,6 +8,7 @@ import { MotionProvider } from '@/components/motion-provider';
 import { SkipLink } from '@/components/skip-link';
 import './globals.css';
 import { ShareDialog } from '@/components/share/share-dialog';
+import { WhatsAppFloat } from '@/components/whatsapp-float';
 
 // Montserrat self-hosted via next/font: elimina la <link> render-blocking
 // verso fonts.googleapis.com (e risolve il warning eslint no-page-custom-font).
@@ -77,9 +78,12 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  alternates: {
-    canonical: '/',
-  },
+  // QA 03/10 (builder B2): rimosso il canonical globale '/' ereditato da TUTTE
+  // le pagine — segnalava a Google che ogni pagina fosse un duplicato della
+  // home. Il canonical self-referencing della homepage è impostato via
+  // useEffect in src/app/page.tsx (la home è un client component: niente
+  // export metadata possibile lì); le altre pagine lo hanno via metadata
+  // nei layout di rotta.
   openGraph: {
     title: 'GDC Jewellery Lab | Gioielli Artigianali su Misura',
     description:
@@ -118,75 +122,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const baseUrl = 'https://gdc-jewellery-lab.vercel.app';
+  // QA 03/10 (miglioria builder B2): il layout globale non ospita più
+  // BreadcrumbList — era semanticamente sbagliato (elencava tutte le pagine
+  // come briciole della pagina corrente). I BreadcrumbList ora sono per-pagina
+  // (home inclusa) e JewelryStore vive solo in homepage; qui resta WebSite.
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'JewelryStore',
-        name: 'GDC Jewellery Lab',
-        description:
-          'Laboratorio orafo artigianale. Gioielli su misura fatti a mano in oro 18kt, diamanti e pietre preziose, restauro e riparazioni.',
-        url: baseUrl,
-        image:
-          'https://gdc-jewellery-lab.vercel.app/og-cover.jpg',
-        logo: 'https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png',
-        telephone: '+393451114337',
-        email: 'laboratorio.ticino@gmail.com',
-        priceRange: '€€',
-        sameAs: ['https://www.instagram.com/gdc_jewellery_lab'],
-        areaServed: [
-          { '@type': 'Country', name: 'Switzerland' },
-          { '@type': 'Country', name: 'Italy' },
-        ],
-      },
-      {
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            name: 'Home',
-            item: `${baseUrl}/`,
-          },
-          {
-            '@type': 'ListItem',
-            position: 2,
-            name: 'Chi Siamo',
-            item: `${baseUrl}/about`,
-          },
-          {
-            '@type': 'ListItem',
-            position: 3,
-            name: 'Servizi',
-            item: `${baseUrl}/services`,
-          },
-          {
-            '@type': 'ListItem',
-            position: 4,
-            name: 'Crea Gioiello',
-            item: `${baseUrl}/custom-jewel`,
-          },
-          {
-            '@type': 'ListItem',
-            position: 5,
-            name: 'Contatti',
-            item: `${baseUrl}/contact`,
-          },
-          {
-            '@type': 'ListItem',
-            position: 6,
-            name: 'Collezioni',
-            item: `${baseUrl}/collections`,
-          },
-          {
-            '@type': 'ListItem',
-            position: 7,
-            name: 'Come Ordinare',
-            item: `${baseUrl}/orders`,
-          },
-        ],
-      },
-    ],
+    '@type': 'WebSite',
+    name: 'GDC Jewellery Lab',
+    url: baseUrl,
   };
   return (
     <html lang="it" className={`${montserrat.variable} ${cormorant.variable} dark`}>
@@ -213,6 +157,9 @@ export default function RootLayout({
             <div className="fixed bottom-6 right-6 z-50">
                 <ShareDialog size="lg" className="rounded-full h-14 w-14 shadow-lg" />
             </div>
+            {/* CTA WhatsApp sempre visibile (bottom-left), con messaggio
+                precompilato nella lingua attiva. */}
+            <WhatsAppFloat />
             <Toaster />
         </LanguageProvider>
         </MotionProvider>

@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useTranslation } from '@/hooks/use-translation';
 import { orderedProducts } from '@/lib/data';
+import { JsonLd, breadcrumbList, SITE_URL } from '@/components/json-ld';
 
 type CollectionDef = {
   id: 'rings' | 'necklaces' | 'weddingRings' | 'earrings' | 'bracelets';
@@ -61,14 +62,36 @@ const COLLECTION_ANCHORS: Record<CollectionDef['id'], string> = {
 
 export default function CollectionsPage() {
   const { t } = useTranslation('collections');
+  const { t: tCommon } = useTranslation('common');
 
   const collections = COLLECTIONS.map((def) => {
     const pieces = orderedProducts.filter((p) => def.groupIds.includes(p.groupInfo.id));
     return { ...def, pieces };
   });
 
+  // ItemList delle 5 collezioni (nome localizzato + deep-link all'ancora di
+  // categoria) + briciole Home > Collezioni.
+  const itemListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: tCommon('nav.collections'),
+    itemListElement: COLLECTIONS.map((def, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: t(`${def.id}.name`),
+      url: `${SITE_URL}/collections#${COLLECTION_ANCHORS[def.id]}`,
+    })),
+  };
+
   return (
     <div className="flex flex-col bg-background">
+      <JsonLd data={itemListJsonLd} />
+      <JsonLd
+        data={breadcrumbList([
+          { name: 'Home', url: `${SITE_URL}/` },
+          { name: tCommon('nav.collections'), url: `${SITE_URL}/collections` },
+        ])}
+      />
       {/* Hero */}
       <section className="container mx-auto px-4 pt-16 md:pt-24 pb-8 text-center">
         <p className="text-xs font-nav uppercase tracking-[0.3em] text-primary">
@@ -174,7 +197,7 @@ export default function CollectionsPage() {
             {t('banner.subtitle')}
           </p>
           <Button asChild size="lg" className="mt-8 bg-primary text-primary-foreground hover:bg-primary/90">
-            <Link href="/custom-jewel/order-form">
+            <Link href="/custom-jewel">
               {t('banner.cta')}
               <ArrowRight aria-hidden="true" className="h-4 w-4 ml-2" />
             </Link>

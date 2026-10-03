@@ -43,6 +43,11 @@
     },
     "dialog": {
       "close": "Close"
+    },
+    "whatsapp": {
+      "label": "Message us on WhatsApp",
+      "prefill": "Hi! I'd like information about a jewel.",
+      "ariaLabel": "Contact us on WhatsApp"
     }
   },
   "home": {
@@ -102,9 +107,30 @@
       "p1": "A one-of-a-kind piece",
       "p2": "Perfect measurements for you",
       "p3": "Free quote, no obligation",
-      "buttonOrder": "Create your jewel",
+      "buttonOrder": "Discover the bespoke process",
       "buttonWhatsapp": "Message us on WhatsApp",
       "whatsappPrefill": "Hello! I’d like information about a custom jewel."
+    },
+    "trust": {
+      "label": "Why GDC",
+      "title": "True craftsmanship, in every detail",
+      "subtitle": "Every jewel is born in our workshop, with no shortcuts.",
+      "1": {
+        "title": "Bench jeweller's craft",
+        "text": "Over ten years at the bench: modelling, casting, stone setting and hand finishing."
+      },
+      "2": {
+        "title": "18kt gold and precious stones",
+        "text": "Carefully selected diamonds and precious stones, set in 18kt gold and 925 silver."
+      },
+      "3": {
+        "title": "Design approved by you",
+        "text": "A clear, detailed quote before we start: nothing is made without your approval."
+      },
+      "4": {
+        "title": "One of a kind",
+        "text": "Design, proportions and details are born from your story: no one else will ever have one like it."
+      }
     }
   },
   "about": {
@@ -339,6 +365,24 @@
         "buttonOrder": "Start your project",
         "buttonPhone": "Call us: 345 111 4337",
         "note": "Prefer to talk? Call us or message us on WhatsApp: we usually reply within 24 hours."
+      },
+      "process": {
+        "label": "The process",
+        "title": "Your bespoke jewel, in 3 steps",
+        "1": {
+          "title": "The idea",
+          "text": "Tell us your idea: a sketch, a photo, a memory or even just an emotion. We listen — no strings attached."
+        },
+        "2": {
+          "title": "Design and quote",
+          "text": "We turn the idea into a concrete design, with measurements, materials and a clear quote. Nothing is made without your approval."
+        },
+        "3": {
+          "title": "Crafting",
+          "text": "The jewel takes shape in our workshop, handmade in every detail, up to the final quality check and delivery."
+        },
+        "ctaWhatsapp": "Message us on WhatsApp",
+        "note": "We usually reply within 24 hours."
       }
     }
   },

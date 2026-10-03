@@ -43,6 +43,11 @@
     },
     "dialog": {
       "close": "Chiudi"
+    },
+    "whatsapp": {
+      "label": "Scrivici su WhatsApp",
+      "prefill": "Ciao! Vorrei informazioni su un gioiello.",
+      "ariaLabel": "Contattaci su WhatsApp"
     }
   },
   "home": {
@@ -102,9 +107,30 @@
       "p1": "Un pezzo unico al mondo",
       "p2": "Misure perfette per te",
       "p3": "Preventivo gratuito, senza impegno",
-      "buttonOrder": "Crea il tuo gioiello",
+      "buttonOrder": "Scopri il processo su misura",
       "buttonWhatsapp": "Scrivici su WhatsApp",
       "whatsappPrefill": "Ciao! Vorrei informazioni su un gioiello su misura."
+    },
+    "trust": {
+      "label": "Perché GDC",
+      "title": "Artigianalità vera, in ogni dettaglio",
+      "subtitle": "Ogni gioiello nasce nel nostro laboratorio, senza scorciatoie.",
+      "1": {
+        "title": "Lavoro al banco orafo",
+        "text": "Oltre dieci anni di esperienza al banco: modellazione, fusione, incastonatura e finitura a mano."
+      },
+      "2": {
+        "title": "Oro 750 e pietre preziose",
+        "text": "Diamanti e pietre preziose scelti con cura, incastonati su oro 750 e argento 925."
+      },
+      "3": {
+        "title": "Disegno approvato da te",
+        "text": "Preventivo chiaro e dettagliato prima di iniziare: nulla viene realizzato senza la tua approvazione."
+      },
+      "4": {
+        "title": "Pezzo unico al mondo",
+        "text": "Disegno, proporzioni e dettagli nascono dalla tua storia: nessun altro ne avrà uno uguale."
+      }
     }
   },
   "about": {
@@ -339,6 +365,24 @@
         "buttonOrder": "Inizia il tuo progetto",
         "buttonPhone": "Chiamaci: 345 111 4337",
         "note": "Preferisci parlare? Chiamaci o scrivici su WhatsApp: ti risponderemo in genere entro 24 ore."
+      },
+      "process": {
+        "label": "Il processo",
+        "title": "Il tuo gioiello su misura, in 3 passi",
+        "1": {
+          "title": "L'idea",
+          "text": "Raccontaci la tua idea: un disegno, una foto, un ricordo o anche solo un'emozione. Ti ascoltiamo, senza impegno."
+        },
+        "2": {
+          "title": "Disegno e preventivo",
+          "text": "Trasformiamo l'idea in un disegno concreto, con misure, materiali e un preventivo chiaro. Nulla viene realizzato senza la tua approvazione."
+        },
+        "3": {
+          "title": "Realizzazione",
+          "text": "Il gioiello prende forma nel nostro laboratorio, lavorato a mano in ogni dettaglio, fino al controllo finale di qualità e alla consegna."
+        },
+        "ctaWhatsapp": "Scrivici su WhatsApp",
+        "note": "Risposta in genere entro 24 ore."
       }
     }
   },

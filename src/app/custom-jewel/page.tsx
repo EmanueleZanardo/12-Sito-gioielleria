@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { useTranslation } from '@/hooks/use-translation';
+import { JsonLd, breadcrumbList, SITE_URL } from '@/components/json-ld';
 import {
   MessagesSquare,
   PencilRuler,
@@ -30,6 +31,7 @@ const PHONE_TEL = 'tel:+393451114337';
 
 export default function CustomJewelPage() {
   const { t } = useTranslation('customJewel');
+  const { t: tCommon } = useTranslation('common');
 
   const whatsappUrl = `https://wa.me/393451114337?text=${encodeURIComponent(
     t('v2.hero.whatsappPrefill')
@@ -42,6 +44,14 @@ export default function CustomJewelPage() {
     { icon: PackageCheck, n: '4' },
   ];
 
+  // Banda di conversione con il processo su misura in 3 passi + CTA
+  // WhatsApp (riusa il messaggio precompilato della hero).
+  const processSteps = ['1', '2', '3'];
+
+  const processWhatsappUrl = `https://wa.me/393451114337?text=${encodeURIComponent(
+    t('v2.hero.whatsappPrefill')
+  )}`;
+
   const benefits = [
     { icon: Gem, n: '1' },
     { icon: Ruler, n: '2' },
@@ -52,6 +62,13 @@ export default function CustomJewelPage() {
 
   return (
     <div className="bg-background">
+      {/* Briciole schema.org per SEO (non visibili) */}
+      <JsonLd
+        data={breadcrumbList([
+          { name: 'Home', url: `${SITE_URL}/` },
+          { name: tCommon('nav.createJewel'), url: `${SITE_URL}/custom-jewel` },
+        ])}
+      />
       {/* HERO */}
       <section className="container mx-auto px-4 pt-16 md:pt-24 pb-12 text-center">
         <Badge variant="secondary" className="mb-4 text-sm px-4 py-1">
@@ -141,6 +158,56 @@ export default function CustomJewelPage() {
                 </CardHeader>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESSO SU MISURA — 3 PASSI + CTA WHATSAPP */}
+      <section className="container mx-auto px-4 py-12 md:py-16">
+        <div className="max-w-5xl mx-auto rounded-2xl border border-gold/25 bg-card px-6 py-10 md:py-12 shadow-[0_18px_60px_rgba(0,0,0,0.5)]">
+          <div className="text-center mb-10">
+            <Badge variant="secondary" className="mb-4 text-xs px-5 py-1.5 uppercase tracking-[0.22em] border-gold/40 text-gold bg-gold/10">
+              {t('v2.process.label')}
+            </Badge>
+            <h2 className="font-headline text-3xl md:text-4xl text-foreground lux-title">
+              {t('v2.process.title')}
+            </h2>
+            <div className="gold-divider" aria-hidden="true" />
+          </div>
+          <ol className="grid md:grid-cols-3 gap-8 md:gap-6">
+            {processSteps.map((n, i) => (
+              <li key={n} className="relative flex flex-col items-center text-center">
+                {/* Linea di connessione tra i passi (solo desktop) */}
+                {i < processSteps.length - 1 && (
+                  <span
+                    aria-hidden="true"
+                    className="hidden md:block absolute top-7 left-[calc(50%+2.5rem)] right-[calc(-50%+2.5rem)] h-px bg-gold/30"
+                  />
+                )}
+                <span className="flex h-14 w-14 items-center justify-center rounded-full border border-gold/50 bg-gold/10 font-headline text-2xl font-semibold text-gold mb-4">
+                  {n}
+                </span>
+                <h3 className="font-headline text-xl text-foreground">
+                  {t(`v2.process.${n}.title`)}
+                </h3>
+                <p className="text-base text-muted-foreground mt-2 max-w-xs">
+                  {t(`v2.process.${n}.text`)}
+                </p>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-10 text-center">
+            <Button
+              asChild
+              size="lg"
+              className="bg-gold text-[#171106] hover:bg-gold-light font-semibold rounded-full px-8 tracking-[0.12em] uppercase text-sm shadow-[0_8px_28px_rgba(201,168,106,0.35)]"
+            >
+              <a href={processWhatsappUrl} target="_blank" rel="noopener noreferrer">
+                <MessageCircle aria-hidden="true" className="mr-2 h-5 w-5" />
+                {t('v2.process.ctaWhatsapp')}
+              </a>
+            </Button>
+            <p className="text-sm text-muted-foreground mt-4">{t('v2.process.note')}</p>
           </div>
         </div>
       </section>

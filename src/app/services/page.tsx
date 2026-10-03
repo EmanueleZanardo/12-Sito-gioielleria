@@ -3,11 +3,13 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useTranslation } from '@/hooks/use-translation';
+import { JsonLd, breadcrumbList, SITE_URL } from '@/components/json-ld';
 import { Check, Settings } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ServicesPage() {
   const { t } = useTranslation('services');
+  const { t: tCommon } = useTranslation('common');
 
   const serviceList = [
     'customDesign',
@@ -20,6 +22,13 @@ export default function ServicesPage() {
 
   return (
     <div className="bg-background">
+      {/* Briciole schema.org per SEO (non visibili) */}
+      <JsonLd
+        data={breadcrumbList([
+          { name: 'Home', url: `${SITE_URL}/` },
+          { name: tCommon('nav.services'), url: `${SITE_URL}/services` },
+        ])}
+      />
       <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="text-center mb-12">
           <h1 className="font-headline text-4xl md:text-5xl text-foreground">

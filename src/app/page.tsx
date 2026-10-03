@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -8,11 +8,12 @@ import heroImage from '@/lib/hero-image.json';
 import { orderedProducts, type ProductImage } from '@/lib/data';
 import { motion } from 'framer-motion';
 import { ImageLightbox } from '@/components/image-lightbox';
+import { JsonLd, breadcrumbList, SITE_URL } from '@/components/json-ld';
 import { useTranslation } from '@/hooks/use-translation';
 import { ProductCard } from '@/components/product-card';
 import { ShareDialog } from '@/components/share/share-dialog';
 import { Badge } from '@/components/ui/badge';
-import { Check, MessageCircle, ArrowRight } from 'lucide-react';
+import { Check, MessageCircle, ArrowRight, Hammer, Gem, PencilRuler, Sparkles } from 'lucide-react';
 
 const TEASER_COLLECTIONS = [
   {
@@ -56,22 +57,82 @@ export default function Home() {
     const index = allProducts.findIndex(p => p.id === product.id);
     if (index !== -1) {
       setLightboxImageIndex(index);
+      // Deep-link via hash: #lightbox/<id> — la lightbox si riapre alla
+      // stessa immagine con back/forward del browser o link condiviso.
+      window.location.hash = `lightbox/${allProducts[index].id}`;
     }
   };
 
   const handleCloseLightbox = () => {
     setLightboxImageIndex(null);
+    if (window.location.hash.startsWith('#lightbox/')) {
+      window.history.replaceState(
+        null,
+        '',
+        `${window.location.pathname}${window.location.search}`
+      );
+    }
   };
-  
+
+  // Canonical self-referencing della homepage (client component: niente
+  // export metadata possibile qui). Google renderizza JS, quindi lo vede.
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.rel = 'canonical';
+    link.href = 'https://gdc-jewellery-lab.vercel.app/';
+    document.head.appendChild(link);
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
+
+  // Ref stabile per l'effect hash: allProducts è un array nuovo a ogni render,
+  // usarlo come dipendenza ri-eseguirebbe la sincronizzazione hash → stato
+  // a ogni render, vanificando prev/next della lightbox.
+  const allProductsRef = useRef(allProducts);
+  allProductsRef.current = allProducts;
+
+  // Legge l'hash all'apertura e lo segue (hashchange): #lightbox/<id>
+  // apre la lightbox, qualsiasi altro hash la chiude.
+  useEffect(() => {
+    const openFromHash = () => {
+      const m = window.location.hash.match(/^#lightbox\/([\w-]+)$/);
+      const list = allProductsRef.current;
+      if (m) {
+        const idx = list.findIndex((p) => p.id === m[1]);
+        setLightboxImageIndex(idx >= 0 ? idx : null);
+      } else {
+        setLightboxImageIndex(null);
+      }
+    };
+    openFromHash();
+    window.addEventListener('hashchange', openFromHash);
+    return () => window.removeEventListener('hashchange', openFromHash);
+  }, []);
+
+  // Tiene l'hash sincronizzato con l'immagine mostrata (deep-link stabile).
+  // replaceState: aggiorna l'hash senza sparare hashchange (niente loop).
+  const syncHashToIndex = (index: number) => {
+    const id = allProductsRef.current[index]?.id;
+    if (id) {
+      window.history.replaceState(null, '', `#lightbox/${id}`);
+    }
+  };
+
   const handleNext = () => {
     if (lightboxImageIndex !== null) {
-      setLightboxImageIndex((prevIndex) => (prevIndex! + 1) % allProducts.length);
+      const next = (lightboxImageIndex + 1) % allProductsRef.current.length;
+      setLightboxImageIndex(next);
+      syncHashToIndex(next);
     }
   };
 
   const handlePrevious = () => {
     if (lightboxImageIndex !== null) {
-      setLightboxImageIndex((prevIndex) => (prevIndex! - 1 + allProducts.length) % allProducts.length);
+      const len = allProductsRef.current.length;
+      const prev = (lightboxImageIndex - 1 + len) % len;
+      setLightboxImageIndex(prev);
+      syncHashToIndex(prev);
     }
   };
   
@@ -87,8 +148,34 @@ export default function Home() {
       : [];
 
 
+  // JSON-LD homepage: JewelryStore con SOLO dati già pubblici sul sito
+  // (nome, url, telefono/email della pagina contatti, "in Ticino" dal copy).
+  // Niente indirizzo fisico: non è pubblicato da nessuna parte, non inventarlo.
+  const jewelryStoreJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'JewelryStore',
+    name: 'GDC Jewellery Lab',
+    description:
+      'Laboratorio orafo artigianale in Ticino. Gioielli su misura fatti a mano in oro 18kt, diamanti e pietre preziose, restauro e riparazioni.',
+    url: SITE_URL,
+    image: `${SITE_URL}/og-cover.jpg`,
+    telephone: '+393451114337',
+    email: 'laboratorio.ticino@gmail.com',
+    priceRange: '€€',
+    sameAs: ['https://www.instagram.com/gdc_jewellery_lab'],
+    areaServed: [
+      { '@type': 'AdministrativeArea', name: 'Ticino' },
+      { '@type': 'Country', name: 'Switzerland' },
+    ],
+  };
+
   return (
     <div className="flex flex-col bg-background">
+      {/* Dati strutturati: JewelryStore (solo homepage) + briciole Home */}
+      <JsonLd data={jewelryStoreJsonLd} />
+      <JsonLd
+        data={breadcrumbList([{ name: 'Home', url: `${SITE_URL}/` }])}
+      />
       {/* Hero Section */}
       <section
         className="relative h-[80vh] md:h-screen w-full flex items-center justify-center text-center text-white"
@@ -226,6 +313,47 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Trust signals sobri (tutti claim già presenti nel sito) */}
+          <div className="mt-16 md:mt-24 max-w-5xl mx-auto">
+            <div className="text-center mb-10">
+              <p className="eyebrow mb-3">{t('trust.label')}</p>
+              <h2 className="font-headline text-3xl md:text-5xl font-medium text-foreground lux-title">
+                {t('trust.title')}
+              </h2>
+              <div className="gold-divider" aria-hidden="true" />
+              <p className="text-lg text-muted-foreground mt-3 max-w-2xl mx-auto font-light">
+                {t('trust.subtitle')}
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { icon: Hammer, n: '1' },
+                { icon: Gem, n: '2' },
+                { icon: PencilRuler, n: '3' },
+                { icon: Sparkles, n: '4' },
+              ].map(({ icon: Icon, n }, index) => (
+                <motion.div
+                  key={n}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="text-center px-4"
+                >
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-gold/40 bg-gold/10 mb-4">
+                    <Icon aria-hidden="true" className="h-6 w-6 text-gold" />
+                  </span>
+                  <h3 className="font-headline text-lg text-foreground">
+                    {t(`trust.${n}.title`)}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    {t(`trust.${n}.text`)}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
           {/* Su Misura — conversion band */}
           <div className="my-16 md:my-24 px-4 relative z-10">
             <div className="bg-card border border-gold/25 rounded-2xl px-6 py-10 md:py-14 max-w-4xl mx-auto text-center shadow-[0_18px_60px_rgba(0,0,0,0.5)]">
@@ -253,7 +381,7 @@ export default function Home() {
                   size="lg"
                   className="bg-gold text-[#171106] hover:bg-gold-light font-semibold rounded-full px-8 tracking-[0.12em] uppercase text-sm shadow-[0_8px_28px_rgba(201,168,106,0.35)]"
                 >
-                  <Link href="/custom-jewel/order-form">
+                  <Link href="/custom-jewel">
                     {t('customJewel.buttonOrder')}
                     <ArrowRight aria-hidden="true" className="ml-2 h-5 w-5" />
                   </Link>

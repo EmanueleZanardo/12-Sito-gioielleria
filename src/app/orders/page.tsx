@@ -3,14 +3,23 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "@/hooks/use-translation";
+import { JsonLd, breadcrumbList, SITE_URL } from '@/components/json-ld';
 
 const STEP_COUNT = 4;
 
 export default function OrdersPage() {
   const { t } = useTranslation('orders');
+  const { t: tCommon } = useTranslation('common');
 
   return (
     <div className="bg-background">
+      {/* Briciole schema.org per SEO (non visibili) */}
+      <JsonLd
+        data={breadcrumbList([
+          { name: 'Home', url: `${SITE_URL}/` },
+          { name: tCommon('nav.orders'), url: `${SITE_URL}/orders` },
+        ])}
+      />
       <div className="mx-auto px-4 py-16 md:py-24">
         <div className="text-center mb-12">
           <h1 className="font-headline text-4xl md:text-5xl text-foreground">

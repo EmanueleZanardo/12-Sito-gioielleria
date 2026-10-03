@@ -43,6 +43,11 @@
     },
     "dialog": {
       "close": "Fermer"
+    },
+    "whatsapp": {
+      "label": "Écrivez-nous sur WhatsApp",
+      "prefill": "Bonjour ! Je voudrais des informations sur un bijou.",
+      "ariaLabel": "Contactez-nous sur WhatsApp"
     }
   },
   "home": {
@@ -102,9 +107,30 @@
       "p1": "Une pièce unique au monde",
       "p2": "Des mesures parfaites pour vous",
       "p3": "Devis gratuit, sans engagement",
-      "buttonOrder": "Créez votre bijou",
+      "buttonOrder": "Découvrez le processus sur mesure",
       "buttonWhatsapp": "Écrivez-nous sur WhatsApp",
       "whatsappPrefill": "Bonjour ! Je voudrais des informations sur un bijou sur mesure."
+    },
+    "trust": {
+      "label": "Pourquoi GDC",
+      "title": "Un vrai artisanat, dans chaque détail",
+      "subtitle": "Chaque bijou naît dans notre atelier, sans raccourcis.",
+      "1": {
+        "title": "Savoir-faire de joaillier",
+        "text": "Plus de dix ans d'expérience à l'établi : modelage, fonte, sertissage et finition à la main."
+      },
+      "2": {
+        "title": "Or 750 et pierres précieuses",
+        "text": "Diamants et pierres précieuses choisis avec soin, sertis sur or 750 et argent 925."
+      },
+      "3": {
+        "title": "Dessin validé par vous",
+        "text": "Devis clair et détaillé avant de commencer : rien n'est réalisé sans votre approbation."
+      },
+      "4": {
+        "title": "Pièce unique au monde",
+        "text": "Dessin, proportions et détails naissent de votre histoire : personne d'autre n'en aura un pareil."
+      }
     }
   },
   "about": {
@@ -339,6 +365,24 @@
         "buttonOrder": "Lancez votre projet",
         "buttonPhone": "Appelez-nous : 345 111 4337",
         "note": "Vous préférez parler ? Appelez-nous ou écrivez-nous sur WhatsApp : nous répondons généralement sous 24 heures."
+      },
+      "process": {
+        "label": "Le processus",
+        "title": "Votre bijou sur mesure, en 3 étapes",
+        "1": {
+          "title": "L'idée",
+          "text": "Racontez-nous votre idée : un dessin, une photo, un souvenir ou même juste une émotion. Nous vous écoutons, sans engagement."
+        },
+        "2": {
+          "title": "Dessin et devis",
+          "text": "Nous transformons l'idée en un dessin concret, avec mesures, matériaux et un devis clair. Rien n'est réalisé sans votre approbation."
+        },
+        "3": {
+          "title": "Réalisation",
+          "text": "Le bijou prend forme dans notre atelier, travaillé à la main dans chaque détail, jusqu'au contrôle qualité final et à la livraison."
+        },
+        "ctaWhatsapp": "Écrivez-nous sur WhatsApp",
+        "note": "Réponse en général sous 24 heures."
       }
     }
   },

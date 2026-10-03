@@ -43,6 +43,11 @@
     },
     "dialog": {
       "close": "Schließen"
+    },
+    "whatsapp": {
+      "label": "Schreiben Sie uns auf WhatsApp",
+      "prefill": "Hallo! Ich hätte gerne Informationen zu einem Schmuckstück.",
+      "ariaLabel": "Kontaktieren Sie uns auf WhatsApp"
     }
   },
   "home": {
@@ -102,9 +107,30 @@
       "p1": "Ein weltweit einzigartiges Stück",
       "p2": "Perfekte Maße für Sie",
       "p3": "Kostenloser Kostenvoranschlag, unverbindlich",
-      "buttonOrder": "Ihr Schmuckstück gestalten",
+      "buttonOrder": "Entdecken Sie den Maßanfertigungsprozess",
       "buttonWhatsapp": "Schreiben Sie uns auf WhatsApp",
       "whatsappPrefill": "Hallo! Ich hätte gerne Informationen zu einem maßgefertigten Schmuckstück."
+    },
+    "trust": {
+      "label": "Warum GDC",
+      "title": "Echtes Handwerk, in jedem Detail",
+      "subtitle": "Jedes Schmuckstück entsteht in unserer Werkstatt — ohne Abkürzungen.",
+      "1": {
+        "title": "Handarbeit an der Werkbank",
+        "text": "Über zehn Jahre Erfahrung an der Werkbank: Modellieren, Gießen, Fassen und Handpolitur."
+      },
+      "2": {
+        "title": "750er Gold und Edelsteine",
+        "text": "Sorgfältig ausgewählte Diamanten und Edelsteine, gefasst in 750er Gold und 925er Silber."
+      },
+      "3": {
+        "title": "Entwurf von Ihnen freigegeben",
+        "text": "Klares, detailliertes Angebot vor Beginn: Nichts wird ohne Ihre Zustimmung gefertigt."
+      },
+      "4": {
+        "title": "Einzigartig auf der Welt",
+        "text": "Entwurf, Proportionen und Details entstehen aus Ihrer Geschichte: Niemand sonst wird eines wie Ihres besitzen."
+      }
     }
   },
   "about": {
@@ -339,6 +365,24 @@
         "buttonOrder": "Starten Sie Ihr Projekt",
         "buttonPhone": "Rufen Sie uns an: 345 111 4337",
         "note": "Lieber persönlich sprechen? Rufen Sie uns an oder schreiben Sie uns auf WhatsApp: Wir antworten in der Regel innerhalb von 24 Stunden."
+      },
+      "process": {
+        "label": "Der Prozess",
+        "title": "Ihr maßgefertigtes Schmuckstück in 3 Schritten",
+        "1": {
+          "title": "Die Idee",
+          "text": "Erzählen Sie uns Ihre Idee: eine Skizze, ein Foto, eine Erinnerung oder auch nur ein Gefühl. Wir hören zu — unverbindlich."
+        },
+        "2": {
+          "title": "Entwurf und Angebot",
+          "text": "Wir verwandeln die Idee in einen konkreten Entwurf mit Maßen, Materialien und einem klaren Angebot. Nichts wird ohne Ihre Zustimmung gefertigt."
+        },
+        "3": {
+          "title": "Anfertigung",
+          "text": "Das Schmuckstück entsteht in unserer Werkstatt, von Hand in jedem Detail gearbeitet, bis zur finalen Qualitätskontrolle und Übergabe."
+        },
+        "ctaWhatsapp": "Schreiben Sie uns auf WhatsApp",
+        "note": "Antwort in der Regel innerhalb von 24 Stunden."
       }
     }
   },

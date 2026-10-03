@@ -76,6 +76,17 @@
   * {
     @apply border-border;
   }
+  /* Guardia anti-scroll orizzontale a livello documento: il wrapper del layout
+     ha già overflow-x-clip, ma le misurazioni live del 03/10/2026 hanno mostrato
+     scroll orizzontale a livello pagina su /contact e /custom-jewel/order-form
+     (fino a ~977px oltre il viewport a 1920px, area di overflow invisibile).
+     Il clip su html/body impedisce a qualsiasi contenuto sporgente di allargare
+     la pagina. `clip` (non `hidden`) non crea scroll container: gli sticky
+     (header) continuano a funzionare rispetto allo scroll del viewport. */
+  html,
+  body {
+    overflow-x: clip;
+  }
   body {
     @apply bg-background text-foreground;
   }

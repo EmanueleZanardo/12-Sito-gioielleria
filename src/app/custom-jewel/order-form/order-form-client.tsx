@@ -270,44 +270,40 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
       <CardContent className="px-0 md:px-0">
         <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-12">
             
-            <div className="space-y-3">
-              <div className="px-4 md:px-6">
-                <Label className="text-lg font-semibold">{t('form.jewelryType.label')}</Label>
-                <p className="text-sm text-muted-foreground">{t('form.jewelryType.description')}</p>
-              </div>
+            {/* QA 03/10: fieldset/legend per associare programmaticamente
+                l'etichetta di gruppo al carosello di selezione (a11y). */}
+            <fieldset className="space-y-3">
+              <legend className="text-lg font-semibold px-4 md:px-6 float-left">{t('form.jewelryType.label')}</legend>
+              <p className="text-sm text-muted-foreground px-4 md:px-6 clear-both">{t('form.jewelryType.description')}</p>
               <Controller
                   control={control}
                   name="jewelryType"
                   render={({ field }) => <SelectionCarousel field={field} items={jewelryTypeIds.map(id => ({ id, imageUrl: jewelryTypeImages[id] }))} isMultiple={false} t={t} />}
               />
               {errors.jewelryType && <p className="text-sm font-medium text-destructive px-4 md:px-6">{errors.jewelryType.message}</p>}
-            </div>
+            </fieldset>
 
-            <div className="space-y-3">
-              <div className="px-4 md:px-6">
-                  <Label className="text-lg font-semibold">{t('form.materials.label')}</Label>
-                  <p className="text-sm text-muted-foreground">{t('form.materials.description')}</p>
-              </div>
+            <fieldset className="space-y-3">
+              <legend className="text-lg font-semibold px-4 md:px-6 float-left">{t('form.materials.label')}</legend>
+              <p className="text-sm text-muted-foreground px-4 md:px-6 clear-both">{t('form.materials.description')}</p>
               <Controller
                   control={control}
                   name="materials"
                   render={({ field }) => <SelectionCarousel field={field} items={materialData.map(material => ({ id: material.id, color: material.color }))} isMultiple={true} t={t} />}
               />
               {errors.materials && <p className="text-sm font-medium text-destructive px-4 md:px-6">{errors.materials.message}</p>}
-            </div>
-            
-            <div className="space-y-3">
-              <div className="px-4 md:px-6">
-                  <Label className="text-lg font-semibold">{t('form.stones.label')}</Label>
-                  <p className="text-sm text-muted-foreground">{t('form.stones.description')}</p>
-              </div>
+            </fieldset>
+
+            <fieldset className="space-y-3">
+              <legend className="text-lg font-semibold px-4 md:px-6 float-left">{t('form.stones.label')}</legend>
+              <p className="text-sm text-muted-foreground px-4 md:px-6 clear-both">{t('form.stones.description')}</p>
               <Controller
                   control={control}
                   name="stones"
                   render={({ field }) => <SelectionCarousel field={field} items={stoneData.map(stone => ({ id: stone.id, color: stone.color }))} isMultiple={true} t={t} />}
               />
               {errors.stones && <p className="text-sm font-medium text-destructive px-4 md:px-6">{errors.stones.message}</p>}
-            </div>
+            </fieldset>
             
             <div className="px-4 md:px-6 space-y-8">
               {aiImageUrl && (
@@ -378,12 +374,12 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t">
               <div className="space-y-2">
                   <Label htmlFor="name">{t('form.name.label')}</Label>
-                  <Input id="name" autoComplete="name" aria-invalid={!!errors.name} aria-describedby={errors.name ? 'order-name-error' : undefined} placeholder={t('form.name.placeholder')} {...register("name")} />
+                  <Input id="name" required autoComplete="name" aria-invalid={!!errors.name} aria-describedby={errors.name ? 'order-name-error' : undefined} placeholder={t('form.name.placeholder')} {...register("name")} />
                   {errors.name && <p id="order-name-error" role="alert" className="text-sm font-medium text-destructive">{errors.name.message}</p>}
               </div>
               <div className="space-y-2">
                   <Label htmlFor="email">{t('form.email.label')}</Label>
-                  <Input id="email" type="email" autoComplete="email" aria-invalid={!!errors.email} aria-describedby={errors.email ? 'order-email-error' : undefined} placeholder={t('form.email.placeholder')} {...register("email")} />
+                  <Input id="email" type="email" required autoComplete="email" aria-invalid={!!errors.email} aria-describedby={errors.email ? 'order-email-error' : undefined} placeholder={t('form.email.placeholder')} {...register("email")} />
                   {errors.email && <p id="order-email-error" role="alert" className="text-sm font-medium text-destructive">{errors.email.message}</p>}
               </div>
               </div>

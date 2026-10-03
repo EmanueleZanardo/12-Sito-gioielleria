@@ -71,7 +71,10 @@ export function ShareDialog({ className, size = 'icon', ...props }: ShareDialogP
     {
       name: 'WhatsApp',
       Icon: WhatsAppIcon,
-      url: `https://wa.me/393451114337?text=${encodeURIComponent(shareText)}`,
+      // QA 03/10 15:36: URL di condivisione WhatsApp generico (wa.me/?text=)
+      // invece del numero dell'attività: "Condividi" deve aprire la scelta
+      // del contatto dell'utente, non una chat con il negozio.
+      url: `https://wa.me/?text=${encodeURIComponent(shareText)}`,
       color: 'text-foreground',
     },
     {

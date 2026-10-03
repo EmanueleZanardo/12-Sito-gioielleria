@@ -63,7 +63,8 @@
         "group_005": "Bande en argent 925 à la finition sculptée, réalisée à la main",
         "group_006": "Bague en or 750 avec saphir taille poire — gravure satinée faite à la main",
         "group_007": "Alliances en or 750 à la finition martelée à la main"
-      }
+      },
+      "eyebrow": "La Collection"
     },
     "cta": {
       "title": "Vous avez une idée ?",
@@ -428,7 +429,8 @@
     "teaser": {
       "title": "Explorez les collections",
       "subtitle": "Bagues, colliers, alliances : des pièces uniques prêtes à devenir vôtres — ou le point de départ d’une création sur mesure.",
-      "viewAll": "Découvrir toutes les collections"
+      "viewAll": "Découvrir toutes les collections",
+      "eyebrow": "Nos Collections"
     },
     "prefillPrompt": "Je voudrais une pièce similaire à « {{name}} » vue sur la page Collections. J’aimerais l’adapter à mes goûts."
   },

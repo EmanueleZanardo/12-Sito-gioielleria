@@ -193,7 +193,10 @@ export default function Home() {
                   >
                     <Image
                       src={item.imageUrl}
-                      alt={tCol(`${item.key}.name`)}
+                      // L'immagine è dentro lo stesso Link del nome visibile
+                      // qui sotto: alt vuoto per non farla annunciare due
+                      // volte agli screen reader (immagine decorativa).
+                      alt=""
                       fill
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
                       // Teaser in griglia max-w-4xl (896px): 1 colonna su telefono

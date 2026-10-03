@@ -75,13 +75,21 @@ export function ShareDialog({ className, size = 'icon', ...props }: ShareDialogP
       // invece del numero dell'attività: "Condividi" deve aprire la scelta
       // del contatto dell'utente, non una chat con il negozio.
       url: `https://wa.me/?text=${encodeURIComponent(shareText)}`,
-      color: 'text-foreground',
+      // QA 03/10 23:36: guardia visited: gemella di text-foreground (stesso
+      // pattern dei link testuali: dopo la visita il colore UA del browser
+      // non deve sovrascrivere il colore del tema, nemmeno sull'icona che
+      // eredita currentColor dal link).
+      color: 'text-foreground visited:text-foreground',
+      rel: 'noopener noreferrer',
     },
     {
       name: 'Instagram',
       Icon: InstagramIcon,
       url: 'https://www.instagram.com/gdc_jewellery_lab',
-      color: 'text-foreground',
+      color: 'text-foreground visited:text-foreground',
+      // QA 03/10 23:36: rel="me" = è il profilo ufficiale dell'attività
+      // (segnale di identità per i motori di ricerca, zero impatto visivo).
+      rel: 'noopener noreferrer me',
     }
   ];
 
@@ -134,7 +142,7 @@ export function ShareDialog({ className, size = 'icon', ...props }: ShareDialogP
                 key={option.name}
                 href={option.url}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel={option.rel}
                 className={`flex flex-col items-center justify-center space-y-2 p-3 rounded-lg transition-colors hover:bg-secondary ${option.color}`}
             >
                 <option.Icon aria-hidden="true" className="h-8 w-8" />

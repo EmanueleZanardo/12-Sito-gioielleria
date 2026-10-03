@@ -151,7 +151,10 @@ export function Header() {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <a href="https://www.instagram.com/gdc_jewellery_lab" aria-label={t('nav.instagram')} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-gold transition-colors">
+              {/* QA 03/10 23:36: visited: gemello di text-foreground/60 (icona
+                  in currentColor: il colore UA visited non deve prevalere) +
+                  rel="me" = profilo ufficiale dell'attività. */}
+              <a href="https://www.instagram.com/gdc_jewellery_lab" aria-label={t('nav.instagram')} target="_blank" rel="noopener noreferrer me" className="text-foreground/60 visited:text-foreground/60 hover:text-gold transition-colors">
                 <Instagram aria-hidden="true" className="h-5 w-5" />
               </a>
             </div>
@@ -222,7 +225,8 @@ export function Header() {
                                 </DropdownMenuItem>
                               </DropdownMenuContent>
                             </DropdownMenu>
-                            <a href="https://www.instagram.com/gdc_jewellery_lab" aria-label={t('nav.instagram')} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-gold transition-colors">
+                            {/* QA 03/10 23:36: come sopra (menu mobile): visited: gemello + rel="me". */}
+                            <a href="https://www.instagram.com/gdc_jewellery_lab" aria-label={t('nav.instagram')} target="_blank" rel="noopener noreferrer me" className="text-foreground/60 visited:text-foreground/60 hover:text-gold transition-colors">
                                 <Instagram aria-hidden="true" className="h-6 w-6" />
                             </a>
                         </div>

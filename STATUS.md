@@ -1,6 +1,13 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 03/10/2026 ~07:30 CEST**
+**Ultimo aggiornamento: 03/10/2026 ~08:45 CEST**
+## 03/10/2026 ~08:45 CEST — ciclo QA orario 08:36
+- QA live via curl + browser (7 route + favicon/apple-touch-icon/robots/sitemap/og-cover): tutto 200; 33/33 immagini postimg.cc HEAD 200; nessun placeholder (lorem/todo/dummy) su 5 pagine; nessun link interno rotto (/about, /services, /collections, /contact, /orders, /custom-jewel, /custom-jewel/order-form, /gallery→/#gallery); pagina inesistente → 404 corretta.
+- Form (sorgente): contact e order-form con label/htmlFor, required, aria-invalid/aria-describedby, aria-live, fieldset/legend — markup a11y integro.
+- Parità i18n: 265 chiavi × 4 lingue (it/en/fr/de), nessuna chiave mancante. Recapiti coerenti ovunque: tel/WhatsApp +39 345 111 4337, email laboratorio.ticino@gmail.com.
+- Miglioria performance del ciclo: `sizes` delle card teaser homepage calibrato su dimensioni reali (`(max-width: 640px) 100vw, 300px` invece di `33vw`) — su tablet/desktop si scaricano varianti immagine più leggere.
+- tsc --noEmit 0 errori, npm run build 15/15 exit 0. Push via Contents API (SHA blob 40 char) verificato su commits/main: 7102243 (page.tsx) + docs STATUS.md.
+- Residui QA: verifica visuale live via browser task (stati bottone GALLERIA post-click, layout mobile 390px, errori console JS) — esito in arrivo; eventuale bug emerso verrà fixato nel ciclo successivo.
 ## 03/10/2026 ~07:30 CEST — ciclo QA orario 06:36
 - QA live via browser (8 pagine + /custom-jewel/order-form): tutto 200, nessuna immagine rotta (23 postimg.cc verificate HEAD 200), meta/OG completi, nessun placeholder, stati bottoni outline OK (GALLERIA resta gold dopo click), nessun errore JS.
 - Bug fixati (10 file, commit 277e945): (1) MEDIUM /collections/anelli|collane-e-pendenti|fedi rispondevano 404 → redirect permanenti alle ancore #anelli/#collane-e-pendenti/#fedi in /collections (next.config.js); (2) card teaser homepage ora puntano alle ancore di categoria, non alla pagina generica; (3) link COLLEZIONI aggiunto nel footer (chiavi i18n it/en/fr/de); (4) gruppi Tipo/Materiali/Pietre del form ordine → fieldset/legend associati (a11y); (5) required su nome/email del form ordine; (6) noindex su /custom-jewel/order-form (bug SEO #8 = miglioria del ciclo).

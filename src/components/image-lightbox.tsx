@@ -117,11 +117,15 @@ export function ImageLightbox({
 
   return (
     <AnimatePresence>
+      {/* Nome accessibile = titolo visibile + descrizione collegata: lo screen
+          reader annuncia lo stesso titolo e la stessa descrizione che vede un
+          utente vedente (prima il dialog era etichettato solo con il groupName). */}
       <motion.div
         ref={dialogRef}
         role="dialog"
         aria-modal="true"
-        aria-label={image.groupName}
+        aria-labelledby="lightbox-title"
+        aria-describedby="lightbox-desc"
         tabIndex={-1}
         className="fixed inset-0 z-[100] flex items-center justify-center bg-background/90 backdrop-blur-sm outline-none"
         initial={{ opacity: 0 }}
@@ -143,10 +147,10 @@ export function ImageLightbox({
               <p className="text-xs font-nav uppercase tracking-[0.3em] text-primary">
                 GDC Jewellery Lab
               </p>
-              <h2 className="font-headline text-3xl md:text-4xl font-medium mt-3 lux-title">
+              <h2 id="lightbox-title" className="font-headline text-3xl md:text-4xl font-medium mt-3 lux-title">
                 {image.groupName}
               </h2>
-              <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+              <p id="lightbox-desc" className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
                 {image.description}
               </p>
               <p className="mt-4 text-sm text-muted-foreground">ref. {image.id}</p>

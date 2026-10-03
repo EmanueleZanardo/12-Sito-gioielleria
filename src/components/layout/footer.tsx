@@ -45,7 +45,7 @@ export function Footer() {
               <Link
                 key={label}
                 href={href}
-                className="mx-4 my-1 text-[13px] uppercase tracking-[0.14em] text-foreground/70 hover:text-gold transition-colors"
+                className="mx-4 my-1 text-[13px] uppercase tracking-[0.14em] text-foreground/70 visited:text-foreground/70 hover:text-gold transition-colors"
               >
                 {label}
               </Link>

@@ -22,6 +22,24 @@ const nextConfig = {
         destination: '/#gallery',
         permanent: true,
       },
+      // QA 03/10: /collections/anelli, /collections/collane-e-pendenti e
+      // /collections/fedi rispondevano 404 — reindirizza alle ancore di
+      // categoria nella pagina /collections (le ancore esistono negli article).
+      {
+        source: '/collections/anelli',
+        destination: '/collections#anelli',
+        permanent: true,
+      },
+      {
+        source: '/collections/collane-e-pendenti',
+        destination: '/collections#collane-e-pendenti',
+        permanent: true,
+      },
+      {
+        source: '/collections/fedi',
+        destination: '/collections#fedi',
+        permanent: true,
+      },
     ]
   },
   async headers() {

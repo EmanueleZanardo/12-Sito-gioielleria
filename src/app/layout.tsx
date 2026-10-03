@@ -202,7 +202,12 @@ export default function RootLayout({
             <SkipLink />
             <div className="flex min-h-screen flex-col overflow-x-clip">
               <Header />
-              <main id="main-content" className="flex-grow">{children}</main>
+              {/* tabIndex={-1}: il <main> è il target dello SkipLink ("salta al
+                  contenuto"). Senza tabindex focalizzabile il link sposta solo
+                  lo scroll ma non il focus da tastiera/screen reader in alcuni
+                  browser; -1 lo rende focalizzabile programmaticamente senza
+                  aggiungerlo all'ordine di tabulazione. */}
+              <main id="main-content" tabIndex={-1} className="flex-grow outline-none">{children}</main>
               <Footer />
             </div>
             <div className="fixed bottom-6 right-6 z-50">

@@ -193,7 +193,10 @@ export default function Home() {
                       alt={tCol(`${item.key}.name`)}
                       fill
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      // Teaser in griglia max-w-4xl (896px): 1 colonna su telefono
+                      // (~100vw), 3 colonne da sm in su (~290px per card): sizes
+                      // calibrato per non scaricare varianti sovradimensionate.
+                      sizes="(max-width: 640px) 100vw, 300px"
                       quality={80}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />

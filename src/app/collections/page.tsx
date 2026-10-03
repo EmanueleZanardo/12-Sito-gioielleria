@@ -85,7 +85,7 @@ export default function CollectionsPage() {
             return (
               <motion.article
                 key={collection.id}
-                className="group relative flex flex-col overflow-hidden rounded-lg border border-white/10 bg-card shadow-lg"
+                className="group relative flex flex-col overflow-hidden rounded-xl border border-gold/15 bg-card shadow-lg transition-all duration-500 hover:border-gold/50 hover:shadow-[0_14px_44px_rgba(201,168,106,0.14)]"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}

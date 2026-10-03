@@ -32,10 +32,13 @@ export function Footer() {
             {t('footer.tagline')}
           </p>
           <div className="flex justify-center space-x-6 my-7">
-            <Link href="https://www.instagram.com/gdc_jewellery_lab" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-foreground/60 hover:text-gold transition-colors">
+            {/* QA 03/10 11:36: <a> nativo per URL esterno (era next/link):
+                stesso motivo del fix in contact/page.tsx, pattern coerente
+                con header.tsx. */}
+            <a href="https://www.instagram.com/gdc_jewellery_lab" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-foreground/60 hover:text-gold transition-colors">
               <Instagram aria-hidden="true" className="h-6 w-6" />
               <span className="tracking-wide">@gdc_jewellery_lab</span>
-            </Link>
+            </a>
           </div>
           <div className="flex flex-wrap justify-center -mx-4">
             {navLinks.map(({ href, label }) => (

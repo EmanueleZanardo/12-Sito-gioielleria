@@ -5,7 +5,9 @@ export const metadata: Metadata = {
   description:
     'Richiedi il tuo gioiello personalizzato: compila il modulo con materiali, pietre e misure. Ti risponderemo con preventivo e tempistiche.',
   robots: {
-    index: true,
+    // QA 03/10 (miglioria ciclo): i moduli di preventivo/ordine non devono
+    // essere indicizzati — Google mostra solo le pagine vetrina.
+    index: false,
     follow: true,
   },
   alternates: {

@@ -63,7 +63,8 @@
         "group_005": "Fascia in argento 925 con finitura a intaglio, realizzata a mano",
         "group_006": "Anello in oro 750 con zaffiro taglio goccia — incisione satinata fatta a mano",
         "group_007": "Fedi in oro 750 con finitura martellata a mano"
-      }
+      },
+      "eyebrow": "La Collezione"
     },
     "cta": {
       "title": "Hai un'idea?",
@@ -428,7 +429,8 @@
     "teaser": {
       "title": "Esplora le collezioni",
       "subtitle": "Anelli, collane, fedi: pezzi unici già pronti a diventare tuoi — o il punto di partenza per una creazione su misura.",
-      "viewAll": "Scopri tutte le collezioni"
+      "viewAll": "Scopri tutte le collezioni",
+      "eyebrow": "Le Nostre Collezioni"
     },
     "prefillPrompt": "Vorrei un pezzo simile a «{{name}}» visto nella pagina Collezioni. Mi piacerebbe adattarlo ai miei gusti."
   },

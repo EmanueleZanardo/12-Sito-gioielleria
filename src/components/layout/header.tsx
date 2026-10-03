@@ -98,7 +98,9 @@ export function Header() {
       <div className="container flex h-20 items-center">
         <div className="flex-1 flex justify-start pl-4">
             <Link href="/" className="flex items-center space-x-2">
-              <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt="GDC Jewellery Lab Logo" width={160} height={64} className="object-contain" />
+              {/* Logo sopra la piega su ogni pagina: priority per non
+                  ritardare il Largest Contentful Paint. */}
+              <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt="GDC Jewellery Lab Logo" width={160} height={64} className="object-contain" priority fetchPriority="high" />
             </Link>
         </div>
         
@@ -116,8 +118,8 @@ export function Header() {
               className={cn(
                 "relative py-2 transition-colors hover:text-gold-light uppercase text-[13px] font-medium tracking-[0.14em]",
                 isLinkActive(link)
-                  ? "text-gold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-gold"
-                  : "text-foreground/60"
+                  ? "text-gold visited:text-gold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-gold"
+                  : "text-foreground/60 visited:text-foreground/60"
               )}
             >
               {link.label}
@@ -188,7 +190,7 @@ export function Header() {
                                 aria-current={isLinkActive(link) ? "page" : undefined}
                                 className={cn(
                                     "text-xl font-headline font-medium transition-colors hover:text-gold pl-4 tracking-wide",
-                                    isLinkActive(link) ? "text-gold" : "text-foreground/80"
+                                    isLinkActive(link) ? "text-gold visited:text-gold" : "text-foreground/80 visited:text-foreground/80"
                                 )}
                                 >
                                 {link.label}

@@ -93,7 +93,7 @@ export function Header() {
   return (
     <header className={cn(
         "sticky top-0 z-50 w-full border-b transition-colors duration-300",
-        isScrolled ? "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60" : "bg-transparent border-transparent"
+        isScrolled ? "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-gold/20" : "bg-transparent border-transparent"
     )}>
       <div className="container flex h-20 items-center">
         <div className="flex-1 flex justify-start pl-4">
@@ -114,8 +114,10 @@ export function Header() {
               }}
               aria-current={isLinkActive(link) ? "page" : undefined}
               className={cn(
-                "transition-colors hover:text-primary",
-                isLinkActive(link) ? "text-primary" : "text-foreground/60"
+                "relative py-2 transition-colors hover:text-gold-light uppercase text-[13px] font-medium tracking-[0.14em]",
+                isLinkActive(link)
+                  ? "text-gold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-gold"
+                  : "text-foreground/60"
               )}
             >
               {link.label}
@@ -147,7 +149,7 @@ export function Header() {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <a href="https://www.instagram.com/gdc_jewellery_lab?igsh=MWY1azQ2ejRwODN2Mg==" aria-label={t('nav.instagram')} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary">
+              <a href="https://www.instagram.com/gdc_jewellery_lab?igsh=MWY1azQ2ejRwODN2Mg==" aria-label={t('nav.instagram')} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-gold transition-colors">
                 <Instagram aria-hidden="true" className="h-5 w-5" />
               </a>
             </div>
@@ -185,8 +187,8 @@ export function Header() {
                                 }}
                                 aria-current={isLinkActive(link) ? "page" : undefined}
                                 className={cn(
-                                    "text-xl font-medium font-nav transition-colors hover:text-primary pl-4",
-                                    isLinkActive(link) ? "text-primary" : "text-foreground/80"
+                                    "text-xl font-headline font-medium transition-colors hover:text-gold pl-4 tracking-wide",
+                                    isLinkActive(link) ? "text-gold" : "text-foreground/80"
                                 )}
                                 >
                                 {link.label}
@@ -218,7 +220,7 @@ export function Header() {
                                 </DropdownMenuItem>
                               </DropdownMenuContent>
                             </DropdownMenu>
-                            <a href="https://www.instagram.com/gdc_jewellery_lab?igsh=MWY1azQ2ejRwODN2Mg==" aria-label={t('nav.instagram')} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary">
+                            <a href="https://www.instagram.com/gdc_jewellery_lab?igsh=MWY1azQ2ejRwODN2Mg==" aria-label={t('nav.instagram')} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-gold transition-colors">
                                 <Instagram aria-hidden="true" className="h-6 w-6" />
                             </a>
                         </div>

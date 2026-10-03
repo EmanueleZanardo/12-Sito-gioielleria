@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, Suspense } from 'react';
+import { useRef, useEffect, useState, Suspense } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -110,6 +110,21 @@ function ContactFormComponent() {
   const photoFileList = watch('photo');
   const displayPhoto = photoFileList && photoFileList[0] ? photoFileList[0] : null;
 
+  // QA 03/10 (fix memory leak): URL.createObjectURL() chiamato dentro il render
+  // creava un object URL nuovo a ogni render (anche per una battuta di
+  // tastiera) senza mai revocarlo. Ora l'URL è creato una sola volta per file
+  // e revocato quando il file cambia o il componente si smonta.
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  useEffect(() => {
+    if (!displayPhoto) {
+      setPreviewUrl(null);
+      return;
+    }
+    const url = URL.createObjectURL(displayPhoto);
+    setPreviewUrl(url);
+    return () => URL.revokeObjectURL(url);
+  }, [displayPhoto]);
+
 
   return (
     <div className="bg-background pt-8 pb-16 md:pt-12 md:pb-24">
@@ -199,10 +214,10 @@ function ContactFormComponent() {
                   {errors.photo && <p id="photo-error" role="alert" className="text-sm font-medium text-destructive">{errors.photo.message as string}</p>}
               </div>
 
-                {displayPhoto && (
-                  <div className="space-y-2">
+                {displayPhoto && previewUrl && (
+                  <div className="space-y-2" aria-live="polite">
                     <div className="relative w-24 h-24 rounded-md overflow-hidden border">
-                      <Image src={URL.createObjectURL(displayPhoto)} alt={t('form.photo.previewAlt')} fill sizes="96px" className="object-cover" />
+                      <Image src={previewUrl} alt={t('form.photo.previewAlt')} fill sizes="96px" className="object-cover" />
                       <Button
                         type="button"
                         variant="destructive"

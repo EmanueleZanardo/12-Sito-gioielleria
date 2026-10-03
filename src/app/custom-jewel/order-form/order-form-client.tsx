@@ -262,6 +262,21 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
   const photoFileList = watch('photo');
   const displayPhoto = photoFileList && photoFileList[0] ? photoFileList[0] : null;
 
+  // QA 03/10 (fix memory leak): URL.createObjectURL() chiamato dentro il render
+  // creava un object URL nuovo a ogni render senza mai revocarlo. Ora l'URL è
+  // creato una sola volta per file e revocato quando il file cambia o il
+  // componente si smonta.
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  useEffect(() => {
+    if (!displayPhoto) {
+      setPreviewUrl(null);
+      return;
+    }
+    const url = URL.createObjectURL(displayPhoto);
+    setPreviewUrl(url);
+    return () => URL.revokeObjectURL(url);
+  }, [displayPhoto]);
+
   return (
     <Card className="bg-card w-full max-w-4xl mx-auto rounded-none border-x-0 md:rounded-lg md:border-x">
       <CardHeader className="px-4 md:px-6">
@@ -351,10 +366,10 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
                   }}
               />
               <p className="text-sm text-muted-foreground">{t('form.photo.description')}</p>
-              {displayPhoto && (
-                  <div className="mt-4 space-y-2">
+              {displayPhoto && previewUrl && (
+                  <div className="mt-4 space-y-2" aria-live="polite">
                   <div className="relative w-24 h-24 rounded-md overflow-hidden border">
-                      <Image src={URL.createObjectURL(displayPhoto)} alt={t('form.photo.previewAlt')} fill sizes="96px" className="object-cover" />
+                      <Image src={previewUrl} alt={t('form.photo.previewAlt')} fill sizes="96px" className="object-cover" />
                       <Button
                       type="button"
                       variant="destructive"

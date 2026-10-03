@@ -77,7 +77,7 @@ export function ShareDialog({ className, size = 'icon', ...props }: ShareDialogP
     {
       name: 'Instagram',
       Icon: InstagramIcon,
-      url: 'https://www.instagram.com/gdc_jewellery_lab?igsh=MWY1azQ2ejRwODN2Mg==',
+      url: 'https://www.instagram.com/gdc_jewellery_lab',
       color: 'text-foreground',
     }
   ];

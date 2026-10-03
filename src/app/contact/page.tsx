@@ -147,13 +147,13 @@ function ContactFormComponent() {
             <CardContent className="space-y-6 text-lg">
               <div className="flex items-center gap-4">
                 <Mail aria-hidden="true" className="h-6 w-6 text-primary" />
-                <a href="mailto:laboratorio.ticino@gmail.com" className="text-foreground/80 hover:text-primary break-all">
+                <a href="mailto:laboratorio.ticino@gmail.com" className="text-foreground/80 visited:text-foreground/80 hover:text-primary break-all">
                   laboratorio.ticino@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-4">
                 <Phone aria-hidden="true" className="h-6 w-6 text-primary" />
-                <a href="tel:+393451114337" className="text-foreground/80 hover:text-primary">
+                <a href="tel:+393451114337" className="text-foreground/80 visited:text-foreground/80 hover:text-primary">
                   345 111 4337
                 </a>
               </div>
@@ -162,7 +162,7 @@ function ContactFormComponent() {
                       Link è pensato per la navigazione interna con prefetch e
                       non aggiunge nulla agli URL esterni; <a> è il pattern già
                       usato per lo stesso link in header.tsx. */}
-                  <a href="https://www.instagram.com/gdc_jewellery_lab" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/80 hover:text-primary">
+                  <a href="https://www.instagram.com/gdc_jewellery_lab" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/80 visited:text-foreground/80 hover:text-primary">
                     <Instagram aria-hidden="true" className="h-6 w-6" />
                     <span>@gdc_jewellery_lab</span>
                   </a>

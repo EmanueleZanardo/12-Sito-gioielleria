@@ -1,6 +1,10 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 03/10/2026 ~08:45 CEST**
+**Ultimo aggiornamento: 03/10/2026 ~09:10 CEST**
+## 03/10/2026 ~09:10 CEST — fix bug overflow orizzontale (segnalazione QA visuale 08:36)
+- La QA visuale live ha rilevato scroll orizzontale a LIVELLO DOCUMENTO su /contact (~2897px vs viewport 1920px, ~977px di area vuota) e /custom-jewel/order-form (~2440 vs 1920, ~520px). Bottone GALLERIA confermato oro dopo click (visited:text-gold, nessuno stile viola); /collections OK; footer link tutti OK; mobile 390px non testabile (residuo noto).
+- Root cause: la guardia `overflow-x-clip` sul wrapper del layout (commit 859f58d) non basta — qualcosa sfugge al clip del div. NOTA: la prima diagnosi del browser ("utility assente dal CSS") era errata: la regola `.overflow-x-clip{overflow-x:clip}` è presente sia nel CSS locale che in quello live, e la classe è nell'HTML.
+- Fix: guardia a livello documento in `src/app/globals.css` (`html, body { overflow-x: clip; }` nel layer base) — nessun contenuto sporgente può più allargare la pagina; `clip` non crea scroll container quindi gli sticky restano invariati. tsc 0 errori, build 15/15 exit 0, push bcfe6c2 (globals.css) + docs STATUS.md verificati su commits/main.
 ## 03/10/2026 ~08:45 CEST — ciclo QA orario 08:36
 - QA live via curl + browser (7 route + favicon/apple-touch-icon/robots/sitemap/og-cover): tutto 200; 33/33 immagini postimg.cc HEAD 200; nessun placeholder (lorem/todo/dummy) su 5 pagine; nessun link interno rotto (/about, /services, /collections, /contact, /orders, /custom-jewel, /custom-jewel/order-form, /gallery→/#gallery); pagina inesistente → 404 corretta.
 - Form (sorgente): contact e order-form con label/htmlFor, required, aria-invalid/aria-describedby, aria-live, fieldset/legend — markup a11y integro.

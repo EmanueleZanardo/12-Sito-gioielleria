@@ -111,7 +111,10 @@ export default function Home() {
               "Galleria" sotto diventa h2 per mantenere la gerarchia. */}
           <h1 className="sr-only">GDC Jewellery Lab — {t('hero.subtitle')}</h1>
           <div className="relative h-64 w-full max-w-[360px] md:h-80 md:w-[640px] md:max-w-none">
-            <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt={t('hero.logoAlt')} fill sizes="(max-width: 768px) 360px, 640px" priority className="object-contain drop-shadow-[0_6px_24px_rgba(0,0,0,0.6)]" />
+          {/* Niente priority sul logo: il preload fetchPriority=high resta solo sullo
+              sfondo hero (candidato LCP). Il logo resta eager di default senza
+              contendere la banda con un secondo preload. */}
+            <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt={t('hero.logoAlt')} fill sizes="(max-width: 768px) 360px, 640px" className="object-contain drop-shadow-[0_6px_24px_rgba(0,0,0,0.6)]" />
           </div>
           <p className="max-w-2xl font-headline text-xl md:text-2xl italic text-ivory/90 lux-title">
             {t('hero.subtitle')}

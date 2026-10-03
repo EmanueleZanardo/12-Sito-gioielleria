@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Montserrat } from 'next/font/google';
+import { Montserrat, Cormorant_Garamond } from 'next/font/google';
 import { Toaster } from '@/components/ui/toaster';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
@@ -19,6 +19,16 @@ const montserrat = Montserrat({
   weight: ['400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-montserrat',
+});
+
+// Cormorant Garamond: serif di lusso per i titoli (headline),
+// self-hosted via next/font. display=swap per evitare FOIT.
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin', 'latin-ext'],
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-cormorant',
 });
 
 export const viewport: Viewport = {
@@ -179,7 +189,7 @@ export default function RootLayout({
     ],
   };
   return (
-    <html lang="it" className={`${montserrat.variable} dark`}>
+    <html lang="it" className={`${montserrat.variable} ${cormorant.variable} dark`}>
       <head>
         <script
           type="application/ld+json"

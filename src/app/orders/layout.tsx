@@ -26,6 +26,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Come Ordinare | GDC Jewellery Lab',
+    description:
+      'Ogni gioiello GDC è realizzato su misura. Ecco come funziona, passo dopo passo.',
     images: [
       {
         url: '/og-cover.jpg',

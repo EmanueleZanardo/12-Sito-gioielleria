@@ -76,13 +76,28 @@ export default function Home() {
 
   // Canonical self-referencing della homepage (client component: niente
   // export metadata possibile qui). Google renderizza JS, quindi lo vede.
+  // QA 04/10 21:36: guardia anti-duplicati — con la navigazione client-side
+  // dell'App Router un canonical SSR di un'altra pagina (/contact ecc.)
+  // potrebbe restare in <head>: in quel caso si aggiorna l'href invece di
+  // appenderne un secondo (canonical doppi = segnale ambiguo per Google).
   useEffect(() => {
+    const href = 'https://gdc-jewellery-lab.vercel.app/';
+    const existing =
+      document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (existing) {
+      const previous = existing.getAttribute('href');
+      existing.setAttribute('href', href);
+      return () => {
+        if (previous) existing.setAttribute('href', previous);
+        else existing.remove();
+      };
+    }
     const link = document.createElement('link');
     link.rel = 'canonical';
-    link.href = 'https://gdc-jewellery-lab.vercel.app/';
+    link.href = href;
     document.head.appendChild(link);
     return () => {
-      document.head.removeChild(link);
+      link.remove();
     };
   }, []);
 

@@ -203,7 +203,8 @@
       "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
       "subject": "Bitte geben Sie einen Betreff ein.",
       "message": "Bitte geben Sie eine ausführlichere Nachricht ein (mindestens 10 Zeichen)."
-    }
+    },
+    "noscript": "Ohne JavaScript kann dieses Formular nicht gesendet werden — kontaktieren Sie uns direkt hier unten."
   },
   "customJewel": {
     "loading": "Wird geladen…",
@@ -387,7 +388,8 @@
         "ctaWhatsapp": "Schreiben Sie uns auf WhatsApp",
         "note": "Antwort in der Regel innerhalb von 24 Stunden."
       }
-    }
+    },
+    "noscript": "Ohne JavaScript kann dieses Formular nicht gesendet werden — schreiben Sie uns per WhatsApp, um Ihr maßgefertigtes Schmuckstück zu bestellen."
   },
   "orders": {
     "title": "So bestellen Sie",

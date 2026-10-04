@@ -198,6 +198,7 @@ export function ImageLightbox({
 
         {/* Controls */}
         <button
+          type="button"
           onClick={(e) => {
             e.stopPropagation();
             onClose();
@@ -209,6 +210,7 @@ export function ImageLightbox({
         </button>
         {total > 1 && (
           <button
+            type="button"
             onClick={handlePreviousClick}
             className="absolute left-4 top-1/2 -translate-y-1/2 z-[101] text-foreground bg-background/50 rounded-full p-2 hover:bg-card transition-colors"
             aria-label={tLb('previous')}
@@ -218,6 +220,7 @@ export function ImageLightbox({
         )}
         {total > 1 && (
           <button
+            type="button"
             onClick={handleNextClick}
             className="absolute right-4 top-1/2 -translate-y-1/2 z-[101] text-foreground bg-background/50 rounded-full p-2 hover:bg-card transition-colors"
             aria-label={tLb('next')}

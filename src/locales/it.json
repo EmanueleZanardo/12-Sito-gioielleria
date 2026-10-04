@@ -315,26 +315,6 @@
         "whatsappPrefill": "Ciao! Vorrei informazioni su un gioiello su misura.",
         "note": "Rispondiamo in genere entro 24 ore."
       },
-      "steps": {
-        "label": "Come funziona",
-        "title": "Dal desiderio al gioiello, in 4 passi",
-        "1": {
-          "title": "Consulenza gratuita",
-          "text": "Raccontaci la tua idea: un disegno, una foto o anche solo un’emozione. Ti ascoltiamo, ti consigliamo materiali e pietre e capiamo insieme la direzione giusta. Senza impegno."
-        },
-        "2": {
-          "title": "Progettazione e disegno",
-          "text": "Trasformiamo l’idea in un disegno concreto, con misure, materiali e un preventivo dettagliato. Nulla viene realizzato senza la tua approvazione."
-        },
-        "3": {
-          "title": "Creazione artigianale",
-          "text": "Il gioiello prende forma nel nostro laboratorio, lavorato a mano con cura in ogni dettaglio. Ti teniamo aggiornato sull’avanzamento."
-        },
-        "4": {
-          "title": "Consegna",
-          "text": "Controllo finale di qualità e consegna del tuo pezzo unico, pronto da indossare o da regalare."
-        }
-      },
       "why": {
         "label": "Perché su misura",
         "title": "Un gioiello standard non sarà mai tuo come questo",

@@ -35,6 +35,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'I Nostri Servizi | GDC Jewellery Lab',
+    description:
+      'Cura e personalizzazione dei tuoi gioielli e orologi: restauro, riparazioni, messa in misura e design personalizzato.',
     images: [
       {
         url: '/og-cover.jpg',

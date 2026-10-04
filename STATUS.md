@@ -1,6 +1,15 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 04/10/2026 ~07:45 CEST**
+**Ultimo aggiornamento: 04/10/2026 ~09:45 CEST**
+
+## 04/10/2026 ~09:45 CEST — ciclo QA orario 09:36
+- QA live: / = 200, /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /contact = 200, /about = 200, /services = 200, /collections = 200; /gallery = 308 → /#gallery (redirect permanente, invariato). sitemap.xml, robots.txt, sitemap-images.xml = 200. Meta/OG/Twitter + JSON-LD presenti sulla home; theme-color, metadataBase, canonical self-referencing nei layout di rotta + iniezione canonical home via useEffect (verificata intatta, r.81 page.tsx). Nessun placeholder/lorem/todo nel live HTML.
+- Link interni: 8/8 nessun 404. Immagini: 31/31 URL i.postimg.cc unici = 200 (HEAD, zero timeout questo ciclo).
+- Controlli telefono (sorgente): guardie `visited:text-gold`/`active:`/`focus-visible:` integre su entrambi i bottoni outline homepage (GALLERIA r.211, CTA orders r.389) e sul float WhatsApp (r.28); scroll-mt presente su #gallery (r.222) e sulle ancore collezioni; aria-current sulla nav; tutti i `target="_blank"` con `rel="noopener noreferrer"`; alt descrittivi sulle card; sizes ottimizzati (product-card, hero, collections, lightbox); hero con priority (LCP).
+- Bug trovati e fixati: NESSUNO. Codice identico al ciclo 08:36 (HEAD c4f9547) — tutti i guardrail dei cicli precedenti integri.
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde, zero gap reali trovati) — solo aggiornamento STATUS.md. Zero cambi di design.
+- tsc --noEmit 0 errori, npm run build 16/16 exit 0. Push via Contents API (SHA 40 char), verificato su commits/main.
+- Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 04/10/2026 ~07:45 CEST — ciclo QA orario 07:36
 - QA live: / = 200, /collections = 200, /custom-jewel = 200, /orders = 200, /contact = 200; /gallery = 308 → /#gallery (redirect permanente configurato, verificato con curl; il 404 visto in browser.open era l'estrattore che non segue il redirect, non un problema del sito). og-cover.jpg = 200 (102 KB); security headers invariati (nosniff, SAMEORIGIN, HSTS preload, referrer-policy, permissions-policy); pagina inesistente = 404 brandizzata ("Pagina non trovata").

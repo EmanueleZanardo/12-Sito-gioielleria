@@ -203,7 +203,8 @@
       "email": "Please enter a valid email address.",
       "subject": "Please enter a subject.",
       "message": "Please provide a more detailed message (minimum 10 characters)."
-    }
+    },
+    "noscript": "Without JavaScript this form can't be sent — reach us directly below."
   },
   "customJewel": {
     "loading": "Loading…",
@@ -387,7 +388,8 @@
         "ctaWhatsapp": "Message us on WhatsApp",
         "note": "We usually reply within 24 hours."
       }
-    }
+    },
+    "noscript": "Without JavaScript this form can't be sent — message us on WhatsApp to order your custom jewel."
   },
   "orders": {
     "title": "How to Order",

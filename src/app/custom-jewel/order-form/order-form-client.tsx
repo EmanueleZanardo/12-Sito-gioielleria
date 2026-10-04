@@ -452,6 +452,22 @@ export function OrderForm() {
               <div className="h-28 rounded bg-muted" />
             </div>
           </div>
+          {/* QA 04/10 18:36: con JavaScript disabilitato il form non si monta
+              mai e resterebbe solo "Caricamento…": il noscript dà ai visitatori
+              un'alternativa diretta (WhatsApp), resa nell'HTML statico. */}
+          <noscript>
+            <div className="mt-8 rounded-xl border border-gold/30 bg-card p-6 text-center">
+              <p className="text-foreground/90">{t('noscript')}</p>
+              <p className="mt-3">
+                <a
+                  href="https://wa.me/393451114337"
+                  className="underline underline-offset-2 text-foreground visited:text-foreground hover:text-primary"
+                >
+                  WhatsApp: +39 345 111 4337
+                </a>
+              </p>
+            </div>
+          </noscript>
         </div>
       }
     >

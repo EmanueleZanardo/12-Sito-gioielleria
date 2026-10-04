@@ -1,6 +1,15 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 04/10/2026 ~04:55 CEST**
+**Ultimo aggiornamento: 04/10/2026 ~06:00 CEST**
+
+## 04/10/2026 ~06:00 CEST — ciclo QA orario 05:36
+- QA live: / = 200, /gallery = 301 → /#gallery (200), /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /contact = 200, /about = 200, /services = 200, /collections = 200; sitemap.xml (7 URL, order-form escluso), robots.txt, manifest.webmanifest, sitemap-images.xml, favicon.ico, apple-touch-icon.png, og-cover.jpg = 200. Meta/OG/Twitter completi; JSON-LD validi: home (WebSite, JewelryStore, BreadcrumbList), /custom-jewel (FAQPage 5 domande); ancore #anelli/#collane-e-pendenti/#fedi presenti; og-cover.jpg 1200×630 esatti.
+- Link interni: 19/19 nessun 404 (pagine + asset statici + icone). Immagini: 33/33 i.postimg.cc = 200 (1 timeout transitorio su 892KB, retry OK). Nessun placeholder/dato finto su 7 pagine.
+- Controlli telefono (sorgente): GALLERIA outline con `visited:text-gold`/`focus-visible`/`active` espliciti; fix globale `visited:text-current` in button.tsx integro per gli altri outline; lightbox con type=button + aria-label; `document.documentElement.lang` sincronizzato al cambio lingua; prefers-reduced-motion globale; overflow-x: clip su html/body.
+- Bug trovati e fixati: NESSUNO. Falso allarme investigato e archiviato: un fetch aveva mostrato la homepage del portfolio su /tmp/home.html — era una collisione /tmp con il worker QA parallelo del sito portfolio (stesso nome file), non un problema del sito gioielleria (3 fetch successivi + header Vercel tutti OK).
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde, tutti i guardrail integri) — solo aggiornamento STATUS.md. Zero cambi di design.
+- tsc --noEmit 0 errori, npm run build 16/16 exit 0. Push via Contents API (SHA 40 char), verificato su commits/main.
+- Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 04/10/2026 ~04:55 CEST — ciclo QA orario 04:36
 - QA live: / = 200, /gallery = 200, /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /contact = 200, /about = 200, /services = 200, /collections = 200; og-cover.jpg = 200; pagina inesistente = 404 brandizzata. Meta/OG/Twitter/JSON-LD completi (canonical homepage via JS — Google lo renderizza, invariato dai cicli scorsi); nessun placeholder o testo finto (i match "null/undefined" sono solo flight-data React); 20/20 immagini i.postimg.cc uniche della homepage = 200; security headers invariati (nosniff, SAMEORIGIN, HSTS, referrer-policy, permissions-policy).

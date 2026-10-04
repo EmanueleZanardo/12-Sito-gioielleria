@@ -184,18 +184,18 @@ function ContactFormComponent() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="name">{t('form.name.label')}<RequiredMark /></Label>
-                  <Input id="name" placeholder={t('form.name.placeholder')} required autoComplete="name" aria-invalid={!!errors.name} aria-describedby={errors.name ? 'name-error' : undefined} {...register('name')} />
+                  <Input id="name" placeholder={t('form.name.placeholder')} required autoComplete="name" enterKeyHint="next" aria-invalid={!!errors.name} aria-describedby={errors.name ? 'name-error' : undefined} {...register('name')} />
                   {errors.name && <p id="name-error" role="alert" className="text-sm font-medium text-destructive">{errors.name.message}</p>}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">{t('form.email.label')}<RequiredMark /></Label>
-                  <Input id="email" type="email" placeholder={t('form.email.placeholder')} required autoComplete="email" aria-invalid={!!errors.email} aria-describedby={errors.email ? 'email-error' : undefined} {...register('email')} />
+                  <Input id="email" type="email" placeholder={t('form.email.placeholder')} required autoComplete="email" enterKeyHint="next" aria-invalid={!!errors.email} aria-describedby={errors.email ? 'email-error' : undefined} {...register('email')} />
                   {errors.email && <p id="email-error" role="alert" className="text-sm font-medium text-destructive">{errors.email.message}</p>}
                 </div>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="subject">{t('form.subject.label')}<RequiredMark /></Label>
-                <Input id="subject" placeholder={t('form.subject.placeholder')} required aria-invalid={!!errors.subject} aria-describedby={errors.subject ? 'subject-error' : undefined} {...register('subject')} />
+                <Input id="subject" placeholder={t('form.subject.placeholder')} required enterKeyHint="next" aria-invalid={!!errors.subject} aria-describedby={errors.subject ? 'subject-error' : undefined} {...register('subject')} />
                 {errors.subject && <p id="subject-error" role="alert" className="text-sm font-medium text-destructive">{errors.subject.message}</p>}
               </div>
               <div className="space-y-2">

@@ -203,7 +203,8 @@
       "email": "Inserisci un indirizzo email valido.",
       "subject": "Inserisci un oggetto.",
       "message": "Fornisci un messaggio più dettagliato (minimo 10 caratteri)."
-    }
+    },
+    "noscript": "Senza JavaScript il modulo non può essere inviato: contattaci direttamente qui sotto."
   },
   "customJewel": {
     "loading": "Caricamento…",
@@ -387,7 +388,8 @@
         "ctaWhatsapp": "Scrivici su WhatsApp",
         "note": "Risposta in genere entro 24 ore."
       }
-    }
+    },
+    "noscript": "Senza JavaScript il modulo non può essere inviato: scrivici su WhatsApp per ordinare il tuo gioiello su misura."
   },
   "orders": {
     "title": "Come ordinare",

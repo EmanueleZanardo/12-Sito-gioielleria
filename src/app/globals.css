@@ -87,6 +87,13 @@
   body {
     overflow-x: clip;
   }
+  /* QA 04/10 08:36 (micro-UX): scorrimento fluido verso le ancore in-page
+     (es. bottone GALLERIA in hero → #gallery): niente più salto istantaneo.
+     Chi preferisce il movimento ridotto resta protetto dalla regola
+     prefers-reduced-motion più sotto (scroll-behavior: auto !important). */
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground;
   }

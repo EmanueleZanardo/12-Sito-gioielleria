@@ -33,6 +33,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Crea il Tuo Gioiello Personalizzato | GDC Jewellery Lab',
+    description:
+      'Raccontaci la tua idea: realizziamo insieme un gioiello unico fatto a mano in oro 18kt, diamanti e pietre preziose.',
     images: [
       {
         url: '/og-cover.jpg',

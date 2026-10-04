@@ -104,7 +104,10 @@ export function Header() {
             </Link>
         </div>
         
-        <nav className="hidden md:flex items-center justify-center space-x-6 text-sm font-medium font-nav ml-8">
+        {/* QA 04/10 20:36: aria-label sui due landmark <nav> — desktop e mobile
+            coesistono nella pagina e senza etichetta gli screen reader li
+            annunciavano entrambi come "navigazione" senza distinguerli. */}
+        <nav aria-label={t('nav.primaryNav')} className="hidden md:flex items-center justify-center space-x-6 text-sm font-medium font-nav ml-8">
           {navLinks.map((link) => (
             <Link
               key={link.label}
@@ -178,7 +181,7 @@ export function Header() {
                                  <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt="GDC Jewellery Lab Logo" width={160} height={64} className="object-contain" />
                             </Link>
                         </SheetHeader>
-                        <nav className="flex-grow mt-6">
+                        <nav aria-label={t('nav.mobileNav')} className="flex-grow mt-6">
                         <ul className="space-y-4">
                             {navLinks.map((link) => (
                             <li key={link.label}>

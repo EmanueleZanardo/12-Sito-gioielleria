@@ -328,7 +328,10 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
             <div className="px-4 md:px-6 space-y-8">
               {aiImageUrl && (
                   <div className="space-y-2">
-                      <Label>{t('form.aiImage.label')}</Label>
+                      {/* QA 04/10 11:36: <p> invece di <Label>: il testo etichetta un'anteprima
+                          immagine statica, non un controllo — una <label> senza controllo
+                          associato è markup non valido e confonde gli screen reader. Stesso stile visivo. */}
+                      <p className="text-sm font-medium leading-none">{t('form.aiImage.label')}</p>
                       <div className="relative w-40 h-40 rounded-md overflow-hidden border">
                       <Image src={aiImageUrl} alt={t('form.aiImage.alt')} fill sizes="160px" className="object-cover" />
                       <Button

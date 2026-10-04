@@ -26,6 +26,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Contattaci | GDC Jewellery Lab',
+    description:
+      'Saremmo felici di sentirti: inizia il tuo progetto personalizzato o richiedi un preventivo gratuito.',
     images: [
       {
         url: '/og-cover.jpg',

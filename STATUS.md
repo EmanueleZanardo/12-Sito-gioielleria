@@ -1,6 +1,14 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 04/10/2026 ~03:50 CEST**
+**Ultimo aggiornamento: 04/10/2026 ~04:55 CEST**
+
+## 04/10/2026 ~04:55 CEST — ciclo QA orario 04:36
+- QA live: / = 200, /gallery = 200, /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /contact = 200, /about = 200, /services = 200, /collections = 200; og-cover.jpg = 200; pagina inesistente = 404 brandizzata. Meta/OG/Twitter/JSON-LD completi (canonical homepage via JS — Google lo renderizza, invariato dai cicli scorsi); nessun placeholder o testo finto (i match "null/undefined" sono solo flight-data React); 20/20 immagini i.postimg.cc uniche della homepage = 200; security headers invariati (nosniff, SAMEORIGIN, HSTS, referrer-policy, permissions-policy).
+- Controlli telefono: GALLERIA outline con `visited:text-gold`/`focus-visible` confermati in sorgente; form = client component (markup post-hydration, fallback WhatsApp +39 345 111 4337 presente); tutti i `target="_blank"` con `rel="noopener noreferrer"`; autocomplete + enterKeyHint integri sui form.
+- Bug trovati e fixati: NESSUNO (tutti i guardrail dei cicli precedenti integri).
+- Miglioria micro-igiene (commit lightbox): `type="button"` sui 3 bottoni della lightbox immagini (chiudi/precedente/successiva) — senza type un `<button>` eredita il submit implicito: oggi innocuo (lightbox mai dentro un form), ma esplicito = zero sorprese future. Zero cambi di design.
+- tsc --noEmit 0 errori, npm run build 16/16 exit 0. Push via Contents API (SHA 40 char), verificato su commits/main.
+- Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 04/10/2026 ~03:50 CEST — ciclo QA orario 03:36
 - QA live: / = 200, /gallery = 200 (redirect → /#gallery), /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /contact = 200, /about = 200, /services = 200, /collections = 200; sitemap.xml, robots.txt, manifest.webmanifest, sitemap-images.xml, og-cover.jpg = 200; pagina inesistente = 404 brandizzata ("Pagina non trovata", nessun stack). Meta/OG/Twitter/canonical completi su tutte le pagine (og:image assoluto + og:image:alt); nessun placeholder o testo finto (i match "null/undefined" sono solo flight-data React, non testo visibile); 33/33 immagini i.postimg.cc campionate = 200; security headers invariati.

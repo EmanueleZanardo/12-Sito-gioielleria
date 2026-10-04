@@ -169,10 +169,31 @@ export default function Home() {
     ],
   };
 
+  // ItemList delle creazioni in galleria (Product senza offers/prezzo:
+  // laboratorio artigianale su misura, corretto così).
+  const productListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Galleria creazioni GDC Jewellery Lab',
+    itemListElement: orderedProducts.slice(0, 20).map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Product',
+        name: p.description,
+        description: p.description,
+        image: p.imageUrl,
+        brand: { '@type': 'Brand', name: 'GDC Jewellery Lab' },
+      },
+    })),
+  };
+
   return (
     <div className="flex flex-col bg-background">
       {/* Dati strutturati: JewelryStore (solo homepage) + briciole Home */}
       <JsonLd data={jewelryStoreJsonLd} />
+      {/* Dati strutturati: ItemList dei prodotti in galleria (QA SEO 04/10/2026 M1) */}
+      <JsonLd data={productListJsonLd} />
       <JsonLd
         data={breadcrumbList([{ name: 'Home', url: `${SITE_URL}/` }])}
       />

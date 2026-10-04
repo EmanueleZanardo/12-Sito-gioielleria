@@ -13,7 +13,11 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90 visited:text-destructive-foreground",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground visited:text-current",
+          /* QA 04/10 19:36: stati :active per feedback di pressione su touch.
+             I bottoni outline dorati di page.tsx li definiscono già inline;
+             così anche gli outline "lisci" (custom-jewel, orders, not-found)
+             rispondono al tap senza restare "congelati" in hover. */
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground active:bg-accent active:text-accent-foreground visited:text-current",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80 visited:text-secondary-foreground",
         ghost:

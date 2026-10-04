@@ -1,6 +1,16 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 04/10/2026 ~02:00 CEST**
+**Ultimo aggiornamento: 04/10/2026 ~02:45 CEST**
+
+## 04/10/2026 ~02:45 CEST — ciclo QA orario 02:36
+- QA live: / = 200, /gallery = 200 (redirect → /#gallery), /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /contact = 200, /about = 200, /services = 200, /collections = 200; sitemap.xml, robots.txt, manifest.webmanifest, sitemap-images.xml, og-cover.jpg = 200; pagina inesistente = 404 brandizzata. 33/33 immagini i.postimg.cc = 200. 0 placeholder su homepage live; meta/OG/Twitter/JSON-LD (JewelryStore, FAQPage) completi; security headers live OK (nosniff, SAMEORIGIN, HSTS, referrer-policy, permissions-policy).
+- Form: fallback WhatsApp +39 345 111 4337 sotto i submit confermato in sorgente (contact è client component: testo visibile post-hydration).
+- Bug trovati e fixati: NESSUNO (tutti i guardrail dei cicli precedenti integri).
+- Miglioria micro-UX (commit 75001bd): link WhatsApp di fallback sotto i submit di /contact e /custom-jewel/order-form con `visited:text-gold` (prima `visited:text-muted-foreground`: il numero diventava grigio dopo il click, incoerente con la policy visited oro del sito — GALLERIA, WhatsAppFloat); zero cambi di design.
+- tsc --noEmit 0 errori, npm run build 16/16 exit 0. Push via Data API (SHA 40 char), verificato su commits/main.
+- Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram.
+
+**Ultimo aggiornamento precedente: 04/10/2026 ~02:00 CEST**
 
 ## 04/10/2026 ~02:00 CEST — aggiornamento documentale giornaliero
 - **03/10 00:27–00:44 — anteprime galleria senza descrizioni né nomi categoria** (commit ed62211, 0d27456); le card di navigazione Anelli/Collane/Fedi mantengono le etichette (decisione sua ancora aperta).

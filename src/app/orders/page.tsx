@@ -20,6 +20,23 @@ export default function OrdersPage() {
           { name: tCommon('nav.orders'), url: `${SITE_URL}/orders` },
         ])}
       />
+      {/* QA 05/10 00:36 (miglioria ciclo): HowTo JSON-LD sui 4 passi visibili.
+          La pagina "Come ordinare" è procedurale: il markup strutturato
+          aiuta Google a capirla. 1:1 col contenuto visibile (i18n attiva). */}
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'HowTo',
+          name: t('title'),
+          description: t('subtitle'),
+          step: Array.from({ length: STEP_COUNT }, (_, i) => ({
+            '@type': 'HowToStep',
+            position: i + 1,
+            name: t(`steps.${i}.title`),
+            text: t(`steps.${i}.text`),
+          })),
+        }}
+      />
       <div className="mx-auto px-4 py-16 md:py-24">
         <div className="text-center mb-12">
           <h1 className="font-headline text-4xl md:text-5xl text-foreground">

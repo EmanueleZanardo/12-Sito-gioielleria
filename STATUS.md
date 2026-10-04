@@ -1,6 +1,14 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 04/10/2026 ~09:45 CEST**
+**Ultimo aggiornamento: 04/10/2026 ~10:45 CEST**
+
+## 04/10/2026 ~10:45 CEST — ciclo QA orario 10:36
+- QA live: / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale, verificato), /custom-jewel = 200, /orders = 200, /contact = 200; /collections = 200. robots.txt, sitemap.xml, manifest.webmanifest, favicon.ico = 200. Meta/OG/Twitter completi sulla home. Nessun placeholder/lorem/todo nell'HTML live.
+- Immagini: 26 URL postimg.cc unici sulla home (via Next Image optimizer); campione diretto i.postimg.cc = 200 (un 000 iniziale su HEAD di un file con parentesi nell'URL era un artefatto HEAD — il GET funziona 200, nessun fix necessario).
+- Controlli telefono (sorgente): bottoni outline homepage (GALLERIA r.211, CTA orders r.389) con stati :visited/:active/:focus-visible dichiarati esplicitamente — nessun cambio colore post-click; float WhatsApp con visited:text-gold; tutti i target="_blank" con rel noopener; nessun riflesso anomalo (vignettatura radiale intenzionale).
+- a11y sweep: skip link presente, <html lang> aggiornato al cambio lingua, reduced-motion CSS + MotionConfig "user" per le animazioni JS, lightbox con ESC/frecce + role=dialog + aria-labels localizzati, toast Radix con aria-live interno, form contatti/ordini con label/required/autocomplete/enterKeyHint/fieldset-legend. Nessun bug trovato.
+- Miglioria del ciclo (a11y): aria-hidden="true" sul numerale decorativo "404" in src/app/not-found.tsx (il significato è nell'h1 "Pagina non trovata", evita la doppia lettura agli screen reader).
+- tsc --noEmit 0 errori, npm run build 16/16 exit 0.
 
 ## 04/10/2026 ~09:45 CEST — ciclo QA orario 09:36
 - QA live: / = 200, /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /contact = 200, /about = 200, /services = 200, /collections = 200; /gallery = 308 → /#gallery (redirect permanente, invariato). sitemap.xml, robots.txt, sitemap-images.xml = 200. Meta/OG/Twitter + JSON-LD presenti sulla home; theme-color, metadataBase, canonical self-referencing nei layout di rotta + iniezione canonical home via useEffect (verificata intatta, r.81 page.tsx). Nessun placeholder/lorem/todo nel live HTML.

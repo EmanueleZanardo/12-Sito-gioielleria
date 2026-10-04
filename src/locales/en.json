@@ -315,26 +315,6 @@
         "whatsappPrefill": "Hello! I’d like information about a custom jewel.",
         "note": "We usually reply within 24 hours."
       },
-      "steps": {
-        "label": "How it works",
-        "title": "From desire to jewel, in 4 steps",
-        "1": {
-          "title": "Free consultation",
-          "text": "Tell us your idea: a sketch, a photo, or even just a feeling. We listen, advise you on materials and stones, and find the right direction together. No obligation."
-        },
-        "2": {
-          "title": "Design and drawing",
-          "text": "We turn the idea into a concrete design, with measurements, materials and a detailed quote. Nothing is made without your approval."
-        },
-        "3": {
-          "title": "Handcrafted creation",
-          "text": "The jewel takes shape in our workshop, handcrafted with care in every detail. We keep you updated on the progress."
-        },
-        "4": {
-          "title": "Delivery",
-          "text": "Final quality check and delivery of your unique piece, ready to wear or to gift."
-        }
-      },
       "why": {
         "label": "Why custom",
         "title": "A standard jewel will never be yours like this one",

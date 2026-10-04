@@ -315,26 +315,6 @@
         "whatsappPrefill": "Bonjour ! Je voudrais des informations sur un bijou sur mesure.",
         "note": "Nous répondons généralement sous 24 heures."
       },
-      "steps": {
-        "label": "Comment ça marche",
-        "title": "Du désir au bijou, en 4 étapes",
-        "1": {
-          "title": "Consultation gratuite",
-          "text": "Racontez-nous votre idée : un dessin, une photo ou même juste une émotion. Nous vous écoutons, vous conseillons sur les matériaux et les pierres, et trouvons ensemble la bonne direction. Sans engagement."
-        },
-        "2": {
-          "title": "Conception et dessin",
-          "text": "Nous transformons l'idée en un dessin concret, avec mesures, matériaux et devis détaillé. Rien n'est réalisé sans votre approbation."
-        },
-        "3": {
-          "title": "Création artisanale",
-          "text": "Le bijou prend forme dans notre atelier, travaillé à la main avec soin dans chaque détail. Nous vous tenons informé de l'avancement."
-        },
-        "4": {
-          "title": "Livraison",
-          "text": "Contrôle final de qualité et livraison de votre pièce unique, prête à porter ou à offrir."
-        }
-      },
       "why": {
         "label": "Pourquoi le sur mesure",
         "title": "Un bijou standard ne sera jamais à vous comme celui-ci",

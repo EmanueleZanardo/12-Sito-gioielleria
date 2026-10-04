@@ -1,6 +1,16 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 04/10/2026 ~15:55 CEST**
+**Ultimo aggiornamento: 04/10/2026 ~17:55 CEST**
+
+## 04/10/2026 ~17:55 CEST — ciclo QA orario 17:36
+- QA live (curl): / = 200, /about = 200, /collections = 200, /contact = 200, /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /services = 200; /gallery = 308 → /#gallery (redirect permanente intenzionale, invariato). sitemap.xml, robots.txt, sitemap-images.xml, manifest.webmanifest (+ icons apple-touch-icon/favicon), og-cover.jpg = 200; pagina inesistente = 404 brandizzata.
+- Link interni: 18/18 href unici estratti dalle 8 pagine = nessun 404; nessuna immagine mancante: 24/24 URL i.postimg.cc unici = 200 (verifica diretta, ultimo URL senza trailing newline ricontrollato a parte = 200).
+- Meta/OG: title/description/og:* (title, description, url, locale, image, type)/twitter/theme-color #0d0b08 + JSON-LD presenti su homepage; nessun placeholder/lorem/todo (i soli match "$undefined" sono internals del flight data Next.js, non contenuti).
+- Controlli telefono (sorgente): guardie `visited:text-gold` integre sul bottone outline GALLERIA homepage e in whatsapp-float/footer/header/contact/order-form/share-dialog/button; float WhatsApp con aria-label + rel noopener; form contatti (client component, react-hook-form+zod) con label htmlFor/required/autoComplete/enterKeyHint/aria-invalid — markup corretto, invariato; fallback WhatsApp su errore invio intatto (server posta non attivo — blocco noto da parte di Emanuele).
+- Build locale: npm run build exit 0 (8/8 route prerenderizzate statiche); tsc --noEmit 0 errori.
+- Bug trovati e fixati: NESSUNO. Tutti i guardrail dei cicli precedenti integri (skip link, reduced-motion, lightbox Esc/frecce/focus-trap, sizes calibrati masonry/teaser, 404 brandizzata).
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde, zero gap reali trovati) — solo aggiornamento STATUS.md, per convenzione cicli verdi. Zero cambi di design.
+- Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 04/10/2026 ~15:55 CEST — ciclo QA orario 15:36
 - QA live (curl): / = 200, /collections = 200, /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /contact = 200, /about = 200, /services = 200; /gallery segue redirect 308 → /#gallery (200 finale, redirect permanente intenzionale, invariato). sitemap.xml, robots.txt, sitemap-images.xml, manifest.webmanifest, og-cover.jpg, favicon.ico = 200; pagina inesistente = 404 brandizzata.

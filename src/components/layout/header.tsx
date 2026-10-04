@@ -100,7 +100,7 @@ export function Header() {
             <Link href="/" className="flex items-center space-x-2">
               {/* Logo sopra la piega su ogni pagina: priority per non
                   ritardare il Largest Contentful Paint. */}
-              <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt="GDC Jewellery Lab Logo" width={160} height={64} className="object-contain" priority fetchPriority="high" />
+              <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt="GDC Jewellery Lab Logo" width={160} height={64} className="object-contain" priority />
             </Link>
         </div>
         
@@ -162,7 +162,7 @@ export function Header() {
             <div className="md:hidden">
                 <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                     <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon" aria-expanded={isMobileMenuOpen} aria-controls="mobile-menu">
+                    <Button variant="ghost" size="icon" aria-expanded={isMobileMenuOpen} aria-controls="mobile-menu" className="h-11 w-11">
                         <Menu aria-hidden="true" className="h-6 w-6" />
                         {/* Etichetta coerente con aria-expanded: a menu aperto il
                             pulsante chiude, quindi annuncia "Chiudi menu" (la chiave

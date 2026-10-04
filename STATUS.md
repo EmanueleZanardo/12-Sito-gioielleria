@@ -1,6 +1,17 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 04/10/2026 ~10:45 CEST**
+**Ultimo aggiornamento: 04/10/2026 ~11:55 CEST**
+
+## 04/10/2026 ~11:55 CEST — ciclo QA orario 11:36
+- QA live: / = 200, /collections = 200, /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /contact = 200; /gallery = 308 → /#gallery (redirect permanente intenzionale, invariato). sitemap.xml, robots.txt = 200. Nessun placeholder/lorem/todo/example.com nel sorgente (solo placeholder= attributi i18n legittimi nei form).
+- Immagini: 33/33 URL i.postimg.cc unici = 200 (2 con parentesi "(1).png" nell'URL: il GET diretto risponde 200, come nei cicli scorsi — nessun fix necessario).
+- Meta/OG: themeColor #0d0b08 nel viewport export di layout.tsx; canonical/metadataBase invariati.
+- Controlli telefono (sorgente): guardie `visited:text-gold`/`active:`/`focus-visible:` integre su entrambi i bottoni outline homepage (GALLERIA r.211, CTA orders r.389) e sul float WhatsApp (r.28); tutti i wa.me con `target="_blank" rel="noopener noreferrer"`; link Instagram con `rel="me"`; tel:+393451114337 con visited guard; aria-hidden="true" sul numerale 404 confermato.
+- i18n: 292/292 chiavi presenti e non vuote in it/en/fr/de — zero chiavi mancanti, zero stringhe vuote.
+- Bug trovati: nessuno (tutti i guardrail dei cicli precedenti integri).
+- Miglioria del ciclo (a11y): r.331 di order-form-client.tsx usava `<Label>` (shadcn/Radix = elemento `<label>`) come didascalia di un'anteprima immagine statica — una label senza controllo associato è markup non valido e confonde gli screen reader. Sostituito con `<p className="text-sm font-medium leading-none">` (stesso stile visivo, markup valido). Zero cambi di design.
+- tsc --noEmit 0 errori, npm run build 16/16 exit 0. Push via Contents API (SHA 40 char), verificato su commits/main.
+- Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 04/10/2026 ~10:45 CEST — ciclo QA orario 10:36
 - QA live: / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale, verificato), /custom-jewel = 200, /orders = 200, /contact = 200; /collections = 200. robots.txt, sitemap.xml, manifest.webmanifest, favicon.ico = 200. Meta/OG/Twitter completi sulla home. Nessun placeholder/lorem/todo nell'HTML live.

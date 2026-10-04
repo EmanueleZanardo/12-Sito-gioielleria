@@ -394,12 +394,12 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t">
               <div className="space-y-2">
                   <Label htmlFor="name">{t('form.name.label')}<RequiredMark /></Label>
-                  <Input id="name" required autoComplete="name" aria-invalid={!!errors.name} aria-describedby={errors.name ? 'order-name-error' : undefined} placeholder={t('form.name.placeholder')} {...register("name")} />
+                  <Input id="name" required autoComplete="name" enterKeyHint="next" aria-invalid={!!errors.name} aria-describedby={errors.name ? 'order-name-error' : undefined} placeholder={t('form.name.placeholder')} {...register("name")} />
                   {errors.name && <p id="order-name-error" role="alert" className="text-sm font-medium text-destructive">{errors.name.message}</p>}
               </div>
               <div className="space-y-2">
                   <Label htmlFor="email">{t('form.email.label')}<RequiredMark /></Label>
-                  <Input id="email" type="email" required autoComplete="email" aria-invalid={!!errors.email} aria-describedby={errors.email ? 'order-email-error' : undefined} placeholder={t('form.email.placeholder')} {...register("email")} />
+                  <Input id="email" type="email" required autoComplete="email" enterKeyHint="done" aria-invalid={!!errors.email} aria-describedby={errors.email ? 'order-email-error' : undefined} placeholder={t('form.email.placeholder')} {...register("email")} />
                   {errors.email && <p id="order-email-error" role="alert" className="text-sm font-medium text-destructive">{errors.email.message}</p>}
               </div>
               </div>

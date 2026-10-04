@@ -279,6 +279,27 @@ export default function ContactPage() {
           { name: tCommon('nav.contact'), url: `${SITE_URL}/contact` },
         ])}
       />
+      {/* QA 05/10 01:36 (miglioria ciclo): ContactPage schema.org — recapiti
+          1:1 col contenuto visibile (WhatsApp + email in pagina), i18n attiva. */}
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'ContactPage',
+          name: t('title'),
+          url: `${SITE_URL}/contact`,
+          about: {
+            '@type': 'Organization',
+            name: 'GDC Jewellery Lab',
+            url: SITE_URL,
+            contactPoint: {
+              '@type': 'ContactPoint',
+              telephone: '+39 345 111 4337',
+              email: 'laboratorio.ticino@gmail.com',
+              contactType: 'customer service',
+            },
+          },
+        }}
+      />
     <Suspense
       fallback={
         <div

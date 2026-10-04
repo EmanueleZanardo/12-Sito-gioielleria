@@ -1,6 +1,18 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 04/10/2026 ~06:00 CEST**
+**Ultimo aggiornamento: 04/10/2026 ~07:45 CEST**
+
+## 04/10/2026 ~07:45 CEST — ciclo QA orario 07:36
+- QA live: / = 200, /collections = 200, /custom-jewel = 200, /orders = 200, /contact = 200; /gallery = 308 → /#gallery (redirect permanente configurato, verificato con curl; il 404 visto in browser.open era l'estrattore che non segue il redirect, non un problema del sito). og-cover.jpg = 200 (102 KB); security headers invariati (nosniff, SAMEORIGIN, HSTS preload, referrer-policy, permissions-policy); pagina inesistente = 404 brandizzata ("Pagina non trovata").
+- Meta/OG/Twitter presenti su tutte le 6 pagine vetrina (og:title + twitter:card per pagina); og:locale alternates en/fr/de; JSON-LD FAQPage in italiano 1:1 con la sezione FAQ visibile (l'intestazione "Frequently Asked Questions" vista nel dump era l'etichetta dell'estrattore sul blocco structured data, non un heading visibile).
+- Immagini: 33/33 URL i.postimg.cc unici = 200 al retry (1 timeout transitorio su brooch-icon.png da 3,7 KB, usato in /custom-jewel/order-form — retry 200 in 10,8s; stesso pattern dei timeout postimg dei cicli scorsi). sitemap-images.xml auto-generata da src/lib/data.ts (hero + foto prodotti + foto artigiano /about): completa, nessun intervento.
+- Form: submit + label/htmlFor + required integri su /contact e /custom-jewel/order-form; enterKeyHint e autocomplete invariati; fallback WhatsApp +39 345 111 4337 sotto i submit. Nessun placeholder/lorem/todo/xxx/example.com nel sorgente.
+- Controlli telefono (sorgente): guardie `visited:text-gold`/`active:`/`focus-visible:` integre su entrambi i bottoni outline (GALLERIA homepage r.211, CTA orders r.389); lightbox con type=button + aria-label; hero con priority (LCP), logo senza priority (nessun preload doppio), gallery con lazy di default; alt descrittivi sulle card prodotto.
+- Deploy live allineato a main: `visited:text-gold` e `aria-hidden="true"` (badge processo, commit 06:36) presenti nell'HTML di produzione — Vercel auto-deploy OK.
+- Bug trovati e fixati: NESSUNO. Tutti i guardrail dei cicli precedenti integri.
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde, zero gap reali trovati) — solo aggiornamento STATUS.md. Zero cambi di design.
+- tsc --noEmit 0 errori, npm run build 16/16 exit 0. Push via Contents API (SHA 40 char), verificato su commits/main.
+- Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 04/10/2026 ~06:00 CEST — ciclo QA orario 05:36
 - QA live: / = 200, /gallery = 301 → /#gallery (200), /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /contact = 200, /about = 200, /services = 200, /collections = 200; sitemap.xml (7 URL, order-form escluso), robots.txt, manifest.webmanifest, sitemap-images.xml, favicon.ico, apple-touch-icon.png, og-cover.jpg = 200. Meta/OG/Twitter completi; JSON-LD validi: home (WebSite, JewelryStore, BreadcrumbList), /custom-jewel (FAQPage 5 domande); ancore #anelli/#collane-e-pendenti/#fedi presenti; og-cover.jpg 1200×630 esatti.

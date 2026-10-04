@@ -231,7 +231,7 @@ function ContactFormComponent() {
                         type="button"
                         variant="destructive"
                         size="icon"
-                        className="absolute top-1 right-1 h-6 w-6"
+                        className="absolute top-1 right-1 h-8 w-8"
                         onClick={removePhoto}
                         aria-label={t('form.photo.remove')}
                       >
@@ -289,9 +289,9 @@ export default function ContactPage() {
               (client-only), quindi senza heading nel fallback l'SSR servirebbe
               ai crawler solo "Caricamento…". Testo identico a quello del form
               reale: nessun flash, nessun mismatch di hydration. */}
-          <h1 className="font-headline text-4xl md:text-5xl text-foreground text-center mb-8">
+          <p className="font-headline text-4xl md:text-5xl text-foreground text-center mb-8" aria-hidden="true">
             {t('title')}
-          </h1>
+          </p>
           <div className="animate-pulse space-y-6" role="status">
             <span className="sr-only">{t('loading')}</span>
             <div className="space-y-4">

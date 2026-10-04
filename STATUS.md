@@ -1,6 +1,14 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 03/10/2026 ~10:36 CEST**
+**Ultimo aggiornamento: 04/10/2026 ~02:00 CEST**
+
+## 04/10/2026 ~02:00 CEST — aggiornamento documentale giornaliero
+- **03/10 00:27–00:44 — anteprime galleria senza descrizioni né nomi categoria** (commit ed62211, 0d27456); le card di navigazione Anelli/Collane/Fedi mantengono le etichette (decisione sua ancora aperta).
+- **03/10 ~02:09 — restyling lusso completato e verificato live** su gdc-jewellery-lab.vercel.app (nero caldo/avorio/oro champagne, Cormorant Garamond; batch HEAD 3e7d862, 13 commit).
+- **03/10 02:36–02:54** — deploy Vercel stale con chiavi i18n grezze → fix fallback italiano (commit a8885c3), produzione aggiornata e verificata.
+- **03/10 16:47–17:05** — email Vercel "Production deployment failed" (push intermedio senza required-mark.tsx); auto-riparato dal deploy successivo, sito live aggiornato senza intervento.
+- **03/10 — QA orari tutto verde** (fix a11y, guardie `visited:` oro 100%, `rel="me"` su Instagram, sitemap-images estesa a 23 immagini, Web App Manifest). Nessuna pubblicazione Instagram (mai autorizzata). HEAD: 2c82d93 (QA 04/10 01:36).
+
 ## 03/10/2026 ~10:36 CEST — ciclo QA orario 10:36
 - QA live: homepage, /gallery (rewrite → /#gallery), /custom-jewel, /orders, /contact, /about, /services, /collections, /custom-jewel/order-form → tutti 200; sitemap.xml, robots.txt, og-cover.jpg → 200. 0 placeholder (lorem/todo/xxx/example.com) su 5 pagine. 3/3 immagini postimg.cc campionate HEAD 200. Meta OG/Twitter/canonical completi su tutte le pagine.
 - Form (sorgente): contact e order-form con label/htmlFor, required, aria-invalid/aria-describedby, zod — markup a11y integro. Bottone GALLERIA confermato con `visited:text-gold`/`focus-visible` (nessun cambio colore post-click).

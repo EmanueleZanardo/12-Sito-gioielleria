@@ -203,7 +203,8 @@
       "email": "Veuillez saisir une adresse email valide.",
       "subject": "Veuillez saisir un objet.",
       "message": "Veuillez fournir un message plus détaillé (minimum 10 caractères)."
-    }
+    },
+    "noscript": "Sans JavaScript, ce formulaire ne peut pas être envoyé — contactez-nous directement ci-dessous."
   },
   "customJewel": {
     "loading": "Chargement…",
@@ -387,7 +388,8 @@
         "ctaWhatsapp": "Écrivez-nous sur WhatsApp",
         "note": "Réponse en général sous 24 heures."
       }
-    }
+    },
+    "noscript": "Sans JavaScript, ce formulaire ne peut pas être envoyé — écrivez-nous sur WhatsApp pour commander votre bijou sur mesure."
   },
   "orders": {
     "title": "Comment commander",

@@ -16,7 +16,8 @@ export const metadata: Metadata = {
     alternateLocale: ['en_US', 'fr_FR', 'de_DE'],
     images: [
       {
-        url: '/og-cover.jpg',
+        // Foto reale di gioiello (prod_001 in src/lib/data.ts) — CTR migliore della cover generica (QA SEO 04/10/2026 M4)
+        url: 'https://i.postimg.cc/jS3Xg4zs/Gemini-Generated-Image-5ooedx5ooedx5ooe.png',
         width: 1200,
         height: 630,
         alt: 'GDC Jewellery Lab — Collezioni di gioielli artigianali',
@@ -26,9 +27,11 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Le Collezioni | GDC Jewellery Lab',
+    description:
+      'Anelli, collane, fedi, orecchini e bracciali artigianali in oro 18kt: pezzi unici già pronti o il punto di partenza per la tua creazione su misura.',
     images: [
       {
-        url: '/og-cover.jpg',
+        url: 'https://i.postimg.cc/jS3Xg4zs/Gemini-Generated-Image-5ooedx5ooedx5ooe.png',
         alt: 'GDC Jewellery Lab — Collezioni di gioielli artigianali',
       },
     ],

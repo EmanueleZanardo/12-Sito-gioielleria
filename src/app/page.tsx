@@ -209,6 +209,7 @@ export default function Home() {
           sizes="100vw"
           quality={80}
           priority
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-black/50" />
         {/* Vignettatura calda: profondità senza riflessi anomali */}

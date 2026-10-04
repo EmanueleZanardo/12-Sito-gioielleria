@@ -184,7 +184,11 @@ export default function CustomJewelPage() {
                     className="hidden md:block absolute top-7 left-[calc(50%+2.5rem)] right-[calc(-50%+2.5rem)] h-px bg-gold/30"
                   />
                 )}
-                <span className="flex h-14 w-14 items-center justify-center rounded-full border border-gold/50 bg-gold/10 font-headline text-2xl font-semibold text-gold mb-4">
+                {/* Badge numerico: decorativo, gli screen reader leggono gia' la numerazione dall'ol */}
+                <span
+                  aria-hidden="true"
+                  className="flex h-14 w-14 items-center justify-center rounded-full border border-gold/50 bg-gold/10 font-headline text-2xl font-semibold text-gold mb-4"
+                >
                   {n}
                 </span>
                 <h3 className="font-headline text-xl text-foreground">

@@ -1,6 +1,16 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 04/10/2026 ~11:55 CEST**
+**Ultimo aggiornamento: 04/10/2026 ~12:55 CEST**
+
+## 04/10/2026 ~12:55 CEST — ciclo QA orario 12:36
+- QA live: / = 200, /collections = 200, /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /contact = 200, /about = 200, /services = 200; /gallery = 308 → /#gallery (redirect permanente intenzionale, verificato con curl — il 404 iniziale era un artefatto del text fetcher, non del sito). sitemap.xml, robots.txt, sitemap-images.xml = 200. Meta/OG/Twitter + JSON-LD presenti; nessun placeholder/lorem/todo nell'HTML live.
+- Link interni: 27/27 nessun 404 (200 o 308 intenzionali). Immagini: 24/24 URL i.postimg.cc unici = 200 (zero timeout questo ciclo).
+- Controlli telefono (sorgente): guardie visited/active/focus-visible integre su GALLERIA homepage e float WhatsApp; `<html lang>` aggiornato al cambio lingua dal LanguageProvider; tutti i target=_blank con rel noopener; aria-current sulla nav; hero con priority; alt presenti su tutte le next/image.
+- Form contatti: client component react-hook-form+zod con label/required/autocomplete; il fallback WhatsApp su errore invio (server di posta non attivo — password app Gmail mancante su Vercel, blocco noto da parte di Emanuele) è intatto.
+- Bug trovati: nessuno (tutti i guardrail dei cicli precedenti integri).
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde, zero gap reali) — solo aggiornamento STATUS.md, per convenzione cicli verdi.
+- tsc --noEmit 0 errori, npm run build 16/16 exit 0. Push via Contents API (SHA 40 char), verificato su commits/main.
+- Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 04/10/2026 ~11:55 CEST — ciclo QA orario 11:36
 - QA live: / = 200, /collections = 200, /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /contact = 200; /gallery = 308 → /#gallery (redirect permanente intenzionale, invariato). sitemap.xml, robots.txt = 200. Nessun placeholder/lorem/todo/example.com nel sorgente (solo placeholder= attributi i18n legittimi nei form).

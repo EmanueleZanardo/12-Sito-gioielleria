@@ -1,6 +1,20 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 04/10/2026 ~14:55 CEST**
+**Ultimo aggiornamento: 04/10/2026 ~15:55 CEST**
+
+## 04/10/2026 ~15:55 CEST — ciclo QA orario 15:36
+- QA live (curl): / = 200, /collections = 200, /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /contact = 200, /about = 200, /services = 200; /gallery segue redirect 308 → /#gallery (200 finale, redirect permanente intenzionale, invariato). sitemap.xml, robots.txt, sitemap-images.xml, manifest.webmanifest, og-cover.jpg, favicon.ico = 200; pagina inesistente = 404 brandizzata.
+- Immagini: 33/33 URL i.postimg.cc unici = 200 (i 2 con parentesi "(1)" nel nome verificati via GET diretto degli URL completi — l'artefatto regex di estrazione è noto e archiviato).
+- Meta/OG: title/description/og+twitter/og:image:alt/theme-color #0d0b08/lang=it invariati su homepage; skip link → #main-content; noindex su 404; skip-robots su order-form confermato (layout rotta, come cicli precedenti).
+- Controlli telefono (sorgente): guardie `visited:text-gold`/`visited:text-foreground/60` integre su nav, bottoni outline homepage (GALLERIA), CTA orders, float WhatsApp (rel noopener + aria-label + prefill encodeURIComponent); wa.me generici senza prefill solo nei fallback form (intenzionale); header Instagram `rel="noopener noreferrer me"`.
+- Immagini a11y: tutte le <Image> hanno alt (i casi visti senza alt sulla stessa riga sono multi-linea, alt presente nelle righe successive — falso allarme).
+- i18n: 292/292 chiavi presenti e non vuote in it/en/fr/de — zero mancanti, zero vuote.
+- sitemap-images.xml: 23 image:loc prodotti + hero + about = copre tutte le foto indicizzabili (il conteggio "<loc>=2" visto nel fetcher è solo dei tag pagina, falso allarme archiviato).
+- Form: contact e order-form invariati; fallback WhatsApp su errore invio intatto (server posta non attivo — blocco noto da parte di Emanuele).
+- Bug trovati e fixati: NESSUNO. Tutti i guardrail dei cicli precedenti integri.
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde, zero gap reali trovati) — solo aggiornamento STATUS.md, per convenzione cicli verdi. Zero cambi di design.
+- tsc --noEmit 0 errori, npm run build exit 0 (14 route). Push via Contents API (SHA 40 char), verificato su commits/main.
+- Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 04/10/2026 ~14:55 CEST — ciclo QA orario 14:36
 - QA live (curl): / = 200, /collections = 200, /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /contact = 200, /about = 200, /services = 200; /gallery segue redirect 308 → /#gallery (200 finale, redirect permanente intenzionale, invariato). sitemap.xml, robots.txt, sitemap-images.xml, manifest.webmanifest, og-cover.jpg, favicon.ico = 200.

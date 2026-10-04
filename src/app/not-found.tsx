@@ -23,7 +23,10 @@ export default function NotFound() {
   return (
     <div className="bg-background">
       <div className="mx-auto px-4 py-24 md:py-32 text-center max-w-2xl">
-        <p className="font-headline text-7xl md:text-8xl text-primary">404</p>
+        {/* QA 04/10 10:36: il numerale "404" è puramente decorativo — il
+            significato è già nell'h1 qui sotto ("Pagina non trovata").
+            aria-hidden evita la doppia lettura agli screen reader. */}
+        <p className="font-headline text-7xl md:text-8xl text-primary" aria-hidden="true">404</p>
         <h1 className="font-headline text-3xl md:text-4xl text-foreground mt-4">
           {t('title')}
         </h1>

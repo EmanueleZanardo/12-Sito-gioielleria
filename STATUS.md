@@ -1,6 +1,16 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 04/10/2026 ~02:45 CEST**
+**Ultimo aggiornamento: 04/10/2026 ~03:50 CEST**
+
+## 04/10/2026 ~03:50 CEST — ciclo QA orario 03:36
+- QA live: / = 200, /gallery = 200 (redirect → /#gallery), /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /contact = 200, /about = 200, /services = 200, /collections = 200; sitemap.xml, robots.txt, manifest.webmanifest, sitemap-images.xml, og-cover.jpg = 200; pagina inesistente = 404 brandizzata ("Pagina non trovata", nessun stack). Meta/OG/Twitter/canonical completi su tutte le pagine (og:image assoluto + og:image:alt); nessun placeholder o testo finto (i match "null/undefined" sono solo flight-data React, non testo visibile); 33/33 immagini i.postimg.cc campionate = 200; security headers invariati.
+- Controlli telefono: GALLERIA outline con `visited:text-gold`/`focus-visible` confermati in sorgente; Sheet mobile chiude già con Esc (Radix default, nessuna modifica servita); alt="" delle teaser collezioni intenzionale (immagine dentro Link con nome visibile — niente doppia lettura screen reader); skip-link → #main-content esistente.
+- Bug trovati e fixati: NESSUNO (tutti i guardrail dei cicli precedenti integri).
+- Miglioria micro-UX (commit XXX): `enterKeyHint` sui campi input dei due form — /contact: nome/email/oggetto = "next" (la textarea messaggio resta con invio = a capo); /custom-jewel/order-form: nome = "next", email = "done" (ultimo campo prima del submit). Sulla tastiera mobile il tasto invio ora guida la compilazione invece di chiudere/inviare a caso. Zero cambi di design.
+- tsc --noEmit 0 errori, npm run build 16/16 exit 0. Push via Data API (SHA 40 char), verificato su commits/main.
+- Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram.
+
+**Ultimo aggiornamento precedente: 04/10/2026 ~02:45 CEST**
 
 ## 04/10/2026 ~02:45 CEST — ciclo QA orario 02:36
 - QA live: / = 200, /gallery = 200 (redirect → /#gallery), /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /contact = 200, /about = 200, /services = 200, /collections = 200; sitemap.xml, robots.txt, manifest.webmanifest, sitemap-images.xml, og-cover.jpg = 200; pagina inesistente = 404 brandizzata. 33/33 immagini i.postimg.cc = 200. 0 placeholder su homepage live; meta/OG/Twitter/JSON-LD (JewelryStore, FAQPage) completi; security headers live OK (nosniff, SAMEORIGIN, HSTS, referrer-policy, permissions-policy).

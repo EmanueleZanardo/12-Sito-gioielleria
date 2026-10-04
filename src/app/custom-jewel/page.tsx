@@ -13,10 +13,6 @@ import { Badge } from '@/components/ui/badge';
 import { useTranslation } from '@/hooks/use-translation';
 import { JsonLd, breadcrumbList, SITE_URL } from '@/components/json-ld';
 import {
-  MessagesSquare,
-  PencilRuler,
-  Hammer,
-  PackageCheck,
   Gem,
   Ruler,
   Wallet,
@@ -36,13 +32,6 @@ export default function CustomJewelPage() {
   const whatsappUrl = `https://wa.me/393451114337?text=${encodeURIComponent(
     t('v2.hero.whatsappPrefill')
   )}`;
-
-  const steps = [
-    { icon: MessagesSquare, n: '1' },
-    { icon: PencilRuler, n: '2' },
-    { icon: Hammer, n: '3' },
-    { icon: PackageCheck, n: '4' },
-  ];
 
   // Banda di conversione con il processo su misura in 3 passi + CTA
   // WhatsApp (riusa il messaggio precompilato della hero).
@@ -95,40 +84,6 @@ export default function CustomJewelPage() {
           </Button>
         </div>
         <p className="text-sm text-muted-foreground mt-4">{t('v2.hero.note')}</p>
-      </section>
-
-      {/* COME FUNZIONA — 4 STEP */}
-      <section className="container mx-auto px-4 py-12 md:py-16">
-        <div className="text-center mb-10">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary">
-            {t('v2.steps.label')}
-          </p>
-          <h2 className="font-headline text-3xl md:text-4xl text-foreground mt-2">
-            {t('v2.steps.title')}
-          </h2>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {steps.map(({ icon: Icon, n }) => (
-            <Card key={n} className="bg-card relative overflow-hidden">
-              <CardHeader className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                    <Icon className="h-6 w-6 text-primary" />
-                  </span>
-                  <span className="font-headline text-5xl text-primary/15 select-none">
-                    {n}
-                  </span>
-                </div>
-                <CardTitle className="font-headline text-xl">
-                  {t(`v2.steps.${n}.title`)}
-                </CardTitle>
-                <CardDescription className="text-base mt-2">
-                  {t(`v2.steps.${n}.text`)}
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          ))}
-        </div>
       </section>
 
       {/* PERCHÉ SU MISURA */}

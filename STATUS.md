@@ -1,6 +1,18 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 04/10/2026 ~13:55 CEST**
+**Ultimo aggiornamento: 04/10/2026 ~14:55 CEST**
+
+## 04/10/2026 ~14:55 CEST — ciclo QA orario 14:36
+- QA live (curl): / = 200, /collections = 200, /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /contact = 200, /about = 200, /services = 200; /gallery segue redirect 308 → /#gallery (200 finale, redirect permanente intenzionale, invariato). sitemap.xml, robots.txt, sitemap-images.xml, manifest.webmanifest, og-cover.jpg, favicon.ico = 200.
+- Immagini: 33/33 URL i.postimg.cc unici = 200 (2 URL con parentesi "(1)" nel nome: il 404 visto col batch era l'artefatto della regex di estrazione troncata alla parentesi — GET diretto degli URL completi = 200, stesso artefatto noto dei cicli scorsi, nessun fix necessario).
+- Meta/OG: og:image:alt presente su home + 4 layout di rotta (about, collections, contact, custom-jewel); theme-color #0d0b08; canonical/metadataBase invariati.
+- Controlli telefono (sorgente): guardie `visited:text-gold`/`active:`/`focus-visible:` integre sui bottoni outline homepage (GALLERIA r.211, CTA orders r.389) e sul float WhatsApp (r.28, aria-label + visited guard); tutti i wa.me con encodeURIComponent sul prefill e `target="_blank" rel="noopener noreferrer"`; skip link → #main-content presente in layout.tsx:159 e valido per tutte le pagine; Sheet mobile con aria-expanded/aria-controls; fieldset/legend su order-form integre.
+- Form: contact (react-hook-form+zod, label/required/autocomplete/enterKeyHint, textarea senza enterKeyHint perché Enter = newline) e order-form invariati; fallback WhatsApp su errore invio intatto (server posta non attivo — blocco noto da parte di Emanuele).
+- i18n: 292/292 chiavi presenti e non vuote in it/en/fr/de — zero chiavi mancanti, zero stringhe vuote.
+- Bug trovati e fixati: NESSUNO. Tutti i guardrail dei cicli precedenti integri.
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde, zero gap reali trovati) — solo aggiornamento STATUS.md, per convenzione cicli verdi. Zero cambi di design.
+- tsc --noEmit 0 errori, npm run build 16/16 exit 0. Push via Contents API (SHA 40 char), verificato su commits/main.
+- Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 04/10/2026 ~13:55 CEST — ciclo QA orario 13:36
 - QA live (curl): / = 200, /collections = 200, /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /contact = 200, /about = 200, /services = 200; /gallery = 308 → /#gallery (redirect permanente intenzionale, invariato); pagina inesistente = 404 brandizzata. sitemap.xml, robots.txt, sitemap-images.xml, manifest.webmanifest, og-cover.jpg, favicon.ico = 200.

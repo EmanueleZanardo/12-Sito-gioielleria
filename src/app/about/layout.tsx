@@ -26,6 +26,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Chi Siamo | GDC Jewellery Lab',
+    description:
+      'Una tradizione di artigianato, una passione per la perfezione. Gioielli che creano emozioni.',
     images: [
       {
         url: '/og-cover.jpg',

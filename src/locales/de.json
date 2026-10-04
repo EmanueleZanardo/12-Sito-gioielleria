@@ -315,26 +315,6 @@
         "whatsappPrefill": "Hallo! Ich hätte gerne Informationen zu einem maßgefertigten Schmuckstück.",
         "note": "Wir antworten in der Regel innerhalb von 24 Stunden."
       },
-      "steps": {
-        "label": "So funktioniert's",
-        "title": "Vom Wunsch zum Schmuckstück – in 4 Schritten",
-        "1": {
-          "title": "Kostenlose Beratung",
-          "text": "Erzählen Sie uns Ihre Idee: eine Zeichnung, ein Foto oder auch nur ein Gefühl. Wir hören zu, beraten Sie zu Materialien und Steinen und finden gemeinsam die richtige Richtung. Unverbindlich."
-        },
-        "2": {
-          "title": "Entwurf und Zeichnung",
-          "text": "Wir verwandeln die Idee in eine konkrete Zeichnung – mit Maßen, Materialien und detailliertem Kostenvoranschlag. Nichts wird ohne Ihre Freigabe gefertigt."
-        },
-        "3": {
-          "title": "Handwerkliche Fertigung",
-          "text": "Das Schmuckstück nimmt in unserer Werkstatt Gestalt an – von Hand gearbeitet, mit Sorgfalt in jedem Detail. Wir halten Sie über den Fortschritt auf dem Laufenden."
-        },
-        "4": {
-          "title": "Lieferung",
-          "text": "Finale Qualitätskontrolle und Lieferung Ihres Unikats – bereit zum Tragen oder Verschenken."
-        }
-      },
       "why": {
         "label": "Warum Maßanfertigung",
         "title": "Ein Standardschmuckstück wird nie so Ihres sein wie dieses",

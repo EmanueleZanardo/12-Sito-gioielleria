@@ -186,6 +186,10 @@ export default function Home() {
 
   // ItemList delle creazioni in galleria (Product senza offers/prezzo:
   // laboratorio artigianale su misura, corretto così).
+  // QA 04/10 23:36 (miglioria ciclo): url su ogni item — la galleria non ha
+  // pagine-prodotto singole, ma ogni creazione è visibile nella sezione
+  // #gallery della home: l'URL con ancora è il riferimento canonico legittimo
+  // dell'item per Google (item senza url = segnale più debole).
   const productListJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -198,6 +202,7 @@ export default function Home() {
         name: p.description,
         description: p.description,
         image: p.imageUrl,
+        url: `${SITE_URL}/#gallery`,
         brand: { '@type': 'Brand', name: 'GDC Jewellery Lab' },
       },
     })),

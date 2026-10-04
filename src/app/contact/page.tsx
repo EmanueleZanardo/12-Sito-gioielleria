@@ -253,7 +253,7 @@ function ContactFormComponent() {
                     href="https://wa.me/393451114337"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline underline-offset-2 visited:text-muted-foreground hover:text-primary"
+                    className="underline underline-offset-2 visited:text-gold hover:text-primary"
                   >
                     +39 345 111 4337
                   </a>

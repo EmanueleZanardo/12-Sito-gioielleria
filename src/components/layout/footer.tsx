@@ -1,12 +1,14 @@
 'use client';
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Instagram } from "lucide-react";
 import Image from 'next/image';
 import { useTranslation } from "@/hooks/use-translation";
 
 export function Footer() {
   const { t } = useTranslation('common');
+  const pathname = usePathname();
 
   const navLinks = [
     { href: "/#gallery", label: t('nav.gallery') },
@@ -19,6 +21,14 @@ export function Footer() {
     { href: "/orders", label: t('nav.orders') },
     { href: "/contact", label: t('nav.contact') },
   ];
+
+  // W3 a11y 05/10/2026: aria-current="page" sulla voce attiva, stessa logica
+  // dell'header — il link con hash non e' mai "corrente". Nessun impatto
+  // visivo (stile invariato), gli screen reader annunciano la pagina corrente.
+  const isActive = (href: string) =>
+    href.startsWith('/#')
+      ? false
+      : pathname === href || pathname.startsWith(href + '/');
 
   return (
     <footer className="bg-[#0a0806] border-t border-gold/20">
@@ -47,6 +57,7 @@ export function Footer() {
               <Link
                 key={label}
                 href={href}
+                aria-current={isActive(href) ? "page" : undefined}
                 className="mx-4 my-1 text-[13px] uppercase tracking-[0.14em] text-foreground/70 visited:text-foreground/70 hover:text-gold transition-colors"
               >
                 {label}

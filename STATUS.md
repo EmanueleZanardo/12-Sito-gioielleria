@@ -1,5 +1,16 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
+**Ultimo aggiornamento: 05/10/2026 ~06:45 CEST**
+
+## 05/10/2026 ~06:45 CEST — ciclo QA orario 06:36
+- QA live (curl): / = 200, /about = 200, /collections = 200, /contact = 200, /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /services = 200; /gallery = 308 → /#gallery (redirect permanente intenzionale, invariato). sitemap.xml, robots.txt, sitemap-images.xml, manifest.webmanifest, og-cover.jpg, favicon.ico, apple-touch-icon.png = 200; pagina inesistente = 404 brandizzata.
+- Link interni homepage: tutti 200/3xx, nessun rotto. Immagini: 20/20 URL i.postimg.cc unici della homepage = 200 (verifica diretta su URL completi; nota: l'estrazione regex con `\s` in GNU grep-ERE tronca gli URL alla lettera "s" — artefatto noto, usare `grep -oP`).
+- Meta/OG: title/description/og:*/twitter/theme-color #0d0b08/lang=it invariati; nessun lorem/placeholder/fake. 404: confermato doppio tag robots (`noindex` auto-iniettato da Next 14 sulle not-found + `index, follow` del root layout) — verificato anche in locale; Google applica la direttiva più restrittiva quindi la 404 resta non indicizzata: artefatto cosmetico, nessun impatto SEO, nessuna modifica necessaria.
+- i18n: 286/286 chiavi presenti in it/en/fr/de — zero mancanti. Form contact: label/autoComplete/enterKeyHint/aria invariati. Bottoni outline (GALLERIA, CTA orders, WhatsApp float): guardie `visited:`/`active:`/`focus-visible:` integre. Menu mobile Sheet: aria-expanded/aria-controls/chiusura su click integri.
+- Build locale: npm run build exit 0 (✓ Compiled, 16/16 static pages, types OK).
+- Bug trovati e fixati: NESSUNO. Miglioria del ciclo: nessuna modifica codice necessaria (sito verde, zero gap reali) — solo aggiornamento STATUS.md, per convenzione cicli verdi. Zero cambi di design.
+- Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram. Blocco noto invariato: server di posta non attivo (manca password app Gmail su Vercel).
+
 **Ultimo aggiornamento: 05/10/2026 ~02:00 CEST**
 
 ## 05/10/2026 ~02:00 CEST — aggiornamento documentale giornaliero

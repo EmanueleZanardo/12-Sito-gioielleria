@@ -471,5 +471,11 @@
     "description": "Il semble que cette page n’existe pas ou ait été déplacée. Retournez à l’accueil ou découvrez nos collections.",
     "backHome": "Retour à l'accueil",
     "browseCollections": "Découvrir les collections"
+  },
+  "error": {
+    "title": "Une erreur est survenue",
+    "description": "Une erreur inattendue s'est produite. Réessayez dans un instant ou retournez à l'accueil.",
+    "tryAgain": "Réessayer",
+    "backHome": "Retour à l'accueil"
   }
 }

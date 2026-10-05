@@ -1,6 +1,18 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 05/10/2026 ~23:55 CEST**
+**Ultimo aggiornamento: 06/10/2026 ~00:55 CEST**
+
+## 06/10/2026 ~00:55 CEST — ciclo QA orario 00:36
+- QA live (curl): / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale in next.config.js, target verificato), /custom-jewel = 200, /orders = 200, /contact = 200, /custom-jewel/order-form = 200; robots.txt, sitemap.xml, og-cover.jpg, manifest.webmanifest = 200; 404 di prova = 404 corretta.
+- Nota transitoria: un primo fetch della root ha servito il contenuto/metadata di /contact (title "Contatti e Preventivo Gratuito"); 3 fetch successivi tutti OK col title corretto "GDC Jewellery Lab | Gioielli Artigianali su Misura" — anomalia transitoria non riproducibile, sito stabile.
+- Immagini: 20/20 URL i.postimg.cc unici sulla homepage = 200, zero rotte.
+- Meta/OG: og:title/og:description/og:image/og:url/og:locale it_IT (+alternate en_US/fr_FR), description IT, lang=it — presenti.
+- Form: contact e order-form sono client components (Suspense/useSearchParams) — markup in sorgente OK (labels, required, autoComplete, enterKeyHint, aria-*); /orders è pagina informativa HowTo, nessun form atteso.
+- UX in sorgente: stati outline bottoni, skip link, prefers-reduced-motion, lightbox con Escape + role=dialog + aria-label — già coperti dai cicli precedenti.
+- Build locale: npm run build exit 0 + tsc --noEmit 0 errori.
+- Bug trovati: NESSUNO sul sito live.
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde — meta/SEO/a11y/form/stati bottoni/immagini già coperti nelle scorse migliorie) — solo aggiornamento STATUS.md, per convenzione cicli verdi.
+- Push: commit STATUS.md su main via Contents API (verificato via GET commits/main), clone risincronizzato. Deploy Vercel automatico. Firebase originale non toccato; nessuna pubblicazione Instagram. Blocco noto invariato: server di posta non attivo (manca password app Gmail su Vercel — azione di Emanuele).
 
 ## 05/10/2026 ~23:55 CEST — ciclo QA orario 23:36
 - QA live (curl): / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale in next.config.js, target verificato), /custom-jewel = 200, /orders = 200, /contact = 200, /about = 200, /collections = 200, /services = 200, /custom-jewel/order-form = 200; robots.txt, sitemap.xml (7 URL), sitemap-images.xml (23 image:loc), manifest.webmanifest, favicon.ico, apple-touch-icon.png, og-cover.jpg = 200.

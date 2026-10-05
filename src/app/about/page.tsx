@@ -17,6 +17,30 @@ export default function AboutPage() {
           { name: tCommon('nav.about'), url: `${SITE_URL}/about` },
         ])}
       />
+      {/* QA 05/10 02:36 (miglioria ciclo): AboutPage schema.org — descrizione
+          1:1 col contenuto visibile (title/subtitle), sameAs col profilo
+          Instagram citato nel sito, i18n attiva. */}
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'AboutPage',
+          name: t('title'),
+          url: `${SITE_URL}/about`,
+          mainEntity: {
+            '@type': 'Organization',
+            name: 'GDC Jewellery Lab',
+            url: SITE_URL,
+            description: `${t('title')} — ${t('subtitle')}`,
+            sameAs: ['https://www.instagram.com/gdc_jewellery_lab'],
+            contactPoint: {
+              '@type': 'ContactPoint',
+              telephone: '+39 345 111 4337',
+              email: 'laboratorio.ticino@gmail.com',
+              contactType: 'customer service',
+            },
+          },
+        }}
+      />
       <div className="mx-auto px-4 pt-8 pb-16 md:pt-12 md:pb-24">
         <div className="text-center mb-12">
           <h1 className="font-headline text-4xl md:text-5xl text-foreground">

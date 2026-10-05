@@ -261,7 +261,11 @@ export default function Home() {
       </section>
 
       {/* Gallery Section */}
-      <section id="gallery" className="scroll-mt-16">
+      {/* QA 05/10 05:36 (miglioria ciclo): scroll-mt-24 invece di scroll-mt-16.
+          L'header sticky è h-20 (80px): con 64px la cima della sezione finiva
+          nascosta sotto l'header nei salti ad ancora (bottone GALLERIA,
+          redirect /gallery). 96px come nelle ancore di /collections. */}
+      <section id="gallery" className="scroll-mt-24">
         <div className="container mx-auto px-4 py-16 md:py-24">
           <div className="text-center mb-12">
             <p className="eyebrow mb-4">{t('gallery.eyebrow')}</p>

@@ -1,5 +1,17 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
+**Ultimo aggiornamento: 05/10/2026 ~20:55 CEST**
+
+## 05/10/2026 ~20:55 CEST — ciclo QA orario 20:36
+- QA live (curl): / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale in next.config.js), /custom-jewel = 200, /orders = 200, /contact = 200, /about = 200, /collections = 200, /services = 200, /custom-jewel/order-form = 200, 404 di prova = 404 corretta; sitemap.xml, sitemap-images.xml, robots.txt, manifest.webmanifest, favicon.ico, og-cover.jpg = 200.
+- Meta/OG live homepage: og:title/og:description/og:image 1200x630 con alt/width/height/og:locale it_IT (alternate en_US)/og:url/og:site_name/og:type, twitter:card summary_large_image, description IT, lang=it, JSON-LD — presenti; 0 placeholder/lorem/dato finto nell'HTML live.
+- Immagini: 34/34 URL i.postimg.cc unici (src+public) = 200, zero fallimenti (nota: 2 URL con parentesi nei nomi file — Gemini-Generated-Image-...-removebg-preview-(1).png e diamond-pendant-(1)-(1).png — richiedono regex QA che includa le parentesi, altrimenti falsi 404; vedi ciclo 16:36).
+- UX/sicurezza in sorgente: bottoni outline GALLERIA con visited:text-gold + active/focus-visible coerenti; noscript fallback /contact intatto; tutti i target="_blank" con rel=noopener noreferrer (rel sulla riga successiva in JSX — grep single-line dà falsi positivi); rel noopener verificato a campione. Canonical SSR via metadata su 7 pagine; homepage canonical client-side (documentato, Google renderizza JS).
+- Bug trovati: NESSUNO sul sito live.
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde, zero gap reali — meta/SEO/a11y/form/stati bottoni/immagini già coperti) — solo aggiornamento STATUS.md, per convenzione cicli verdi.
+- Build locale: tsc --noEmit 0 errori + npm run build exit 0 (16/16 pagine statiche).
+- Push: commit STATUS.md su main verificato via API (GET /repos/EmanueleZanardo/12-Sito-gioielleria/commits/main, SHA blob remoto = base locale, nessun clobber); clone risincronizzato. Deploy Vercel automatico: commit status su HEAD = Vercel success (nessun rate limit). Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram. Blocco noto invariato: server di posta non attivo (manca password app Gmail su Vercel — azione di Emanuele).
+
 **Ultimo aggiornamento: 05/10/2026 ~19:55 CEST**
 
 ## 05/10/2026 ~19:55 CEST — ciclo QA orario 19:36

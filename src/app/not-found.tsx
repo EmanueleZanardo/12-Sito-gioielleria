@@ -7,6 +7,7 @@ import { useTranslation } from '@/hooks/use-translation';
 
 export default function NotFound() {
   const { t } = useTranslation('notFound');
+  const { t: tCommon } = useTranslation('common');
   const pageTitle = t('title');
 
   // La 404 eredita il <title> generico del layout: la tab del browser mostra
@@ -38,6 +39,23 @@ export default function NotFound() {
           <Button asChild size="lg" variant="outline">
             <Link href="/collections">{t('browseCollections')}</Link>
           </Button>
+        </div>
+        {/* QA 05/10 13:36 (W10): scorciatoie testuali verso le pagine più
+            richieste. Riusa le voci di navigazione esistenti (già tradotte
+            nelle 4 lingue) — nessuna nuova chiave, nessun tocco ai file di
+            traduzione. */}
+        <div className="mt-12 flex items-center justify-center gap-5 text-xs uppercase tracking-[0.25em]">
+          <Link href="/custom-jewel" className="text-muted-foreground hover:text-primary transition-colors">
+            {tCommon('nav.createJewel')}
+          </Link>
+          <span aria-hidden="true" className="text-gold/50">·</span>
+          <Link href="/orders" className="text-muted-foreground hover:text-primary transition-colors">
+            {tCommon('nav.orders')}
+          </Link>
+          <span aria-hidden="true" className="text-gold/50">·</span>
+          <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
+            {tCommon('nav.contact')}
+          </Link>
         </div>
       </div>
     </div>

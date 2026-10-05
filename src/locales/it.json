@@ -471,5 +471,11 @@
     "description": "Sembra che questa pagina non esista o sia stata spostata. Torna alla home o esplora le nostre collezioni.",
     "backHome": "Torna alla home",
     "browseCollections": "Esplora le collezioni"
+  },
+  "error": {
+    "title": "Qualcosa non ha funzionato",
+    "description": "Si è verificato un errore imprevisto. Riprova tra un attimo, o torna alla home.",
+    "tryAgain": "Riprova",
+    "backHome": "Torna alla home"
   }
 }

@@ -184,7 +184,19 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
   useEffect(() => {
     const imageUrl = searchParams.get('imageUrl');
     const prompt = searchParams.get('prompt');
-    if (imageUrl) {
+    // QA 05/10 15:36 (micro-hardening): l'URL immagine arriva dalla query
+    // string e finisce nel preview <Image> e nel messaggio inviato: si
+    // accettano solo URL https:// assoluti (niente javascript:, data:, o
+    // stringhe vuote). Il flusso legittimo (/collections passa URL
+    // https://i.postimg.cc/...) resta invariato.
+    const isSafeImageUrl = (u: string) => {
+      try {
+        return new URL(u).protocol === 'https:';
+      } catch {
+        return false;
+      }
+    };
+    if (imageUrl && isSafeImageUrl(imageUrl)) {
       setValue('aiImageUrl', imageUrl);
       if (prompt) {
         setValue('description', prompt);

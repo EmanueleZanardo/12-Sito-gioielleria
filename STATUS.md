@@ -1,6 +1,17 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 05/10/2026 ~07:50 CEST**
+**Ultimo aggiornamento: 05/10/2026 ~08:55 CEST**
+
+## 05/10/2026 ~08:55 CEST — ciclo QA orario 08:36
+- QA live (curl): / = 200, /custom-jewel = 200, /orders = 200, /contact = 200, /collections = 200, /about = 200; /gallery = 308 → /#gallery (redirect permanente intenzionale, invariato). Sitemap/robots/manifest serviti correttamente.
+- Meta/OG: title/description/og:*/twitter:*(card/title/description/image)/theme-color #0d0b08/lang=it + canonical presenti su tutte le pagine testate; nessun placeholder/lorem/dato finto.
+- Immagini: og-cover.jpg = 200 (102KB, X-Vercel-Cache HIT); campione i.postimg.cc 3/3 = 200.
+- Form: contact e order-form sono client component con markup corretto (label htmlFor, required, autoComplete, enterKeyHint, aria-invalid/aria-describedby).
+- Controlli UX telefono: browser task live su viewport mobile 390x844 — ESITO IN ATTESA (report alla consegna).
+- Build locale: npm run build exit 0 (16/16 static pages) + tsc --noEmit 0 errori.
+- Bug trovati e fixati: NESSUNO (in attesa report mobile per chiusura definitiva).
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde, zero gap reali trovati) — solo aggiornamento STATUS.md, per convenzione cicli verdi. Zero cambi di design.
+- Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram. Blocco noto invariato: server di posta non attivo (manca password app Gmail su Vercel).
 
 ## 05/10/2026 ~07:50 CEST — ciclo QA orario 07:36
 - QA live (browser.open): / = 200, /collections = 200, /contact = 200, /custom-jewel = 200, /orders = 200 — contenuti reali, nessun placeholder. /gallery = 404 nel fetcher di testo (non segue il 308): redirect permanente `/gallery` → `/#gallery` confermato in next.config.js (presente dal 03/10); il bottone GALLERIA punta direttamente a `/#gallery`. Nota: nel body del job la route è ancora `/gallery`, ma la galleria vive in `/collections` — body datata, nessun bug.

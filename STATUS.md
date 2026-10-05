@@ -1,5 +1,18 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
+**Ultimo aggiornamento: 05/10/2026 ~15:55 CEST**
+
+## 05/10/2026 ~15:55 CEST — ciclo QA orario 15:36
+- QA live (curl): / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale in next.config.js), /custom-jewel = 200, /orders = 200, /contact = 200, /about = 200, /collections = 200, /services = 200, /custom-jewel/order-form = 200, 404 di prova = 404 corretta. Nessun link interno rotto (12/12 URL interni = 200).
+- Meta/OG: title/description/og:*/twitter:*/og:image:alt/theme-color #0d0b08/lang=it + canonical presenti su tutte le pagine testate (home, about, services, collections, orders, contact, custom-jewel). Nessun placeholder/lorem/dato finto in src.
+- Immagini: 21/21 URL i.postimg.cc unici (home+custom-jewel+orders+contact) = 200 (1 timeout transitorio su jS3Xg4zD, 200 ai 2 retry); og-cover.jpg = 200; robots.txt/sitemap.xml/sitemap-images.xml/manifest/favicon/apple-touch-icon = 200.
+- Form: markup corretto in sorgente (label htmlFor, required, autoComplete, enterKeyHint, aria-invalid/aria-describedby, role=alert sugli errori); contact e order-form sono client component con Suspense+noscript fallback (verificati in sorgente).
+- UX: guardie visited: su bottoni outline integre (GALLERIA invariato dopo click); reduced-motion CSS + MotionConfig user; skip-link, focus trap lightbox, aria su menu mobile/WhatsApp float: tutto presente. Nessun riflesso anomalo verificabile da sorgente.
+- Bug trovati: NESSUNO (sito verde su tutti i controlli).
+- Miglioria del ciclo (micro-hardening): `imageUrl` dalla query string su /custom-jewel/order-form ora accettato solo se URL https:// assoluto (new URL().protocol === 'https:') — niente javascript:/data:/stringhe vuote nel preview <Image> né nel messaggio inviato. Flusso legittimo da /collections (https://i.postimg.cc/...) invariato.
+- Build locale: tsc --noEmit 0 errori + npm run build exit 0 (tutte le rotte statiche) prima e dopo la modifica.
+- Push ba0822d verificato via API (GET commits/main, SHA blob remoto = base locale, nessun clobber); clone risincronizzato. Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram. Blocco noto invariato: server di posta non attivo (manca password app Gmail su Vercel).
+
 **Ultimo aggiornamento: 05/10/2026 ~11:55 CEST**
 
 ## 05/10/2026 ~11:55 CEST — ciclo QA orario 11:36

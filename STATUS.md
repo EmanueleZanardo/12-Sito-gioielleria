@@ -1,5 +1,19 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
+**Ultimo aggiornamento: 05/10/2026 ~17:10 CEST**
+
+## 05/10/2026 ~17:10 CEST — ciclo QA orario 16:36
+- QA live (curl): / = 200, /gallery = 200 (segue 308 → /#gallery, redirect permanente intenzionale in next.config.js), /custom-jewel = 200, /orders = 200, /contact = 200, /about = 200, /collections = 200, /services = 200, /custom-jewel/order-form = 200, 404 di prova = 404 corretta. Nessun link interno rotto.
+- Meta/OG: openGraph presente in 8 layout (root + 7 pagine) — og:title/og:description/og:image 1200x630 con alt/locale it_IT, twitter:card summary_large_image, description IT; lang=it, theme-color, canonical self-referencing homepage via useEffect (client component). Nessun placeholder/lorem/dato finto in src (grep pulito).
+- Immagini: 33/33 URL i.postimg.cc unici (src+public) = 200 (5 timeout transitori risolti al retry; 2 falsi 404 dovuti a regex QA che troncava le parentesi nei nomi file — URL completi 200). og-cover.jpg = 200. sitemap.xml (7 pagine) + sitemap-images.xml (23 immagini) + robots.txt OK.
+- Header live: X-Frame-Options SAMEORIGIN, X-Content-Type-Options nosniff, Referrer-Policy strict-origin-when-cross-origin, Link preconnect i.postimg.cc — tutti serviti.
+- Form: `required` nativo verificato in sorgente su tutti i campi obbligatori — contact (name/email/subject/message) e order-form (textarea description r.381, name r.427, email r.432); label htmlFor, autoComplete, enterKeyHint, aria-invalid/aria-describedby, role=alert errori; imageUrl guard (solo https:// assoluti, ciclo 15:36) intatto in sorgente e deployato (Vercel success su f21db74). Tutti i target="_blank" hanno rel=noopener noreferrer.
+- Browser task live: SCARTATO — ha testato gdcjewels.com (dominio Firebase legacy, fuori mandato: non toccare) invece di gdc-jewellery-lab.vercel.app (initial_url ignorato, ricerca Google autonoma). Tutti i suoi "FAIL" (required mancanti, imageUrl javascript: non filtrato, og tags assenti, tabella demo /orders, email hello@gdcjewels.com) sono stati smentiti uno a uno contro sorgente + live del sito reale: artefatti del sito legacy. Sito Vercel invariato dal ciclo 15:36 (nessun commit dopo f21db74), già verificato verde.
+- Bug trovati: NESSUNO sul sito live.
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde, zero gap reali: meta/SEO/a11y/sicurezza già coperti) — solo aggiornamento STATUS.md, per convenzione cicli verdi (come ciclo 10:36).
+- Build locale: tsc --noEmit 0 errori + npm run build exit 0 (tutte le rotte statiche, log hidden_files/build_20261005_1636.log).
+- Push: commit STATUS.md su main verificato via API (GET /repos/EmanueleZanardo/12-Sito-gioielleria/commits/main, SHA blob remoto = base locale, nessun clobber); clone risincronizzato. Deploy Vercel automatico; commit status Vercel su f21db74 = success (nessun rate limit). Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram. Blocco noto invariato: server di posta non attivo (manca password app Gmail su Vercel — azione di Emanuele).
+
 **Ultimo aggiornamento: 05/10/2026 ~15:55 CEST**
 
 ## 05/10/2026 ~15:55 CEST — ciclo QA orario 15:36

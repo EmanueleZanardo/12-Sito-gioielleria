@@ -9,9 +9,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 visited:text-primary-foreground",
+        default:
+          /* QA 05/10 13:50 (W4 ui-states): active:bg-primary/80 come per outline —
+             feedback di pressione uniforme su tutte le variant (touch). Lo stato
+             è transitorio: al rilascio il colore torna al default, niente
+             cambi permanenti post-click (i visited: restano per le asChild). */
+          "bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/80 visited:text-primary-foreground",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90 visited:text-destructive-foreground",
+          /* QA 05/10 13:50 (W4 ui-states): active feedback coerente con outline. */
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90 active:bg-destructive/80 visited:text-destructive-foreground",
         outline:
           /* QA 04/10 19:36: stati :active per feedback di pressione su touch.
              I bottoni outline dorati di page.tsx li definiscono già inline;
@@ -19,13 +25,16 @@ const buttonVariants = cva(
              rispondono al tap senza restare "congelati" in hover. */
           "border border-input bg-background hover:bg-accent hover:text-accent-foreground active:bg-accent active:text-accent-foreground visited:text-current",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 visited:text-secondary-foreground",
+          /* QA 05/10 13:50 (W4 ui-states): active feedback coerente con outline. */
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 active:bg-secondary/70 visited:text-secondary-foreground",
         ghost:
           /* QA 03/10 22:36: visited:text-current come le altre variant — ghost
              oggi è usato solo su <button>, ma se domani un ghost diventa
              asChild con <a>, il colore visited del browser non sporcherà
-             più il testo ereditato. */
-          "hover:bg-accent hover:text-accent-foreground visited:text-current",
+             più il testo ereditato.
+             QA 05/10 13:50 (W4 ui-states): active:bg-accent/60 per feedback di
+             pressione (es. icona menu mobile e selettore lingua in header). */
+          "hover:bg-accent hover:text-accent-foreground active:bg-accent/60 visited:text-current",
         link: "text-primary underline-offset-4 hover:underline visited:text-primary",
       },
       size: {

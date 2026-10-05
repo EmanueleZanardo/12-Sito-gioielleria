@@ -7,9 +7,9 @@
 - Meta/OG: title/description/og:*/twitter:*(card/title/description/image)/theme-color #0d0b08/lang=it + canonical presenti su tutte le pagine testate; nessun placeholder/lorem/dato finto.
 - Immagini: og-cover.jpg = 200 (102KB, X-Vercel-Cache HIT); campione i.postimg.cc 3/3 = 200.
 - Form: contact e order-form sono client component con markup corretto (label htmlFor, required, autoComplete, enterKeyHint, aria-invalid/aria-describedby).
-- Controlli UX telefono: browser task live su viewport mobile 390x844 — ESITO IN ATTESA (report alla consegna).
+- Controlli UX (browser live): homepage scrollata tutta — nessun riflesso/lens-flare anomalo, nessun layout spezzato, nessun testo tagliato; bottone outline GALLERIA cliccato — resta identico (screenshot prima/dopo identici, `visited:text-gold` = colore base, `:active` solo transitorio); click → scroll a `/#gallery`; bottoni outline "SCRIVICI SU WHATSAPP"/pill WhatsApp invariati; /collections (6 card) e /contact pulite, nessun overflow orizzontale, nessun bottone outline presente lì. CAVEAT: strumenti browser senza controllo viewport — verifica a larghezza desktop, non 390x844 (classi responsive md: presenti, rendering mobile reale non verificato strumentalmente).
 - Build locale: npm run build exit 0 (16/16 static pages) + tsc --noEmit 0 errori.
-- Bug trovati e fixati: NESSUNO (in attesa report mobile per chiusura definitiva).
+- Bug trovati e fixati: NESSUNO.
 - Miglioria del ciclo: nessuna modifica codice necessaria (sito verde, zero gap reali trovati) — solo aggiornamento STATUS.md, per convenzione cicli verdi. Zero cambi di design.
 - Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram. Blocco noto invariato: server di posta non attivo (manca password app Gmail su Vercel).
 

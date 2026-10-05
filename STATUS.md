@@ -1,6 +1,12 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 04/10/2026 ~17:55 CEST**
+**Ultimo aggiornamento: 05/10/2026 ~02:00 CEST**
+
+## 05/10/2026 ~02:00 CEST — aggiornamento documentale giornaliero
+- **04/10 — QA orario tutto il giorno** (23 cicli, 00:36→23:36): tutti verdi — build+tsc puliti, pagine live 200, immagini postimg.cc 200, nessun bug. Micro-migliorie pushate su main (fallback WhatsApp noscript sui form, HowTo/ContactPage JSON-LD, a11y, SEO canonical anti-duplicati, `url` nei Product ItemList). Nota post-mezzanotte: "Ciclo QA 05/10 01:36 — SEO ContactPage JSON-LD" (`94dfffd`, 01:54 CEST).
+- **Nessuna pubblicazione Instagram** (mai autorizzata); 5 prompt 9:16 pronti in attesa di sua approvazione (regola sua).
+- Blocco noto invariato: server di posta non attivo — manca la password app Gmail su Vercel (form contatti + flusso gioiello artigianale bloccati). Firebase originale non toccato.
+
 
 ## 04/10/2026 ~17:55 CEST — ciclo QA orario 17:36
 - QA live (curl): / = 200, /about = 200, /collections = 200, /contact = 200, /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /services = 200; /gallery = 308 → /#gallery (redirect permanente intenzionale, invariato). sitemap.xml, robots.txt, sitemap-images.xml, manifest.webmanifest (+ icons apple-touch-icon/favicon), og-cover.jpg = 200; pagina inesistente = 404 brandizzata.

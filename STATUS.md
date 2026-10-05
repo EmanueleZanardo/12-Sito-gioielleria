@@ -1,6 +1,19 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 05/10/2026 ~22:55 CEST**
+**Ultimo aggiornamento: 05/10/2026 ~23:55 CEST**
+
+## 05/10/2026 ~23:55 CEST — ciclo QA orario 23:36
+- QA live (curl): / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale in next.config.js, target verificato), /custom-jewel = 200, /orders = 200, /contact = 200, /about = 200, /collections = 200, /services = 200, /custom-jewel/order-form = 200; robots.txt, sitemap.xml (7 URL), sitemap-images.xml (23 image:loc), manifest.webmanifest, favicon.ico, apple-touch-icon.png, og-cover.jpg = 200.
+- Immagini: campione 5/5 URL i.postimg.cc (hero, galleria, logo) HEAD 200, zero rotte; srcset next/image con w=384/640/3840 coerenti.
+- Meta/OG: og:title/og:description/og:image/og:url/og:locale it_IT (+alternate en_US/fr_FR/de_DE), twitter:card summary_large_image, theme-color #0d0b08, lang=it, viewport, canonical SSR su /contact,/orders,/custom-jewel — presenti; JSON-LD validi (WebSite+JewelryStore+ItemList+BreadcrumbList, 4 blocchi).
+- Link: nav (/,/about,/collections,/contact,/custom-jewel,/orders,/services) tutti 200; ancore /collections#anelli/#collane-e-pendenti/#fedi con id esistenti; wa.me/393451114337 e instagram gdc_jewellery_lab presenti.
+- Form (contact, order-form): client components; markup in sorgente OK — labels, required, autoComplete, enterKeyHint, aria-invalid/aria-describedby, fieldset/legend; tutti i target="_blank" con rel=noopener noreferrer (3 spot verificati riga per riga).
+- UX in sorgente: bottone outline GALLERIA con visited:text-gold + active/focus-visible coerenti (resta gold dopo click); skip link "Vai al contenuto principale"; nessun placeholder/lorem/dato finto nell'HTML live.
+- Build locale: npm run build exit 0 (16/16 route statiche) + tsc --noEmit 0 errori.
+- QA visuale live via browser task (mobile ~390px: homepage scroll, click GALLERIA → back, /contact, /custom-jewel/order-form, /orders, console errori) — task lanciato in questo ciclo; esito in arrivo dal runtime (pattern noto di consegna ritardata), eventuale bug emerso verrà fixato nel ciclo successivo.
+- Bug trovati: NESSUNO sul sito live.
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde — meta/SEO/a11y/form/stati bottoni/immagini/canonical già coperti nelle scorse migliorie) — solo aggiornamento STATUS.md, per convenzione cicli verdi.
+- Push: commit STATUS.md su main via Contents API (verificato via GET commits/main), clone risincronizzato. Deploy Vercel automatico. Firebase originale non toccato; nessuna pubblicazione Instagram. Blocco noto invariato: server di posta non attivo (manca password app Gmail su Vercel — azione di Emanuele).
 
 ## 05/10/2026 ~22:55 CEST — ciclo QA orario 22:36
 - QA live (curl): / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale in next.config.js, target verificato), /custom-jewel = 200, /orders = 200, /contact = 200, /about = 200, /collections = 200, /services = 200, /custom-jewel/order-form = 200; robots.txt, sitemap.xml, sitemap-images.xml (5733 bytes, image namespace OK), favicon.ico, apple-touch-icon.png, manifest.webmanifest = 200.

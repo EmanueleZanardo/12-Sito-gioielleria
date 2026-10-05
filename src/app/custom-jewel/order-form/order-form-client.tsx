@@ -17,7 +17,7 @@ import { CheckCircle2, X, Loader2 } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import type { UseEmblaCarouselType } from 'embla-carousel-react';
 import { sendConfirmationEmail } from '@/lib/actions';
-import { jewelryTypeIds, jewelryTypeImages, materialData, stoneData } from '@/lib/order-form-data';
+import { jewelryTypeIds, jewelryTypeImages, materialData, materialIds, stoneData } from '@/lib/order-form-data';
 import { Label } from '@/components/ui/label';
 import { RequiredMark } from '@/components/required-mark';
 
@@ -29,11 +29,21 @@ function OrderFormClient() {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   // Messaggi di validazione localizzati (zod accetta messaggi dinamici).
+  // QA 05/10 (W7): gli id accettati sono vincolati alle liste esportate da
+  // order-form-data.ts. Prima qualsiasi stringa passava: jewelryType era un
+  // z.string() libero e il refine su materials controllava solo il non-vuoto,
+  // mai l'appartenenza a materialIds.
   const customOrderSchema = z.object({
-    jewelryType: z.string({ required_error: t('form.validation.jewelryType') }),
-    materials: z.array(z.string()).refine((value) => value.some((item) => item), {
-      message: t('form.validation.materials'),
+    jewelryType: z.enum(jewelryTypeIds as [string, ...string[]], {
+      errorMap: () => ({ message: t('form.validation.jewelryType') }),
     }),
+    materials: z
+      .array(
+        z.enum(materialIds as [string, ...string[]], {
+          errorMap: () => ({ message: t('form.validation.materials') }),
+        })
+      )
+      .min(1, t('form.validation.materials')),
     stones: z.array(z.string()).optional(),
     description: z.string().min(10, t('form.validation.description')),
     photo: z.any().optional(),
@@ -292,7 +302,10 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
             
             {/* QA 03/10: fieldset/legend per associare programmaticamente
                 l'etichetta di gruppo al carosello di selezione (a11y). */}
-            <fieldset className="space-y-3">
+            {/* QA 05/10 (W7): errore collegato al gruppo via aria-describedby e
+                annunciato con role="alert" (prima: messaggio non collegato e
+                non annunciato agli screen reader). */}
+            <fieldset className="space-y-3" aria-describedby={errors.jewelryType ? 'order-jewelryType-error' : undefined}>
               <legend className="text-lg font-semibold px-4 md:px-6 float-left">{t('form.jewelryType.label')}</legend>
               <p className="text-sm text-muted-foreground px-4 md:px-6 clear-both">{t('form.jewelryType.description')}</p>
               <Controller
@@ -300,10 +313,12 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
                   name="jewelryType"
                   render={({ field }) => <SelectionCarousel field={field} items={jewelryTypeIds.map(id => ({ id, imageUrl: jewelryTypeImages[id] }))} isMultiple={false} t={t} />}
               />
-              {errors.jewelryType && <p className="text-sm font-medium text-destructive px-4 md:px-6">{errors.jewelryType.message}</p>}
+              {errors.jewelryType && <p id="order-jewelryType-error" role="alert" className="text-sm font-medium text-destructive px-4 md:px-6">{errors.jewelryType.message}</p>}
             </fieldset>
 
-            <fieldset className="space-y-3">
+            {/* QA 05/10 (W7): vedi sopra — errore raggiungibile deselezionando
+                tutti i materiali, ora collegato e annunciato. */}
+            <fieldset className="space-y-3" aria-describedby={errors.materials ? 'order-materials-error' : undefined}>
               <legend className="text-lg font-semibold px-4 md:px-6 float-left">{t('form.materials.label')}</legend>
               <p className="text-sm text-muted-foreground px-4 md:px-6 clear-both">{t('form.materials.description')}</p>
               <Controller
@@ -311,10 +326,10 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
                   name="materials"
                   render={({ field }) => <SelectionCarousel field={field} items={materialData.map(material => ({ id: material.id, color: material.color }))} isMultiple={true} t={t} />}
               />
-              {errors.materials && <p className="text-sm font-medium text-destructive px-4 md:px-6">{errors.materials.message}</p>}
+              {errors.materials && <p id="order-materials-error" role="alert" className="text-sm font-medium text-destructive px-4 md:px-6">{errors.materials.message}</p>}
             </fieldset>
 
-            <fieldset className="space-y-3">
+            <fieldset className="space-y-3" aria-describedby={errors.stones ? 'order-stones-error' : undefined}>
               <legend className="text-lg font-semibold px-4 md:px-6 float-left">{t('form.stones.label')}</legend>
               <p className="text-sm text-muted-foreground px-4 md:px-6 clear-both">{t('form.stones.description')}</p>
               <Controller
@@ -322,7 +337,7 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
                   name="stones"
                   render={({ field }) => <SelectionCarousel field={field} items={stoneData.map(stone => ({ id: stone.id, color: stone.color }))} isMultiple={true} t={t} />}
               />
-              {errors.stones && <p className="text-sm font-medium text-destructive px-4 md:px-6">{errors.stones.message}</p>}
+              {errors.stones && <p id="order-stones-error" role="alert" className="text-sm font-medium text-destructive px-4 md:px-6">{errors.stones.message}</p>}
             </fieldset>
             
             <div className="px-4 md:px-6 space-y-8">
@@ -407,8 +422,12 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
               </div>
               </div>
               <p className="text-sm text-muted-foreground">{t('form.requiredHint')}</p>
+              {/* QA 05/10 (W7): durante l'invio l'etichetta resta visibile e lo
+                  spinner si affianca — prima il testo veniva sostituito dallo
+                  spinner aria-hidden e il bottone perdeva il nome accessibile. */}
               <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-lg py-6" disabled={isSubmitting}>
-                  {isSubmitting ? <Loader2 aria-hidden="true" className="animate-spin" /> : t('form.submit')}
+                  {isSubmitting && <Loader2 aria-hidden="true" className="mr-2 h-5 w-5 animate-spin" />}
+                  {t('form.submit')}
               </Button>
               {/* QA 04/10: alternativa visibile mentre il server di posta non è
                   attivo — il visitatore ha sempre un canale che funziona. */}

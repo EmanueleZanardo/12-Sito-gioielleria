@@ -1,5 +1,16 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
+**Ultimo aggiornamento: 05/10/2026 ~19:55 CEST**
+
+## 05/10/2026 ~19:55 CEST — ciclo QA orario 19:36
+- QA live (curl): / = 200, /gallery = 200 (segue 308 → /#gallery, redirect permanente intenzionale in next.config.js), /custom-jewel = 200, /orders = 200, /contact = 200, /about = 200, /collections = 200, /services = 200, /custom-jewel/order-form = 200, 404 di prova = 404 corretta; sitemap.xml, sitemap-images.xml, robots.txt, manifest.webmanifest, favicon.ico, apple-touch-icon.png, og-cover.jpg = 200.
+- Meta/OG live homepage: og:title/og:description/og:image 1200x630 + alt/og:locale it_IT (alternate en_US)/og:url, twitter:card, description IT, lang=it, theme-color #0d0b08, JSON-LD — presenti.
+- Immagini: 33/33 URL i.postimg.cc unici (src+public) = 200, zero fallimenti. Nessun lorem/todo/placeholder/dato finto in src (grep pulito; solo attributi placeholder= legittimi nei form).
+- Bug trovati: NESSUNO sul sito live.
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde, zero gap reali — meta/SEO/a11y/form/stati bottoni/immagini già coperti) — solo aggiornamento STATUS.md, per convenzione cicli verdi.
+- Build locale: tsc --noEmit 0 errori + npm run build exit 0 (16/16 pagine statiche, log hidden_files/build_20261005_1936.log; warning transitorio webpack PackFileCacheStrategy, benigno).
+- Push: commit STATUS.md su main verificato via API (GET /repos/EmanueleZanardo/12-Sito-gioielleria/commits/main, SHA blob remoto = base locale, nessun clobber); clone risincronizzato. Deploy Vercel automatico (commit status Vercel success sul precedente — nessun rate limit). Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram. Blocco noto invariato: server di posta non attivo (manca password app Gmail su Vercel — azione di Emanuele).
+
 **Ultimo aggiornamento: 05/10/2026 ~18:55 CEST**
 
 ## 05/10/2026 ~18:55 CEST — ciclo QA orario 18:36

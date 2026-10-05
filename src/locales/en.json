@@ -471,5 +471,11 @@
     "description": "It looks like this page does not exist or has been moved. Go back home or browse our collections.",
     "backHome": "Back to home",
     "browseCollections": "Browse the collections"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. Please try again in a moment, or go back home.",
+    "tryAgain": "Try again",
+    "backHome": "Back to home"
   }
 }

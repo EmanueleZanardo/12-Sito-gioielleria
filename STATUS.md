@@ -1,6 +1,13 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 05/10/2026 ~06:45 CEST**
+**Ultimo aggiornamento: 05/10/2026 ~07:50 CEST**
+
+## 05/10/2026 ~07:50 CEST — ciclo QA orario 07:36
+- QA live (browser.open): / = 200, /collections = 200, /contact = 200, /custom-jewel = 200, /orders = 200 — contenuti reali, nessun placeholder. /gallery = 404 nel fetcher di testo (non segue il 308): redirect permanente `/gallery` → `/#gallery` confermato in next.config.js (presente dal 03/10); il bottone GALLERIA punta direttamente a `/#gallery`. Nota: nel body del job la route è ancora `/gallery`, ma la galleria vive in `/collections` — body datata, nessun bug.
+- Meta/OG: title/description/og:*/twitter/lang=it presenti; **meta `theme-color` MANCANTE nell'HTML** (c'era solo `theme_color` nel manifest — il ciclo 06:36 lo dava per "invariato", verifica errata). Form contact: label/autoComplete/enterKeyHint/aria OK. Bottoni outline: guardie `visited:`/`active:`/`focus-visible:` integre. `lang` si aggiorna al cambio lingua (language-context.tsx). Reduced motion: MotionConfig `reducedMotion="user"` + regola CSS. Hero LCP: `priority` + `fetchPriority="high"` già presenti. Telefono coerente +39 345 111 4337 ovunque; og-cover.jpg e apple-touch-icon.png presenti in public/.
+- Build locale: npm run build exit 0 (16/16 static pages) + tsc --noEmit 0 errori.
+- Bug trovati e fixati: NESSUNO. Miglioria del ciclo: aggiunto `themeColor: '#0d0b08'` ai metadata del root layout (meta theme-color = nero brand, barra browser mobile in tinta; additivo, zero cambi di design).
+- Push ff4e9cf verificato via API; clone risincronizzato. Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram. Blocco noto invariato: server di posta non attivo (manca password app Gmail su Vercel).
 
 ## 05/10/2026 ~06:45 CEST — ciclo QA orario 06:36
 - QA live (curl): / = 200, /about = 200, /collections = 200, /contact = 200, /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /services = 200; /gallery = 308 → /#gallery (redirect permanente intenzionale, invariato). sitemap.xml, robots.txt, sitemap-images.xml, manifest.webmanifest, og-cover.jpg, favicon.ico, apple-touch-icon.png = 200; pagina inesistente = 404 brandizzata.

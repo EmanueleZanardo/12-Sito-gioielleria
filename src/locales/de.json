@@ -471,5 +471,11 @@
     "description": "Diese Seite scheint nicht zu existieren oder wurde verschoben. Kehren Sie zur Startseite zurück oder entdecken Sie unsere Kollektionen.",
     "backHome": "Zurück zur Startseite",
     "browseCollections": "Kollektionen entdecken"
+  },
+  "error": {
+    "title": "Etwas ist schiefgelaufen",
+    "description": "Ein unerwarteter Fehler ist aufgetreten. Versuchen Sie es gleich erneut oder kehren Sie zur Startseite zurück.",
+    "tryAgain": "Erneut versuchen",
+    "backHome": "Zurück zur Startseite"
   }
 }

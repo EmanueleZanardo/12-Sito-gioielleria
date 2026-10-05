@@ -1,6 +1,15 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 06/10/2026 ~00:55 CEST**
+**Ultimo aggiornamento: 06/10/2026 ~02:00 CEST**
+
+## 06/10/2026 ~02:00 CEST — ciclo QA orario 01:36
+- QA live (curl): / = 200, /about = 200, /collections = 200, /services = 200, /custom-jewel = 200, /orders = 200, /contact = 200, /custom-jewel/order-form = 200, /gallery → /#gallery (redirect 308 intenzionale, target 200); sitemap.xml, robots.txt, manifest.webmanifest, favicon.ico, og-cover.jpg = 200.
+- Homepage live: title "GDC Jewellery Lab | Gioielli Artigianali su Misura"; OG completi (title/description/image+alt+width/height/url/site_name/type/locale it_IT+alternate), twitter:card summary_large_image, description IT, 1 H1 sr-only; 0 placeholder/lorem/dummy.
+- Immagini: 22/22 URL i.postimg.cc unici dalla homepage = 200, zero rotte.
+- Build locale: npm run build exit 0 (16/16 route statiche) + tsc --noEmit 0 errori.
+- Bug trovati: NESSUNO sul sito live.
+- Miglioria del ciclo: nuovo `src/app/global-error.tsx` — boundary di errore globale brandizzato (stile 404, "Riprova" + "Torna alla home", traduzioni IT/EN/DE/FR nel nuovo namespace `error`, errore loggato in console senza esporre dettagli al visitatore). Prima un crash client-side mostrava una pagina bianca/grezza; ora c'è un fallback coerente col design. Nessun cambio di design, nessuna nuova dipendenza.
+- Push: commit su main via Contents API (verificato via GET commits/main), clone risincronizzato. Deploy Vercel automatico. Firebase originale non toccato; nessuna pubblicazione Instagram. Blocco noto invariato: server di posta non attivo (manca password app Gmail su Vercel — azione di Emanuele).
 
 ## 06/10/2026 ~00:55 CEST — ciclo QA orario 00:36
 - QA live (curl): / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale in next.config.js, target verificato), /custom-jewel = 200, /orders = 200, /contact = 200, /custom-jewel/order-form = 200; robots.txt, sitemap.xml, og-cover.jpg, manifest.webmanifest = 200; 404 di prova = 404 corretta.

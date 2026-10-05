@@ -1,6 +1,18 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 05/10/2026 ~09:55 CEST**
+**Ultimo aggiornamento: 05/10/2026 ~10:55 CEST**
+
+## 05/10/2026 ~10:55 CEST — ciclo QA orario 10:36
+- QA live (curl): / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale, invariato), /custom-jewel = 200, /orders = 200, /contact = 200, /services = 200, /about = 200, /collections = 200, /custom-jewel/order-form = 200. Nessun link interno rotto.
+- Meta/OG: description/og:title/og:description/og:image/twitter:card/theme-color/lang=it + canonical presenti; og:title/description specifici per pagina (/contact verificata). Nessun placeholder/lorem/dato finto su nessuna pagina.
+- Immagini: 20/20 URL i.postimg.cc unici della homepage = 200 (verifica diretta su URL completi); zero immagini aggiuntive sulle altre pagine. og-cover.jpg invariata.
+- Form: /contact e /custom-jewel/order-form sono client component (non SSR) — markup verificato via browser task live (vedi sotto).
+- Browser task live (viewport desktop, caveat noto: viewport mobile 390x844 non emulabile dallo strumento): 5/5 PASS. Bottone outline GALLERIA: prima/dopo click IDENTICO (nessun shift colore :visited); homepage scrollata tutta — nessun riflesso anomalo, nessun testo tagliato/overlap, nessun overflow; /contact: form completo renderizzato (Nome, Email, Oggetto, Messaggio, upload foto opzionale, "Invia Messaggio"); /custom-jewel/order-form: form completo (selettore tipo gioiello, materiali, pietre, textarea dettagli, upload immagini, Nome/Cognome, Email, "Invia Richiesta"); /collections: 6 card + CTA renderizzate pulite.
+- Accessibilità spot-check: skip link "Vai al contenuto principale" presente (layout + 4 locale); bottoni lightbox con aria-label tradotti; alt="" intenzionale solo su immagini decorative dentro link con testo visibile (corretto). robots.ts: allow / + 2 sitemap. sitemap-images.xml valida (23 immagini con caption IT).
+- Build locale: npm run build exit 0 (16/16 static pages, zero warning) + tsc --noEmit 0 errori.
+- Bug trovati e fixati: NESSUNO.
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde, zero gap reali trovati in sorgente: meta/SEO/accessibilità già coperti dai cicli precedenti) — solo aggiornamento STATUS.md, per convenzione cicli verdi. Zero cambi di design.
+- Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram. Blocco noto invariato: server di posta non attivo (manca password app Gmail su Vercel).
 
 ## 05/10/2026 ~09:55 CEST — ciclo QA orario 09:36
 - QA live (browser.open): / = 200, /custom-jewel = 200, /orders = 200, /contact = 200 — contenuti reali, nessun placeholder/lorem/dato finto. /gallery = 308 → /#gallery (redirect permanente intenzionale in next.config.js, invariato; il fetcher di testo non segue il redirect e riporta 404 — artefatto noto, nessun bug).

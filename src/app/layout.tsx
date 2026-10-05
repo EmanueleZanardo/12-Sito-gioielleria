@@ -99,7 +99,7 @@ export const metadata: Metadata = {
     alternateLocale: ['en_US', 'fr_FR', 'de_DE'],
     images: [
       {
-        url: '/og-cover.jpg',
+        url: 'https://gdc-jewellery-lab.vercel.app/og-cover.jpg',
         width: 1200,
         height: 630,
         alt: 'GDC Jewellery Lab — Gioielli artigianali su misura',
@@ -113,7 +113,7 @@ export const metadata: Metadata = {
       'Gioielli su misura fatti a mano in oro 18kt, diamanti e pietre preziose. Restauro, riparazioni e preventivo gratuito.',
     images: [
       {
-        url: '/og-cover.jpg',
+        url: 'https://gdc-jewellery-lab.vercel.app/og-cover.jpg',
         alt: 'GDC Jewellery Lab — Gioielli artigianali su misura',
       },
     ],

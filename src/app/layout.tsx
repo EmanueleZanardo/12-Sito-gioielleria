@@ -53,6 +53,10 @@ export const metadata: Metadata = {
   },
   description:
     'GDC Jewellery Lab: laboratorio orafo artigianale in Ticino. Gioielli su misura fatti a mano in oro 18kt, diamanti e pietre preziose, restauro e riparazioni. Preventivo gratuito.',
+  // QA 05/10 07:36 (miglioria ciclo): theme-color = nero profondo del brand
+  // (#0d0b08, come nel manifest): colora la barra del browser su mobile in
+  // tinta col sito. Additivo, zero cambi di design.
+  themeColor: '#0d0b08',
   keywords: [
     'gioielli su misura Ticino',
     'orafo artigianale',

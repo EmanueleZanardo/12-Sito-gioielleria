@@ -1,5 +1,18 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
+**Ultimo aggiornamento: 05/10/2026 ~11:55 CEST**
+
+## 05/10/2026 ~11:55 CEST — ciclo QA orario 11:36
+- QA live (curl): / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale, invariato; ancora id="gallery" presente in sorgente e HTML live), /custom-jewel = 200, /orders = 200, /contact = 200, /about = 200, /collections = 200, /services = 200, /custom-jewel/order-form = 200, 404 di prova = 404 corretta. Nessun link interno rotto.
+- Meta/OG: title/description/og:*/twitter:*/og:image:alt/theme-color #0d0b08/lang=it + canonical presenti; title unici per pagina (verificati /about /collections /services /orders /custom-jewel). Nessun placeholder/lorem/dato finto.
+- Immagini: 20/20 URL i.postimg.cc unici (home+contact+custom-jewel+orders) = 200; 3 URL solo-sitemap (su-misura.jpg, unnamed.jpg, photo-2026-04-24-07-44-56.jpg) = 200; og-cover.jpg = 200. sitemap-images.xml valida (23 immagini).
+- Form: <form> in sorgente per /contact e /custom-jewel/order-form (client component, idratazione client — nessun <form> nell'HTML statico, atteso).
+- Browser task live (20 passi): 8/9 PASS + 1 caveat noto. (1) Homepage: titolo esatto, sezione #gallery con 21 item nessun rotto; (2) /gallery → /#gallery senza errori; (3) bottone outline GALLERIA: dopo il click IDENTICO (visited:text-gold; :hover/:active sono feedback intenzionali); (4) /custom-jewel /orders /contact: contenuti reali IT, nessun finto; (5) form contact: Nome/Email(type=email)/Oggetto/Messaggio required + label for/id, upload foto opzionale accept=image/*, submit "Invia Messaggio"; (6) form order-form: fieldset Tipo/Materiali/Pietre, textarea dettagli, upload, Nome/Email required, submit "Invia Richiesta"; (7) logo/hero/galleria/card collezioni tutte caricate, nessun riflesso anomalo; (8) viewport mobile 390x844 NON emulabile dallo strumento (limitazione nota, già accertata); nessun overflow a desktop; (9) og:title/og:description/og:image presenti, og-cover.jpg 1200x630 verificata.
+- Bug trovato e fixato: 1 (MINOR, dal browser task) — su /custom-jewel/order-form la label "Descrizione Dettagliata" mostra l'asterisco oro (RequiredMark) e lo schema Zod richiede min(10), ma il <Textarea> non aveva l'attributo nativo `required` → aggiunto (src/app/custom-jewel/order-form/order-form-client.tsx). Zero cambi di design, markup ora coerente con label e validazione.
+- Miglioria del ciclo: il fix required è la miglioria (a11y/UX form). Nessun altro gap trovato in sorgente (LCP hero già priority+fetchPriority=high, og:image:alt già presente, JSON-LD/sitemap/robots già coperti).
+- Build locale: npm run build exit 0 (16/16 static pages, zero warning) + tsc --noEmit 0 errori — prima e dopo il fix.
+- Push verificato via API (GET commits/main); clone risincronizzato. Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram. Blocco noto invariato: server di posta non attivo (manca password app Gmail su Vercel).
+
 **Ultimo aggiornamento: 05/10/2026 ~10:55 CEST**
 
 ## 05/10/2026 ~10:55 CEST — ciclo QA orario 10:36

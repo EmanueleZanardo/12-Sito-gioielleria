@@ -58,6 +58,23 @@ export default function CustomJewelPage() {
           { name: tCommon('nav.createJewel'), url: `${SITE_URL}/custom-jewel` },
         ])}
       />
+      {/* QA 05/10 04:36 (miglioria ciclo): FAQPage JSON-LD sulle 5 domande
+          visibili nella sezione FAQ in fondo alla pagina. Domande e risposte
+          1:1 col contenuto visibile (i18n attiva nelle 4 lingue). */}
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: Array.from({ length: faqCount }, (_, i) => ({
+            '@type': 'Question',
+            name: t(`v2.faq.q${i + 1}`),
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: t(`v2.faq.a${i + 1}`),
+            },
+          })),
+        }}
+      />
       {/* HERO */}
       <section className="container mx-auto px-4 pt-16 md:pt-24 pb-12 text-center">
         <Badge variant="secondary" className="mb-4 text-sm px-4 py-1">

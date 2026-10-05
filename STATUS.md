@@ -1,5 +1,15 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
+**Ultimo aggiornamento: 05/10/2026 ~09:55 CEST**
+
+## 05/10/2026 ~09:55 CEST — ciclo QA orario 09:36
+- QA live (browser.open): / = 200, /custom-jewel = 200, /orders = 200, /contact = 200 — contenuti reali, nessun placeholder/lorem/dato finto. /gallery = 308 → /#gallery (redirect permanente intenzionale in next.config.js, invariato; il fetcher di testo non segue il redirect e riporta 404 — artefatto noto, nessun bug).
+- Browser task live (23 passi: navigazioni, click bottone GALLERIA, letture HTML/head, check og-cover.jpg 1200×630): completato senza errori osservati nelle azioni; report finale dettagliato non ancora recapitato dal runtime al momento della scrittura.
+- Bug trovati e fixati: 1 — `themeColor` nell'export `metadata` del root layout è deprecato in Next.js 14: il build stampava "Unsupported metadata themeColor" sulle rotte che fondono i metadata (/contact, /collections, /custom-jewel/order-form). Rimosso da metadata, resta nell'export `viewport` (forma corretta): il <meta name="theme-color" content="#0d0b08"> continua a essere emesso, HTML invariato. tsc --noEmit 0 errori prima e dopo.
+- Miglioria del ciclo: nessuna modifica codice aggiuntiva necessaria (sito verde, zero gap reali) — solo aggiornamento STATUS.md, per convenzione cicli verdi. Zero cambi di design.
+- Build locale: npm run build exit 0 (16/16 static pages) + tsc --noEmit 0 errori; rebuild post-fix in corso per confermare la sparizione del warning.
+- Push af992f2 verificato via API (GET commits/main); clone risincronizzato. Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram. Blocco noto invariato: server di posta non attivo (manca password app Gmail su Vercel).
+
 **Ultimo aggiornamento: 05/10/2026 ~08:55 CEST**
 
 ## 05/10/2026 ~08:55 CEST — ciclo QA orario 08:36

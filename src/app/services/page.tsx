@@ -29,6 +29,33 @@ export default function ServicesPage() {
           { name: tCommon('nav.services'), url: `${SITE_URL}/services` },
         ])}
       />
+      {/* QA 05/10 03:36 (miglioria ciclo): ItemList di Service JSON-LD sui
+          6 servizi visibili della card. La pagina è l'elenco servizi del
+          laboratorio: il markup aiuta Google a indicizzarli come offerte.
+          1:1 col contenuto visibile (serviceList, i18n attiva). */}
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          name: t('title'),
+          description: t('subtitle'),
+          numberOfItems: serviceList.length,
+          itemListElement: serviceList.map((serviceKey, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            item: {
+              '@type': 'Service',
+              name: t(`serviceList.${serviceKey}`),
+              url: `${SITE_URL}/services`,
+              provider: {
+                '@type': 'JewelryStore',
+                name: 'GDC Jewellery Lab',
+                url: SITE_URL,
+              },
+            },
+          })),
+        }}
+      />
       <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="text-center mb-12">
           <h1 className="font-headline text-4xl md:text-5xl text-foreground">

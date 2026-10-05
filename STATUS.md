@@ -1,6 +1,17 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 05/10/2026 ~20:55 CEST**
+**Ultimo aggiornamento: 05/10/2026 ~21:55 CEST**
+
+## 05/10/2026 ~21:55 CEST — ciclo QA orario 21:36
+- QA live (curl): / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale in next.config.js, target verificato), /custom-jewel = 200, /orders = 200, /contact = 200, /about = 200, /collections = 200, /services = 200, /custom-jewel/order-form = 200, 404 di prova = 404 corretta; sitemap.xml (7 URL), robots.txt, favicon.ico, manifest.webmanifest = 200.
+- Meta/OG live homepage: og:title/og:description/og:image, twitter:card summary_large_image, description IT, lang=it (aggiornato client-side da language-context per EN/DE/FR), JSON-LD (WebSite+JewelryStore+ItemList+breadcrumb) — presenti; 0 placeholder/lorem/dato finto in src e nell'HTML live.
+- Immagini: 34 URL i.postimg.cc unici (src+public) = 33/33 reali a 200, zero fallimenti; 1 match da regex è un commento di codice in order-form-client.tsx (falso positivo QA, non un'immagine).
+- UX/sicurezza in sorgente: bottoni outline GALLERIA con visited:text-gold + active/focus-visible coerenti; tutti i target="_blank" con rel=noopener noreferrer (verificati riga per riga, inclusi i multiline); noscript fallback /contact intatto; heading: 1 H1 (sr-only) + 4 H2.
+- robots.txt: Allow:/ + 2 sitemap dichiarate. ItemList JSON-LD: url /#gallery su tutti gli item (convenzione SEO esistente, non toccata). Orari apertura: non pubblicati da nessuna parte sul sito → non aggiunti nel JSON-LD (niente dati inventati).
+- Bug trovati: NESSUNO sul sito live.
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde, zero gap reali — meta/SEO/a11y/form/stati bottoni/immagini/lang già coperti) — solo aggiornamento STATUS.md, per convenzione cicli verdi.
+- Build locale: tsc --noEmit 0 errori + npm run build exit 0 (12 route statiche + manifest/robots/sitemap).
+- Push: commit STATUS.md su main verificato via API (GET /repos/EmanueleZanardo/12-Sito-gioielleria/commits/main, SHA blob remoto = base locale, nessun clobber); clone risincronizzato. Deploy Vercel automatico. Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram. Blocco noto invariato: server di posta non attivo (manca password app Gmail su Vercel — azione di Emanuele).
 
 ## 05/10/2026 ~20:55 CEST — ciclo QA orario 20:36
 - QA live (curl): / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale in next.config.js), /custom-jewel = 200, /orders = 200, /contact = 200, /about = 200, /collections = 200, /services = 200, /custom-jewel/order-form = 200, 404 di prova = 404 corretta; sitemap.xml, sitemap-images.xml, robots.txt, manifest.webmanifest, favicon.ico, og-cover.jpg = 200.

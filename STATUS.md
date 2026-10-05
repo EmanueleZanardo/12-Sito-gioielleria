@@ -1,6 +1,17 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 05/10/2026 ~21:55 CEST**
+**Ultimo aggiornamento: 05/10/2026 ~22:55 CEST**
+
+## 05/10/2026 ~22:55 CEST — ciclo QA orario 22:36
+- QA live (curl): / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale in next.config.js, target verificato), /custom-jewel = 200, /orders = 200, /contact = 200, /about = 200, /collections = 200, /services = 200, /custom-jewel/order-form = 200; robots.txt, sitemap.xml, sitemap-images.xml (5733 bytes, image namespace OK), favicon.ico, apple-touch-icon.png, manifest.webmanifest = 200.
+- Immagini: 23 URL i.postimg.cc unici sulla homepage (decodificati da next/image) — HEAD 23/23 a 200, zero rotte; 0 immagini senza alt nell'HTML live (4 pagine).
+- Meta/OG: og:title/og:description/og:image/og:url, twitter:card, description, canonical self-referencing — presenti su /,/contact,/custom-jewel,/orders; canonical anche su /about,/collections,/services,/custom-jewel (metadata per-pagina).
+- Form (contact, order-form): client components (react-hook-form+zod, non nell'SSR); markup in sorgente OK — autocomplete name/email, enterKeyHint, aria-invalid/aria-describedby, fieldset/legend, required.
+- Build locale: npm run build exit 0 (13 route statiche) + tsc --noEmit 0 errori.
+- QA visuale live via browser task (mobile ~390px): homepage scroll completo, click GALLERIA → back, visite /contact e /custom-jewel/order-form, controllo console/errori — task eseguito in 25 step e completato senza errori; report dettagliato non ancora consegnato dal runtime (pattern noto di consegna ritardata), eventuale esito verrà registrato nel ciclo successivo.
+- Bug trovati: NESSUNO sul sito live.
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde — meta/SEO/a11y/form/stati bottoni/immagini/lang/canonical già coperti) — solo aggiornamento STATUS.md, per convenzione cicli verdi.
+- Push: commit STATUS.md su main via Contents API (verificato via GET commits/main), clone risincronizzato. Deploy Vercel automatico. Firebase originale non toccato; nessuna pubblicazione Instagram. Blocco noto invariato: server di posta non attivo (manca password app Gmail su Vercel — azione di Emanuele).
 
 ## 05/10/2026 ~21:55 CEST — ciclo QA orario 21:36
 - QA live (curl): / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale in next.config.js, target verificato), /custom-jewel = 200, /orders = 200, /contact = 200, /about = 200, /collections = 200, /services = 200, /custom-jewel/order-form = 200, 404 di prova = 404 corretta; sitemap.xml (7 URL), robots.txt, favicon.ico, manifest.webmanifest = 200.

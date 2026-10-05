@@ -1,5 +1,19 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
+**Ultimo aggiornamento: 05/10/2026 ~18:55 CEST**
+
+## 05/10/2026 ~18:55 CEST — ciclo QA orario 18:36
+- QA live (curl): / = 200, /gallery = 308 → https://gdc-jewellery-lab.vercel.app/#gallery (redirect permanente intenzionale, verificato target), /custom-jewel = 200, /orders = 200, /contact = 200, /about = 200, /collections = 200, /services = 200, /custom-jewel/order-form = 200, 404 di prova = 404 corretta, og-cover.jpg = 200, sitemap.xml = 200, robots.txt = 200, manifest.webmanifest = 200 (PWA: name/short_name/lang=it/theme #0d0b08/icons OK).
+- Meta/OG live homepage: og:title/og:description IT, og:image, og:locale it_IT, og:url, twitter:card summary_large_image; lang=it, theme-color #0d0b08 — presenti. JSON-LD live: WebSite + JewelryStore completo (telephone +393451114337, email laboratorio.ticino@gmail.com, priceRange, sameAs instagram gdc_jewellery_lab, areaServed Ticino/CH). Canonical self-referencing su tutte le 8 pagine (verificato in sorgente + live order-form).
+- Immagini: 31/31 URL i.postimg.cc unici (src+public) = 200, zero fallimenti. Attributi live: hero fetchPriority=high + decoding=async, card galleria loading=lazy + decoding=async + sizes corretti (50vw/33vw).
+- Form: /contact è client component con Suspense fallback (h1 reale + skeleton + noscript con WhatsApp/email diretti — by design, verificato live "Caricamento…" + fallback); markup sorgente intatto: required/autoComplete/enterKeyHint/aria-invalid/aria-describedby su name/email/subject/message. Order-form: nessun artefatto legacy (0 occorrenze gdcjewels.com), imageUrl guard (solo https:// assoluti, ciclo 15:36) intatta in sorgente. /orders = pagina processo "Come Ordinare", nessun dato finto.
+- UX/stati: bottone outline GALLERIA con visited:text-gold + active/focus-visible coerenti (sorgente); scroll-mt-24 su #gallery (ancora non nascosta sotto header); prefers-reduced-motion gestito; skip-link e aria-label WhatsApp float presenti. Nessun placeholder/lorem/dato finto in src (grep pulito).
+- Browser task live: non usato (lezione ciclo 16:36: ignora initial_url e testa gdcjewels.com legacy) — controlli curl+sorgente sufficienti per il ciclo verde.
+- Bug trovati: NESSUNO sul sito live.
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde, zero gap reali — meta/SEO/a11y/form/stati bottoni/immagini già coperti) — solo aggiornamento STATUS.md, per convenzione cicli verdi.
+- Build locale: tsc --noEmit 0 errori + npm run build exit 0 (16/16 pagine statiche, log hidden_files/build_20261005_1836.log).
+- Push: commit STATUS.md su main verificato via API (GET /repos/EmanueleZanardo/12-Sito-gioielleria/commits/main, SHA blob remoto = base locale, nessun clobber); clone risincronizzato. Deploy Vercel automatico. Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram. Blocco noto invariato: server di posta non attivo (manca password app Gmail su Vercel — azione di Emanuele).
+
 **Ultimo aggiornamento: 05/10/2026 ~18:05 CEST**
 
 ## 05/10/2026 ~18:05 CEST — ciclo QA orario 17:36

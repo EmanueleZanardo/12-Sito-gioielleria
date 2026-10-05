@@ -1,6 +1,15 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 05/10/2026 ~17:10 CEST**
+**Ultimo aggiornamento: 05/10/2026 ~18:05 CEST**
+
+## 05/10/2026 ~18:05 CEST — ciclo QA orario 17:36
+- QA live (curl): / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale in next.config.js), /custom-jewel = 200, /orders = 200, /contact = 200, /about = 200, /collections = 200, /services = 200, /custom-jewel/order-form = 200, sitemap.xml = 200, robots.txt = 200, sitemap-images.xml = 200, manifest.webmanifest = 200, favicon.ico = 200, apple-touch-icon.png = 200, 404 di prova = 404 corretta. og-cover.jpg = 200, URL i.postimg.cc unici homepage = 200.
+- Meta/OG: og:title/og:description/og:image 1200x630 con alt/locale it_IT, twitter:card summary_large_image, description IT — presenti; nessun placeholder/lorem/dato finto in src (grep pulito, solo placeholder email legittimo in en.json).
+- Browser task live (solo lettura, nessun submit): homepage completa (hero, Galleria, Le Nostre Collezioni, Perché GDC, Su Misura) — bottone outline GALLERIA invariato dopo il click (gold outline preservato, nessun break :visited/:active/:focus); /contact con form renderizzato (Nome e Cognome, Email, Oggetto, Messaggio, Allega Immagine, "Invia Messaggio"); /custom-jewel/order-form completo (Tipo/Materiali/Pietre, Descrizione Dettagliata, upload, Nome, Email, "Invia Richiesta"); /orders pagina informativa come da design (il form ordini vive su /custom-jewel/order-form); nessuna immagine rotta. Caveat: viewport mobile 390px non emulabile dallo strumento (limitazione nota), nessuna console access; nessun difetto visivo a desktop.
+- Bug trovati: NESSUNO sul sito live.
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde, zero gap reali — meta/SEO/a11y/form/stati bottoni già coperti dai cicli precedenti) — solo aggiornamento STATUS.md, per convenzione cicli verdi.
+- Build locale: npm run build exit 0 (16/16 pagine statiche) + tsc --noEmit 0 errori (log /tmp/gdc-build-1736.log).
+- Push: commit STATUS.md su main verificato via API (GET /repos/EmanueleZanardo/12-Sito-gioielleria/commits/main, SHA blob remoto = base locale, nessun clobber); clone risincronizzato. Deploy Vercel automatico. Residui QA: nessuno. Firebase originale non toccato; nessuna pubblicazione Instagram. Blocco noto invariato: server di posta non attivo (manca password app Gmail su Vercel — azione di Emanuele).
 
 ## 05/10/2026 ~17:10 CEST — ciclo QA orario 16:36
 - QA live (curl): / = 200, /gallery = 200 (segue 308 → /#gallery, redirect permanente intenzionale in next.config.js), /custom-jewel = 200, /orders = 200, /contact = 200, /about = 200, /collections = 200, /services = 200, /custom-jewel/order-form = 200, 404 di prova = 404 corretta. Nessun link interno rotto.

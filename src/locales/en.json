@@ -65,13 +65,13 @@
       "title": "Gallery",
       "subtitle": "Each creation is a unique piece, forged with passion and mastery.",
       "descriptions": {
-        "group_001": "Sterling silver chain and pendant with a raw quartz point — handmade setting",
-        "group_002": "Necklace with an 18k gold pendant and a heart-cut ruby",
-        "group_003": "Sterling silver ring with an Ethiopian opal in cabochon cut",
-        "group_004": "Necklace with a sterling silver pendant and a quartz slice with chlorite inclusions",
-        "group_005": "Sterling silver band with a hand-carved finish",
-        "group_006": "18k gold ring with a pear-cut sapphire — hand-satinated engraving",
-        "group_007": "18k gold wedding rings with a hand-hammered finish"
+        "group_001": "925 silver chain with raw quartz point pendant — handcrafted mount, made by hand in Ticino",
+        "group_002": "750 gold necklace with heart-cut ruby pendant — handcrafted bespoke creation",
+        "group_003": "925 silver ring with Ethiopian opal cabochon — one-of-a-kind handmade piece",
+        "group_004": "925 silver necklace with quartz slice pendant featuring chlorite inclusions — handcrafted mount",
+        "group_005": "925 silver band with hand-engraved finish, made by hand at the goldsmith bench",
+        "group_006": "750 gold ring with pear-cut sapphire — hand-satinized engraving from our workshop",
+        "group_007": "750 gold wedding rings with hand-hammered finish — a one-of-a-kind piece for your yes"
       },
       "eyebrow": "The Collection"
     },
@@ -428,22 +428,22 @@
     "rings": {
       "name": "Rings",
       "tagline": "The detail that never goes unnoticed",
-      "description": "750 gold and 925 silver with sapphires, Ethiopian opals and hand-engraved finishes. A GDC ring doesn’t follow trends: it sets them."
+      "description": "750 gold and 925 silver with sapphires, Ethiopian opals and hand-engraved finishes. A GDC ring doesn't follow trends: it sets them. Every ring can be adapted to your size and style."
     },
     "necklaces": {
       "name": "Necklaces & Pendants",
       "tagline": "Light, worn close",
-      "description": "Raw quartz points, heart-cut rubies, chlorite quartz slices: genuine stones set on 925 silver and 750 gold chains."
+      "description": "Raw quartz points, heart-cut rubies, chlorite quartz slices: genuine stones set on 925 silver and 750 gold chains. Handcrafted creations, ready-made or bespoke."
     },
     "weddingRings": {
       "name": "Wedding Rings",
       "tagline": "Forever, hand-hammered",
-      "description": "750 gold wedding rings with hammered finish: every hammer blow makes your pair unique, just like the day you exchange them."
+      "description": "750 gold wedding rings with hammered finish: every hammer blow makes your pair unique, just like the day you exchange them. Personalised engraving available."
     },
     "moto": {
       "name": "Rombo d'Argento",
       "tagline": "THE ROAR BECOMES JEWELRY",
-      "description": "Hand-forged 925 silver pendants capturing the roar of two wheels: fairings, headlights and pistons turned into jewellery. For those who live for motorcycles, even off the saddle."
+      "description": "Hand-forged 925 silver pendants capturing the roar of two wheels: fairings, headlights and pistons turned into jewellery. The Rombo d'Argento collection is for those who live for motorcycles, even off the saddle."
     },
     "earrings": {
       "name": "Earrings",

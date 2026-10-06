@@ -1,6 +1,20 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 06/10/2026 ~06:10 CEST**
+**Ultimo aggiornamento: 06/10/2026 ~07:10 CEST**
+
+## 06/10/2026 ~07:10 CEST — ciclo QA orario 06:36
+- QA live (curl): / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale in next.config), /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /contact = 200, /about = 200, /collections = 200, /services = 200; /faq-/privacy-/terms inesistenti = 404 corretto (nessuna route e nessun link interno — verificato in src/app e footer).
+- Meta/OG live homepage: title "GDC Jewellery Lab | Gioielli Artigianali su Misura", description IT, og:title/description/image assoluto 1200×630 (+alt/width/height/url/site_name/type/locale it_IT + alternate en_US/fr_FR/de_DE), twitter:card summary_large_image, JSON-LD presente, icon/manifest presenti; canonical SSR assente in homepage come da design (iniettato via useEffect con guardia anti-duplicati — commento in layout.tsx:85-89), self-referencing sulle altre route via layout.
+- Immagini: campione i.postimg.cc dalla homepage = 200 (4/4), og-cover.jpg = 200; nessuna immagine mancante; 0 placeholder/lorem/dummy/fake nell'HTML live e in src. Tutte le <Image> con alt (o alt="" decorativo intenzionale).
+- Form (sorgente, client components): contact e order-form con labels htmlFor, required, type email, autoComplete, enterKeyHint, aria-invalid/aria-describedby, aria-live — markup corretto. Blocco noto invariato: server di posta non attivo — manca password app Gmail su Vercel (azione di Emanuele).
+- UX (sorgente): bottone outline GALLERIA con visited:text-gold + active:bg-gold/20 + focus-visible (resta gold dopo click); skip link → #main-content presente; html lang sincronizzato alla lingua attiva via LanguageProvider; prefers-reduced-motion e scroll-behavior gestiti.
+- Asset statici: robots.txt (Allow:/ + 2 sitemap), sitemap.xml, sitemap-images.xml, manifest.webmanifest (name/short_name/desc/theme_color/lang/icons), favicon.ico, apple-touch-icon.png = 200.
+- Build locale: npm run build exit 0 (13 route statiche) + tsc --noEmit 0 errori. Deploy Vercel su HEAD (b34a8ab): success via GitHub Commit Status API.
+- Bug trovati: NESSUNO sul sito live.
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde — meta/SEO/a11y/form/stati bottoni/immagini/canonical/JSON-LD/sitemap/error-boundary già coperti dai cicli precedenti) — solo aggiornamento STATUS.md, per convenzione cicli verdi.
+- Push: commit STATUS.md su main via Contents API (verificato via GET commits/main), clone risincronizzato. Deploy Vercel automatico. Firebase originale non toccato; nessuna pubblicazione Instagram.
+
+**Ultimo aggiornamento precedente: 06/10/2026 ~06:10 CEST**
 
 ## 06/10/2026 ~06:10 CEST — ciclo QA orario 05:36
 - QA live: / = 200, /collections = 200, /contact = 200, /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /about = 200, /services = 200, /robots.txt = 200 (Allow:/ + 2 sitemap). /gallery = 404 — atteso: la galleria è l'ancora /#gallery in homepage, nessuna route /gallery nel router (confermato in src/app).

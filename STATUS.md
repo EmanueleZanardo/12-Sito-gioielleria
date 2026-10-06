@@ -1,6 +1,16 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 06/10/2026 ~04:45 CEST**
+**Ultimo aggiornamento: 06/10/2026 ~06:10 CEST**
+
+## 06/10/2026 ~06:10 CEST — ciclo QA orario 05:36
+- QA live: / = 200, /collections = 200, /contact = 200, /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /about = 200, /services = 200, /robots.txt = 200 (Allow:/ + 2 sitemap). /gallery = 404 — atteso: la galleria è l'ancora /#gallery in homepage, nessuna route /gallery nel router (confermato in src/app).
+- Contenuti live: hero + galleria + collezioni + perché-GDC + su-misura in homepage; 5 categorie collezioni; about (artigiano); services (6 servizi + CTA); orders (4 passi HowTo con breadcrumb JSON-LD); custom-jewel (processo + FAQ 1:1 col JSON-LD); order-form (modulo + FAQ). Nessun placeholder/lorem/dato finto.
+- Sicurezza link (verifica a sorgente): tutti i target="_blank" (8 file) hanno già rel="noopener noreferrer" (+me sugli Instagram) — falso allarme del grep su riga singola, archiviato.
+- Form: contact (354 righe, react-hook-form + zod, photo upload con aria-label remove) e order-form client components — assenza <form> nell'HTML SSR attesa e già documentata. Blocco noto invariato: server di posta non attivo — manca password app Gmail su Vercel (azione di Emanuele).
+- Build locale: npm run build exit 0 (16/16 route statiche) + tsc --noEmit 0 errori.
+- Bug trovati: NESSUNO sul sito live.
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde — meta/SEO/a11y/form/stati bottoni/immagini/canonical/JSON-LD/rel-noopener/sitemap/error-boundary già coperti dai cicli precedenti) — solo aggiornamento STATUS.md, per convenzione cicli verdi.
+- Push: commit STATUS.md su main via Contents API (verificato via GET commits/main), clone risincronizzato. Deploy Vercel automatico. Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 06/10/2026 ~04:45 CEST — ciclo QA orario 04:36
 - QA live (curl): / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale), /custom-jewel = 200, /orders = 200, /contact = 200, /about = 200, /collections = 200, /services = 200; /faq inesistente = 404 corretto (nessun link interno punta a /faq — falso allarme già archiviato).

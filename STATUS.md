@@ -505,3 +505,13 @@
 - Bug trovati: nessuno.
 - Miglioria del ciclo: nessuna modifica al codice — audit completo verde, evitato churn non necessario su sito sano; aggiornata solo la documentazione del ciclo in STATUS.md (convenzione cicli verdi).
 - Firebase originale non toccato; nessuna pubblicazione Instagram.
+
+## 06/10/2026 10:36 CEST — ciclo QA orario VERDE
+- Build locale: `npm run build` exit 0 (16/16 pagine statiche, compiled OK, type-check OK) + `npx tsc --noEmit` 0 errori.
+- Live: / /gallery /custom-jewel /orders /contact /about /services /collections /custom-jewel/order-form /sitemap.xml /robots.txt = 11/11 200.
+- Meta/OG: og:title/description/url/site_name/locale/image (1200x630 + alt), twitter summary_large_image, theme-color #0d0b08, color-scheme dark, canonical; nessuna scritta placeholder/lorem nel markup.
+- Immagini: 28/28 `<img>` homepage con alt; 20/20 URL postimg.cc unici diretti = 200; hero con priority + fetchPriority="high", sizes calibrato; gallery lazy by default.
+- UX/stati: bottone outline GALLERIA con visited:text-gold + active espliciti (nessun cambio colore post-click); header sicurezza live: HSTS (preload), X-Frame-Options SAMEORIGIN, nosniff, Referrer-Policy, Permissions-Policy.
+- Bug trovati: nessuno.
+- Miglioria del ciclo: nessuna modifica al codice — audit completo verde, evitato churn non necessario su sito sano (convenzione cicli verdi dal 09:36).
+- Firebase originale non toccato; nessuna pubblicazione Instagram.

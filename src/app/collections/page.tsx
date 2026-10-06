@@ -147,7 +147,7 @@ export default function CollectionsPage() {
                     <Badge variant="secondary" className="bg-background/70 backdrop-blur text-foreground">
                       {collection.pieces.length > 0 ? (
                         <span className="inline-flex items-center gap-1.5">
-                          <Images className="h-3.5 w-3.5" />
+                          <Images aria-hidden="true" className="h-3.5 w-3.5" />
                           {t('piecesInGallery', { count: collection.pieces.length })}
                         </span>
                       ) : (

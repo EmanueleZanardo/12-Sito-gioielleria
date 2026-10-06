@@ -466,6 +466,17 @@
 - Routine contenuti Instagram `gdc_jewellery_lab` resta IN PAUSA (ordine 25/09); pubblicazione automatica NON autorizzata. Esito cancellazione storia di prova (25/09) non ancora confermato.
 
 ## Stato
+## 06/10/2026 08:36 CEST — ciclo QA orario VERDE
+- Build locale: npm run build 14/14 exit 0 + tsc --noEmit 0 errori (anche dopo la modifica).
+- Live: / /custom-jewel /orders /contact /about /collections /services /custom-jewel/order-form 200; /gallery 308 → /#gallery 200; pagina inesistente 404; og-cover.jpg, sitemap.xml, robots.txt, apple-touch-icon, favicon, manifest 200.
+- Immagini: 23/23 postimg.cc 200 (verifica URL completi; la forma troncata con solo gallery-ID dà 404 ma non è quella usata).
+- Meta/OG/Twitter su home, custom-jewel, orders, contact (description + og:title + og:image); JSON-LD ×2 su home; lang="it"; theme-color #0d0b08; hero con priority/fetchPriority=high; alt descrittivi sulle foto galleria; form contatti in src (client component).
+- UX telefono: bottone outline GALLERIA con visited:active/focus-visible espliciti (nessun cambio colore post-click); header HSTS/X-Frame-Options/X-Content-Type-Options presenti; nessun placeholder/lorem; link interni tutti 200; rel=noopener sui link esterni.
+- Bug trovati: nessuno.
+- Miglioria del ciclo (a11y): role="list" sull'<ol> dei 4 passi di /orders — list-none fa perdere la semantica di elenco a Safari/VoiceOver (unico list-none su liste in tutto src).
+- Push verificato: 38538c5 (src/app/orders/page.tsx, SHA blob 40 char). Firebase originale non toccato; nessuna pubblicazione Instagram.
+
+# Stato
 - Sito live su https://gdc-jewellery-lab.vercel.app/ (migrato fuori da Firebase il 29/09/2026).
 - Il sito Firebase originale (sito-v20102025-99896239-cab07) NON va spento finché Vercel non è stabile.
 - Build e TypeScript puliti; pagine live 200; immagini postimg online; route galleria corretta `/collections`.

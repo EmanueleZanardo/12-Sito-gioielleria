@@ -62,9 +62,17 @@ export default function OrdersPage() {
           ))}
         </ol>
 
+        {/* QA 07/10 00:36 (fix+miglioria ciclo): il passo 2 nomina il "modulo
+            d'ordine personalizzato" ma la pagina offriva solo Crea Gioiello e
+            Contatti — nessun percorso verso il form. Aggiunto CTA diretto a
+            /custom-jewel/order-form (il form esiste da /custom-jewel/order-form
+            e rende il percorso d'acquisto completo). */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
           <Button asChild size="lg">
             <Link href="/custom-jewel">{t('ctaCustom')}</Link>
+          </Button>
+          <Button asChild size="lg" variant="secondary">
+            <Link href="/custom-jewel/order-form">{t('ctaOrder')}</Link>
           </Button>
           <Button asChild size="lg" variant="outline">
             <Link href="/contact">{t('ctaContact')}</Link>

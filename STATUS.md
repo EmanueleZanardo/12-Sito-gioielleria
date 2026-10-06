@@ -1,6 +1,19 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 06/10/2026 ~03:45 CEST**
+**Ultimo aggiornamento: 06/10/2026 ~04:45 CEST**
+
+## 06/10/2026 ~04:45 CEST — ciclo QA orario 04:36
+- QA live (curl): / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale), /custom-jewel = 200, /orders = 200, /contact = 200, /about = 200, /collections = 200, /services = 200; /faq inesistente = 404 corretto (nessun link interno punta a /faq — falso allarme già archiviato).
+- Meta/OG live homepage: og:title/description/image (+alt/width/height/url/site_name/type/locale it_IT + alternate en_US/fr_FR/de_DE), twitter:card summary_large_image, title "GDC Jewellery Lab | Gioielli Artigianali su Misura", description IT — presenti; 3 blocchi JSON-LD (JewelryStore, ecc.) presenti; canonical SSR assente in homepage come da design (iniettato via useEffect con guardia anti-duplicati — v. commento in page.tsx:80-86), self-referencing su tutte le altre route via layout.
+- Immagini: 20/20 URL i.postimg.cc unici dalla homepage = 200 (HEAD), zero rotte. Nessun placeholder/lorem/TODO/FIXME nell'HTML live e in src.
+- Link interni: tutti gli href interni puntano a route esistenti (nav, ancore /collections#anelli/#collane-e-pendenti/#fedi con redirect intenzionali, /#gallery); nessun href rotto.
+- Form: contact e order-form sono client components (react-hook-form + zod + Label) — assenza di <form> nell'HTML SSR attesa; markup in sorgente verificato OK (labels, required, autoComplete, enterKeyHint, aria-invalid/aria-describedby). Blocco noto invariato: server di posta non attivo — manca password app Gmail su Vercel (azione di Emanuele).
+- i18n: namespace 'error' presente in it/en/de/fr.json; hook useTranslation risolve il namespace; global-error.tsx con <html lang="it">/<body> propri + LanguageProvider (corretto per la root error boundary).
+- UX (sorgente): bottone outline GALLERIA con visited:text-gold + active:bg-gold/20 + focus-visible (resta gold dopo click); button variants con active touch feedback + visited coerenti; share-dialog con sr-only label + DialogTitle/DialogDescription; whatsapp-float con aria-label — nessuna modifica necessaria.
+- Build locale: npm run build exit 0 (16/16 route statiche) + tsc --noEmit 0 errori.
+- Bug trovati: NESSUNO sul sito live.
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde — meta/SEO/a11y/form/stati bottoni/immagini/canonical/JSON-LD/sitemap/error-boundary già coperti dai cicli precedenti) — solo aggiornamento STATUS.md, per convenzione cicli verdi.
+- Push: commit STATUS.md su main via Contents API (verificato via GET commits/main), clone risincronizzato. Deploy Vercel automatico. Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 06/10/2026 ~03:45 CEST — ciclo QA orario 03:36
 - QA live (curl): / = 200, /custom-jewel = 200, /orders = 200, /contact = 200, /custom-jewel/order-form = 200, /collections = 200; /gallery = 308 → /#gallery (redirect permanente intenzionale); /faq inesistente = 404 corretto (la FAQ è sezione in-page di /custom-jewel con FAQPage JSON-LD — nessun link rotto); sitemap.xml (7 URL), robots.txt, manifest.webmanifest, og-cover.jpg = 200; 404 di prova = 404 corretta.

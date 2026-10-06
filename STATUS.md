@@ -1,6 +1,19 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 06/10/2026 ~02:40 CEST**
+**Ultimo aggiornamento: 06/10/2026 ~03:45 CEST**
+
+## 06/10/2026 ~03:45 CEST — ciclo QA orario 03:36
+- QA live (curl): / = 200, /custom-jewel = 200, /orders = 200, /contact = 200, /custom-jewel/order-form = 200, /collections = 200; /gallery = 308 → /#gallery (redirect permanente intenzionale); /faq inesistente = 404 corretto (la FAQ è sezione in-page di /custom-jewel con FAQPage JSON-LD — nessun link rotto); sitemap.xml (7 URL), robots.txt, manifest.webmanifest, og-cover.jpg = 200; 404 di prova = 404 corretta.
+- Meta/OG live homepage: og:title/og:description/og:image assoluto 1200×630 + og:locale it_IT (+alternate en_US/fr_FR/de_DE), twitter:card summary_large_image, description IT, title corretto — presenti.
+- Immagini: 20/20 URL i.postimg.cc unici dalla homepage = 200, zero rotte. Nessun placeholder/lorem/TODO/FIXME nell'HTML live delle 4 pagine; nessun href rotto (solo ancore interne, mailto/tel, https).
+- Canonical: /contact live con canonical self-referencing corretto; homepage lo inietta via useEffect (client component) con guardia anti-duplicati; tutte le altre pagine lo hanno via layout di rotta.
+- A11y in sorgente e live: skip link → #main-content presente nell'HTML live; tutte le <Image> con alt; hero con priority + fetchPriority=high; preconnect/dns-prefetch i.postimg.cc; structured data: JewelryStore + ItemList/Products in home, ContactPage + ContactPoint + Organization su /contact, FAQPage 1:1 con la sezione visibile su /custom-jewel.
+- Form: contact e order-form sono client components (Suspense/useSearchParams — assenza di <form> nell'HTML SSR è attesa) — markup in sorgente già verificato OK nei cicli precedenti. Blocco noto invariato: server di posta non attivo — manca password app Gmail su Vercel (azione di Emanuele).
+- UX (sorgente): bottone outline GALLERIA con visited:text-gold + active:bg-gold/20 + focus-visible (resta gold dopo click); nessuna modifica necessaria.
+- Build locale: npm run build exit 0 (16/16 route statiche) + tsc --noEmit 0 errori.
+- Bug trovati: NESSUNO sul sito live.
+- Miglioria del ciclo: nessuna modifica codice necessaria (sito verde — meta/SEO/a11y/form/stati bottoni/immagini/canonical/JSON-LD già coperti dai cicli precedenti) — solo aggiornamento STATUS.md, per convenzione cicli verdi.
+- Push: commit STATUS.md su main via Contents API (verificato via GET commits/main), clone risincronizzato. Deploy Vercel automatico. Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 06/10/2026 ~02:40 CEST — ciclo QA orario 02:36
 - QA live (curl): / = 200, /about = 200, /collections = 200, /services = 200, /custom-jewel = 200, /orders = 200, /contact = 200, /custom-jewel/order-form = 200; og-cover.jpg = 200; sitemap.xml (7 URL), robots.txt (Allow:/ + 2 sitemap) OK.

@@ -1,6 +1,20 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 06/10/2026 ~07:10 CEST**
+**Ultimo aggiornamento: 06/10/2026 ~08:10 CEST**
+
+## 06/10/2026 ~08:10 CEST — ciclo QA orario 07:36
+- QA live (curl): / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale in next.config, seguito = 200), /custom-jewel = 200, /orders = 200, /contact = 200, /collections = 200; sitemap.xml, sitemap-images.xml, robots.txt, og-cover.jpg, manifest.webmanifest = 200; pagina inesistente = 404 corretto; 404 custom localizzata con nav (Torna alla home / Collezioni / scorciatoie).
+- Meta live su 5 pagine: title + description + og:* + canonical self-referencing; og:image assoluto con width/height/alt (metadataBase settato in layout); twitter:card summary_large_image; JSON-LD JewelryStore con sameAs Instagram; <html lang="it"> sincronizzato runtime via LanguageProvider.
+- Immagini: 30/30 src uniche homepage = 200 (postimg.cc via _next/image, AVIF/WebP negoziati); hero con priority + fetchPriority high; sizes calibrati; alt presenti o alt="" decorativo intenzionale (teaser, già commentato).
+- Form (sorgente, client components): contact e order-form con react-hook-form + zod, label/htmlFor, required, aria-invalid/aria-describedby; whatsapp-float con aria-label localizzato; wa.me/393451114337 coerente ovunque.
+- UX/stati (sorgente): bottoni outline con visited:text-* (GALLERIA resta gold post-click), focus-visible ring, skip-link → #main-content (id presente), prefers-reduced-motion, overflow-x-clip a livello documento; header sicurezza live: HSTS, X-Frame-Options SAMEORIGIN, nosniff, Referrer-Policy, Permissions-Policy.
+- SEO extra: sitemap.xml con lastmod (7 URL vetrina), sitemap-images.xml con 23 immagini + caption, order-form noindex + escluso da sitemap, robots Allow:/ + 2 sitemap.
+- Build locale: npm run build exit 0 (13 route statiche) + tsc --noEmit 0 errori. Deploy Vercel su HEAD c76e24f: success via GitHub Commit Status API.
+- Bug trovati: NESSUNO.
+- Miglioria del ciclo: nessuna modifica codice necessaria — sito verde su tutti i fronti (meta/SEO/a11y/form/stati bottoni/immagini/canonical/JSON-LD/sitemap/headers già coperti dai cicli precedenti); solo aggiornamento STATUS.md, per convenzione cicli verdi.
+- Push: commit STATUS.md su main via Contents API (verificato via GET commits/main), clone risincronizzato. Deploy Vercel automatico. Firebase originale non toccato; nessuna pubblicazione Instagram.
+
+**Ultimo aggiornamento precedente: 06/10/2026 ~07:10 CEST**
 
 ## 06/10/2026 ~07:10 CEST — ciclo QA orario 06:36
 - QA live (curl): / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale in next.config), /custom-jewel = 200, /custom-jewel/order-form = 200, /orders = 200, /contact = 200, /about = 200, /collections = 200, /services = 200; /faq-/privacy-/terms inesistenti = 404 corretto (nessuna route e nessun link interno — verificato in src/app e footer).

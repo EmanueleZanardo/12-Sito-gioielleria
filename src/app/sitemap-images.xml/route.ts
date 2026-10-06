@@ -1,4 +1,4 @@
-import { orderedProducts } from '@/lib/data';
+import { orderedProducts, collectionOnlyProducts } from '@/lib/data';
 import heroImage from '@/lib/hero-image.json';
 
 const BASE_URL = 'https://gdc-jewellery-lab.vercel.app';
@@ -12,6 +12,10 @@ const BASE_URL = 'https://gdc-jewellery-lab.vercel.app';
 // assente) sotto la <url> '/' e la foto "artigiano" di /about sotto la <url>
 // '/about' — ogni immagine sotto la pagina in cui appare, come da linee guida
 // Google. Logo e icone del form ordine esclusi: non sono contenuti indicizzabili.
+//
+// QA 06/10 20:36: aggiunte anche le 5 foto "Iron Soul" (prod_022–026), che
+// vivono SOLO nella pagina /collections (non in orderedProducts) ed erano
+// assenti dalla sitemap. imageUrl relativo → URL assoluto per image:loc.
 export const dynamic = 'force-static';
 
 // Caption = testi alt in italiano (lingua di default del sito): hero.alt e
@@ -55,6 +59,22 @@ export async function GET(): Promise<Response> {
     .map((p) => imageXml(p.imageUrl, p.description))
     .join('\n');
 
+  // Pezzi visibili solo nella loro collezione (/collections): imageUrl
+  // relativo → assoluto (image:loc richiede URL assoluti per Google).
+  const collectionOnlyImagesXml = collectionOnlyProducts
+    .filter((p) => {
+      if (seen.has(p.imageUrl)) return false;
+      seen.add(p.imageUrl);
+      return true;
+    })
+    .map((p) =>
+      imageXml(
+        p.imageUrl.startsWith('http') ? p.imageUrl : `${BASE_URL}${p.imageUrl}`,
+        p.description,
+      ),
+    )
+    .join('\n');
+
   const xml =
     `<?xml version="1.0" encoding="UTF-8"?>\n` +
     `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n` +
@@ -67,6 +87,10 @@ export async function GET(): Promise<Response> {
     `  <url>\n` +
     `    <loc>${BASE_URL}/about</loc>\n` +
     `${imageXml(ABOUT_IMAGE.loc, ABOUT_IMAGE.caption)}\n` +
+    `  </url>\n` +
+    `  <url>\n` +
+    `    <loc>${BASE_URL}/collections</loc>\n` +
+    `${collectionOnlyImagesXml}\n` +
     `  </url>\n` +
     `</urlset>\n`;
 

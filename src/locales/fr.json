@@ -65,13 +65,13 @@
       "title": "Galerie",
       "subtitle": "Chaque création est une pièce unique, forgée avec passion et maîtrise.",
       "descriptions": {
-        "group_001": "Chaîne et pendentif en argent 925 avec pointe de quartz brut — monture artisanale",
-        "group_002": "Collier avec pendentif en or 750 et rubis taille cœur",
-        "group_003": "Bague en argent 925 avec opale d’Éthiopie taille cabochon",
-        "group_004": "Collier avec pendentif en argent 925 et tranche de quartz aux inclusions de chlorite",
-        "group_005": "Bande en argent 925 à la finition sculptée, réalisée à la main",
-        "group_006": "Bague en or 750 avec saphir taille poire — gravure satinée faite à la main",
-        "group_007": "Alliances en or 750 à la finition martelée à la main"
+        "group_001": "Chaîne et pendentif en argent 925 avec pointe de quartz brut — monture artisanale faite à la main au Tessin",
+        "group_002": "Collier avec pendentif en or 750 et rubis taille cœur — création artisanale sur mesure",
+        "group_003": "Bague en argent 925 avec opale d'Éthiopie taille cabochon — pièce unique faite à la main",
+        "group_004": "Collier avec pendentif en argent 925 et tranche de quartz à inclusions de chlorite — monture artisanale",
+        "group_005": "Jonc en argent 925 à finition gravée à la main, réalisé à l'établi d'orfèvre",
+        "group_006": "Bague en or 750 avec saphir taille poire — gravure satinée faite à la main dans notre atelier",
+        "group_007": "Alliances en or 750 à effet martelé à la main — une pièce unique pour votre oui"
       },
       "eyebrow": "La Collection"
     },
@@ -428,22 +428,22 @@
     "rings": {
       "name": "Bagues",
       "tagline": "Le détail qui ne passe pas inaperçu",
-      "description": "Or 750 et argent 925 avec saphirs, opales d’Éthiopie et finitions gravées à la main. Une bague GDC ne suit pas les modes : elle les crée."
+      "description": "Or 750 et argent 925 avec saphirs, opales d'Éthiopie et finitions gravées à la main. Une bague GDC ne suit pas les modes : elle les crée. Chaque bague peut être adaptée à votre taille et à votre style."
     },
     "necklaces": {
       "name": "Colliers & Pendentifs",
       "tagline": "La lumière, près du cœur",
-      "description": "Pointes de quartz brut, rubis taille cœur, tranches de quartz à chlorite : des pierres authentiques montées sur chaînes en argent 925 et or 750."
+      "description": "Pointes de quartz brut, rubis taille cœur, tranches de quartz à chlorite : des pierres authentiques montées sur chaînes en argent 925 et or 750. Créations artisanales, prêtes à porter ou sur mesure."
     },
     "weddingRings": {
       "name": "Alliances",
       "tagline": "Pour toujours, martelées à la main",
-      "description": "Alliances en or 750 à effet martelé : chaque coup de marteau rend votre paire unique, comme le jour où vous les échangerez."
+      "description": "Alliances en or 750 à effet martelé : chaque coup de marteau rend votre paire unique, comme le jour où vous les échangerez. Gravure personnalisée disponible."
     },
     "moto": {
       "name": "Rombo d'Argento",
       "tagline": "LE VROMBISSEMENT DEVIENT BIJOU",
-      "description": "Pendentifs en argent 925 forgés à la main, qui capturent le vrombissement des deux-roues : carénages, phares et pistons transformés en bijoux. Pour ceux qui vivent moto, même loin de la selle."
+      "description": "Pendentifs en argent 925 forgés à la main, qui capturent le vrombissement des deux-roues : carénages, phares et pistons transformés en bijoux. La collection Rombo d'Argento est pour ceux qui vivent moto, même loin de la selle."
     },
     "earrings": {
       "name": "Boucles d’oreilles",

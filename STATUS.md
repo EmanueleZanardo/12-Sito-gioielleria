@@ -628,3 +628,15 @@
 - Bug trovati: nessuno nel codice; nessuna regressione dai push del worker.
 - Miglioria del ciclo: SEO — le 5 foto "Iron Soul" (collection-only, non in orderedProducts) erano assenti da sitemap-images.xml; aggiunte sotto <url>/collections</url> con image:loc assoluti (BASE_URL + path relativo) e caption italiane da data.ts. File: src/app/sitemap-images.xml/route.ts.
 - Firebase originale non toccato; nessuna pubblicazione Instagram.
+
+## 06/10/2026 21:36 CEST — ciclo QA orario VERDE
+- Build locale: `npm run build` exit 0 (16/16 pagine statiche) + `npx tsc --noEmit` 0 errori, prima e dopo la modifica.
+- Live: / /custom-jewel /custom-jewel/order-form /orders /contact /collections /about /services = 8/8 200; /gallery 308 → /#gallery (redirect intenzionale da next.config.js); rotta inesistente 404 corretto; robots.txt, sitemap.xml, sitemap-images.xml, manifest.webmanifest, favicon.ico, og-cover.jpg, apple-touch-icon.png, icon-192.png, icon-512.png = 9/9 200.
+- Meta/OG: title/description IT, og:title/description/url/site_name/locale it_IT (+alternate en_US/fr_FR/de_DE)/image 1200x630+alt, twitter summary_large_image, JSON-LD (JewelryStore+ItemList+Breadcrumb+20 Product) — presenti; 0 placeholder/lorem/dummy/TODO/FIXME nell'HTML live e in src.
+- Immagini: 20/20 URL i.postimg.cc unici dalle pagine live = 200; 28/28 image:loc di sitemap-images.xml = 200 (incluse le 5 moto-*.jpg "Rombo d'Argento" con caption descrittive aggiornate, nessun residuo "Iron Soul").
+- Link interni: /#gallery /collections(+#anelli/#collane-e-pendenti/#fedi/#moto) /about /services /orders /contact /custom-jewel /custom-jewel/order-form = 10/10 200.
+- UX/stati (sorgente): bottone outline GALLERIA con visited:text-gold + active:bg-gold/20 + focus-visible — nessun cambio colore post-click; lightbox collezione moto con aria-label tradotti, focus trap, icone aria-hidden; header sicurezza live: HSTS preload, X-Frame-Options SAMEORIGIN, nosniff, Referrer-Policy.
+- Form: contact e order-form con Label htmlFor, required, autoComplete, aria-invalid/describedby, errori role=alert (markup auditato).
+- Bug trovati: nessuno.
+- Miglioria del ciclo: docs hygiene — aggiornato il commento in src/app/sitemap-images.xml/route.ts che citava ancora il vecchio nome "Iron Soul" (collezione rinominata "Rombo d'Argento" con commit b62cb71). Zero cambi funzionali.
+- Firebase originale non toccato; nessuna pubblicazione Instagram.

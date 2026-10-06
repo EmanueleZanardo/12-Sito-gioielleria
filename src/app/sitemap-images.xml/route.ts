@@ -13,9 +13,11 @@ const BASE_URL = 'https://gdc-jewellery-lab.vercel.app';
 // '/about' — ogni immagine sotto la pagina in cui appare, come da linee guida
 // Google. Logo e icone del form ordine esclusi: non sono contenuti indicizzabili.
 //
-// QA 06/10 20:36: aggiunte anche le 5 foto "Iron Soul" (prod_022–026), che
-// vivono SOLO nella pagina /collections (non in orderedProducts) ed erano
+// QA 06/10 20:36: aggiunte anche le 5 foto "Rombo d'Argento" (prod_022–026),
+// che vivono SOLO nella pagina /collections (non in orderedProducts) ed erano
 // assenti dalla sitemap. imageUrl relativo → URL assoluto per image:loc.
+// (Collezione rinominata da "Iron Soul" a "Rombo d'Argento" con commit b62cb71
+// del 06/10 — commento aggiornato di conseguenza nel ciclo QA 21:36.)
 export const dynamic = 'force-static';
 
 // Caption = testi alt in italiano (lingua di default del sito): hero.alt e

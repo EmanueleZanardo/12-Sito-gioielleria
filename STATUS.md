@@ -1,6 +1,11 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 06/10/2026 ~02:00 CEST**
+**Ultimo aggiornamento: 06/10/2026 ~02:05 CEST**
+
+## 06/10/2026 ~02:05 CEST — aggiornamento documentale giornaliero (notte)
+- **Commit `860948e` (05/10 23:55 UTC):** nuovo `src/app/global-error.tsx` — boundary errore globale brandizzato (stile 404, "Riprova" + "Torna alla home", IT/EN/DE/FR, errore loggato in console senza esporre dettagli) — prima un crash client-side mostrava pagina bianca/grezza.
+- Cicli QA orari 05/10 21:36→06/10 01:36 tutti VERDI: build 16/16 exit 0 + tsc 0 errori; live tutte le route 200 (/gallery 308→/#gallery intenzionale); 22/22 immagini postimg.cc 200; OG/JSON-LD/a11y/form OK; zero placeholder. Deploy Vercel automatico a ogni push.
+- Blocco invariato: server di posta non attivo — manca password app Gmail su Vercel (azione sua). Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 06/10/2026 ~02:00 CEST — ciclo QA orario 01:36
 - QA live (curl): / = 200, /about = 200, /collections = 200, /services = 200, /custom-jewel = 200, /orders = 200, /contact = 200, /custom-jewel/order-form = 200, /gallery → /#gallery (redirect 308 intenzionale, target 200); sitemap.xml, robots.txt, manifest.webmanifest, favicon.ico, og-cover.jpg = 200.

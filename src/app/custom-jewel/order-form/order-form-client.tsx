@@ -145,7 +145,7 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
                         </div>
                     ) : null}
                     <span className="text-center text-xs font-medium">{getItemLabel(item)}</span>
-                    {isSelected && <CheckCircle2 className="w-5 h-5 text-primary absolute top-1 right-1" />}
+                    {isSelected && <CheckCircle2 aria-hidden="true" className="w-5 h-5 text-primary absolute top-1 right-1" />}
                   </span>
                 </button>
               </CarouselItem>

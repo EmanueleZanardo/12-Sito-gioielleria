@@ -195,11 +195,13 @@ export default function Home() {
   // pagine-prodotto singole, ma ogni creazione è visibile nella sezione
   // #gallery della home: l'URL con ancora è il riferimento canonico legittimo
   // dell'item per Google (item senza url = segnale più debole).
+  // Blitz SEO 07/10/2026 (worker B): niente più slice(0, 20) — tutti i 21 pezzi
+  // della galleria sono nell'ItemList.
   const productListJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'Galleria creazioni GDC Jewellery Lab',
-    itemListElement: orderedProducts.slice(0, 20).map((p, i) => ({
+    itemListElement: orderedProducts.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       item: {

@@ -48,8 +48,10 @@ export default function OrdersPage() {
         </div>
 
         {/* Lista ordinata semantica: i passi sono sequenziali, gli screen reader
-            annunciano "elenco di 4 elementi" mantenendo l'ordine dei passi. */}
-        <ol className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto list-none p-0">
+            annunciano "elenco di 4 elementi" mantenendo l'ordine dei passi.
+            QA 06/10 08:36 (miglioria ciclo): role="list" perché list-none fa
+            perdere la semantica di elenco a Safari/VoiceOver. */}
+        <ol role="list" className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto list-none p-0">
           {Array.from({ length: STEP_COUNT }, (_, i) => (
             <li key={i} className="border rounded-lg bg-card p-6">
               <h2 className="font-headline text-xl text-foreground mb-2">

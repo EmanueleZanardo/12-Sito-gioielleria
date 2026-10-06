@@ -1,6 +1,18 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 06/10/2026 ~12:36 CEST**
+**Ultimo aggiornamento: 06/10/2026 ~13:36 CEST**
+
+## 06/10/2026 ~13:36 CEST — ciclo QA orario 13:36
+- QA live: / = 200, /custom-jewel = 200, /orders = 200, /contact = 200, /services = 200, /about = 200, /collections = 200, /custom-jewel/order-form = 200; /gallery = 308 → /#gallery (redirect permanente intenzionale, seguito = 200); pagina inesistente = 404 corretto; sitemap.xml + sitemap-images.xml + robots.txt + manifest.webmanifest + og-cover.jpg + apple-touch-icon + favicon = 200; zero placeholder/lorem nel HTML live.
+- Immagini: 20/20 URL i.postimg.cc unici da 5 pagine = 200; zero rotte; logo e hero con alt significativi; alt="" solo decorativo intenzionale (teaser card dentro Link con nome visibile).
+- Link: 25/25 link interni unici da 8 pagine = 200/3xx; nessun link rotto.
+- Meta live su 5 pagine: title + description + og:* (locale it_IT, alternate en_US/fr_FR/de_DE) + twitter:card; JSON-LD Breadcrumb/ContactPage/HowTo; noscript fallback già presente su contact e order-form (WhatsApp/mailto).
+- UX/stati (sorgente): bottone outline GALLERIA con visited:text-gold + active:bg-gold/20 + focus-visible (resta gold dopo il click); outline variant con active feedback e visited guard; aria-current="page" su nav; whatsapp-float con aria-label.
+- Build locale: npm run build exit 0 (13 route statiche) + tsc --noEmit 0 errori.
+- Bug trovati: NESSUNO.
+- Miglioria del ciclo: PWA — aggiunte icone manifest 192×192 e 512×512 (prima solo 180px) per il prompt di installazione Chrome; generate da apple-touch-icon su sfondo brand #0d0b08 (public/icon-192.png, public/icon-512.png, manifest.ts aggiornato).
+- Push: 4 commit via Contents API (manifest.ts + 2 PNG nuovi + questa riga STATUS.md, SHA blob 40 char, verificato via GET commits/main), clone risincronizzato. Deploy Vercel: success via GitHub Commit Status API; icon-192.png e icon-512.png live = 200.
+- Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 06/10/2026 ~12:36 CEST — ciclo QA orario 12:36
 - QA live: / = 200, /collections = 200, /custom-jewel = 200, /orders = 200, /contact = 200; /gallery = 308 → /#gallery (redirect permanente intenzionale, seguito = 200); og-cover.jpg = 200; nessuna immagine mancante; 0 placeholder/lorem nel HTML live.

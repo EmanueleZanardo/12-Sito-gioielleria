@@ -1,6 +1,17 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 06/10/2026 ~08:10 CEST**
+**Ultimo aggiornamento: 06/10/2026 ~12:36 CEST**
+
+## 06/10/2026 ~12:36 CEST — ciclo QA orario 12:36
+- QA live: / = 200, /collections = 200, /custom-jewel = 200, /orders = 200, /contact = 200; /gallery = 308 → /#gallery (redirect permanente intenzionale, seguito = 200); og-cover.jpg = 200; nessuna immagine mancante; 0 placeholder/lorem nel HTML live.
+- Immagini: 33/33 URL i.postimg.cc unici da src = 200 (HEAD su postimg; l'unico "BAD" era un match di commento "// https://i.postimg.cc/...) resta invariato." in order-form-client.tsx, non un URL reale).
+- Meta live homepage: title + description + og:title/description/url/site_name/type/locale it_IT + og:image assoluto 1200×630 (+alt/width/height) + alternate en_US/fr_FR/de_DE + twitter:card summary_large_image; <html lang="it">; theme-color #0d0b08.
+- Form (sorgente): contact e order-form con react-hook-form + zod, label/htmlFor, required, type email, autoComplete, enterKeyHint, aria-invalid/aria-describedby; input file foto con accept="image/*"; wa.me/393451114337 coerente ovunque con rel="noopener noreferrer" sui target=_blank.
+- UX/stati (sorgente): bottone outline GALLERIA con visited:text-gold + active:bg-gold/20 + focus-visible (resta gold dopo il click); outline variant del Button con focus-visible ring; whatsapp-float con aria-label localizzato + safe-area-inset-bottom; lightbox role="dialog" aria-modal con chiusura su Escape; skip-link presente; ProductCard keyboard-operabile (role=button, Enter/Spazio) con aria-label e sizes calibrati.
+- Build locale: npm run build exit 0 (13 route statiche) + tsc --noEmit 0 errori. Deploy Vercel su HEAD fe2f8f9: success via GitHub Commit Status API.
+- Bug trovati: NESSUNO.
+- Miglioria del ciclo: nessuna modifica codice necessaria — sito verde su tutti i fronti (meta/SEO/a11y/form/stati bottoni/immagini/canonical/JSON-LD/sitemap/error-boundary/lightbox già coperti dai cicli precedenti); solo aggiornamento STATUS.md, per convenzione cicli verdi.
+- Push: commit STATUS.md su main via Contents API (verificato via GET commits/main), clone risincronizzato. Deploy Vercel automatico. Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 06/10/2026 ~08:10 CEST — ciclo QA orario 07:36
 - QA live (curl): / = 200, /gallery = 308 → /#gallery (redirect permanente intenzionale in next.config, seguito = 200), /custom-jewel = 200, /orders = 200, /contact = 200, /collections = 200; sitemap.xml, sitemap-images.xml, robots.txt, og-cover.jpg, manifest.webmanifest = 200; pagina inesistente = 404 corretto; 404 custom localizzata con nav (Torna alla home / Collezioni / scorciatoie).

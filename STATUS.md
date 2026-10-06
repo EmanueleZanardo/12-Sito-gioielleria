@@ -1,6 +1,17 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 06/10/2026 ~14:36 CEST**
+**Ultimo aggiornamento: 06/10/2026 ~17:36 CEST**
+
+## 06/10/2026 17:36 CEST — ciclo QA orario VERDE
+- Build locale: `npm run build` exit 0 (16/16 pagine statiche) + `npx tsc --noEmit` 0 errori.
+- Live: / /custom-jewel /custom-jewel/order-form /orders /contact /about /services /collections = 8/8 200; /gallery 308 → /#gallery (redirect intenzionale da next.config.js); rotta inesistente 404; sitemap.xml, sitemap-images.xml (23 immagini), robots.txt, og-cover.jpg (1200×630 reali verificati), manifest.webmanifest, favicon.ico = 200; 19/19 link href interni homepage = 200.
+- Meta/OG: og:title/description/url/site_name/locale it_IT/image, twitter summary_large_image, description, canonical SSR sulle sottopagine, JSON-LD WebSite/JewelryStore/ItemList/ContactPage; 0 placeholder/lorem/TODO/FIXME; skip-link #main-content presente nel markup live.
+- Immagini: 21/21 URL immagine unici dall'HTML live homepage = 200 (HEAD), zero rotte; nessun console.log residuo in src.
+- Form: /contact 200 — form client-only by design (useSearchParams in Suspense) con skeleton SSR + noscript fallback WhatsApp/email; markup sorgente react-hook-form + zod con Label htmlFor, aria-invalid/describedby, errori role=alert (auditato nei cicli precedenti).
+- UX telefono/stati (sorgente+live): bottoni outline (GALLERIA homepage incluso) con visited:text-gold + active/focus-visible coerenti (nessun cambio colore post-click); menu mobile con aria-expanded/aria-controls; lightbox con focus trap + Escape + focus restore; header sicurezza live: HSTS preload, X-Frame-Options SAMEORIGIN, nosniff, Referrer-Policy, Permissions-Policy.
+- Bug trovati: nessuno.
+- Miglioria del ciclo: nessuna modifica al codice — audit completo verde, evitato churn non necessario su sito sano (convenzione cicli verdi dal 09:36); solo riga documentazione in STATUS.md.
+- Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 06/10/2026 ~14:36 CEST — ciclo QA orario 14:36
 - QA live: / = 200, /custom-jewel = 200, /orders = 200, /contact = 200, /services = 200, /about = 200, /collections = 200, /custom-jewel/order-form = 200; /gallery = 308 → /#gallery (redirect permanente intenzionale, seguito = 200, ancora #gallery presente); pagina inesistente = 404 corretto; robots.txt + sitemap.xml + sitemap-images.xml + manifest.webmanifest + og-cover.jpg + apple-touch-icon + favicon.ico + icon-192.png + icon-512.png = 200; zero placeholder/lorem nel HTML live.

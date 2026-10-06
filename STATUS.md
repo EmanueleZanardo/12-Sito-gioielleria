@@ -614,3 +614,17 @@
 - Bug trovati: nessuno.
 - Miglioria del ciclo: micro-a11y — aggiunto `aria-hidden="true"` all'icona decorativa CheckCircle2 nelle chip di selezione di order-form-client.tsx (stato già esposto via aria-pressed + label visibile; screen reader ora non annuncia l'icona ridondante). Zero cambi visivi.
 - Firebase originale non toccato; nessuna pubblicazione Instagram.
+
+## 06/10/2026 20:36 CEST — ciclo QA orario
+- Base ciclo: d5330d9 → durante il ciclo il worker parallelo ha pushato 162956e ("Nuova collezione 'Iron Soul': 5 ciondoli moto argento") e 6bf0731 (lightbox su click immagini Iron Soul invece del modulo ordine); verifiche eseguite sul tip finale 6bf0731.
+- Build locale: `npm run build` exit 0 (16/16 pagine statiche, compiled OK) + `npx tsc --noEmit` 0 errori, prima e dopo la modifica del ciclo.
+- Live: / /custom-jewel /orders /contact /collections /about /services /custom-jewel/order-form = 8/8 200; /gallery 308 → /#gallery (redirect intenzionale da next.config.js); rotta inesistente 404; og-cover.jpg, sitemap.xml, sitemap-images.xml, robots.txt, manifest.webmanifest, favicon.ico, apple-touch-icon.png = 7/7 200.
+- Iron Soul (nuova): 5/5 immagini /collections/moto/moto-0[1-5].jpg = 200 (byte identici al commit); sezione #moto presente, link homepage → /collections#moto = 200; 5/5 alt presenti; testi localizzati it/en/fr/de.
+- Meta/OG: title/description IT, og:title/description/url/site_name/locale it_IT/image 1200x630+alt, twitter summary_large_image, theme-color, robots index/follow, JSON-LD JewelryStore+ItemList+Breadcrumb; canonical SSR su tutte le pagine tranne home (home: iniettato via useEffect, design documentato); 0 placeholder/lorem/dummy/TODO/FIXME.
+- Immagini: 20/20 URL i.postimg.cc unici homepage = 200; 28/29 <img> home con alt (1 logo decorativo con alt di brand, come da convenzione).
+- Link interni: 23/23 href interni risolti (un 404 CSS transitorio osservato durante il deploy del worker — asset prunato a metà rollout, rientrato da solo al deploy completato; nessun bug nel codice).
+- UX/stati (sorgente): bottoni outline (GALLERIA home) con visited:text-gold + focus-visible espliciti — nessun cambio colore post-click; header sicurezza live: HSTS preload, X-Frame-Options SAMEORIGIN, nosniff, Referrer-Policy, Permissions-Policy.
+- Form: contact e order-form con Label htmlFor, required, autoComplete, aria-invalid/describedby, errori role=alert; fallback WhatsApp +39 345 111 4337 se l'invio email fallisce (password app Gmail ancora da impostare su Vercel — azione di Emanuele).
+- Bug trovati: nessuno nel codice; nessuna regressione dai push del worker.
+- Miglioria del ciclo: SEO — le 5 foto "Iron Soul" (collection-only, non in orderedProducts) erano assenti da sitemap-images.xml; aggiunte sotto <url>/collections</url> con image:loc assoluti (BASE_URL + path relativo) e caption italiane da data.ts. File: src/app/sitemap-images.xml/route.ts.
+- Firebase originale non toccato; nessuna pubblicazione Instagram.

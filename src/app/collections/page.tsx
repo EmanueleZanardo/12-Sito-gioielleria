@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -9,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { useTranslation } from '@/hooks/use-translation';
 import { orderedProducts, collectionOnlyProducts } from '@/lib/data';
 import { JsonLd, breadcrumbList, SITE_URL } from '@/components/json-ld';
+import { ImageLightbox } from '@/components/image-lightbox';
 
 type CollectionDef = {
   id: 'rings' | 'necklaces' | 'weddingRings' | 'moto' | 'earrings' | 'bracelets';
@@ -82,6 +84,21 @@ export default function CollectionsPage() {
     return { ...def, pieces };
   });
 
+  // Lightbox per la collezione Iron Soul: click su immagine principale o
+  // miniature → fullscreen stile galleria, navigabile tra i 5 pezzi.
+  const [motoLightboxIndex, setMotoLightboxIndex] = useState<number | null>(null);
+  const motoImages = (collections.find((c) => c.id === 'moto')?.pieces ?? []).map((p) => ({
+    ...p,
+    groupName: t('moto.name'),
+  }));
+  const closeMotoLightbox = () => setMotoLightboxIndex(null);
+  const nextMotoImage = () =>
+    setMotoLightboxIndex((i) => (i === null ? null : (i + 1) % motoImages.length));
+  const prevMotoImage = () =>
+    setMotoLightboxIndex((i) =>
+      i === null ? null : (i - 1 + motoImages.length) % motoImages.length
+    );
+
   // ItemList delle 5 collezioni (nome localizzato + deep-link all'ancora di
   // categoria) + briciole Home > Collezioni.
   const itemListJsonLd = {
@@ -140,14 +157,32 @@ export default function CollectionsPage() {
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   {collection.imageUrl ? (
-                    <Image
-                      src={collection.imageUrl}
-                      alt={t(`${collection.id}.name`)}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      quality={80}
-                    />
+                    collection.id === 'moto' ? (
+                      <button
+                        type="button"
+                        onClick={() => setMotoLightboxIndex(0)}
+                        className="absolute inset-0 h-full w-full cursor-zoom-in"
+                        aria-label={t(`${collection.id}.name`)}
+                      >
+                        <Image
+                          src={collection.imageUrl}
+                          alt={t(`${collection.id}.name`)}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          quality={80}
+                        />
+                      </button>
+                    ) : (
+                      <Image
+                        src={collection.imageUrl}
+                        alt={t(`${collection.id}.name`)}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        quality={80}
+                      />
+                    )
                   ) : (
                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-primary/20 via-card to-card p-8 text-center">
                       <Sparkles aria-hidden="true" className="h-12 w-12 text-primary mb-4" />
@@ -175,13 +210,12 @@ export default function CollectionsPage() {
 
                 {collection.showStrip && collection.pieces.length > 1 && (
                   <div className="grid grid-cols-4 gap-2 px-6 pt-4">
-                    {collection.pieces.slice(1).map((piece) => (
-                      <Link
+                    {collection.pieces.slice(1).map((piece, idx) => (
+                      <button
+                        type="button"
                         key={piece.id}
-                        href={`/custom-jewel/order-form?imageUrl=${encodeURIComponent(piece.imageUrl)}&prompt=${encodeURIComponent(
-                          t('prefillPrompt', { name })
-                        )}`}
-                        className="relative aspect-square overflow-hidden rounded-md border border-gold/15 transition-colors hover:border-gold/60"
+                        onClick={() => setMotoLightboxIndex(idx + 1)}
+                        className="relative aspect-square overflow-hidden rounded-md border border-gold/15 transition-colors hover:border-gold/60 cursor-zoom-in"
                         aria-label={piece.imageHint}
                       >
                         <Image
@@ -192,7 +226,7 @@ export default function CollectionsPage() {
                           sizes="20vw"
                           quality={70}
                         />
-                      </Link>
+                      </button>
                     ))}
                   </div>
                 )}
@@ -241,6 +275,22 @@ export default function CollectionsPage() {
           </Button>
         </div>
       </section>
+
+      {motoLightboxIndex !== null && motoImages[motoLightboxIndex] && (
+        <ImageLightbox
+          image={motoImages[motoLightboxIndex]}
+          index={motoLightboxIndex}
+          total={motoImages.length}
+          preloadSrcs={[
+            motoImages[(motoLightboxIndex + 1) % motoImages.length].imageUrl,
+            motoImages[(motoLightboxIndex - 1 + motoImages.length) % motoImages.length]
+              .imageUrl,
+          ]}
+          onClose={closeMotoLightbox}
+          onNext={nextMotoImage}
+          onPrevious={prevMotoImage}
+        />
+      )}
     </div>
   );
 }

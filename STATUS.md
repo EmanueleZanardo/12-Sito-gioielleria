@@ -515,3 +515,13 @@
 - Bug trovati: nessuno.
 - Miglioria del ciclo: nessuna modifica al codice — audit completo verde, evitato churn non necessario su sito sano (convenzione cicli verdi dal 09:36).
 - Firebase originale non toccato; nessuna pubblicazione Instagram.
+
+## 06/10/2026 11:36 CEST — ciclo QA orario
+- Build locale: `npm run build` exit 0 (14 route, compiled OK) + `npx tsc --noEmit` 0 errori, anche dopo la modifica del ciclo.
+- Live: / /custom-jewel /custom-jewel/order-form /orders /contact /about /services /collections = 8/8 200; /gallery 308 → /#gallery (redirect intenzionale); rotta inesistente 404; sitemap.xml, sitemap-images.xml, robots.txt, og-cover.jpg, manifest.webmanifest, favicon.ico = 6/6 200.
+- Meta/OG: og:title/description/image/locale, twitter:card summary_large_image, name="description", JSON-LD JewelryStore, <html lang="it"> presenti; canonical SSR assente in homepage come da design (iniettato via useEffect, documentato nei cicli precedenti); 0 placeholder/lorem/TODO/FIXME.
+- Immagini: 21/21 URL immagine unici dall'HTML live homepage = 200 (HEAD), zero rotte.
+- UX/stati (sorgente): visited: coerenti su nav/header/footer/contact/GALLERIA (nessun cambio colore post-click); nessun tag <img> nativo; nessun TODO/FIXME; whatsapp-float con aria-label; form già verificati.
+- Bug trovati: nessuno sul sito live.
+- Miglioria del ciclo: micro-a11y/micro-UX sui 3 link-scorciatoia di not-found.tsx (text-xs senza padding verticale = tap target < 24px su mobile, sotto il minimo WCAG 2.2 AA 2.5.8): aggiunto py-2; aggiunto visited:text-muted-foreground gemello per colore stabile post-click (pattern del sito dal QA 03/10).
+- Firebase originale non toccato; nessuna pubblicazione Instagram.

@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Modulo Ordine Gioiello su Misura',
+  // QA 06/10 22:36: suffisso brand aggiunto per coerenza con tutte le altre
+  // pagine (title SEO unici con "| GDC Jewellery Lab").
+  title: 'Modulo Ordine Gioiello su Misura | GDC Jewellery Lab',
   description:
     'Richiedi il tuo gioiello personalizzato: compila il modulo con materiali, pietre e misure. Ti risponderemo con preventivo e tempistiche.',
   robots: {

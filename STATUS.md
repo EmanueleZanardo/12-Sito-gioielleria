@@ -571,3 +571,13 @@
 - Bug trovati: nessuno.
 - Miglioria del ciclo: nessuna modifica al codice — audit completo verde, evitato churn non necessario su sito sano (convenzione cicli verdi dal 09:36); solo riga documentazione in STATUS.md.
 - Firebase originale non toccato; nessuna pubblicazione Instagram.
+
+## 06/10/2026 16:36 CEST — ciclo QA orario VERDE
+- Build locale: `npm run build` exit 0 (16/16 pagine statiche) + `npx tsc --noEmit` 0 errori, prima e dopo la modifica.
+- Live: / /custom-jewel /custom-jewel/order-form /orders /contact /about /services /collections = 8/8 200; /gallery 308 → /#gallery (redirect intenzionale da next.config.js); rotta inesistente 404; robots.txt, sitemap.xml, sitemap-images.xml, manifest.webmanifest, og-cover.jpg, favicon.ico, apple-touch-icon.png, icon-192.png, icon-512.png = 10/10 200.
+- Meta/OG: title "GDC Jewellery Lab | Gioielli Artigianali su Misura", description IT, og:title/description/image assoluto 1200×630, twitter summary_large_image — presenti; 0 placeholder/lorem/dummy/TODO/FIXME nell'HTML live e in src.
+- Immagini: 33/33 URL i.postimg.cc unici da src+public = 200 (i 2 "404" erano falsi positivi della regex QA su nomi file con parentesi — URL completi verificati 200).
+- Sorgente a11y: 0 <img> senza alt, 0 <iframe> senza title; bottoni lightbox con aria-label tradotti; chip selezione order-form con testo visibile + aria-pressed (nome accessibile OK).
+- Bug trovati: nessuno.
+- Miglioria del ciclo: micro-a11y — aggiunto `aria-hidden="true"` all'icona decorativa CheckCircle2 nelle chip di selezione di order-form-client.tsx (stato già esposto via aria-pressed + label visibile; screen reader ora non annuncia l'icona ridondante). Zero cambi visivi.
+- Firebase originale non toccato; nessuna pubblicazione Instagram.

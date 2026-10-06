@@ -640,3 +640,14 @@
 - Bug trovati: nessuno.
 - Miglioria del ciclo: docs hygiene — aggiornato il commento in src/app/sitemap-images.xml/route.ts che citava ancora il vecchio nome "Iron Soul" (collezione rinominata "Rombo d'Argento" con commit b62cb71). Zero cambi funzionali.
 - Firebase originale non toccato; nessuna pubblicazione Instagram.
+
+## 06/10/2026 22:36 CEST — ciclo QA orario VERDE
+- Build locale: `npm run build` exit 0 (16/16 pagine statiche) + `npx tsc --noEmit` 0 errori, prima e dopo la modifica.
+- Live: / /custom-jewel /custom-jewel/order-form /orders /contact /collections /about /services = 8/8 200; /gallery 308 → /#gallery (redirect intenzionale da next.config.js); rotta inesistente 404 corretto; robots.txt, sitemap.xml, sitemap-images.xml, manifest.webmanifest, favicon.ico, og-cover.jpg = 200; OG/meta completi su tutte le pagine.
+- Meta/SEO: tutti i title con suffisso brand "| GDC Jewellery Lab" tranne /custom-jewel/order-form (fixato in questo ciclo); ogni pagina ha esattamente 1 h1 (su /contact l'h1 è client-rendered — in SSR solo il placeholder aria-hidden del fallback Suspense, disegno intenzionale documentato).
+- Immagini: 21/21 URL i.postimg.cc unici dalle pagine live = 200; 0 placeholder/lorem/dummy/TODO/FIXME nell'HTML live.
+- UX telefono/stati (sorgente): bottone outline GALLERIA con visited:text-gold + active/focus-visible coerenti (nessun cambio colore post-click); lightbox con aria-label/focus trap/Escape; nessun <img> nativo senza alt.
+- Bug trovati: nessuno.
+- Miglioria del ciclo: SEO/coerenza brand — title di /custom-jewel/order-form da "Modulo Ordine Gioiello su Misura" a "Modulo Ordine Gioiello su Misura | GDC Jewellery Lab" in src/app/custom-jewel/order-form/layout.tsx (unico title senza suffisso brand). Zero cambi visivi.
+- Nota ciclo: reboot VM durante il ciclo (/tmp azzerata) — verifiche live rifatte da zero, repo e node_modules intatti.
+- Firebase originale non toccato; nessuna pubblicazione Instagram.

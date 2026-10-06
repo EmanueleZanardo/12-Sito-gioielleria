@@ -4,8 +4,12 @@ import type { MetadataRoute } from 'next';
 // schermata Home" su mobile (Android usa theme_color/background_color e
 // l'icona 180px già esistente; iOS usa apple-touch-icon). Solo additive,
 // zero cambi visivi/design.
+// QA 06/10 14:36 (miglioria del ciclo): `id` esplicito — identità stabile
+// dell'app installata anche se start_url dovesse mai cambiare (Chrome usa
+// start_url come fallback, ma la spec W3C raccomanda l'id esplicito).
 export default function manifest(): MetadataRoute.Manifest {
   return {
+    id: '/',
     name: 'GDC Jewellery Lab — Gioielli Artigianali su Misura',
     short_name: 'GDC Jewellery Lab',
     description:

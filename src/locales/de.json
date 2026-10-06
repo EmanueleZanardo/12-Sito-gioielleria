@@ -65,13 +65,13 @@
       "title": "Galerie",
       "subtitle": "Jede Kreation ist ein Unikat, geschmiedet mit Leidenschaft und Meisterschaft.",
       "descriptions": {
-        "group_001": "Kette und Anhänger aus 925er Silber mit roher Quarzspitze — handgefertigte Fassung",
-        "group_002": "Halskette mit Anhänger aus 750er Gold und Rubin im Herzschliff",
-        "group_003": "Ring aus 925er Silber mit äthiopischem Opal im Cabochonschliff",
-        "group_004": "Halskette mit Anhänger aus 925er Silber und Quarzscheibe mit Chlorit-Einschlüssen",
-        "group_005": "Band aus 925er Silber mit handgeschnitzter Oberfläche",
-        "group_006": "Ring aus 750er Gold mit Saphir im Tropfenschliff — handmattierte Gravur",
-        "group_007": "Eheringe aus 750er Gold mit handgehämmertter Oberfläche"
+        "group_001": "Kette mit Anhänger aus 925er Silber mit roher Quarzspitze — handgefertigte Fassung, von Hand im Tessin gefertigt",
+        "group_002": "Halskette mit Anhänger aus 750er Gold und Rubin im Herzschliff — handgefertigte Maßanfertigung",
+        "group_003": "Ring aus 925er Silber mit äthiopischem Opal im Cabochonschliff — handgefertigtes Unikat",
+        "group_004": "Halskette mit Anhänger aus 925er Silber und Quarzscheibe mit Chlorit-Einschlüssen — handgefertigte Fassung",
+        "group_005": "Bandring aus 925er Silber mit handgraviertem Finish, von Hand an der Goldschmiedebank gefertigt",
+        "group_006": "Ring aus 750er Gold mit Saphir im Tropfenschliff — handmattierte Gravur aus unserer Werkstatt",
+        "group_007": "Eheringe aus 750er Gold mit Hammerschlag-Finish — ein Unikat für euer Ja"
       },
       "eyebrow": "Die Kollektion"
     },
@@ -428,22 +428,22 @@
     "rings": {
       "name": "Ringe",
       "tagline": "Das Detail, das nie unbemerkt bleibt",
-      "description": "750er Gold und 925er Silber mit Saphiren, äthiopischen Opalen und handgravierten Oberflächen. Ein GDC-Ring folgt keinen Trends: Er setzt sie."
+      "description": "750er Gold und 925er Silber mit Saphiren, äthiopischen Opalen und handgravierten Oberflächen. Ein GDC-Ring folgt keinen Trends: Er setzt sie. Jeder Ring kann an Ihre Größe und Ihren Stil angepasst werden."
     },
     "necklaces": {
       "name": "Halsketten & Anhänger",
       "tagline": "Licht, nah getragen",
-      "description": "Rohe Quarzspitzen, Rubine im Herzschliff, Quarzscheiben mit Chlorit: echte Steine auf Ketten aus 925er Silber und 750er Gold."
+      "description": "Rohe Quarzspitzen, Rubine im Herzschliff, Quarzscheiben mit Chlorit: echte Steine auf Ketten aus 925er Silber und 750er Gold. Handgefertigte Kreationen – sofort oder nach Maß."
     },
     "weddingRings": {
       "name": "Eheringe",
       "tagline": "Für immer, von Hand gehämmert",
-      "description": "Eheringe aus 750er Gold mit Hammerschlag-Finish: Jeder Hammerschlag macht Ihr Paar einzigartig – wie der Tag, an dem Sie sie tauschen."
+      "description": "Eheringe aus 750er Gold mit Hammerschlag-Finish: Jeder Hammerschlag macht Ihr Paar einzigartig – wie der Tag, an dem Sie sie tauschen. Persönliche Gravur möglich."
     },
     "moto": {
       "name": "Rombo d'Argento",
       "tagline": "DAS DRÖHNEN WIRD SCHMUCK",
-      "description": "Handgeschmiedete Anhänger aus 925er Silber, die das Dröhnen der zwei Räder einfangen: Verkleidungen, Scheinwerfer und Kolben als Schmuck. Für alle, die für Motorräder leben – auch abseits des Sattels."
+      "description": "Handgeschmiedete Anhänger aus 925er Silber, die das Dröhnen der zwei Räder einfangen: Verkleidungen, Scheinwerfer und Kolben als Schmuck. Die Kollektion Rombo d'Argento ist für alle, die für Motorräder leben – auch abseits des Sattels."
     },
     "earrings": {
       "name": "Ohrringe",

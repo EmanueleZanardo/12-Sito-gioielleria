@@ -1,6 +1,17 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 06/10/2026 ~02:05 CEST**
+**Ultimo aggiornamento: 06/10/2026 ~02:40 CEST**
+
+## 06/10/2026 ~02:40 CEST — ciclo QA orario 02:36
+- QA live (curl): / = 200, /about = 200, /collections = 200, /services = 200, /custom-jewel = 200, /orders = 200, /contact = 200, /custom-jewel/order-form = 200; og-cover.jpg = 200; sitemap.xml (7 URL), robots.txt (Allow:/ + 2 sitemap) OK.
+- Meta/OG: og:title/og:description/og:image assoluto 1200×630 + alt/og:url/site_name/og:locale it_IT + alternate en_US/fr_FR/de_DE, twitter:card summary_large_image, title corretto — presenti e univoci per pagina.
+- "Frequently Asked Questions" visto nel dump di /custom-jewel: confermato falso allarme già archiviato (etichetta dell'estrattore sul blocco JSON-LD FAQPage, NON heading visibile) — sorgente page.tsx e JSON i18n IT/EN/DE/FR verificati puliti (label "Domande frequenti" in IT).
+- Immagini: campione URL i.postimg.cc via next/image optimizer = 200, zero rotte; nessun placeholder/lorem/dato finto nell'HTML live e in src.
+- Form contatti: markup corretto in sorgente (labels con htmlFor, required, react-hook-form + zod); invio via server action con fallback WhatsApp invariato. Blocco noto invariato: server di posta non attivo — manca password app Gmail su Vercel (azione di Emanuele).
+- UX (sorgente): bottone outline GALLERIA con visited:text-gold + active:bg-gold/20 + focus-visible coerenti (resta gold dopo click); noscript fallback /contact intatto; html lang=it.
+- Build locale: npm run build exit 0 (16/16 route statiche) + tsc --noEmit 0 errori.
+- Bug trovati: NESSUNO sul sito live. Miglioria: nessuna modifica codice necessaria (sito verde — meta/SEO/a11y/form/stati bottoni/immagini/sitemap già coperti) — solo aggiornamento STATUS.md, per convenzione cicli verdi.
+- Push: commit STATUS.md su main via Contents API (verificato via GET commits/main), clone risincronizzato. Deploy Vercel automatico. Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 06/10/2026 ~02:05 CEST — aggiornamento documentale giornaliero (notte)
 - **Commit `860948e` (05/10 23:55 UTC):** nuovo `src/app/global-error.tsx` — boundary errore globale brandizzato (stile 404, "Riprova" + "Torna alla home", IT/EN/DE/FR, errore loggato in console senza esporre dettagli) — prima un crash client-side mostrava pagina bianca/grezza.

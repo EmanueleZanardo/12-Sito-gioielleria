@@ -113,9 +113,32 @@ export default function CollectionsPage() {
     })),
   };
 
+  // ItemList dei 5 pezzi della collezione Rombo d'Argento (blitz SEO 07/10/2026,
+  // worker B): Product con image assoluta (le foto moto sono locali in /public,
+  // Google richiede URL assoluti) e deep-link all'ancora #moto.
+  const romboProductsJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `Collezione ${t('moto.name')} — GDC Jewellery Lab`,
+    itemListElement: motoImages.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Product',
+        name: p.description,
+        description: p.description,
+        image: p.imageUrl.startsWith('http') ? p.imageUrl : `${SITE_URL}${p.imageUrl}`,
+        url: `${SITE_URL}/collections#${COLLECTION_ANCHORS.moto}`,
+        brand: { '@type': 'Brand', name: 'GDC Jewellery Lab' },
+      },
+    })),
+  };
+
   return (
     <div className="flex flex-col bg-background">
       <JsonLd data={itemListJsonLd} />
+      {/* Dati strutturati: i 5 pezzi Rombo d'Argento (blitz SEO 07/10/2026) */}
+      <JsonLd data={romboProductsJsonLd} />
       <JsonLd
         data={breadcrumbList([
           { name: 'Home', url: `${SITE_URL}/` },

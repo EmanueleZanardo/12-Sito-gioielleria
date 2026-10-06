@@ -651,3 +651,14 @@
 - Miglioria del ciclo: SEO/coerenza brand — title di /custom-jewel/order-form da "Modulo Ordine Gioiello su Misura" a "Modulo Ordine Gioiello su Misura | GDC Jewellery Lab" in src/app/custom-jewel/order-form/layout.tsx (unico title senza suffisso brand). Zero cambi visivi.
 - Nota ciclo: reboot VM durante il ciclo (/tmp azzerata) — verifiche live rifatte da zero, repo e node_modules intatti.
 - Firebase originale non toccato; nessuna pubblicazione Instagram.
+
+## 06/10/2026 23:36 CEST — ciclo QA orario VERDE
+- Build locale: `npm run build` exit 0 (16/16 pagine statiche) + `npx tsc --noEmit` 0 errori, prima e dopo la modifica.
+- Live: / /custom-jewel /custom-jewel/order-form /orders /contact /collections /about /services = 8/8 200; /gallery 200 (segue 308 → /#gallery intenzionale); rotta inesistente 404 con meta noindex; robots.txt, sitemap.xml, sitemap-images.xml, manifest.webmanifest, favicon.ico, og-cover.jpg = 6/6 200.
+- Meta/OG: title/description IT, og:title/description/url/site_name/locale it_IT/image 1200x630+alt, twitter summary_large_image, JSON-LD (WebSite+JewelryStore+ItemList 20 prodotti con name/image+ BreadcrumbList) — 0 placeholder/lorem/dummy/TODO/FIXME nell'HTML live.
+- Immagini: 20/20 URL i.postimg.cc unici (home+collections) = 200; 28/28 image:loc di sitemap-images.xml = 200 (caption moto descrittive, nessun residuo "Iron Soul").
+- UX/stati (sorgente): visited:text-* coerenti su link e bottoni outline (nessun cambio colore post-click); lightbox con aria-label/focus trap/Escape; skip-link, reduced-motion, html[lang] sincronizzato col selettore lingua, aria-current sui nav attivi.
+- Form: contact e order-form con Label htmlFor, required, autoComplete, aria-invalid/describedby, errori role=alert; fallback WhatsApp +39 345 111 4337 (password app Gmail ancora da impostare su Vercel — azione di Emanuele).
+- Bug trovati: nessuno.
+- Miglioria del ciclo: coerenza brand tab — la 404 impostava document.title con em-dash ("Pagina non trovata — GDC Jewellery Lab") mentre il template di tutte le altre pagine è "%s | GDC Jewellery Lab"; allineato alla pipe in src/app/not-found.tsx (solo tab browser, zero cambi visivi).
+- Firebase originale non toccato; nessuna pubblicazione Instagram.

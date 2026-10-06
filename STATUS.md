@@ -1,6 +1,16 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 06/10/2026 ~19:36 CEST**
+**Ultimo aggiornamento: 07/10/2026 ~00:36 CEST**
+
+## 07/10/2026 00:36 CEST — ciclo QA orario VERDE
+- Build locale: `npm run build` exit 0 (16/16 pagine statiche) + `npx tsc --noEmit` 0 errori, prima e dopo la modifica.
+- Live: / /custom-jewel /custom-jewel/order-form /orders /contact /about /services /collections = 200; /gallery 308 → /#gallery (redirect intenzionale da next.config.js); robots.txt, sitemap.xml, favicon.ico, manifest.webmanifest = 200.
+- Immagini: nessuna rotta su nessuna pagina (tutte le postimg.cc caricano via proxy Next image, verificate a campione nel browser task); hero/logo/gallery prodotti OK.
+- Meta/OG: complete su tutte le pagine (title, description IT, og:title/description/url/site_name/locale it_IT, og:image 1200×630 verificato, twitter summary_large_image, JSON-LD WebSite/JewelryStore/ItemList/BreadcrumbList/HowTo).
+- UX telefono/stati (browser task live): bottone outline GALLERIA cliccato — nessun cambio colore post-click (visited:text-gold, active:bg-gold/20, focus-visible:text-gold-light); form contatti con markup corretto (label associate, required, upload jpg/png/webp/heic max 5MB); nessun placeholder/lorem/TODO/FIXME.
+- Bug trovati: 1 contenuto — il passo 2 di /orders citava il "modulo d'ordine personalizzato" ma la pagina non offriva alcun percorso verso /custom-jewel/order-form (CTA solo Crea Gioiello + Contatti).
+- Miglioria del ciclo (= il fix): aggiunto terzo CTA "Modulo d'ordine" (variant secondary) in /orders → /custom-jewel/order-form, con chiave i18n `orders.ctaOrder` nelle 4 lingue (it "Modulo d'ordine", en "Order form", fr "Formulaire de commande", de "Bestellformular"); nessun cambio visivo oltre al bottone, form già esistente.
+- Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 06/10/2026 19:36 CEST — ciclo QA orario VERDE
 - Build locale: `npm run build` exit 0 (16/16 pagine statiche) + `npx tsc --noEmit` 0 errori, prima e dopo la modifica.

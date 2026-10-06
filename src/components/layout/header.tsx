@@ -44,6 +44,7 @@ export function Header() {
   const navLinks = [
     { href: "/", label: t('nav.home'), id: "home" },
     { href: "/#gallery", label: t('nav.gallery'), id: "gallery", onClick: handleGalleryClick },
+    { href: "/collections", label: t('nav.collections'), id: "collections" },
     { href: "/custom-jewel", label: t('nav.createJewel'), id: "custom-jewel" },
     { href: "/services", label: t('nav.services'), id: "services" },
     { href: "/about", label: t('nav.about'), id: "about" },

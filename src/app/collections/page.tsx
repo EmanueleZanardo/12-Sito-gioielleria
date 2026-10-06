@@ -84,7 +84,7 @@ export default function CollectionsPage() {
     return { ...def, pieces };
   });
 
-  // Lightbox per la collezione Iron Soul: click su immagine principale o
+  // Lightbox per la collezione Rombo d'Argento: click su immagine principale o
   // miniature → fullscreen stile galleria, navigabile tra i 5 pezzi.
   const [motoLightboxIndex, setMotoLightboxIndex] = useState<number | null>(null);
   const motoImages = (collections.find((c) => c.id === 'moto')?.pieces ?? []).map((p) => ({

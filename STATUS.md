@@ -1,6 +1,18 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 06/10/2026 ~13:36 CEST**
+**Ultimo aggiornamento: 06/10/2026 ~14:36 CEST**
+
+## 06/10/2026 ~14:36 CEST — ciclo QA orario 14:36
+- QA live: / = 200, /custom-jewel = 200, /orders = 200, /contact = 200, /services = 200, /about = 200, /collections = 200, /custom-jewel/order-form = 200; /gallery = 308 → /#gallery (redirect permanente intenzionale, seguito = 200, ancora #gallery presente); pagina inesistente = 404 corretto; robots.txt + sitemap.xml + sitemap-images.xml + manifest.webmanifest + og-cover.jpg + apple-touch-icon + favicon.ico + icon-192.png + icon-512.png = 200; zero placeholder/lorem nel HTML live.
+- Immagini: 20/20 URL i.postimg.cc unici homepage = 200 (2 fail 000 transitori su HEAD, poi 200×3 al retry); 23/23 image:loc di sitemap-images.xml = 200 (1 fail 000 transitorio, poi 200×3); alt presenti su tutte le img.
+- Link: 7/7 link interni unici homepage = 200, nessun 404.
+- Meta live: homepage title + description + og:* completo (image assoluto 1200×630 + alt/width/height, locale it_IT + alternate en_US/fr_FR/de_DE) + twitter:card summary_large_image + JSON-LD; /contact con og:url e canonical self-referencing server-rendered corretti; homepage canonical via useEffect (design documentato).
+- Form (sorgente): contact e order-form con label/htmlFor, required, type email, autoComplete, enterKeyHint, aria-invalid/aria-describedby, aria-live — markup OK; tutti i target=_blank con rel=noopener (verificati i 4 casi sospetti: rel su riga separata o dinamico, nessun bug).
+- UX/stati (sorgente): bottone outline GALLERIA con visited:text-gold + active:bg-gold/20 + focus-visible (resta gold dopo il click); verifica UX mobile reale delegata a browser task (layout, stati bottone, form renderizzati).
+- Build locale: npm run build exit 0 (16 route statiche) + tsc --noEmit 0 errori, prima e dopo la modifica.
+- Bug trovati: NESSUNO.
+- Miglioria del ciclo: PWA — aggiunto `"id": "/"` esplicito al Web App Manifest (src/app/manifest.ts): identità stabile dell'app installata anche se start_url dovesse mai cambiare; spec W3C lo raccomanda, Chrome finora usava start_url come fallback. Zero cambi visivi.
+- Push: commit manifest.ts su main via Contents API (SHA blob 40 char, verificato via GET commits/main), clone risincronizzato. Deploy Vercel automatico. Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 06/10/2026 ~13:36 CEST — ciclo QA orario 13:36
 - QA live: / = 200, /custom-jewel = 200, /orders = 200, /contact = 200, /services = 200, /about = 200, /collections = 200, /custom-jewel/order-form = 200; /gallery = 308 → /#gallery (redirect permanente intenzionale, seguito = 200); pagina inesistente = 404 corretto; sitemap.xml + sitemap-images.xml + robots.txt + manifest.webmanifest + og-cover.jpg + apple-touch-icon + favicon = 200; zero placeholder/lorem nel HTML live.

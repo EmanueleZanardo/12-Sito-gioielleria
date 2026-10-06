@@ -43,17 +43,19 @@ export default function NotFound() {
         {/* QA 05/10 13:36 (W10): scorciatoie testuali verso le pagine più
             richieste. Riusa le voci di navigazione esistenti (già tradotte
             nelle 4 lingue) — nessuna nuova chiave, nessun tocco ai file di
-            traduzione. */}
+            traduzione. QA 06/10 11:36: py-2 => tap target >= 24px su mobile
+            (WCAG 2.2 AA 2.5.8); visited: gemello per colore stabile
+            post-click, come da pattern del sito. */}
         <div className="mt-12 flex items-center justify-center gap-5 text-xs uppercase tracking-[0.25em]">
-          <Link href="/custom-jewel" className="text-muted-foreground hover:text-primary transition-colors">
+          <Link href="/custom-jewel" className="py-2 text-muted-foreground visited:text-muted-foreground hover:text-primary transition-colors">
             {tCommon('nav.createJewel')}
           </Link>
           <span aria-hidden="true" className="text-gold/50">·</span>
-          <Link href="/orders" className="text-muted-foreground hover:text-primary transition-colors">
+          <Link href="/orders" className="py-2 text-muted-foreground visited:text-muted-foreground hover:text-primary transition-colors">
             {tCommon('nav.orders')}
           </Link>
           <span aria-hidden="true" className="text-gold/50">·</span>
-          <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
+          <Link href="/contact" className="py-2 text-muted-foreground visited:text-muted-foreground hover:text-primary transition-colors">
             {tCommon('nav.contact')}
           </Link>
         </div>

@@ -1,16 +1,18 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Collezioni | Anelli, Collane, Fedi su Misura',
+  // Blitz SEO 07/10/2026 (worker B): "Rombo d'Argento" nel title/description —
+  // è il nome ufficiale della collezione moto (ex "Iron Soul"), keyword distintiva.
+  title: 'Collezioni | Anelli, Collane, Fedi e Rombo d’Argento',
   description:
-    'Esplora le collezioni GDC Jewellery Lab: anelli, collane, fedi nuziali, orecchini e bracciali in oro 18kt fatti a mano. Pezzi unici pronti o base per la tua creazione su misura.',
+    'Le collezioni GDC: anelli, collane, fedi in oro 18kt fatti a mano e la collezione Rombo d’Argento — ciondoli moto in argento 925 forgiati a mano.',
   alternates: {
     canonical: 'https://gdc-jewellery-lab.vercel.app/collections',
   },
   openGraph: {
     title: 'Le Collezioni | GDC Jewellery Lab',
     description:
-      'Anelli, collane, fedi, orecchini e bracciali artigianali in oro 18kt: pezzi unici già pronti o il punto di partenza per la tua creazione su misura.',
+      'Anelli, collane, fedi in oro 18kt fatti a mano e la collezione Rombo d’Argento: ciondoli moto in argento 925 forgiati a mano. Pezzi unici o base per la tua creazione su misura.',
     url: 'https://gdc-jewellery-lab.vercel.app/collections',
     locale: 'it_IT',
     alternateLocale: ['en_US', 'fr_FR', 'de_DE'],
@@ -28,7 +30,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Le Collezioni | GDC Jewellery Lab',
     description:
-      'Anelli, collane, fedi, orecchini e bracciali artigianali in oro 18kt: pezzi unici già pronti o il punto di partenza per la tua creazione su misura.',
+      'Anelli, collane, fedi in oro 18kt fatti a mano e la collezione Rombo d’Argento: ciondoli moto in argento 925 forgiati a mano. Pezzi unici o base per la tua creazione su misura.',
     images: [
       {
         url: 'https://i.postimg.cc/jS3Xg4zs/Gemini-Generated-Image-5ooedx5ooedx5ooe.png',

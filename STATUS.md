@@ -494,3 +494,14 @@
 ## Blocchi
 - Instagram `gdc_jewellery_lab`: routine contenuti IN PAUSA dal 25/09/2026 (suo rifiuto dei contenuti di prova). Pubblicazione automatica NON autorizzata: i prompt vanno proposti in chat e approvati da lui prima di lanciare Gemini.
 - Esito cancellazione storia Instagram di prova (25/09) non ancora confermato.
+
+## 06/10/2026 09:36 CEST — ciclo QA orario VERDE
+- Build locale: `npm run build` 16/16 pagine exit 0 + `tsc --noEmit` 0 errori.
+- Live: / /custom-jewel /orders /contact /about /services /collections /custom-jewel/order-form 200; /gallery 308 → /#gallery; rotta inesistente 404; favicon, apple-touch-icon, og-cover.jpg (content-type corretti), sitemap.xml, sitemap-images.xml, robots.txt, manifest 200.
+- Immagini: 25/25 `<img>` homepage 200 (via optimizer Next.js) + 20/20 URL postimg.cc diretti 200; alt presente su 28/28.
+- Meta/OG/Twitter/canonical self-referencing su tutte le route; HowTo JSON-LD su /orders con 4 passi reali; sitemap-images.xml con 23 immagini; robots con Allow + 2 sitemap; nessun placeholder/lorem/finto.
+- Form: contact e order-form con Label htmlFor, autoComplete, enterKeyHint, aria-invalid/describedby, errori role=alert; prefill da query params (?subject=&message=) verificato in src; tutti i target=_blank con rel=noopener noreferrer.
+- UX telefono: bottone outline GALLERIA con visited:text-gold e active espliciti (nessun cambio colore post-click); WhatsApp float con safe-area-inset; skip-link → #main-content; aria-current su nav; lightbox role=dialog aria-modal con focus restore; MotionConfig reducedMotion=user; lang dinamico; header HSTS/X-Frame-Options/nosniff.
+- Bug trovati: nessuno.
+- Miglioria del ciclo: nessuna modifica al codice — audit completo verde, evitato churn non necessario su sito sano; aggiornata solo la documentazione del ciclo in STATUS.md (convenzione cicli verdi).
+- Firebase originale non toccato; nessuna pubblicazione Instagram.

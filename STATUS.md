@@ -1,6 +1,16 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 06/10/2026 ~18:36 CEST**
+**Ultimo aggiornamento: 06/10/2026 ~19:36 CEST**
+
+## 06/10/2026 19:36 CEST — ciclo QA orario VERDE
+- Build locale: `npm run build` exit 0 (16/16 pagine statiche) + `npx tsc --noEmit` 0 errori, prima e dopo la modifica.
+- Live: / /custom-jewel /orders /contact = 4/4 200; /gallery 308 → /#gallery (redirect intenzionale da next.config.js); rotta inesistente 404; robots.txt, sitemap.xml (7 URL), og-cover.jpg (102 KB reali) = 200.
+- Link: 24/24 href interni + asset statici = 200; 20/20 URL i.postimg.cc unici dalla homepage = 200 (HEAD).
+- Meta/OG: title, description IT, og:title/description/image assoluto 1200×630+alt/url/site_name/locale it_IT, twitter summary_large_image — presenti; JSON-LD WebSite+JewelryStore validi; 0 placeholder/lorem/dummy/TODO/FIXME nell'HTML live e in src.
+- UX telefono/stati (sorgente): bottone outline GALLERIA con visited:text-gold + active/focus-visible coerenti (nessun cambio colore post-click); sweep icone lucide decorative — unico caso senza aria-hidden trovato e fixato in questo ciclo.
+- Bug trovati: nessuno.
+- Miglioria del ciclo: micro-a11y — aggiunto `aria-hidden="true"` all'icona decorativa `Images` nel badge "N pezzi in galleria" di collections/page.tsx (testo già visibile; l'icona gemella `Sparkles` nel ramo madeToOrder lo aveva già; lo screen reader non annuncia più l'icona ridondante). Zero cambi visivi.
+- Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 06/10/2026 18:36 CEST — ciclo QA orario VERDE
 - Build locale: `npm run build` exit 0 (16/16 pagine statiche) + `npx tsc --noEmit` 0 errori.

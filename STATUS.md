@@ -560,3 +560,14 @@
 - Bug trovati: nessuno sul sito live.
 - Miglioria del ciclo: micro-a11y/micro-UX sui 3 link-scorciatoia di not-found.tsx (text-xs senza padding verticale = tap target < 24px su mobile, sotto il minimo WCAG 2.2 AA 2.5.8): aggiunto py-2; aggiunto visited:text-muted-foreground gemello per colore stabile post-click (pattern del sito dal QA 03/10).
 - Firebase originale non toccato; nessuna pubblicazione Instagram.
+
+## 06/10/2026 15:36 CEST — ciclo QA orario VERDE
+- Build locale: `npm run build` exit 0 (16/16 pagine statiche) + `npx tsc --noEmit` 0 errori.
+- Live: / /custom-jewel /custom-jewel/order-form /orders /contact /about /services /collections = 8/8 200; /gallery 308 → /#gallery (redirect intenzionale da next.config.js); rotta inesistente 404; og-cover.jpg, sitemap.xml, sitemap-images.xml, robots.txt (Allow + 2 sitemap), manifest.webmanifest, favicon.ico, icon-192.png, icon-512.png, apple-touch-icon.png = 10/10 200; tutti i link href interni homepage risolti.
+- Meta/OG: og:title/description/url/site_name/locale/it_IT/image 1200x630+alt, twitter summary_large_image, description, canonical, JSON-LD JewelryStore; 0 placeholder/lorem/TODO/FIXME nel markup.
+- Immagini: 5/5 campione URL i.postimg.cc diretti = 200; preconnect i.postimg.cc attivo; header sicurezza live: HSTS preload, X-Frame-Options SAMEORIGIN, nosniff, Referrer-Policy, Permissions-Policy.
+- Form: contact e order-form client con react-hook-form + zod, Label htmlFor, autoComplete, aria-invalid/describedby, errori role=alert (markup già auditato).
+- UX telefono/stati (sorgente): button outline con active:bg-accent transitorio + visited coerente (fix QA 03-05/10, nessun cambio colore post-click); GALLERIA homepage con visited:text-gold; nessun <img> nativo; nessun TODO/FIXME.
+- Bug trovati: nessuno.
+- Miglioria del ciclo: nessuna modifica al codice — audit completo verde, evitato churn non necessario su sito sano (convenzione cicli verdi dal 09:36); solo riga documentazione in STATUS.md.
+- Firebase originale non toccato; nessuna pubblicazione Instagram.

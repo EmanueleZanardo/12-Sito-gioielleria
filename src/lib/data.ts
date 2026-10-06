@@ -165,6 +165,41 @@ const allProductsOriginal: Record<string, Omit<ProductImage, 'groupInfo'> & { gr
     imageHint: 'hand hammered gold wedding rings',
     groupInfo: { id: 'group_007', name: 'Fedi oro battuto' },
   },
+  prod_022: {
+    id: 'prod_022',
+    description: 'Ciondoli in filo d\u2019argento 925 a forma di avantreno moto — tre modelli fatti a mano al banco',
+    imageUrl: '/collections/moto/moto-01.jpg',
+    imageHint: 'silver wire pendants shaped like motorcycle fronts',
+    groupInfo: { id: 'group_008', name: 'Iron Soul' },
+  },
+  prod_023: {
+    id: 'prod_023',
+    description: 'Ciondolo in filo d\u2019argento 925 a forma di cupolino di moto sportiva con doppio faro — fatto a mano',
+    imageUrl: '/collections/moto/moto-02.jpg',
+    imageHint: 'silver wire pendant shaped like sport motorcycle fairing',
+    groupInfo: { id: 'group_008', name: 'Iron Soul' },
+  },
+  prod_024: {
+    id: 'prod_024',
+    description: 'Ciondolo in filo d\u2019argento 925 a forma di avantreno di moto adventure con parabrezza alto — fatto a mano',
+    imageUrl: '/collections/moto/moto-03.jpg',
+    imageHint: 'silver wire pendant shaped like adventure motorcycle front',
+    groupInfo: { id: 'group_008', name: 'Iron Soul' },
+  },
+  prod_025: {
+    id: 'prod_025',
+    description: 'Ciondolo in filo d\u2019argento 925 a forma di avantreno di moto naked con faro tondo e manubrio — fatto a mano',
+    imageUrl: '/collections/moto/moto-04.jpg',
+    imageHint: 'silver wire pendant shaped like naked motorcycle front',
+    groupInfo: { id: 'group_008', name: 'Iron Soul' },
+  },
+  prod_026: {
+    id: 'prod_026',
+    description: 'Ciondolo in argento 925 a forma di pistone con biella, catena in argento — fatto a mano',
+    imageUrl: '/collections/moto/moto-05.jpg',
+    imageHint: 'silver piston with connecting rod pendant',
+    groupInfo: { id: 'group_008', name: 'Iron Soul' },
+  },
 };
 
 const orderedProductIds = [
@@ -174,6 +209,11 @@ const orderedProductIds = [
 ];
 
 export const orderedProducts: ProductImage[] = orderedProductIds.map(id => allProductsOriginal[id]);
+
+/** Pezzi visibili solo nella loro collezione, mai nella galleria generica
+ *  (non fanno parte di orderedProductIds). */
+const collectionOnlyIds = ['prod_022', 'prod_023', 'prod_024', 'prod_025', 'prod_026'];
+export const collectionOnlyProducts: ProductImage[] = collectionOnlyIds.map(id => allProductsOriginal[id]);
 
 // This is the old data structure, keeping it here for reference but it's not used anymore.
 export type Product = {

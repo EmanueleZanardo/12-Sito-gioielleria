@@ -7,16 +7,18 @@ import { ArrowRight, Sparkles, Images } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useTranslation } from '@/hooks/use-translation';
-import { orderedProducts } from '@/lib/data';
+import { orderedProducts, collectionOnlyProducts } from '@/lib/data';
 import { JsonLd, breadcrumbList, SITE_URL } from '@/components/json-ld';
 
 type CollectionDef = {
-  id: 'rings' | 'necklaces' | 'weddingRings' | 'earrings' | 'bracelets';
+  id: 'rings' | 'necklaces' | 'weddingRings' | 'moto' | 'earrings' | 'bracelets';
   /** id dei gruppi di data.ts che compongono la collezione (vuoto = solo su misura) */
   groupIds: string[];
   /** immagine rappresentativa della collezione (vuota = card su misura senza foto) */
   imageUrl?: string;
   imageHint: string;
+  /** mostra la striscia con gli altri pezzi della collezione sotto l'immagine */
+  showStrip?: boolean;
 };
 
 const COLLECTIONS: CollectionDef[] = [
@@ -39,6 +41,13 @@ const COLLECTIONS: CollectionDef[] = [
     imageHint: 'hammered gold wedding rings',
   },
   {
+    id: 'moto',
+    groupIds: ['group_008'],
+    imageUrl: '/collections/moto/moto-01.jpg',
+    imageHint: 'silver wire motorcycle pendants',
+    showStrip: true,
+  },
+  {
     id: 'earrings',
     groupIds: [],
     imageHint: 'custom earrings',
@@ -56,6 +65,7 @@ const COLLECTION_ANCHORS: Record<CollectionDef['id'], string> = {
   rings: 'anelli',
   necklaces: 'collane-e-pendenti',
   weddingRings: 'fedi',
+  moto: 'moto',
   earrings: 'orecchini',
   bracelets: 'bracciali',
 };
@@ -64,8 +74,11 @@ export default function CollectionsPage() {
   const { t } = useTranslation('collections');
   const { t: tCommon } = useTranslation('common');
 
+  // I pezzi delle collezioni includono anche quelli visibili solo nella loro
+  // collezione (collectionOnlyProducts), mai nella galleria generica.
+  const allCollectionPieces = [...orderedProducts, ...collectionOnlyProducts];
   const collections = COLLECTIONS.map((def) => {
-    const pieces = orderedProducts.filter((p) => def.groupIds.includes(p.groupInfo.id));
+    const pieces = allCollectionPieces.filter((p) => def.groupIds.includes(p.groupInfo.id));
     return { ...def, pieces };
   });
 
@@ -159,6 +172,30 @@ export default function CollectionsPage() {
                     </Badge>
                   </div>
                 </div>
+
+                {collection.showStrip && collection.pieces.length > 1 && (
+                  <div className="grid grid-cols-4 gap-2 px-6 pt-4">
+                    {collection.pieces.slice(1).map((piece) => (
+                      <Link
+                        key={piece.id}
+                        href={`/custom-jewel/order-form?imageUrl=${encodeURIComponent(piece.imageUrl)}&prompt=${encodeURIComponent(
+                          t('prefillPrompt', { name })
+                        )}`}
+                        className="relative aspect-square overflow-hidden rounded-md border border-gold/15 transition-colors hover:border-gold/60"
+                        aria-label={piece.imageHint}
+                      >
+                        <Image
+                          src={piece.imageUrl}
+                          alt={piece.imageHint}
+                          fill
+                          className="object-cover"
+                          sizes="20vw"
+                          quality={70}
+                        />
+                      </Link>
+                    ))}
+                  </div>
+                )}
 
                 <div className="flex flex-1 flex-col p-6">
                   <h2 className="font-headline text-2xl text-foreground">

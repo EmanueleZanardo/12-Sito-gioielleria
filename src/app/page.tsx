@@ -33,6 +33,11 @@ const TEASER_COLLECTIONS = [
     imageUrl: 'https://i.postimg.cc/HkpNxLcF/photo-2026-04-24-07-41-22.jpg',
     key: 'weddingRings' as const,
   },
+  {
+    href: '/collections#moto',
+    imageUrl: '/collections/moto/moto-01.jpg',
+    key: 'moto' as const,
+  },
 ];
 
 export default function Home() {
@@ -311,7 +316,7 @@ export default function Home() {
                 {tCol('teaser.subtitle')}
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
               {TEASER_COLLECTIONS.map((item, index) => (
                 <motion.div
                   key={item.key}
@@ -332,10 +337,10 @@ export default function Home() {
                       alt=""
                       fill
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-                      // Teaser in griglia max-w-4xl (896px): 1 colonna su telefono
-                      // (~100vw), 3 colonne da sm in su (~290px per card): sizes
+                      // Teaser in griglia max-w-6xl (1152px): 1 colonna su telefono
+                      // (~100vw), 2 colonne da sm, 4 da lg (~270px per card): sizes
                       // calibrato per non scaricare varianti sovradimensionate.
-                      sizes="(max-width: 640px) 100vw, 300px"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
                       quality={80}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />

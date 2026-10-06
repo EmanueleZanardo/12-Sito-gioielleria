@@ -65,13 +65,13 @@
       "title": "Galleria",
       "subtitle": "Ogni creazione è un pezzo unico, forgiato con passione e maestria.",
       "descriptions": {
-        "group_001": "Catena e pendente in argento 925 con punta di quarzo grezzo — montatura artigianale",
-        "group_002": "Collana con pendente in oro 750 e rubino taglio cuore",
-        "group_003": "Anello in argento 925 con opale etiope taglio cabochon",
-        "group_004": "Collana con ciondolo in argento 925 e fetta di quarzo con inclusioni di clorite",
-        "group_005": "Fascia in argento 925 con finitura a intaglio, realizzata a mano",
-        "group_006": "Anello in oro 750 con zaffiro taglio goccia — incisione satinata fatta a mano",
-        "group_007": "Fedi in oro 750 con finitura martellata a mano"
+        "group_001": "Catena e pendente in argento 925 con punta di quarzo grezzo — montatura artigianale fatta a mano in Ticino",
+        "group_002": "Collana con pendente in oro 750 e rubino taglio cuore — creazione artigianale su misura",
+        "group_003": "Anello in argento 925 con opale etiope taglio cabochon — pezzo unico fatto a mano",
+        "group_004": "Collana con ciondolo in argento 925 e fetta di quarzo con inclusioni di clorite — montatura artigianale",
+        "group_005": "Fascia in argento 925 con finitura a intaglio, realizzata a mano al banco orafo",
+        "group_006": "Anello in oro 750 con zaffiro taglio goccia — incisione satinata fatta a mano nel nostro laboratorio",
+        "group_007": "Fedi in oro 750 con finitura martellata a mano — pezzo unico per il vostro sì"
       },
       "eyebrow": "La Collezione"
     },
@@ -428,22 +428,22 @@
     "rings": {
       "name": "Anelli",
       "tagline": "Il dettaglio che non passa inosservato",
-      "description": "Oro 750 e argento 925 con zaffiri, opali etiopi e lavorazioni incise a mano. Un anello GDC non segue le mode: le crea."
+      "description": "Oro 750 e argento 925 con zaffiri, opali etiopi e lavorazioni incise a mano. Un anello GDC non segue le mode: le crea. Ogni anello può essere adattato alla tua misura e al tuo stile."
     },
     "necklaces": {
       "name": "Collane e Pendenti",
       "tagline": "La luce, al collo",
-      "description": "Punte di quarzo grezzo, rubini taglio cuore, fette di quarzo con clorite: pietre vere montate su catene in argento 925 e oro 750."
+      "description": "Punte di quarzo grezzo, rubini taglio cuore, fette di quarzo con clorite: pietre vere montate su catene in argento 925 e oro 750. Creazioni artigianali, pronte o su misura."
     },
     "weddingRings": {
       "name": "Fedi",
       "tagline": "Per sempre, battute a mano",
-      "description": "Fedi in oro 750 con effetto martellatura: ogni colpo di martello rende la vostra coppia unica, come il giorno in cui ve le scambierete."
+      "description": "Fedi in oro 750 con effetto martellatura: ogni colpo di martello rende la vostra coppia unica, come il giorno in cui ve le scambierete. Incisione personalizzata disponibile."
     },
     "moto": {
       "name": "Rombo d'Argento",
       "tagline": "IL ROMBO DIVENTA GIOIELLO",
-      "description": "Ciondoli in argento 925 forgiati a mano che catturano il rombo delle due ruote: cupolini, fari e pistoni trasformati in gioielli. Per chi vive di moto, anche lontano dalla sella."
+      "description": "Ciondoli in argento 925 forgiati a mano che catturano il rombo delle due ruote: cupolini, fari e pistoni trasformati in gioielli. La collezione Rombo d'Argento è per chi vive di moto, anche lontano dalla sella."
     },
     "earrings": {
       "name": "Orecchini",

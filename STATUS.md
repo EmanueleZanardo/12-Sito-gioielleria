@@ -1,6 +1,18 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 06/10/2026 ~17:36 CEST**
+**Ultimo aggiornamento: 06/10/2026 ~18:36 CEST**
+
+## 06/10/2026 18:36 CEST — ciclo QA orario VERDE
+- Build locale: `npm run build` exit 0 (16/16 pagine statiche) + `npx tsc --noEmit` 0 errori.
+- Live: / /custom-jewel /custom-jewel/order-form /orders /contact /about /services /collections = 8/8 200; /gallery 308 → /#gallery (redirect intenzionale da next.config.js); rotta inesistente 404; sitemap.xml, sitemap-images.xml, robots.txt, og-cover.jpg, manifest.webmanifest, favicon.ico, apple-touch-icon.png = 7/7 200.
+- Meta/OG: title, description IT, og:title/description/image assoluto 1200×630+alt/url/site_name/locale it_IT, twitter summary_large_image — presenti; canonical solo client (by design, documentato); 0 placeholder/lorem/TODO/FIXME nell'HTML live e in src.
+- Immagini: 23/23 URL i.postimg.cc unici dalle pagine live = 200 (HEAD); nessun <img> nativo in src; nessun riflesso anomalo.
+- Form: contact e order-form client con react-hook-form + zod, Label htmlFor, autoComplete, enterKeyHint, aria-invalid/describedby, errori role=alert (markup auditato); submit con spinner che non sostituisce l'etichetta.
+- UX telefono/stati (sorgente): bottone outline GALLERIA con visited:text-gold + active coerente (nessun cambio colore post-click); variant button con active/visited da fix QA 03-05/10; whatsapp-float con aria-label e visited:text-gold; tap target not-found ok dal ciclo 11:36.
+- Sicurezza: HSTS preload, X-Frame-Options SAMEORIGIN, nosniff, Referrer-Policy, Permissions-Policy attivi su Vercel.
+- Bug trovati: nessuno.
+- Miglioria del ciclo: nessuna modifica al codice — audit completo verde, evitato churn non necessario su sito sano (convenzione cicli verdi dal 09:36); solo riga documentazione in STATUS.md.
+- Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 06/10/2026 17:36 CEST — ciclo QA orario VERDE
 - Build locale: `npm run build` exit 0 (16/16 pagine statiche) + `npx tsc --noEmit` 0 errori.

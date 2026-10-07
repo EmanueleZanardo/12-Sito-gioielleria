@@ -163,7 +163,10 @@ export default function RootLayout({
               <main id="main-content" tabIndex={-1} className="flex-grow outline-none">{children}</main>
               <Footer />
             </div>
-            <div className="fixed bottom-6 right-6 z-50">
+            {/* QA 07/10 (worker A, micro-UX mobile): safe-area-inset-bottom come
+                il float WhatsApp (bottom-left) — su iPhone con home indicator
+                il bottone restava nella zona non sicura. */}
+            <div className="fixed bottom-[calc(1.5rem+env(safe-area-inset-bottom))] right-6 z-50">
                 <ShareDialog size="lg" className="rounded-full h-14 w-14 shadow-lg" />
             </div>
             {/* CTA WhatsApp sempre visibile (bottom-left), con messaggio

@@ -241,8 +241,14 @@ function ContactFormComponent() {
                   </div>
                 )}
                 <p className="text-sm text-muted-foreground">{t('form.requiredHint')}</p>
+                 {/* QA 07/10 (worker A, micro-a11y): durante l'invio l'etichetta
+                     resta visibile e lo spinner si affianca — prima il testo
+                     veniva sostituito dallo spinner aria-hidden e il bottone
+                     perdeva il nome accessibile (stesso fix già applicato
+                     all'order form il 05/10). */}
                  <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90" disabled={isSubmitting}>
-                  {isSubmitting ? <Loader2 aria-hidden="true" className="animate-spin" /> : t('form.submit')}
+                  {isSubmitting && <Loader2 aria-hidden="true" className="mr-2 h-5 w-5 animate-spin" />}
+                  {t('form.submit')}
                 </Button>
                 {/* QA 04/10: alternativa visibile mentre il server di posta
                     non è attivo — il visitatore ha sempre un canale che

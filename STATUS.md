@@ -1,6 +1,12 @@
 # STATUS.md — 12-Sito-gioielleria (GDC Jewellery Lab)
 
-**Ultimo aggiornamento: 07/10/2026 ~00:36 CEST**
+**Ultimo aggiornamento: 07/10/2026 ~02:10 CEST**
+
+## 07/10/2026 ~02:10 CEST — aggiornamento documentale giornaliero
+- **Commit `7bc7afd2` (06/10 23:54 UTC = 07/10 01:54 CEST):** blitz SEO 07/10 01:55 (worker B) — src/app/page.tsx: "Rombo d'Argento" in meta/JSON-LD, ItemList completata.
+- **07/10 ~02:08 CEST — RE-HIT rate limit Vercel (verificato via GitHub Commit Status API sullo SHA `7bc7afd2`):** "Deployment rate limited — retry in 24 hours". Rientro ~08/10 01:54 CEST: nessun push per ritentare finché il limite non scade. Live = deploy STALE pre-blitz.
+- Cicli QA orari verdi (ieri 23:36): build 16/16 exit 0, tsc 0 errori, live tutte route 200, 22/22 immagini 200, zero placeholder.
+- Blocco invariato: server di posta non attivo — manca password app Gmail su Vercel (azione sua). Firebase originale non toccato; nessuna pubblicazione Instagram.
 
 ## 07/10/2026 00:36 CEST — ciclo QA orario VERDE
 - Build locale: `npm run build` exit 0 (16/16 pagine statiche) + `npx tsc --noEmit` 0 errori, prima e dopo la modifica.

@@ -24,6 +24,30 @@ type ImageLightboxProps = {
   onPrevious: () => void;
 };
 
+/** Larghezze candidate che next/image 14.2 genera nel srcset per questa
+ *  lightbox (fill + sizes="(max-width: 768px) 90vw, 45vw", default
+ *  deviceSizes/imageSizes: allSizes filtrate ≥ 640×0,45=288). Da riallineare
+ *  se cambiano images.deviceSizes/images.imageSizes in next.config.js.
+ *  Verificato su node_modules/next/dist/shared/lib/get-img-props.js. */
+const NEXT_IMAGE_SRCSET_WIDTHS = [384, 640, 750, 828, 1080, 1200, 1920, 2048, 3840];
+
+/** Replica byte-per-byte l'URL che il default loader di next/image genera
+ *  per questa lightbox (config.path + ?url=&w=&q=, quality 90 come la
+ *  <Image> qui sotto), scegliendo la larghezza che il browser prenderà dal
+ *  srcset: min candidate ≥ larghezza CSS × devicePixelRatio, stesso criterio
+ *  di selezione del browser. */
+function optimizedLightboxUrl(src: string): string {
+  const cssWidth =
+    window.innerWidth <= 768
+      ? window.innerWidth * 0.9
+      : window.innerWidth * 0.45;
+  const needed = Math.ceil(cssWidth * (window.devicePixelRatio || 1));
+  const w =
+    NEXT_IMAGE_SRCSET_WIDTHS.find((c) => c >= needed) ??
+    NEXT_IMAGE_SRCSET_WIDTHS[NEXT_IMAGE_SRCSET_WIDTHS.length - 1];
+  return `/_next/image?url=${encodeURIComponent(src)}&w=${w}&q=90`;
+}
+
 export function ImageLightbox({
   image,
   index,
@@ -107,11 +131,18 @@ export function ImageLightbox({
     };
   }, []);
 
-  // Preload delle immagini adiacenti per una navigazione istantanea
+  // Preload delle immagini adiacenti per una navigazione istantanea.
+  // QA 07/10 (worker A, perf immagini): prima il preload scaricava l'URL
+  // grezzo postimg, ma la lightbox mostra la variante ottimizzata
+  // /_next/image (srcset generato da next/image): due URL diversi = doppio
+  // download, il preload non scaldava mai la cache. Ora si preload-a
+  // esattamente l'URL che la <Image> qui sotto richiederà: stessa larghezza
+  // che il browser sceglierà dal srcset + stessa quality (90) → cache hit
+  // garantito alla navigazione next/prev.
   useEffect(() => {
     preloadSrcs.forEach((src) => {
       const img = new window.Image();
-      img.src = src;
+      img.src = optimizedLightboxUrl(src);
     });
   }, [preloadSrcs]);
 
@@ -203,7 +234,7 @@ export function ImageLightbox({
             e.stopPropagation();
             onClose();
           }}
-          className="absolute top-4 right-4 z-[101] text-foreground bg-background/50 rounded-full p-3 hover:bg-card transition-colors"
+          className="absolute top-4 right-4 z-[101] text-foreground bg-background/50 rounded-full p-3 hover:bg-card transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           aria-label={tLb('close')}
         >
           <X aria-hidden="true" className="h-6 w-6" />
@@ -212,7 +243,7 @@ export function ImageLightbox({
           <button
             type="button"
             onClick={handlePreviousClick}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-[101] text-foreground bg-background/50 rounded-full p-3 hover:bg-card transition-colors"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-[101] text-foreground bg-background/50 rounded-full p-3 hover:bg-card transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             aria-label={tLb('previous')}
           >
             <ChevronLeft aria-hidden="true" className="h-6 w-6" />
@@ -222,7 +253,7 @@ export function ImageLightbox({
           <button
             type="button"
             onClick={handleNextClick}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-[101] text-foreground bg-background/50 rounded-full p-3 hover:bg-card transition-colors"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-[101] text-foreground bg-background/50 rounded-full p-3 hover:bg-card transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             aria-label={tLb('next')}
           >
             <ChevronRight aria-hidden="true" className="h-6 w-6" />

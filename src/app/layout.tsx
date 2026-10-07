@@ -84,9 +84,10 @@ export const metadata: Metadata = {
   },
   // QA 03/10 (builder B2): rimosso il canonical globale '/' ereditato da TUTTE
   // le pagine — segnalava a Google che ogni pagina fosse un duplicato della
-  // home. Il canonical self-referencing della homepage è impostato via
-  // useEffect in src/app/page.tsx (la home è un client component: niente
-  // export metadata possibile lì); le altre pagine lo hanno via metadata
+  // home. QA 07/10 04:36 (ciclo QA): il canonical self-referencing della
+  // homepage è impostato via export `metadata` in src/app/page.tsx (server
+  // component che renderizza home-client.tsx — prima era iniettato via
+  // useEffect/DOM, ora arriva da SSR); le altre pagine lo hanno via metadata
   // nei layout di rotta.
   openGraph: {
     title: 'GDC Jewellery Lab | Gioielli Artigianali su Misura',

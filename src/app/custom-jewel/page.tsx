@@ -119,7 +119,11 @@ export default function CustomJewelPage() {
               <Card key={n} className="bg-card text-center">
                 <CardHeader className="items-center p-8">
                   <span className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 mb-4">
-                    <Icon className="h-7 w-7 text-primary" />
+                    {/* QA 07/10 (worker A, micro-a11y): icone decorative —
+                        aria-hidden come tutte le altre icone decorative del
+                        sito (prima gli screen reader annunciavano "grafica"
+                        senza etichetta). */}
+                    <Icon aria-hidden="true" className="h-7 w-7 text-primary" />
                   </span>
                   <CardTitle className="font-headline text-2xl">
                     {t(`v2.why.${n}.title`)}

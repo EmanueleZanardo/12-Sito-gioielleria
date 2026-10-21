@@ -28,6 +28,7 @@
       "title": "Partager cette boutique",
       "description": "Faites connaître GDC à vos amis !",
       "copy": "Copier le lien",
+      "linkLabel": "Lien de la boutique",
       "text": "Découvrez cette incroyable bijouterie : {{url}}",
       "telegramText": "Découvrez cette incroyable bijouterie !",
       "toast": {
@@ -44,14 +45,15 @@
       "next": "Diapositive suivante"
     },
     "dialog": {
-      "close": "Fermer"
+      "close": "Fermer",
+      "notificationsRegion": "Notifications (F8)"
     },
     "whatsapp": {
       "label": "Écrivez-nous sur WhatsApp",
       "prefill": "Bonjour ! Je voudrais des informations sur un bijou.",
-      "ariaLabel": "Contactez-nous sur WhatsApp",
       "formFallback": "Ou écrivez-nous directement sur WhatsApp au"
-    }
+    },
+    "newTab": "(s'ouvre dans un nouvel onglet)"
   },
   "home": {
     "hero": {
@@ -181,6 +183,7 @@
       },
       "photo": {
         "label": "Joindre une image (facultatif)",
+        "description": "Téléchargez une image de référence ou un croquis.",
         "remove": "Supprimer l'image",
         "previewAlt": "Aperçu de l'image"
       },

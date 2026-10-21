@@ -47,11 +47,19 @@ const nextConfig = {
       {
         source: '/:path*',
         headers: [
-          {
-            key: 'Link',
-            // Tutte le immagini del sito arrivano da i.postimg.cc: preconnect riduce la latenza di caricamento.
-            value: '<https://i.postimg.cc>; rel=preconnect, <https://i.postimg.cc>; rel=dns-prefetch',
-          },
+          // QA 13/10 02:36 (miglioria ciclo): rimosso l'header HTTP
+          // `Link: <https://i.postimg.cc>; rel=preconnect, ...; rel=dns-prefetch`.
+          // Il browser NON si connette mai direttamente a i.postimg.cc: TUTTE
+          // le <img> passano per il proxy same-origin /_next/image (verificato
+          // nel prerenderizzato: 329 ref /_next/image, zero <img src> diretti,
+          // zero url() nel CSS, zero fetch() nei chunk client). I riferimenti
+          // diretti a i.postimg.cc esistono solo nei blocchi JSON-LD ImageObject
+          // (dati per i crawler, il browser non li scarica) e nei meta og:image
+          // (scaricati dai crawler social, non dal browser). Il preconnect HTTP
+          // faceva quindi aprire al browser connessioni DNS+TCP+TLS inutili a
+          // ogni pagina. Completa la pulizia dei cicli 00:36/01:36 (rimossi i
+          // tag <link> HTML dns-prefetch e preconnect, ormai morti). Zero cambi
+          // funzionali/visivi; header rimossi verificati via curl post-deploy.
           // Baseline sicurezza OWASP: zero rischio di rottura, niente CSP (troppo
           // invasiva senza test visivo completo: Next inline scripts/styles, font, postimg).
           { key: 'X-Content-Type-Options', value: 'nosniff' },

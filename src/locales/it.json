@@ -28,6 +28,7 @@
       "title": "Condividi Questo Store",
       "description": "Condividi le creazioni GDC con chi ami.",
       "copy": "Copia link",
+      "linkLabel": "Link dello store",
       "text": "Scopri le creazioni di GDC Jewellery Lab — gioielli artigianali realizzati a mano, unici come le storie che raccontano: {{url}}",
       "telegramText": "Scopri GDC Jewellery Lab: gioielli artigianali realizzati a mano, unici come le storie che raccontano.",
       "toast": {
@@ -44,14 +45,15 @@
       "next": "Slide successiva"
     },
     "dialog": {
-      "close": "Chiudi"
+      "close": "Chiudi",
+      "notificationsRegion": "Notifiche (F8)"
     },
     "whatsapp": {
       "label": "Scrivici su WhatsApp",
       "prefill": "Ciao! Vorrei informazioni su un gioiello.",
-      "ariaLabel": "Contattaci su WhatsApp",
       "formFallback": "Oppure scrivici direttamente su WhatsApp al"
-    }
+    },
+    "newTab": "(si apre in una nuova scheda)"
   },
   "home": {
     "hero": {
@@ -181,6 +183,7 @@
       },
       "photo": {
         "label": "Allega Immagine (Opzionale)",
+        "description": "Carica un'immagine di riferimento o uno schizzo.",
         "remove": "Rimuovi immagine",
         "previewAlt": "Anteprima immagine"
       },

@@ -1,6 +1,22 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  // QA 08/10 11:36 (miglioria ciclo): robots index/follow qui nella
+  // metadata di rotta invece che nel layout radice — il root layout viene
+  // ereditato anche dalla 404, dove Next.js inietta automaticamente
+  // <meta name="robots" content="noindex"/>: il risultato era una coppia di
+  // meta robots conflittuali (noindex + index,follow) sulla pagina 404 live.
+  // Con i robots per-rotta, la 404 emette solo noindex. Zero cambi visivi.
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   title: 'Crea il Tuo Gioiello Personalizzato',
   description:
     "Dai vita alla tua visione: raccontaci la tua idea e realizziamo insieme un gioiello unico fatto a mano in oro 18kt, diamanti e pietre preziose.",
@@ -15,6 +31,10 @@ export const metadata: Metadata = {
     canonical: 'https://gdc-jewellery-lab.vercel.app/custom-jewel',
   },
   openGraph: {
+    type: 'website',
+    // QA 11/10 14:36: siteName ridichiarato — i layout di sezione sovrascrivono l'openGraph del root layout e og:site_name
+    // andava perso nelle 7 pagine interne (presente solo in home). Zero cambi visivi.
+    siteName: 'GDC Jewellery Lab',
     title: 'Crea il Tuo Gioiello Personalizzato | GDC Jewellery Lab',
     description:
       'Raccontaci la tua idea: realizziamo insieme un gioiello unico fatto a mano in oro 18kt, diamanti e pietre preziose.',
@@ -23,7 +43,12 @@ export const metadata: Metadata = {
     alternateLocale: ['en_US', 'fr_FR', 'de_DE'],
     images: [
       {
-        url: '/og-cover.jpg',
+        url: 'https://gdc-jewellery-lab.vercel.app/og-cover.jpg',
+        // QA 12/10 04:36 (miglioria ciclo): secureUrl esplicito —
+        // completa la miglioria 03:36 (root layout) su tutte le rotte
+        // con openGraph proprio: og:image:secure_url e' letto da
+        // LinkedIn/Telegram/WhatsApp oltre a og:image. Solo additivo.
+        secureUrl: 'https://gdc-jewellery-lab.vercel.app/og-cover.jpg',
         width: 1200,
         height: 630,
         alt: 'GDC Jewellery Lab — Crea il tuo gioiello su misura',
@@ -37,7 +62,7 @@ export const metadata: Metadata = {
       'Raccontaci la tua idea: realizziamo insieme un gioiello unico fatto a mano in oro 18kt, diamanti e pietre preziose.',
     images: [
       {
-        url: '/og-cover.jpg',
+        url: 'https://gdc-jewellery-lab.vercel.app/og-cover.jpg',
         alt: 'GDC Jewellery Lab — Crea il tuo gioiello su misura',
       },
     ],
@@ -49,63 +74,12 @@ export default function CustomJewelLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // FAQPage JSON-LD allineato 1:1 alla sezione FAQ visibile nella pagina
-  // (accordion v2.faq, 5 domande). Google richiede che il markup FAQPage
-  // corrisponda a contenuti visibili nella pagina: per questo vive qui e
-  // NON più nel JSON-LD globale di layout.tsx.
-  const faqJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'Quanto tempo serve per realizzare un gioiello su misura?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Dipende dalla complessità del progetto: in genere, dal disegno approvato alla consegna passano alcune settimane. Per occasioni speciali (matrimoni, anniversari, nascite) ti consigliamo di contattarci con anticipo, così pianifichiamo insieme le tempistiche senza fretta.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Che materiali usate? L’oro è garantito?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Lavoriamo principalmente oro 18kt (giallo, bianco e rosa), argento 925 e platino, con pietre naturali selezionate. Il titolo dell’oro è garantito e punzonato secondo le normative vigenti.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Posso modificare il disegno prima della realizzazione?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Sì, assolutamente. Il progetto viene definito insieme a te e nulla viene realizzato senza la tua approvazione del disegno e del preventivo. Anche durante la lavorazione, quando possibile, accogliamo le modifiche che ci chiedi.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'La consulenza e il preventivo sono gratuiti?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Sì: la consulenza iniziale e il preventivo sono sempre gratuiti e senza impegno.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Posso far trasformare un gioiello che ho già?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Sì: restauriamo e trasformiamo gioielli esistenti o di famiglia, dando nuova vita a pezzi a cui tieni. Raccontaci cosa hai in mente e valuteremo insieme la soluzione migliore.',
-        },
-      },
-    ],
-  };
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      {children}
-    </>
-  );
+  // QA 10/10 07:36: rimosso il FAQPage JSON-LD hardcoded (italiano) da questo
+  // layout — era DUPLICATO: page.tsx emette già lo stesso FAQPage ma i18n
+  // (chiavi v2.faq, 1:1 con l'accordion visibile nelle 4 lingue). Inoltre il
+  // layout avvolge anche /custom-jewel/order-form, dove NON c'è alcuna FAQ
+  // visibile: il markup lì violava le linee guida Google (contenuto non
+  // presente nella pagina). Resta solo il FAQPage di page.tsx. Zero cambi
+  // visivi.
+  return <>{children}</>;
 }

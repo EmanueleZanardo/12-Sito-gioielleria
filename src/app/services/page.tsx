@@ -8,7 +8,7 @@ import { Check, Settings } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ServicesPage() {
-  const { t } = useTranslation('services');
+  const { t, language } = useTranslation('services');
   const { t: tCommon } = useTranslation('common');
 
   const serviceList = [
@@ -39,6 +39,24 @@ export default function ServicesPage() {
           '@type': 'ItemList',
           name: t('title'),
           description: t('subtitle'),
+          // QA 12/10/2026 06:36 (miglioria ciclo): inLanguage DINAMICO —
+          // i blocchi home (05:36) e il WebSite del root layout (10/10) lo
+          // dichiarano statico 'it' perche' il contenuto e' fisso in italiano;
+          // qui il copy e' i18n-driven (t()), quindi la lingua dichiarata deve
+          // seguire la lingua attiva (default 'it' nel prerender, la stessa
+          // che vedono i crawler). inLanguage e' proprieta' valida di
+          // CreativeWork (AboutPage/HowTo/ContactPage/FAQPage/WebPage/
+          // ItemList). Solo additivo, zero cambi visivi.
+          inLanguage: language,
+          // QA 11/10 08:36 (miglioria ciclo): speakable (SpeakableSpecification)
+          // sulla card servizi visibile (id="servizi") — stesso pattern di
+          // #recapiti su /contact (06:36), #storia su /about (03:36),
+          // #steps su /orders (05:36) e #perche-gdc su home (07:36).
+          // Zero cambi visivi.
+          speakable: {
+            '@type': 'SpeakableSpecification',
+            cssSelector: ['#servizi'],
+          },
           numberOfItems: serviceList.length,
           itemListElement: serviceList.map((serviceKey, i) => ({
             '@type': 'ListItem',
@@ -47,6 +65,14 @@ export default function ServicesPage() {
               '@type': 'Service',
               name: t(`serviceList.${serviceKey}`),
               url: `${SITE_URL}/services`,
+              // QA 10/10 21:36 (miglioria ciclo): areaServed su ogni Service —
+              // schema.org lo raccomanda sui Service; stessi valori già
+              // dichiarati sul JewelryStore della home (Ticino + Svizzera).
+              // 1:1 col contenuto pubblicato, zero cambi visivi.
+              areaServed: [
+                { '@type': 'AdministrativeArea', name: 'Ticino' },
+                { '@type': 'Country', name: 'Switzerland' },
+              ],
               provider: {
                 '@type': 'JewelryStore',
                 name: 'GDC Jewellery Lab',
@@ -67,7 +93,14 @@ export default function ServicesPage() {
         </div>
 
         <div className="flex justify-center">
-          <Card className="w-full max-w-2xl bg-card">
+          {/* QA 11/10 08:36 (miglioria ciclo): id="servizi" come target del
+              `speakable` (SpeakableSpecification) nel JSON-LD ItemList qui
+              sotto: la card con l'elenco dei 6 servizi è il candidato
+              naturale per gli assistenti vocali — stesso pattern di
+              #recapiti su /contact (06:36), #storia su /about (03:36) e
+              #steps su /orders (05:36). 1:1 col contenuto visibile,
+              i18n attiva, zero cambi visivi. */}
+          <Card id="servizi" className="w-full max-w-2xl bg-card">
             <CardHeader>
               <CardTitle className="flex items-center gap-3 font-headline text-2xl">
                 <Settings aria-hidden="true" className="h-6 w-6 text-primary" />

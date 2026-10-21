@@ -7,7 +7,7 @@ import { useForm, type SubmitHandler, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
@@ -27,6 +27,9 @@ function OrderFormClient() {
   const { toast } = useToast();
   const searchParams = useSearchParams();
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  // QA 12/10 19:36 (miglioria ciclo): ref per il campo honeypot anti-spam —
+  // input NON registrato in react-hook-form, letto solo al submit.
+  const honeypotRef = useRef<HTMLInputElement | null>(null);
 
   // Messaggi di validazione localizzati (zod accetta messaggi dinamici).
   // QA 05/10 (W7): gli id accettati sono vincolati alle liste esportate da
@@ -134,7 +137,11 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
                   >
                      {item.imageUrl ? (
                         <div className="relative w-10 h-10 mb-2">
-                            <Image src={item.imageUrl} alt={getItemLabel(item)} fill sizes="40px" className="object-contain" />
+                            {/* QA 07/10 10:36 (miglioria ciclo): alt="" + aria-hidden —
+                                l'icona è decorativa: lo span qui sotto annuncia già
+                                l'etichetta tradotta (getItemLabel). Prima gli screen
+                                reader annunciavano il nome due volte ("Anello Anello"). */}
+                            <Image src={item.imageUrl} alt="" aria-hidden="true" fill sizes="40px" className="object-contain" />
                         </div>
                     ) : item.color ? (
                         <div className="w-10 h-10 mb-2 flex items-center justify-center">
@@ -188,7 +195,7 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
     // string e finisce nel preview <Image> e nel messaggio inviato: si
     // accettano solo URL https:// assoluti (niente javascript:, data:, o
     // stringhe vuote). Il flusso legittimo (/collections passa URL
-    // https://i.postimg.cc/...) resta invariato.
+    // i.postimg.cc/…) resta invariato.
     const isSafeImageUrl = (u: string) => {
       try {
         return new URL(u).protocol === 'https:';
@@ -234,6 +241,16 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
   }
   
   const handleFormSubmit: SubmitHandler<CustomOrderFormValues> = async (data) => {
+      // QA 12/10 19:36 (miglioria ciclo): honeypot anti-spam — se il campo
+      // trappola è compilato (bot), finge successo e scarta la richiesta
+      // senza inviare alcuna email.
+      if (honeypotRef.current?.value) {
+          toast({
+              title: t('form.toast.title'),
+              description: t('form.toast.description'),
+          });
+          return;
+      }
       const formData = new FormData();
       
       // Handle file input correctly
@@ -305,40 +322,63 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
   }, [displayPhoto]);
 
   return (
-    <Card className="bg-card w-full max-w-4xl mx-auto rounded-none border-x-0 md:rounded-lg md:border-x">
+    <Card aria-labelledby="order-form-title" className="bg-card w-full max-w-4xl mx-auto rounded-none border-x-0 md:rounded-lg md:border-x">
       <CardHeader className="px-4 md:px-6">
-        <CardTitle className="font-headline text-2xl text-center">{t('form.title')}</CardTitle>
+        {/* QA 13/10 16:36 (fix ciclo): h2 invece di h1 — page.tsx (11/10
+            13:36) ha aggiunto l'h1 di pagina con lo STESSO testo
+            t('form.title'), quindi la pagina rendeva DUE h1 identici
+            (SEO + screen reader). Il titolo della Card torna h2 (sotto
+            l'h1 di pagina) con stili visivi byte-identici; id +
+            aria-labelledby sulla Card = miglioria a11y del ciclo: la
+            regione del modulo è annunciata col suo titolo. */}
+        <h2 id="order-form-title" className="text-2xl font-semibold leading-none tracking-tight font-headline text-center">{t('form.title')}</h2>
       </CardHeader>
       <CardContent className="px-0 md:px-0">
         <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-12">
-            
+            {/* QA 12/10 19:36 (miglioria ciclo): honeypot anti-spam — campo
+                "website" invisibile agli umani (fuori schermo + hidden, aria-hidden,
+                escluso dalla tabulazione, senza label) e NON registrato in
+                react-hook-form. I bot che lo compilano vengono scartati in
+                silenzio in handleFormSubmit. hidden = display:none, escluso
+                dal selettore :not([hidden]) di space-y-12: nessuna spaziatura
+                aggiunta. Zero cambi visivi. */}
+            <input
+              ref={honeypotRef}
+              name="website"
+              type="text"
+              autoComplete="off"
+              tabIndex={-1}
+              aria-hidden="true"
+              hidden
+              className="absolute -left-[9999px] top-0 h-px w-px opacity-0 pointer-events-none"
+            />
             {/* QA 03/10: fieldset/legend per associare programmaticamente
                 l'etichetta di gruppo al carosello di selezione (a11y). */}
             {/* QA 05/10 (W7): errore collegato al gruppo via aria-describedby e
                 annunciato con role="alert" (prima: messaggio non collegato e
                 non annunciato agli screen reader). */}
             <fieldset className="space-y-3" aria-describedby={errors.jewelryType ? 'order-jewelryType-error' : undefined}>
-              <legend className="text-lg font-semibold px-4 md:px-6 float-left">{t('form.jewelryType.label')}</legend>
+              <legend className="text-lg font-semibold px-4 md:px-6 float-left">{t('form.jewelryType.label')}<RequiredMark /></legend>
               <p className="text-sm text-muted-foreground px-4 md:px-6 clear-both">{t('form.jewelryType.description')}</p>
               <Controller
                   control={control}
                   name="jewelryType"
                   render={({ field }) => <SelectionCarousel field={field} items={jewelryTypeIds.map(id => ({ id, imageUrl: jewelryTypeImages[id] }))} isMultiple={false} t={t} />}
               />
-              {errors.jewelryType && <p id="order-jewelryType-error" role="alert" className="text-sm font-medium text-destructive px-4 md:px-6">{errors.jewelryType.message}</p>}
+              {errors.jewelryType && <p id="order-jewelryType-error" role="alert" className="text-sm font-medium text-red-400 px-4 md:px-6">{errors.jewelryType.message}</p>}
             </fieldset>
 
             {/* QA 05/10 (W7): vedi sopra — errore raggiungibile deselezionando
                 tutti i materiali, ora collegato e annunciato. */}
             <fieldset className="space-y-3" aria-describedby={errors.materials ? 'order-materials-error' : undefined}>
-              <legend className="text-lg font-semibold px-4 md:px-6 float-left">{t('form.materials.label')}</legend>
+              <legend className="text-lg font-semibold px-4 md:px-6 float-left">{t('form.materials.label')}<RequiredMark /></legend>
               <p className="text-sm text-muted-foreground px-4 md:px-6 clear-both">{t('form.materials.description')}</p>
               <Controller
                   control={control}
                   name="materials"
                   render={({ field }) => <SelectionCarousel field={field} items={materialData.map(material => ({ id: material.id, color: material.color }))} isMultiple={true} t={t} />}
               />
-              {errors.materials && <p id="order-materials-error" role="alert" className="text-sm font-medium text-destructive px-4 md:px-6">{errors.materials.message}</p>}
+              {errors.materials && <p id="order-materials-error" role="alert" className="text-sm font-medium text-red-400 px-4 md:px-6">{errors.materials.message}</p>}
             </fieldset>
 
             <fieldset className="space-y-3" aria-describedby={errors.stones ? 'order-stones-error' : undefined}>
@@ -349,7 +389,7 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
                   name="stones"
                   render={({ field }) => <SelectionCarousel field={field} items={stoneData.map(stone => ({ id: stone.id, color: stone.color }))} isMultiple={true} t={t} />}
               />
-              {errors.stones && <p id="order-stones-error" role="alert" className="text-sm font-medium text-destructive px-4 md:px-6">{errors.stones.message}</p>}
+              {errors.stones && <p id="order-stones-error" role="alert" className="text-sm font-medium text-red-400 px-4 md:px-6">{errors.stones.message}</p>}
             </fieldset>
             
             <div className="px-4 md:px-6 space-y-8">
@@ -378,29 +418,42 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
 
               <div className="space-y-2">
               <Label htmlFor='description' className="text-lg font-semibold">{t('form.description.label')}<RequiredMark /></Label>
-              <Textarea id='description' {...register("description")} required rows={5} placeholder={t('form.description.placeholder')} aria-invalid={!!errors.description} aria-describedby={errors.description ? 'description-help order-description-error' : 'description-help'} />
+              {/* QA 07/10 21:36: enterKeyHint="next" sul textarea descrizione
+                  (primo campo di testo del flusso tastiera mobile; name ed
+                  email avevano già next/done) — coerenza col form contatti. */}
+              <Textarea id='description' {...register("description")} required rows={5} placeholder={t('form.description.placeholder')} enterKeyHint="next" aria-invalid={!!errors.description} aria-describedby={errors.description ? 'description-help order-description-error' : 'description-help'} />
               <p id="description-help" className="text-sm text-muted-foreground">{t('form.description.description')}</p>
-              {errors.description && <p id="order-description-error" role="alert" className="text-sm font-medium text-destructive">{errors.description.message}</p>}
+              {errors.description && <p id="order-description-error" role="alert" className="text-sm font-medium text-red-400">{errors.description.message}</p>}
               </div>
               
               <div className="space-y-2">
-              <Label htmlFor="photo" className="cursor-pointer inline-block w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 peer-focus-visible:ring-2 peer-focus-visible:ring-ring peer-focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm text-muted-foreground hover:bg-accent hover:text-accent-foreground">
-                  {t('form.photo.label')}
-              </Label>
+              {/* QA 07/10 07:36: l'input sr-only viene PRIMA della label nel
+                  DOM — le varianti `peer-focus-visible:` della label
+                  funzionano solo se il peer la precede; prima l'anello di
+                  focus da tastiera non appariva mai. Nessun cambio visivo
+                  (l'input resta sr-only). */}
               <Input
                   type="file"
                   id="photo"
                   accept="image/*"
                   className="sr-only peer"
                   aria-invalid={!!errors.photo}
-                  aria-describedby={errors.photo ? 'photo-error' : undefined}
+                  // QA 07/10 08:36: il testo di aiuto persistente ("Carica
+                  // un'immagine di riferimento o uno schizzo.") ora è
+                  // annunciato dagli screen reader insieme all'input —
+                  // prima aria-describedby puntava solo all'errore (quando
+                  // presente) e l'helper restava scollegato. Zero cambi visivi.
+                  aria-describedby={['photo-description', errors.photo ? 'photo-error' : null].filter(Boolean).join(' ') || undefined}
                   {...photoRegister}
                   ref={(e) => {
                     photoRegisterRef(e);
                     fileInputRef.current = e;
                   }}
               />
-              <p className="text-sm text-muted-foreground">{t('form.photo.description')}</p>
+              <Label htmlFor="photo" className="cursor-pointer inline-block w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 peer-focus-visible:ring-2 peer-focus-visible:ring-ring peer-focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm text-muted-foreground hover:bg-accent hover:text-accent-foreground">
+                  {t('form.photo.label')}
+              </Label>
+              <p id="photo-description" className="text-sm text-muted-foreground">{t('form.photo.description')}</p>
               {displayPhoto && previewUrl && (
                   <div className="mt-4 space-y-2" aria-live="polite">
                   <div className="relative w-24 h-24 rounded-md overflow-hidden border">
@@ -418,19 +471,22 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
                   </div>
                   </div>
               )}
-              {errors.photo && <p id="photo-error" role="alert" className="text-sm font-medium text-destructive">{errors.photo.message as string}</p>}
+              {errors.photo && <p id="photo-error" role="alert" className="text-sm font-medium text-red-400">{errors.photo.message as string}</p>}
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t">
               <div className="space-y-2">
                   <Label htmlFor="name">{t('form.name.label')}<RequiredMark /></Label>
                   <Input id="name" required autoComplete="name" enterKeyHint="next" aria-invalid={!!errors.name} aria-describedby={errors.name ? 'order-name-error' : undefined} placeholder={t('form.name.placeholder')} {...register("name")} />
-                  {errors.name && <p id="order-name-error" role="alert" className="text-sm font-medium text-destructive">{errors.name.message}</p>}
+                  {errors.name && <p id="order-name-error" role="alert" className="text-sm font-medium text-red-400">{errors.name.message}</p>}
               </div>
               <div className="space-y-2">
                   <Label htmlFor="email">{t('form.email.label')}<RequiredMark /></Label>
-                  <Input id="email" type="email" required autoComplete="email" enterKeyHint="done" aria-invalid={!!errors.email} aria-describedby={errors.email ? 'order-email-error' : undefined} placeholder={t('form.email.placeholder')} {...register("email")} />
-                  {errors.email && <p id="order-email-error" role="alert" className="text-sm font-medium text-destructive">{errors.email.message}</p>}
+                  {/* QA 10/10 13:36 (miglioria ciclo): inputMode="email" sul
+                      campo email — sui telefoni mostra la tastiera email (@ e
+                      dominio). Zero cambi visivi. */}
+                  <Input id="email" type="email" required autoComplete="email" inputMode="email" enterKeyHint="done" autoCapitalize="none" autoCorrect="off" spellCheck={false} aria-invalid={!!errors.email} aria-describedby={errors.email ? 'order-email-error' : undefined} placeholder={t('form.email.placeholder')} {...register("email")} />
+                  {errors.email && <p id="order-email-error" role="alert" className="text-sm font-medium text-red-400">{errors.email.message}</p>}
               </div>
               </div>
               <p className="text-sm text-muted-foreground">{t('form.requiredHint')}</p>
@@ -449,9 +505,11 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
                     href="https://wa.me/393451114337"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline underline-offset-2 visited:text-gold hover:text-primary"
+                    className="underline underline-offset-2 visited:text-gold hover:text-primary whitespace-nowrap"
                   >
                     +39 345 111 4337
+                    {/* QA 20/10 08:36: annuncio nuova scheda (a11y) */}
+                    <span className="sr-only">{tCommon('newTab')}</span>
                   </a>
               </p>
             </div>
@@ -464,6 +522,7 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
 
 export function OrderForm() {
   const { t } = useTranslation('customJewel');
+  const { t: tCommon } = useTranslation('common');
   return (
     // Fallback accessibile: skeleton animate-pulse + testo tradotto per
     // screen reader, stesso pattern della pagina /contact (coerenza UX/a11y).
@@ -492,9 +551,13 @@ export function OrderForm() {
               <p className="mt-3">
                 <a
                   href="https://wa.me/393451114337"
-                  className="underline underline-offset-2 text-foreground visited:text-foreground hover:text-primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2 text-foreground visited:text-foreground hover:text-primary whitespace-nowrap"
                 >
                   WhatsApp: +39 345 111 4337
+                  {/* QA 20/10 08:36: annuncio nuova scheda (a11y) */}
+                  <span className="sr-only">{tCommon('newTab')}</span>
                 </a>
               </p>
             </div>

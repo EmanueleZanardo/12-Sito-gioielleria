@@ -33,7 +33,7 @@ function ErrorContent({
         </h1>
         <p className="text-lg text-muted-foreground mt-4">{t('description')}</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-          <Button size="lg" onClick={() => reset()}>
+          <Button type="button" size="lg" onClick={() => reset()}>
             {t('tryAgain')}
           </Button>
           <Button asChild size="lg" variant="outline">

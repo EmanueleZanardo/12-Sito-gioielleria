@@ -8,7 +8,7 @@ import { JsonLd, breadcrumbList, SITE_URL } from '@/components/json-ld';
 const STEP_COUNT = 4;
 
 export default function OrdersPage() {
-  const { t } = useTranslation('orders');
+  const { t, language } = useTranslation('orders');
   const { t: tCommon } = useTranslation('common');
 
   return (
@@ -29,6 +29,26 @@ export default function OrdersPage() {
           '@type': 'HowTo',
           name: t('title'),
           description: t('subtitle'),
+          // QA 12/10/2026 06:36 (miglioria ciclo): inLanguage DINAMICO —
+          // i blocchi home (05:36) e il WebSite del root layout (10/10) lo
+          // dichiarano statico 'it' perche' il contenuto e' fisso in italiano;
+          // qui il copy e' i18n-driven (t()), quindi la lingua dichiarata deve
+          // seguire la lingua attiva (default 'it' nel prerender, la stessa
+          // che vedono i crawler). inLanguage e' proprieta' valida di
+          // CreativeWork (AboutPage/HowTo/ContactPage/FAQPage/WebPage/
+          // ItemList). Solo additivo, zero cambi visivi.
+          inLanguage: language,
+          // QA 11/10 05:36 (miglioria ciclo): speakable — schema.org lo
+          // raccomanda sui contenuti procedurali per indicare ai
+          // motori/assistenti vocali la sezione adatta alla lettura ad alta
+          // voce. cssSelector punta all'<ol> dei 4 passi visibili
+          // (id="steps", 1:1 col contenuto, i18n attiva). Zero cambi visivi;
+          // stesso pattern dei cicli 00:36 (FAQPage custom-jewel) e 03:36
+          // (AboutPage).
+          speakable: {
+            '@type': 'SpeakableSpecification',
+            cssSelector: ['#steps'],
+          },
           step: Array.from({ length: STEP_COUNT }, (_, i) => ({
             '@type': 'HowToStep',
             position: i + 1,
@@ -51,7 +71,11 @@ export default function OrdersPage() {
             annunciano "elenco di 4 elementi" mantenendo l'ordine dei passi.
             QA 06/10 08:36 (miglioria ciclo): role="list" perché list-none fa
             perdere la semantica di elenco a Safari/VoiceOver. */}
-        <ol role="list" className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto list-none p-0">
+        {/* QA 11/10 05:36 (miglioria ciclo): id="steps" come target del
+            `speakable` (SpeakableSpecification) nel JSON-LD HowTo qui sopra:
+            identifica l'elenco procedurale leggibile dagli assistenti vocali.
+            Zero cambi visivi; utile anche come ancora #steps. */}
+        <ol id="steps" role="list" className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto list-none p-0">
           {Array.from({ length: STEP_COUNT }, (_, i) => (
             <li key={i} className="border rounded-lg bg-card p-6">
               <h2 className="font-headline text-xl text-foreground mb-2">

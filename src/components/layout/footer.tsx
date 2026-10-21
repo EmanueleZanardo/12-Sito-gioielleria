@@ -47,9 +47,12 @@ export function Footer() {
                 con header.tsx. */}
             {/* QA 03/10 23:36: rel="me" = profilo ufficiale dell'attività (segnale
                 di identità per i motori di ricerca, zero impatto visivo). */}
+            {/* QA 20/10 08:36: annuncio nuova scheda (a11y) via sr-only —
+                zero impatto visivo, lo screen reader avvisa prima del click. */}
             <a href="https://www.instagram.com/gdc_jewellery_lab" target="_blank" rel="noopener noreferrer me" className="flex items-center gap-2 text-foreground/60 visited:text-foreground/60 hover:text-gold transition-colors">
               <Instagram aria-hidden="true" className="h-6 w-6" />
               <span className="tracking-wide">@gdc_jewellery_lab</span>
+              <span className="sr-only">{t('newTab')}</span>
             </a>
           </div>
           <div className="flex flex-wrap justify-center -mx-4">

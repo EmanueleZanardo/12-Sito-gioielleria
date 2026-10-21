@@ -26,7 +26,7 @@ import {
 const PHONE_TEL = 'tel:+393451114337';
 
 export default function CustomJewelPage() {
-  const { t } = useTranslation('customJewel');
+  const { t, language } = useTranslation('customJewel');
   const { t: tCommon } = useTranslation('common');
 
   const whatsappUrl = `https://wa.me/393451114337?text=${encodeURIComponent(
@@ -65,6 +65,23 @@ export default function CustomJewelPage() {
         data={{
           '@context': 'https://schema.org',
           '@type': 'FAQPage',
+          // QA 12/10/2026 06:36 (miglioria ciclo): inLanguage DINAMICO —
+          // i blocchi home (05:36) e il WebSite del root layout (10/10) lo
+          // dichiarano statico 'it' perche' il contenuto e' fisso in italiano;
+          // qui il copy e' i18n-driven (t()), quindi la lingua dichiarata deve
+          // seguire la lingua attiva (default 'it' nel prerender, la stessa
+          // che vedono i crawler). inLanguage e' proprieta' valida di
+          // CreativeWork (AboutPage/HowTo/ContactPage/FAQPage/WebPage/
+          // ItemList). Solo additivo, zero cambi visivi.
+          inLanguage: language,
+          // QA 11/10 00:36 (miglioria ciclo): speakable — schema.org lo
+          // raccomanda sulle FAQPage per indicare ai motori/assistenti vocali
+          // quali sezioni sono adatte alla lettura ad alta voce. cssSelector
+          // punta alla sezione FAQ visibile (id="faq", 1:1 col contenuto).
+          speakable: {
+            '@type': 'SpeakableSpecification',
+            cssSelector: ['#faq'],
+          },
           mainEntity: Array.from({ length: faqCount }, (_, i) => ({
             '@type': 'Question',
             name: t(`v2.faq.q${i + 1}`),
@@ -73,6 +90,30 @@ export default function CustomJewelPage() {
               text: t(`v2.faq.a${i + 1}`),
             },
           })),
+        }}
+      />
+      {/* QA 10/10 22:36 (miglioria ciclo): Service JSON-LD sul servizio di
+          creazione su misura (questa pagina è la landing del servizio:
+          hero title/subtitle 1:1 col contenuto visibile, i18n attiva).
+          areaServed come sui Service della pagina servizi (21:36) e sul
+          JewelryStore della home — schema.org lo raccomanda sui Service.
+          Zero cambi visivi. */}
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          name: t('v2.hero.title'),
+          description: t('v2.hero.subtitle'),
+          url: `${SITE_URL}/custom-jewel`,
+          areaServed: [
+            { '@type': 'AdministrativeArea', name: 'Ticino' },
+            { '@type': 'Country', name: 'Switzerland' },
+          ],
+          provider: {
+            '@type': 'JewelryStore',
+            name: 'GDC Jewellery Lab',
+            url: SITE_URL,
+          },
         }}
       />
       {/* HERO */}
@@ -97,6 +138,8 @@ export default function CustomJewelPage() {
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
               <MessageCircle aria-hidden="true" className="mr-2 h-5 w-5" />
               {t('v2.hero.ctaWhatsapp')}
+              {/* QA 20/10 08:36: annuncio nuova scheda (a11y) */}
+              <span className="sr-only">{tCommon('newTab')}</span>
             </a>
           </Button>
         </div>
@@ -180,11 +223,14 @@ export default function CustomJewelPage() {
             <Button
               asChild
               size="lg"
-              className="bg-gold text-[#171106] hover:bg-gold-light font-semibold rounded-full px-8 tracking-[0.12em] uppercase text-sm shadow-[0_8px_28px_rgba(201,168,106,0.35)]"
+              className="bg-gold text-[#171106] visited:text-[#171106] hover:bg-gold-light font-semibold rounded-full px-8 tracking-[0.12em] uppercase text-sm shadow-[0_8px_28px_rgba(201,168,106,0.35)]"
             >
+              {/* QA 17/10 19:36: visited:text-[#171106] pinna il base (vedi home-client.tsx) */}
               <a href={processWhatsappUrl} target="_blank" rel="noopener noreferrer">
                 <MessageCircle aria-hidden="true" className="mr-2 h-5 w-5" />
                 {t('v2.process.ctaWhatsapp')}
+                {/* QA 20/10 08:36: annuncio nuova scheda (a11y) */}
+                <span className="sr-only">{tCommon('newTab')}</span>
               </a>
             </Button>
             <p className="text-sm text-muted-foreground mt-4">{t('v2.process.note')}</p>
@@ -192,8 +238,11 @@ export default function CustomJewelPage() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="container mx-auto px-4 py-12 md:py-16">
+      {/* FAQ — QA 11/10 00:36 (miglioria ciclo): id="faq" come target del
+          `speakable` (SpeakableSpecification) nel JSON-LD FAQPage qui sopra:
+          identifica la sezione leggibile dagli assistenti vocali. Zero cambi
+          visivi; utile anche come ancora #faq. */}
+      <section id="faq" className="container mx-auto px-4 py-12 md:py-16">
         <div className="text-center mb-10">
           <p className="text-sm font-semibold uppercase tracking-widest text-primary">
             {t('v2.faq.label')}

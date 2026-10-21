@@ -93,7 +93,11 @@ export function Header() {
 
   return (
     <header className={cn(
-        "sticky top-0 z-50 w-full border-b transition-colors duration-300",
+        // QA 10/10 14:36: pt safe-area-inset-top — con viewport-fit=cover la
+        // pagina si estende sotto la Dynamic Island/il notch: senza questo
+        // padding l'header sticky finirebbe parzialmente sotto. Su desktop e
+        // telefoni senza notch env() = 0: nessun cambio visivo.
+        "sticky top-0 z-50 w-full border-b transition-colors duration-300 pt-[env(safe-area-inset-top)]",
         isScrolled ? "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-gold/20" : "bg-transparent border-transparent"
     )}>
       <div className="container flex h-20 items-center">
@@ -135,7 +139,7 @@ export function Header() {
             <div className="hidden md:flex items-center space-x-4">
                <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                   <Button variant="ghost" size="sm" aria-label={t('nav.language')} className="flex items-center gap-1 text-sm bg-transparent border-none">
+                   <Button type="button" variant="ghost" size="sm" aria-label={`${t('nav.language')}: ${language.toUpperCase()}`} className="flex items-center gap-1 text-sm bg-transparent border-none">
                     {language.toUpperCase()}
                     <ChevronDown aria-hidden="true" className="h-4 w-4" />
                   </Button>
@@ -158,7 +162,9 @@ export function Header() {
               {/* QA 03/10 23:36: visited: gemello di text-foreground/60 (icona
                   in currentColor: il colore UA visited non deve prevalere) +
                   rel="me" = profilo ufficiale dell'attività. */}
-              <a href="https://www.instagram.com/gdc_jewellery_lab" aria-label={t('nav.instagram')} target="_blank" rel="noopener noreferrer me" className="text-foreground/60 visited:text-foreground/60 hover:text-gold transition-colors">
+{/* QA 20/10 08:36: annuncio nuova scheda (a11y) — l'icona sola non
+                  segnala che il link apre una nuova scheda. */}
+              <a href="https://www.instagram.com/gdc_jewellery_lab" aria-label={`${t('nav.instagram')} ${t('newTab')}`} target="_blank" rel="noopener noreferrer me" className="text-foreground/60 visited:text-foreground/60 hover:text-gold transition-colors">
                 <Instagram aria-hidden="true" className="h-5 w-5" />
               </a>
             </div>
@@ -166,7 +172,7 @@ export function Header() {
             <div className="md:hidden">
                 <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                     <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon" aria-expanded={isMobileMenuOpen} aria-controls="mobile-menu" className="h-11 w-11">
+                    <Button type="button" variant="ghost" size="icon" aria-expanded={isMobileMenuOpen} aria-controls="mobile-menu" className="h-11 w-11">
                         <Menu aria-hidden="true" className="h-6 w-6" />
                         {/* Etichetta coerente con aria-expanded: a menu aperto il
                             pulsante chiude, quindi annuncia "Chiudi menu" (la chiave
@@ -174,7 +180,12 @@ export function Header() {
                         <span className="sr-only">{isMobileMenuOpen ? t('nav.closeMenu') : t('nav.openMenu')}</span>
                     </Button>
                     </SheetTrigger>
-                    <SheetContent side="right" className="w-full" id="mobile-menu">
+                    {/* QA 10/10 14:36: pt safe-area — con viewport-fit=cover lo sheet
+                        fixed arriva fino al bordo fisico dello schermo: su iPhone
+                        con notch il pulsante chiudi (top-4) finirebbe sotto la
+                        status bar. max(1.5rem, inset) = 24px come prima su
+                        desktop/non-notch, inset reale su iPhone. */}
+                    <SheetContent side="right" className="w-full pt-[max(1.5rem,env(safe-area-inset-top))]" id="mobile-menu">
                     <div className="flex flex-col h-full">
                         <SheetHeader className="p-4 border-b">
                           <SheetTitle className="sr-only">{t('nav.mainMenu')}</SheetTitle>
@@ -209,7 +220,7 @@ export function Header() {
                          <div className="flex items-center justify-center space-x-6 p-6 border-t">
                             <DropdownMenu>
                               <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" aria-label={t('nav.language')} className="flex items-center gap-2 text-lg">
+                                <Button type="button" variant="ghost" aria-label={`${t('nav.language')}: ${language.toUpperCase()}`} className="flex items-center gap-2 text-lg">
                                   {language.toUpperCase()}
                                   <ChevronDown aria-hidden="true" className="h-5 w-5" />
                                 </Button>
@@ -230,7 +241,8 @@ export function Header() {
                               </DropdownMenuContent>
                             </DropdownMenu>
                             {/* QA 03/10 23:36: come sopra (menu mobile): visited: gemello + rel="me". */}
-                            <a href="https://www.instagram.com/gdc_jewellery_lab" aria-label={t('nav.instagram')} target="_blank" rel="noopener noreferrer me" className="text-foreground/60 visited:text-foreground/60 hover:text-gold transition-colors">
+{/* QA 20/10 08:36: annuncio nuova scheda (a11y), come sopra. */}
+                            <a href="https://www.instagram.com/gdc_jewellery_lab" aria-label={`${t('nav.instagram')} ${t('newTab')}`} target="_blank" rel="noopener noreferrer me" className="text-foreground/60 visited:text-foreground/60 hover:text-gold transition-colors">
                                 <Instagram aria-hidden="true" className="h-6 w-6" />
                             </a>
                         </div>

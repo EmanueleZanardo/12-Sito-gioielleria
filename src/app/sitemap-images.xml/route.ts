@@ -25,11 +25,13 @@ export const dynamic = 'force-static';
 const HERO_IMAGE = {
   loc: heroImage.imageUrl,
   caption: 'Sfondo laboratorio orafo — GDC Jewellery Lab',
+  title: 'GDC Jewellery Lab — laboratorio orafo artigianale',
 };
 
 const ABOUT_IMAGE = {
   loc: 'https://i.postimg.cc/LXdq3QbJ/su-misura.jpg',
   caption: 'Artigiano al lavoro — laboratorio GDC Jewellery Lab',
+  title: 'Artigiano al lavoro — GDC Jewellery Lab',
 };
 
 function escapeXml(value: string): string {
@@ -41,10 +43,11 @@ function escapeXml(value: string): string {
     .replace(/'/g, '&apos;');
 }
 
-function imageXml(loc: string, caption: string): string {
+function imageXml(loc: string, caption: string, title?: string): string {
   return (
     `    <image:image>\n` +
     `      <image:loc>${escapeXml(loc)}</image:loc>\n` +
+    (title ? `      <image:title>${escapeXml(title)}</image:title>\n` : '') +
     `      <image:caption>${escapeXml(caption)}</image:caption>\n` +
     `    </image:image>`
   );
@@ -58,7 +61,7 @@ export async function GET(): Promise<Response> {
       seen.add(p.imageUrl);
       return true;
     })
-    .map((p) => imageXml(p.imageUrl, p.description))
+    .map((p) => imageXml(p.imageUrl, p.description, p.groupInfo.name))
     .join('\n');
 
   // Pezzi visibili solo nella loro collezione (/collections): imageUrl
@@ -73,6 +76,7 @@ export async function GET(): Promise<Response> {
       imageXml(
         p.imageUrl.startsWith('http') ? p.imageUrl : `${BASE_URL}${p.imageUrl}`,
         p.description,
+        p.groupInfo.name,
       ),
     )
     .join('\n');
@@ -83,12 +87,12 @@ export async function GET(): Promise<Response> {
     `        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n` +
     `  <url>\n` +
     `    <loc>${BASE_URL}</loc>\n` +
-    `${imageXml(HERO_IMAGE.loc, HERO_IMAGE.caption)}\n` +
+    `${imageXml(HERO_IMAGE.loc, HERO_IMAGE.caption, HERO_IMAGE.title)}\n` +
     `${productImagesXml}\n` +
     `  </url>\n` +
     `  <url>\n` +
     `    <loc>${BASE_URL}/about</loc>\n` +
-    `${imageXml(ABOUT_IMAGE.loc, ABOUT_IMAGE.caption)}\n` +
+    `${imageXml(ABOUT_IMAGE.loc, ABOUT_IMAGE.caption, ABOUT_IMAGE.title)}\n` +
     `  </url>\n` +
     `  <url>\n` +
     `    <loc>${BASE_URL}/collections</loc>\n` +

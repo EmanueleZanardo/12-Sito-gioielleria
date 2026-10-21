@@ -267,6 +267,7 @@ const SidebarTrigger = React.forwardRef<
 
   return (
     <Button
+      type="button"
       ref={ref}
       data-sidebar="trigger"
       variant="ghost"
@@ -293,6 +294,12 @@ const SidebarRail = React.forwardRef<
 
   return (
     <button
+      // QA 13/10 22:36: type="button" esplicito — era l'unico <button> del
+      // codebase senza type (sweep python su src/). Fuori da un <form> il
+      // default submit è inerte e il componente Sidebar non è usato nelle
+      // pagine, ma un toggle non deve mai diventare un submit se un giorno
+      // finisce dentro un form. {...props} dopo può fare override.
+      type="button"
       ref={ref}
       data-sidebar="rail"
       aria-label="Toggle Sidebar"

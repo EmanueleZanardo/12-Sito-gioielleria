@@ -8,7 +8,7 @@ import heroImage from '@/lib/hero-image.json';
 import { orderedProducts, type ProductImage } from '@/lib/data';
 import { motion } from 'framer-motion';
 import { ImageLightbox } from '@/components/image-lightbox';
-import { JsonLd, breadcrumbList, SITE_URL } from '@/components/json-ld';
+import { JsonLd, SITE_URL } from '@/components/json-ld';
 import { useTranslation } from '@/hooks/use-translation';
 import { ProductCard } from '@/components/product-card';
 import { ShareDialog } from '@/components/share/share-dialog';
@@ -43,6 +43,7 @@ const TEASER_COLLECTIONS = [
 export default function HomeClient() {
   const { t } = useTranslation('home');
   const { t: tCol } = useTranslation('collections');
+  const { t: tCommon } = useTranslation('common');
   const [lightboxImageIndex, setLightboxImageIndex] = useState<number | null>(null);
 
   // WhatsApp con recapito già presente nel sito (pagina contatti)
@@ -154,10 +155,77 @@ export default function HomeClient() {
     description:
       'Laboratorio orafo artigianale in Ticino. Gioielli su misura fatti a mano in oro 18kt, diamanti e pietre preziose, restauro e riparazioni.',
     url: SITE_URL,
-    image: `${SITE_URL}/og-cover.jpg`,
+    // QA 12/10 05:36 (miglioria ciclo): inLanguage — il blocco WebSite del
+    // root layout lo dichiara dal 10/10; JewelryStore e ItemList della home
+    // non lo avevano. Contenuto in italiano di default (og:locale it_IT),
+    // coerente col resto della pagina. Solo additivo, zero cambi visivi.
+    inLanguage: 'it',
+    // QA 12/10/2026 00:36 (miglioria ciclo): image come ImageObject con
+    // dimensioni verificate (1200x630 — og-cover.jpg scaricata live e
+    // misurata, stesse dimensioni gia' dichiarate nell'openGraph del
+    // layout) invece di stringa semplice: Google legge meglio le immagini
+    // dei LocalBusiness nei rich result. Dato onesto, zero cambi visivi.
+    image: {
+      '@type': 'ImageObject',
+      url: `${SITE_URL}/og-cover.jpg`,
+      width: 1200,
+      height: 630,
+    },
     telephone: '+393451114337',
     email: 'laboratorio.ticino@gmail.com',
     priceRange: '€€',
+    // QA 12/10 11:36 (miglioria ciclo): contactPoint — schema.org lo raccomanda
+    // sul LocalBusiness per il punto di contatto clienti: stesso telefono reale
+    // già dichiarato come `telephone` (WhatsApp +39 345 111 4337, pubblicato in
+    // footer/contatti) con contactType 'customer service' e le 4 lingue reali
+    // del sito (src/locales/{it,en,fr,de}.json, switch client-side) come
+    // availableLanguage. Aiuta Google/assistenti vocali a capire come e in che
+    // lingua contattare il laboratorio. Dato onesto, solo additivo, zero cambi
+    // visivi.
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+393451114337',
+      contactType: 'customer service',
+      availableLanguage: ['Italian', 'English', 'French', 'German'],
+    },
+    // QA 11/10 21:36 (miglioria ciclo): slogan — la tagline "Gioielli
+    // Artigianali su Misura" è già nel <title> e nell'og:title; dichiararla
+    // come slogan (proprietà Organization di schema.org) rafforza il
+    // collegamento nome-attività nelle Knowledge Graph. Dato onesto, già
+    // pubblicato sul sito. Zero cambi visivi.
+    slogan: 'Gioielli Artigianali su Misura',
+    // QA 11/10 22:36 (miglioria ciclo): knowsAbout — i 6 servizi della pagina
+    // /services (src/locales/it.json services.serviceList, copy gia' pubblico
+    // sul sito): schema.org lo raccomanda sull'Organization per collegare
+    // attivita' e competenze nelle Knowledge Graph. Niente inventato, solo
+    // i nomi dei servizi gia' pubblicati. Zero cambi visivi.
+    knowsAbout: [
+      'Gioielli personalizzati su misura',
+      'Messa in misura di anelli e bracciali',
+      'Restauro e modifica di gioielli vintage',
+      'Rimessa a nuovo di gioielli',
+      'Cambio pila orologi',
+      'Restauro di bracciali orologi',
+    ],
+    // QA 10/10 20:36 (miglioria ciclo): currenciesAccepted — schema.org lo
+    // raccomanda sul LocalBusiness; il laboratorio è in Ticino (Svizzera),
+    // la valuta è il franco svizzero. Zero cambi visivi.
+    currenciesAccepted: 'CHF',
+    // QA 11/10 07:36 (miglioria ciclo): speakable (SpeakableSpecification,
+    // cssSelector #perche-gdc) sulla sezione "Perché GDC" visibile —
+    // il candidato naturale per gli assistenti vocali sul JewelryStore
+    // (descrizione del laboratorio artigianale), stesso pattern di #storia
+    // su /about (03:36), #steps su /orders (05:36), #lightbox deep-link
+    // galleria (04:36) e #recapiti su /contact (06:36); 1:1 col contenuto
+    // visibile, i18n attiva, zero cambi visivi.
+    // QA 13/10 04:36 (fix ciclo): aggiunto #hero-subtitle (tagline hero, era
+    // nello speakable del WebSite globale del layout dove non risolveva su
+    // 6/7 pagine — Google ignora i selettori non risolti). Qui entrambi gli
+    // id esistono nel prerenderizzato della home (verificato in build).
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['#hero-subtitle', '#perche-gdc'],
+    },
     sameAs: ['https://www.instagram.com/gdc_jewellery_lab'],
     areaServed: [
       { '@type': 'AdministrativeArea', name: 'Ticino' },
@@ -173,10 +241,61 @@ export default function HomeClient() {
   // dell'item per Google (item senza url = segnale più debole).
   // Blitz SEO 07/10/2026 (worker B): niente più slice(0, 20) — tutti i 21 pezzi
   // della galleria sono nell'ItemList.
+  // QA 12/10/2026 17:36 (miglioria ciclo): dimensioni reali delle 21 foto
+  // della galleria (scaricate live da i.postimg.cc e misurate con PIL il
+  // 12/10/2026) — servono per l'ImageObject qui sotto. Ogni filename e'
+  // unico nei path (verificato: zero duplicati), quindi la chiave filename
+  // e' sicura. Stesso pattern dei Product Rombo d'Argento (10:36), delle
+  // copertine /collections (12:36), del logo publisher (09:36) e della cover
+  // JewelryStore (00:36). Dato onesto, zero cambi visivi.
+  const GALLERY_IMAGE_DIMS: Record<string, { width: number; height: number }> = {
+    'Gemini-Generated-Image-36eugs36eugs36eu.png': { width: 533, height: 800 },
+    'Gemini-Generated-Image-4p38yd4p38yd4p38.png': { width: 535, height: 800 },
+    'Gemini-Generated-Image-5ooedx5ooedx5ooe.png': { width: 483, height: 800 },
+    'Gemini-Generated-Image-9d3b8t9d3b8t9d3b.png': { width: 612, height: 800 },
+    'Gemini-Generated-Image-c4uur4c4uur4c4uu.png': { width: 555, height: 800 },
+    'Gemini-Generated-Image-ckrev3ckrev3ckre.png': { width: 488, height: 800 },
+    'Gemini-Generated-Image-cwx29lcwx29lcwx2.png': { width: 768, height: 800 },
+    'Gemini-Generated-Image-fz223lfz223lfz22.png': { width: 591, height: 800 },
+    'Gemini-Generated-Image-jrfgvljrfgvljrfg.png': { width: 555, height: 800 },
+    'Gemini-Generated-Image-lr2kymlr2kymlr2k.png': { width: 555, height: 800 },
+    'Gemini-Generated-Image-ppnciqppnciqppnc.png': { width: 509, height: 800 },
+    'Gemini-Generated-Image-uirhw7uirhw7uirh.png': { width: 509, height: 800 },
+    'Gemini-Generated-Image-waufz6waufz6wauf.png': { width: 656, height: 800 },
+    'photo-2026-04-24-07-41-22.jpg': { width: 588, height: 800 },
+    'photo-2026-04-24-07-42-21.jpg': { width: 699, height: 800 },
+    'photo-2026-04-24-07-44-56.jpg': { width: 1280, height: 894 },
+    'photo-6005879377222552120-y.jpg': { width: 533, height: 800 },
+    'photo-6005879377222552124-y.jpg': { width: 533, height: 800 },
+    'photo-6005879377222552125-y.jpg': { width: 533, height: 800 },
+    'photo-6005879377222552126-y.jpg': { width: 533, height: 800 },
+    'photo-6005879377222552127-y.jpg': { width: 533, height: 800 },
+  };
+
   const productListJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'Galleria creazioni GDC Jewellery Lab',
+    // QA 12/10 05:36 (miglioria ciclo): inLanguage 'it' — come sul
+    // JewelryStore qui sopra e sul WebSite del root layout (10/10).
+    // Solo additivo, zero cambi visivi.
+    inLanguage: 'it',
+    // QA 10/10 18:36 (miglioria ciclo): numberOfItems dinamico da
+    // orderedProducts.length — schema.org lo raccomanda sull'ItemList e
+    // Google lo usa per i rich result di liste; stesso pattern di
+    // services/page.tsx (numberOfItems: serviceList.length). Zero cambi visivi.
+    numberOfItems: orderedProducts.length,
+    // QA 11/10 10:36 (miglioria ciclo): speakable (SpeakableSpecification)
+    // sulla sezione galleria visibile (id="gallery") — completamento della
+    // serie: #servizi /services (08:36), #collezioni /collections (09:36),
+    // #perche-gdc home (07:36), #recapiti /contact (06:36), #steps /orders
+    // (05:36), #storia /about (03:36), FAQPage /custom-jewel (00:36).
+    // Titolo sezione ("Galleria" + sottotitolo) 1:1 col name dell'ItemList,
+    // nomi creazioni negli aria-label delle card. Zero cambi visivi.
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['#gallery'],
+    },
     itemListElement: orderedProducts.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
@@ -184,8 +303,23 @@ export default function HomeClient() {
         '@type': 'Product',
         name: p.description,
         description: p.description,
-        image: p.imageUrl,
-        url: `${SITE_URL}/#gallery`,
+        // QA 12/10/2026 17:36 (miglioria ciclo): image come ImageObject con
+        // width/height misurate (GALLERY_IMAGE_DIMS qui sopra) invece di
+        // stringa semplice — stesso pattern delle copertine /collections
+        // (12:36). Google usa le dimensioni dichiarate per il rendering nei
+        // rich result. Dato onesto, zero cambi visivi.
+        image: {
+          '@type': 'ImageObject',
+          url: p.imageUrl,
+          ...(GALLERY_IMAGE_DIMS[p.imageUrl.split('/').pop() ?? ''] ?? {}),
+        },
+        // QA 11/10 04:36 (miglioria ciclo): deep-link per-prodotto
+        // #lightbox/<id> invece dell'ancora generica #gallery — la lightbox
+        // si riapre davvero su quell'hash (hashchange listener qui sopra:
+        // back/forward e link condivisi funzionano), quindi ogni creazione
+        // ha ora un riferimento 1:1 col suo stato visualizzabile invece di
+        // condividere un'unica ancora in 21. Zero cambi visivi.
+        url: `${SITE_URL}/#lightbox/${p.id}`,
         brand: { '@type': 'Brand', name: 'GDC Jewellery Lab' },
       },
     })),
@@ -197,9 +331,10 @@ export default function HomeClient() {
       <JsonLd data={jewelryStoreJsonLd} />
       {/* Dati strutturati: ItemList dei prodotti in galleria (QA SEO 04/10/2026 M1) */}
       <JsonLd data={productListJsonLd} />
-      <JsonLd
-        data={breadcrumbList([{ name: 'Home', url: `${SITE_URL}/` }])}
-      />
+      {/* QA 10/10 16:36 (miglioria ciclo): rimosso il BreadcrumbList con un
+          solo item ("Home" → sé stessa): Google ignora le briciole a item
+          singolo e schema.org le sconsiglia sulla homepage. Le briciole
+          restano su tutte le sottopagine (2+ item). Zero cambi visivi. */}
       {/* Hero Section */}
       <section
         className="relative h-[80vh] md:h-screen w-full flex items-center justify-center text-center text-white"
@@ -223,12 +358,30 @@ export default function HomeClient() {
               "Galleria" sotto diventa h2 per mantenere la gerarchia. */}
           <h1 className="sr-only">GDC Jewellery Lab — {t('hero.subtitle')}</h1>
           <div className="relative h-64 w-full max-w-[360px] md:h-80 md:w-[640px] md:max-w-none">
-          {/* Niente priority sul logo: il preload fetchPriority=high resta solo sullo
-              sfondo hero (candidato LCP). Il logo resta eager di default senza
-              contendere la banda con un secondo preload. */}
-            <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt={t('hero.logoAlt')} fill sizes="(max-width: 768px) 360px, 640px" className="object-contain drop-shadow-[0_6px_24px_rgba(0,0,0,0.6)]" />
+          {/* Niente priority sul logo: fetchPriority="high" resta solo sullo sfondo
+              hero (candidato LCP). next/image senza priority mette loading="lazy"
+              di default: il logo brand, above the fold, veniva differito.
+              QA 10/10 01:36: loading="eager" esplicito — parte subito.
+              QA 10/10 09:36 (correzione commento): contrariamente a quanto scritto
+              sopra, next/image 14.2.35 EMETTE un <link rel="preload" as="image">
+              anche per loading="eager" (verificato sull'HTML compilato: 3 preload
+              immagine sulla home — logo header priority, sfondo hero priority,
+              logo hero eager — contro 1 solo su about/contact/collections).
+              Il preload eager NON ha fetchPriority, quindi non contende la banda
+              con lo sfondo (fp=high vince): il comportamento resta quello voluto,
+              solo il commento era impreciso. */}
+            <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt={t('hero.logoAlt')} fill sizes="(max-width: 768px) 360px, 640px" loading="eager" className="object-contain drop-shadow-[0_6px_24px_rgba(0,0,0,0.6)]" />
           </div>
-          <p className="max-w-2xl font-headline text-xl md:text-2xl italic text-ivory/90 lux-title">
+          {/* QA 11/10 12:36 (miglioria ciclo): id="hero-subtitle" come target del
+              `speakable` (SpeakableSpecification) nel JSON-LD WebSite del
+              layout: la tagline visibile dell'hero è il candidato naturale
+              per gli assistenti vocali ("che cos'è GDC Jewellery Lab").
+              Completamento serie speakable: #gallery e #perche-gdc su home
+              (10:36/07:36), #moto e #collezioni su /collections (11:36/09:36),
+              #servizi su /services (08:36), #recapiti su /contact (06:36),
+              #steps su /orders (05:36), #storia su /about (03:36), FAQPage
+              su /custom-jewel (00:36). Zero cambi visivi. */}
+          <p id="hero-subtitle" className="max-w-2xl font-headline text-xl md:text-2xl italic text-ivory/90 lux-title">
             {t('hero.subtitle')}
           </p>
           <div className="gold-divider" aria-hidden="true" />
@@ -236,7 +389,11 @@ export default function HomeClient() {
             <Button asChild size="sm" variant="outline" className="bg-transparent border-gold/70 text-gold hover:bg-gold/10 hover:text-gold-light hover:border-gold-light active:bg-gold/20 active:text-gold-light visited:text-gold focus-visible:text-gold-light font-semibold text-sm md:text-base py-3 px-8 md:py-4 md:px-8 rounded-full tracking-[0.18em] uppercase">
               <Link href="/#gallery">{t('hero.galleryButton')}</Link>
             </Button>
-            <Button asChild size="sm" className="bg-gold hover:bg-gold-light text-[#171106] font-semibold text-sm md:text-base py-3 px-8 md:py-4 md:px-8 rounded-full tracking-[0.18em] uppercase shadow-[0_8px_28px_rgba(201,168,106,0.35)]">
+            <Button asChild size="sm" className="bg-gold hover:bg-gold-light text-[#171106] visited:text-[#171106] font-semibold text-sm md:text-base py-3 px-8 md:py-4 md:px-8 rounded-full tracking-[0.18em] uppercase shadow-[0_8px_28px_rgba(201,168,106,0.35)]">
+              {/* QA 17/10 19:36: visited:text-[#171106] esplicito — la variant default
+                  pinna visited:text-primary-foreground, ma il className qui ridefinisce
+                  il base a text-[#171106]; twMerge tiene il visited: di pagina. Su :visited
+                  il testo resta il marrone scuro del base, nessun cambio colore post-click. */}
               <Link href="/custom-jewel">{t('hero.createButton')}</Link>
             </Button>
           </div>
@@ -244,15 +401,24 @@ export default function HomeClient() {
       </section>
 
       {/* Gallery Section */}
-      {/* QA 05/10 05:36 (miglioria ciclo): scroll-mt-24 invece di scroll-mt-16.
-          L'header sticky è h-20 (80px): con 64px la cima della sezione finiva
-          nascosta sotto l'header nei salti ad ancora (bottone GALLERIA,
-          redirect /gallery). 96px come nelle ancore di /collections. */}
-      <section id="gallery" className="scroll-mt-24">
+      {/* QA 10/10 15:36 (miglioria ciclo): scroll-mt con calc che include
+          env(safe-area-inset-top). Il ciclo 14:36 ha aggiunto pt safe-area
+          all'header sticky: su iPhone con notch l'header è alto 80px + inset
+          (fino a ~139px) e i 96px fissi di scroll-mt-24 non bastavano più —
+          il titolo sezione finiva parzialmente sotto l'header nei salti ad
+          ancora (bottone GALLERIA, redirect /gallery). Con viewport-fit=cover
+          (14:36) env() è reale su iOS; su desktop/telefoni senza notch
+          env() = 0 e resta 96px come prima (05/10). */}
+      {/* QA 12/10 18:36 (miglioria ciclo): aria-labelledby sulla sezione
+          galleria — e' il target dell'ancora #gallery (bottone GALLERIA in
+          hero + redirect /gallery): con i landmark navigabili gli screen
+          reader annunciano il nome della sezione al salto. id statico
+          (testo i18n), zero cambi visivi. */}
+      <section id="gallery" aria-labelledby="gallery-title" className="scroll-mt-[calc(6rem+env(safe-area-inset-top))]">
         <div className="container mx-auto px-4 py-16 md:py-24">
           <div className="text-center mb-12">
             <p className="eyebrow mb-4">{t('gallery.eyebrow')}</p>
-            <h2 className="font-headline text-4xl md:text-6xl font-medium text-foreground lux-title">
+            <h2 id="gallery-title" className="font-headline text-4xl md:text-6xl font-medium text-foreground lux-title">
               {t('gallery.title')}
             </h2>
             <div className="gold-divider" aria-hidden="true" />
@@ -343,7 +509,14 @@ export default function HomeClient() {
           </div>
 
           {/* Trust signals sobri (tutti claim già presenti nel sito) */}
-          <div className="mt-16 md:mt-24 max-w-5xl mx-auto">
+          {/* QA 11/10 07:36 (miglioria ciclo): id="perche-gdc" come target del
+              `speakable` (SpeakableSpecification) nel JSON-LD JewelryStore
+              della home qui sopra: la sezione "Perché GDC" descrive il
+              laboratorio artigianale ed è il candidato naturale per gli
+              assistenti vocali — stesso pattern di #recapiti su /contact
+              (06:36). 1:1 col contenuto visibile, i18n attiva, zero cambi
+              visivi. */}
+          <div id="perche-gdc" className="mt-16 md:mt-24 max-w-5xl mx-auto">
             <div className="text-center mb-10">
               <p className="eyebrow mb-3">{t('trust.label')}</p>
               <h2 className="font-headline text-3xl md:text-5xl font-medium text-foreground lux-title">
@@ -408,8 +581,9 @@ export default function HomeClient() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gold text-[#171106] hover:bg-gold-light font-semibold rounded-full px-8 tracking-[0.12em] uppercase text-sm shadow-[0_8px_28px_rgba(201,168,106,0.35)]"
+                  className="bg-gold text-[#171106] visited:text-[#171106] hover:bg-gold-light font-semibold rounded-full px-8 tracking-[0.12em] uppercase text-sm shadow-[0_8px_28px_rgba(201,168,106,0.35)]"
                 >
+                  {/* QA 17/10 19:36: visited:text-[#171106] come nel bottone hero in alto */}
                   <Link href="/custom-jewel">
                     {t('customJewel.buttonOrder')}
                     <ArrowRight aria-hidden="true" className="ml-2 h-5 w-5" />
@@ -419,6 +593,8 @@ export default function HomeClient() {
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                     <MessageCircle aria-hidden="true" className="mr-2 h-5 w-5" />
                     {t('customJewel.buttonWhatsapp')}
+                    {/* QA 20/10 08:36: annuncio nuova scheda (a11y) */}
+                    <span className="sr-only">{tCommon('newTab')}</span>
                   </a>
                 </Button>
               </div>

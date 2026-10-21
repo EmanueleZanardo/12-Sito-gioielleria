@@ -74,8 +74,22 @@ export async function sendConfirmationEmail(prevState: State | undefined, formDa
   // Handle file upload separately
   const photo = formData.get('photo') as File | null;
   const attachments = [];
-  
+
+  // QA 10/10 08:36: limiti server-side sull'allegato — i form client hanno
+  // solo accept="image/*" (hint del selettore file, bypassabile) e lo schema
+  // zod è z.any(). Prima qualsiasi file di qualsiasi dimensione passava:
+  // cap a 10 MB (evita OOM del serverless su allegati enormi) + solo MIME
+  // image/*. Il messaggio di errore finisce nel toast di entrambi i form
+  // (contact + order-form mostrano result.message). Zero cambi visivi.
+  const MAX_PHOTO_BYTES = 10 * 1024 * 1024;
+
   if (photo && photo instanceof File && photo.size > 0) {
+    if (photo.size > MAX_PHOTO_BYTES) {
+      return { message: 'error: La foto allegata supera i 10 MB. Riduci le dimensioni e riprova.' };
+    }
+    if (!photo.type.startsWith('image/')) {
+      return { message: "error: Il file allegato deve essere un'immagine." };
+    }
     try {
       const buffer = Buffer.from(await photo.arrayBuffer());
       attachments.push({

@@ -34,7 +34,11 @@ export function ProductCard({ product, groupName, onImageClick }: ProductCardPro
     >
       <Image
         src={product.imageUrl}
-        alt={product.description}
+        // alt vuoto: la descrizione è già nell'aria-label del contenitore
+        // role="button" qui sopra — con alt pieno gli screen reader la
+        // annuncerebbero due volte. Stesso pattern del teaser collezioni
+        // in home-client.tsx (QA 10/10 02:36, miglioria ciclo).
+        alt=""
         fill
         className={cn(
             "object-cover transition-transform duration-300 scale-110 group-hover:scale-125",

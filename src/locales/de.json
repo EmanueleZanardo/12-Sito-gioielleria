@@ -28,6 +28,7 @@
       "title": "Diesen Shop teilen",
       "description": "Lassen Sie Ihre Freunde von GDC wissen!",
       "copy": "Link kopieren",
+      "linkLabel": "Shop-Link",
       "text": "Schauen Sie sich diesen erstaunlichen Schmuckladen an: {{url}}",
       "telegramText": "Schauen Sie sich diesen erstaunlichen Schmuckladen an!",
       "toast": {
@@ -44,14 +45,15 @@
       "next": "Nächste Folie"
     },
     "dialog": {
-      "close": "Schließen"
+      "close": "Schließen",
+      "notificationsRegion": "Benachrichtigungen (F8)"
     },
     "whatsapp": {
       "label": "Schreiben Sie uns auf WhatsApp",
       "prefill": "Hallo! Ich hätte gerne Informationen zu einem Schmuckstück.",
-      "ariaLabel": "Kontaktieren Sie uns auf WhatsApp",
       "formFallback": "Oder schreiben Sie uns direkt auf WhatsApp unter"
-    }
+    },
+    "newTab": "(wird in einem neuen Tab geöffnet)"
   },
   "home": {
     "hero": {
@@ -181,6 +183,7 @@
       },
       "photo": {
         "label": "Bild anhängen (optional)",
+        "description": "Laden Sie ein Referenzbild oder eine Skizze hoch.",
         "remove": "Bild entfernen",
         "previewAlt": "Bildvorschau"
       },

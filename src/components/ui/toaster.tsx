@@ -1,6 +1,7 @@
 "use client"
 
 import { useToast } from "@/hooks/use-toast"
+import { useTranslation } from "@/hooks/use-translation"
 import {
   Toast,
   ToastClose,
@@ -12,6 +13,7 @@ import {
 
 export function Toaster() {
   const { toasts } = useToast()
+  const { t } = useTranslation('common')
 
   return (
     <ToastProvider>
@@ -29,7 +31,10 @@ export function Toaster() {
           </Toast>
         )
       })}
-      <ToastViewport />
+      {/* QA 07/10 19:36: aria-label della toast region localizzato (it/en/fr/de)
+          invece del default inglese "Notifications (F8)" di Radix — gli
+          screen reader leggono la regione nella lingua attiva del sito. */}
+      <ToastViewport aria-label={t('dialog.notificationsRegion')} />
     </ToastProvider>
   )
 }

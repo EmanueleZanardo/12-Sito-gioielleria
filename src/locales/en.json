@@ -28,6 +28,7 @@
       "title": "Share This Store",
       "description": "Let your friends know about GDC!",
       "copy": "Copy link",
+      "linkLabel": "Store link",
       "text": "Check out this amazing jewelry store: {{url}}",
       "telegramText": "Check out this amazing jewelry store!",
       "toast": {
@@ -44,14 +45,15 @@
       "next": "Next slide"
     },
     "dialog": {
-      "close": "Close"
+      "close": "Close",
+      "notificationsRegion": "Notifications (F8)"
     },
     "whatsapp": {
       "label": "Message us on WhatsApp",
       "prefill": "Hi! I'd like information about a jewel.",
-      "ariaLabel": "Contact us on WhatsApp",
       "formFallback": "Or message us directly on WhatsApp at"
-    }
+    },
+    "newTab": "(opens in a new tab)"
   },
   "home": {
     "hero": {
@@ -181,6 +183,7 @@
       },
       "photo": {
         "label": "Attach Image (Optional)",
+        "description": "Upload a reference image or sketch.",
         "remove": "Remove image",
         "previewAlt": "Image preview"
       },

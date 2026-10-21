@@ -90,12 +90,41 @@
   /* QA 04/10 08:36 (micro-UX): scorrimento fluido verso le ancore in-page
      (es. bottone GALLERIA in hero → #gallery): niente più salto istantaneo.
      Chi preferisce il movimento ridotto resta protetto dalla regola
-     prefers-reduced-motion più sotto (scroll-behavior: auto !important). */
+     prefers-reduced-motion più sotto (scroll-behavior: auto !important).
+     QA 21/10 11:36 (micro-UX da telefono, punto 3 body): text-size-adjust
+     100% su html — iOS Safari applica altrimenti l'inflazione automatica
+     del testo (es. rotazione portrait->landscape): i paragrafi si
+     ingrandiscono da soli e il layout mobile si rompe. 100% (non none)
+     preserva lo zoom testuale dell'utente (WCAG 1.4.4). */
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
   body {
     @apply bg-background text-foreground;
+  }
+  /* QA 21/10 09:36 (micro-UX da telefono, punto 3 body): touch-action
+     manipulation sugli elementi interattivi — elimina il tap-delay ~300ms
+     dei browser touch (attesa double-tap-zoom) e il doppio-tocco-zoom su
+     link/bottoni/controlli. `manipulation` = pan-x pan-y pinch-zoom: pan e
+     pinch restano permessi (gallerie sicure), solo il double-tap-zoom viene
+     disabilitato.
+     QA 21/10 10:36 (micro-UX da telefono, punto 3 body): -webkit-tap-highlight-color
+     transparent sugli stessi elementi — iOS Safari (e in parte Chrome Android)
+     mostra al tocco un flash grigio semitrasparente sopra link/bottoni: su un
+     sito sempre scuro con bottoni outline oro (es. GALLERIA in homepage) e' un
+     visibile "cambio colore dopo il click". Il sito ha gia' feedback propri
+     :active/:focus-visible, quindi il flash di sistema e' solo rumore visivo. */
+  a,
+  button,
+  input,
+  select,
+  textarea,
+  label,
+  [role="button"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
   ::selection {
     background: hsl(39 46% 60% / 0.85);
@@ -151,6 +180,18 @@
   border: 2px solid hsl(var(--background));
 }
 ::-webkit-scrollbar-thumb:hover { background: hsl(39 46% 45%); }
+
+/* QA 17/10 20:36 (a11y/micro-UX): indicatore di focus visibile per i link
+   non coperti dalle classi focus-visible: dei componenti shadcn
+   (nav, footer, card collezioni). Bottoni/input/textarea hanno già il ring
+   oro via focus-visible:ring-ring; qui l'outline oro garantisce a tutti gli
+   <a> lo stesso indicatore coerente col design (WCAG 2.4.7).
+   :focus-visible scatta solo da tastiera: nessun cambio visivo per mouse/touch. */
+a:focus-visible,
+[role="link"]:focus-visible {
+  outline: 2px solid #C9A86A;
+  outline-offset: 3px;
+}
 
 
 /* Rispetto preferenze utenti con disturbi da movimento: disabilita animazioni */

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useId } from 'react';
 import {
   Dialog,
   DialogContent,
@@ -60,6 +60,10 @@ export function ShareDialog({ className, size = 'icon', ...props }: ShareDialogP
   const { t } = useTranslation('common');
   const { toast } = useToast();
   const [storeUrl, setStoreUrl] = useState('');
+  // QA 07/10 13:36: id stabile via useId invece di "link" hardcoded — il
+  // componente oggi è montato una sola volta (layout), ma con due istanze
+  // l'id duplicato romperebbe l'associazione label↔input. Zero cambi visivi.
+  const linkInputId = useId();
 
   useEffect(() => {
     setStoreUrl(window.location.origin);
@@ -112,7 +116,7 @@ export function ShareDialog({ className, size = 'icon', ...props }: ShareDialogP
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" size={size} className={cn("backdrop-blur-sm", className)} {...props}>
+        <Button type="button" variant="outline" size={size} className={cn("backdrop-blur-sm", className)} {...props}>
           <Share2 aria-hidden="true" />
           <span className="sr-only">{t('share.button')}</span>
         </Button>
@@ -126,10 +130,13 @@ export function ShareDialog({ className, size = 'icon', ...props }: ShareDialogP
         </DialogHeader>
         <div className="flex items-center space-x-2">
           <div className="grid flex-1 gap-2">
-            <label htmlFor="link" className="sr-only">
-              Link
+            {/* QA 07/10 12:36: label tradotta (chiave share.linkLabel x4 lingue) —
+                prima era hardcodata in inglese ("Link") e veniva annunciata
+                dagli screen reader anche sulle pagine it/fr/de. */}
+            <label htmlFor={linkInputId} className="sr-only">
+              {t('share.linkLabel')}
             </label>
-            <Input id="link" defaultValue={storeUrl} readOnly onFocus={(e) => e.target.select()} />
+            <Input id={linkInputId} defaultValue={storeUrl} readOnly onFocus={(e) => e.target.select()} />
           </div>
           <Button type="button" size="sm" className="px-3" onClick={copyToClipboard}>
             <span className="sr-only">{t('share.copy')}</span>
@@ -147,6 +154,8 @@ export function ShareDialog({ className, size = 'icon', ...props }: ShareDialogP
             >
                 <option.Icon aria-hidden="true" className="h-8 w-8" />
                 <span className="text-xs font-medium text-foreground">{option.name}</span>
+                {/* QA 20/10 08:36: annuncio nuova scheda (a11y) */}
+                <span className="sr-only">{t('newTab')}</span>
             </a>
             ))}
         </div>

@@ -19,6 +19,14 @@ import type { MetadataRoute } from 'next';
 // PWA nei prompt di installazione Android/Chrome (che mostrano fino a 8
 // screenshot). Riuso di og-cover.jpg (1200x630 verificati, form wide):
 // immagine brand reale, zero file nuovi. Solo additivo, zero cambi visivi.
+// QA 22/10 00:36 (miglioria ciclo): `label` sullo screenshot — nome accessibile
+// mostrato dalla UI di installazione PWA (Android/Chrome) e annunciato dagli
+// screen reader (la spec W3C lo raccomanda per ogni screenshot). Non è nel tipo
+// di Next.js 14 (MetadataRoute.Manifest['screenshots']): intersection minimale
+// qui sotto, il webmanifest generato include il campo. Solo additivo.
+type LabeledScreenshot = NonNullable<
+  MetadataRoute.Manifest['screenshots']
+>[number] & { label: string };
 export default function manifest(): MetadataRoute.Manifest {
   const shortcutIcon = [
     {
@@ -44,7 +52,8 @@ export default function manifest(): MetadataRoute.Manifest {
         src: '/og-cover.jpg',
         sizes: '1200x630',
         type: 'image/jpeg',
-      },
+        label: 'GDC Jewellery Lab — gioielli artigianali su misura',
+      } as LabeledScreenshot,
     ],
     shortcuts: [
       {

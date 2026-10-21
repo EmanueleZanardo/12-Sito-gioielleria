@@ -18,6 +18,12 @@ import { useTranslation } from '@/hooks/use-translation';
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
+    // QA 21/10 21:36 (miglioria ciclo): aria-hidden="true" di default NELLA
+    // DEFINIZIONE — prima era solo al call-site (riga ~155): un uso futuro
+    // senza la prop avrebbe annunciato l'icona decorativa agli screen
+    // reader. Prima dello spread {...props}: una prop esplicita puo' ancora
+    // fare override. HTML renderizzato byte-identico, zero cambi visivi.
+    aria-hidden="true"
     {...props}
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -35,6 +41,9 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
+    // QA 21/10 21:36 (miglioria ciclo): come WhatsAppIcon sopra — default
+    // aria-hidden="true" nella definizione, override possibile via props.
+    aria-hidden="true"
     {...props}
     xmlns="http://www.w3.org/2000/svg"
     width="24"

@@ -208,6 +208,27 @@
     text-wrap: balance;
   }
 
+  /* QA 21/10 18:36 (micro-UX da telefono, punto 3 body): bilanciamento righe
+     dei titoli e anti-orfani nei paragrafi. Solo la classe .lux-title aveva
+     text-wrap: balance; i titoli h1/h2/h3 delle pagine about/contact/order-form/
+     custom-jewel e delle card restavano sbilanciati su mobile (ultima riga da
+     una sola parola = look economico su un sito lusso). text-wrap: balance su
+     TUTTI gli h1/h2/h3; text-wrap: pretty sui paragrafi (evita l'ultima riga
+     da una sola parola con costo di layout contenuto — balance sui p lunghi
+     e' sconsigliato). La regola .lux-title resta per i <p> titolo (es. hero
+     subtitle, footer) dove balance e' voluto e vince per specificita'.
+     Progressive enhancement: i browser che non supportano balance/pretty
+     ignorano le dichiarazioni. */
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
   /* QA 21/10 15:36 (micro-UX da telefono, punto 3 body): altezza hero con
      unita' viewport dinamiche — su iOS Safari 100vh include l'area sotto la
      toolbar del browser: la hero risultava piu' alta del visibile (fondo

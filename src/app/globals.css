@@ -39,6 +39,11 @@
   /* Lusso scuro: nero caldo profondo, avorio, oro champagne.
      Il sito è sempre dark (className="dark" su <html>). */
   .dark {
+    /* QA 21/10 13:36 (micro-UX da telefono, punto 3 body): il sito è sempre
+       dark (className="dark" su <html>). Senza color-scheme l'UA dipinge
+       scrollbar, overscroll e controlli form nativi in chiaro: macchie
+       bianche su tema nero-oro. color-scheme: dark le tiene scure. */
+    color-scheme: dark;
     --background: 24 18% 5%;        /* nero caldo #0f0c09 */
     --foreground: 40 32% 93%;       /* avorio #f3ecdd */
 

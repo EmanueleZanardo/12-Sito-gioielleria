@@ -137,14 +137,22 @@
      mostra al tocco un flash grigio semitrasparente sopra link/bottoni: su un
      sito sempre scuro con bottoni outline oro (es. GALLERIA in homepage) e' un
      visibile "cambio colore dopo il click". Il sito ha gia' feedback propri
-     :active/:focus-visible, quindi il flash di sistema e' solo rumore visivo. */
+     :active/:focus-visible, quindi il flash di sistema e' solo rumore visivo.
+     QA 21/10 19:36 (micro-UX da telefono, punto 3 body): aggiunto [role="dialog"]
+     alla stessa lista — il backdrop della lightbox (motion.div con onClick per
+     chiudere al tap, role="dialog" in image-lightbox.tsx) e' l'unico elemento
+     cliccabile non coperto: su iOS Safari il tap sul backdrop mostrava il flash
+     grigio di sistema a tutto schermo sul fondale scuro. touch-action:
+     manipulation resta valido anche qui (niente double-tap-zoom da
+     preservare dentro un dialog). */
   a,
   button,
   input,
   select,
   textarea,
   label,
-  [role="button"] {
+  [role="button"],
+  [role="dialog"] {
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
   }

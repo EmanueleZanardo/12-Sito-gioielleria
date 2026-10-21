@@ -88,7 +88,13 @@ export default function AboutPage() {
               (SpeakableSpecification) nel JSON-LD AboutPage qui sopra:
               il racconto del laboratorio è il contenuto vocale naturale
               della pagina. Zero cambi visivi; utile anche come ancora. */}
-          <div id="storia" className="space-y-6 text-lg text-foreground/80 leading-relaxed">
+          {/* QA 21/10 23:36 (miglioria ciclo): scroll-mt con
+              env(safe-area-inset-top) — stesso pattern di #gallery (10/10
+              15:36): l'id e' target di frammento (speakable JSON-LD, deep link
+              da assistenti/crawler): senza scroll-mt il salto ad ancora
+              nasconderebbe l'inizio sotto l'header sticky (80px + notch).
+              scroll-margin non tocca il layout: zero cambi visivi. */}
+          <div id="storia" className="space-y-6 text-lg text-foreground/80 leading-relaxed scroll-mt-[calc(6rem+env(safe-area-inset-top))]">
             <p>{t('paragraph1')}</p>
             <p>{t('paragraph2')}</p>
           </div>

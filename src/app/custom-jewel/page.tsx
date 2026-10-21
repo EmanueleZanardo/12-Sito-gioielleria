@@ -242,7 +242,12 @@ export default function CustomJewelPage() {
           `speakable` (SpeakableSpecification) nel JSON-LD FAQPage qui sopra:
           identifica la sezione leggibile dagli assistenti vocali. Zero cambi
           visivi; utile anche come ancora #faq. */}
-      <section id="faq" className="container mx-auto px-4 py-12 md:py-16">
+      {/* QA 21/10 23:36 (miglioria ciclo): scroll-mt con
+          env(safe-area-inset-top) — stesso pattern di #gallery (10/10 15:36):
+          l'id e' target di frammento (speakable JSON-LD FAQPage, deep link):
+          senza scroll-mt il salto ad ancora nasconderebbe il titolo sotto
+          l'header sticky (80px + notch). Zero cambi visivi. */}
+      <section id="faq" className="container mx-auto px-4 py-12 md:py-16 scroll-mt-[calc(6rem+env(safe-area-inset-top))]">
         <div className="text-center mb-10">
           <p className="text-sm font-semibold uppercase tracking-widest text-primary">
             {t('v2.faq.label')}

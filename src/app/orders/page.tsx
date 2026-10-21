@@ -75,7 +75,12 @@ export default function OrdersPage() {
             `speakable` (SpeakableSpecification) nel JSON-LD HowTo qui sopra:
             identifica l'elenco procedurale leggibile dagli assistenti vocali.
             Zero cambi visivi; utile anche come ancora #steps. */}
-        <ol id="steps" role="list" className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto list-none p-0">
+        {/* QA 21/10 23:36 (miglioria ciclo): scroll-mt con
+            env(safe-area-inset-top) — stesso pattern di #gallery (10/10
+            15:36): l'id e' target di frammento (speakable JSON-LD HowTo, deep
+            link): senza scroll-mt il salto ad ancora nasconderebbe i passi
+            sotto l'header sticky (80px + notch). Zero cambi visivi. */}
+        <ol id="steps" role="list" className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto list-none p-0 scroll-mt-[calc(6rem+env(safe-area-inset-top))]">
           {Array.from({ length: STEP_COUNT }, (_, i) => (
             <li key={i} className="border rounded-lg bg-card p-6">
               <h2 className="font-headline text-xl text-foreground mb-2">

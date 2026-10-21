@@ -368,7 +368,12 @@ export default function ContactPage() {
                 per gli assistenti vocali — stesso pattern di #storia su /about
                 (03:36) e #steps su /orders (05:36). 1:1 col contenuto visibile,
                 i18n attiva, zero cambi visivi. */}
-            <Card id="recapiti" className="bg-card w-full">
+            {/* QA 21/10 23:36 (miglioria ciclo): scroll-mt con
+                env(safe-area-inset-top) — stesso pattern di #gallery (10/10
+                15:36): l'id e' target di frammento (speakable JSON-LD, deep
+                link): senza scroll-mt il salto ad ancora nasconderebbe la
+                card sotto l'header sticky (80px + notch). Zero cambi visivi. */}
+            <Card id="recapiti" className="bg-card w-full scroll-mt-[calc(6rem+env(safe-area-inset-top))]">
               <CardHeader>
                 <CardTitle className="font-headline text-2xl">{t('contactInfo.title')}</CardTitle>
               </CardHeader>

@@ -519,7 +519,13 @@ export default function HomeClient() {
               assistenti vocali — stesso pattern di #recapiti su /contact
               (06:36). 1:1 col contenuto visibile, i18n attiva, zero cambi
               visivi. */}
-          <div id="perche-gdc" className="mt-16 md:mt-24 max-w-5xl mx-auto">
+          {/* QA 21/10 23:36 (miglioria ciclo): scroll-mt con
+              env(safe-area-inset-top) — stesso pattern di #gallery (10/10
+              15:36): l'id e' target di frammento (speakable JSON-LD, deep link
+              da assistenti/crawler): senza scroll-mt il salto ad ancora
+              nasconderebbe l'inizio sotto l'header sticky (80px + notch).
+              scroll-margin non tocca il layout: zero cambi visivi. */}
+          <div id="perche-gdc" className="mt-16 md:mt-24 max-w-5xl mx-auto scroll-mt-[calc(6rem+env(safe-area-inset-top))]">
             <div className="text-center mb-10">
               <p className="eyebrow mb-3">{t('trust.label')}</p>
               <h2 className="font-headline text-3xl md:text-5xl font-medium text-foreground lux-title">

@@ -257,7 +257,13 @@ export default function CollectionsPage() {
           `speakable` (SpeakableSpecification) nel JSON-LD ItemList qui sopra:
           identifica la griglia visibile delle collezioni per gli assistenti
           vocali. Zero cambi visivi; utile anche come ancora #collezioni. */}
-      <section id="collezioni" className="container mx-auto px-4 py-12 md:py-16">
+      {/* QA 21/10 23:36 (miglioria ciclo): scroll-mt con
+          env(safe-area-inset-top) — stesso pattern delle card collezione
+          (10/10 15:36, gia' coperto): la sezione e' target di frammento
+          (speakable JSON-LD ItemList, "utile anche come ancora #collezioni"):
+          senza scroll-mt il salto ad ancora nasconderebbe il titolo sotto
+          l'header sticky (80px + notch). Zero cambi visivi. */}
+      <section id="collezioni" className="container mx-auto px-4 py-12 md:py-16 scroll-mt-[calc(6rem+env(safe-area-inset-top))]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {collections.map((collection, index) => {
             const name = t(`${collection.id}.name`);

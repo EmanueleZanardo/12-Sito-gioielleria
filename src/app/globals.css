@@ -126,6 +126,22 @@
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
   }
+  /* QA 21/10 12:36 (micro-UX da telefono, punto 3 body): Chrome/Safari mobile
+     dipingono gli input autocompletati con :-webkit-autofill usando uno
+     sfondo chiaro (giallo pallido su Chrome, blu su Safari): su un sito
+     sempre dark (form contatti/ordini) è un "riflesso" estraneo, visibile
+     appena il browser compila nome/email/telefono da solo. La box-shadow
+     inset 40px sovrascrive lo sfondo UA con --background; -webkit-text-fill-color
+     ripristina il colore del testo (l'UA lo forza nero); la transition
+     lunghissima impedisce il flash del background chiaro al momento del fill. */
+  input:-webkit-autofill,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 40px hsl(var(--background)) inset;
+    -webkit-text-fill-color: hsl(var(--foreground));
+    caret-color: hsl(var(--foreground));
+    transition: background-color 9999s ease-in-out 0s;
+  }
   ::selection {
     background: hsl(39 46% 60% / 0.85);
     color: #14100a;

@@ -111,8 +111,17 @@
        scrollbar classica appare/scompare e il layout trasla di ~10px su
        desktop. `stable` riserva sempre lo spazio: zero scatti tra pagine,
        nessun cambio visivo dove la scrollbar c'e' gia'; i browser che non
-       la supportano la ignorano (progressive enhancement). */
+       la supportano la ignorano (progressive enhancement).
+     QA 21/10 17:36 (micro-UX, punto 5 body): scrollbar-width/color per
+     Firefox — la sezione "Scrollbar sottile in tema" piu' sotto stilizza
+     solo ::-webkit-scrollbar (Chrome/Safari/Edge): Firefox la ignora e
+     mostra la scrollbar di default (spessa, fuori tema). `thin` + colori
+     in tema (stessi di ::-webkit-scrollbar-thumb/track) rendono la
+     scrollbar coerente col design anche su Firefox desktop; i browser che
+     non le supportano le ignorano (progressive enhancement). */
     scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(38 18% 28%) hsl(var(--background));
   }
   body {
     @apply bg-background text-foreground;

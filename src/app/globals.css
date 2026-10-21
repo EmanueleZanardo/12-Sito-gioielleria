@@ -105,6 +105,14 @@
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    /* QA 21/10 14:36 (micro-UX, punto 5 body): scrollbar-gutter: stable —
+       i contenuti sono centrati (max-w-* mx-auto): senza riserva, navigando
+       tra pagine di altezza diversa (es. / lunga -> /contact corta) la
+       scrollbar classica appare/scompare e il layout trasla di ~10px su
+       desktop. `stable` riserva sempre lo spazio: zero scatti tra pagine,
+       nessun cambio visivo dove la scrollbar c'e' gia'; i browser che non
+       la supportano la ignorano (progressive enhancement). */
+    scrollbar-gutter: stable;
   }
   body {
     @apply bg-background text-foreground;

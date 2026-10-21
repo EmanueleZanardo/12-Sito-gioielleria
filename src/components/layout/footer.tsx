@@ -73,6 +73,18 @@ export function Footer() {
           <p className="text-sm text-muted-foreground">
             &copy; {new Date().getFullYear()} GDC Jewellery Lab. {t('footer.rights')}
           </p>
+          {/* QA 22/10 01:36 (miglioria ciclo): link all'informativa privacy —
+              il sito raccoglie dati personali dai moduli (nome, email,
+              messaggio, foto) ma non aveva alcuna informativa raggiungibile.
+              Stesso stile dei link nav (visited: invariato, hover gold). */}
+          <p className="mt-2 text-sm">
+            <Link
+              href="/privacy"
+              className="text-foreground/70 visited:text-foreground/70 hover:text-gold transition-colors underline underline-offset-2"
+            >
+              {t('footer.privacy')}
+            </Link>
+          </p>
         </div>
       </div>
     </footer>

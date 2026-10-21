@@ -21,7 +21,8 @@
     "footer": {
       "tagline": "Creating timeless jewelry that tells your story.",
       "rights": "All rights reserved.",
-      "logoAlt": "GDC Jewellery Lab logo"
+      "logoAlt": "GDC Jewellery Lab logo",
+      "privacy": "Privacy Policy"
     },
     "share": {
       "button": "Share Store",
@@ -188,7 +189,10 @@
         "previewAlt": "Image preview"
       },
       "submit": "Send Message",
-      "requiredHint": "Fields marked * are required"
+      "requiredHint": "Fields marked * are required",
+      "privacyPrefix": "By submitting this form you accept our",
+      "privacyLink": "privacy policy",
+      "privacySuffix": "."
     },
     "infoButton": "Request Information",
     "prefill": {
@@ -306,7 +310,10 @@
         "name": "Please enter your name.",
         "email": "Please enter a valid email address."
       },
-      "requiredHint": "Fields marked * are required"
+      "requiredHint": "Fields marked * are required",
+      "privacyPrefix": "By submitting this form you accept our",
+      "privacyLink": "privacy policy",
+      "privacySuffix": "."
     },
     "v2": {
       "hero": {

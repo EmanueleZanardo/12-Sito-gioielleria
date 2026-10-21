@@ -3,6 +3,7 @@
 import React, { useEffect, useState, Suspense, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useForm, type SubmitHandler, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -497,6 +498,17 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
                   {isSubmitting && <Loader2 aria-hidden="true" className="mr-2 h-5 w-5 animate-spin" />}
                   {t('form.submit')}
               </Button>
+              {/* QA 22/10 01:36 (miglioria ciclo): rimando all'informativa
+                  privacy sotto il bottone di invio — il modulo raccoglie dati
+                  personali (nome, email, messaggio, foto). Testo i18n x4 lingue,
+                  link interno /privacy. */}
+              <p className="text-center text-xs text-muted-foreground">
+                {t('form.privacyPrefix')}{' '}
+                <Link href="/privacy" className="underline underline-offset-2 visited:text-gold hover:text-primary">
+                  {t('form.privacyLink')}
+                </Link>
+                {t('form.privacySuffix')}
+              </p>
               {/* QA 04/10: alternativa visibile mentre il server di posta non è
                   attivo — il visitatore ha sempre un canale che funziona. */}
               <p className="text-center text-sm text-muted-foreground">

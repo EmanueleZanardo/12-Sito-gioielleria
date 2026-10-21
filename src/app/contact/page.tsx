@@ -10,6 +10,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Mail, Phone, Instagram, Loader2, X } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useTranslation } from '@/hooks/use-translation';
 import { JsonLd, breadcrumbList, SITE_URL } from '@/components/json-ld';
 import { sendConfirmationEmail } from '@/lib/actions';
@@ -263,6 +264,17 @@ subject avevano già "next", al messaggio mancava. Zero cambi visivi. */}
               {isSubmitting && <Loader2 aria-hidden="true" className="mr-2 h-5 w-5 animate-spin" />}
               {t('form.submit')}
             </Button>
+            {/* QA 22/10 01:36 (miglioria ciclo): rimando all'informativa
+                privacy sotto il bottone di invio — il modulo raccoglie dati
+                personali (nome, email, messaggio, foto). Testo i18n x4 lingue,
+                link interno /privacy. */}
+            <p className="text-center text-xs text-muted-foreground">
+              {t('form.privacyPrefix')}{' '}
+              <Link href="/privacy" className="underline underline-offset-2 visited:text-gold hover:text-primary">
+                {t('form.privacyLink')}
+              </Link>
+              {t('form.privacySuffix')}
+            </p>
             {/* QA 04/10: alternativa visibile mentre il server di posta
                 non è attivo — il visitatore ha sempre un canale che
                 funziona, senza cambiare il design. */}

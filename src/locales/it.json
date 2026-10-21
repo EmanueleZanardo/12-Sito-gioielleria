@@ -21,7 +21,8 @@
     "footer": {
       "tagline": "Creiamo gioielli senza tempo che raccontano la tua storia.",
       "rights": "Tutti i diritti riservati.",
-      "logoAlt": "Logo GDC Jewellery Lab"
+      "logoAlt": "Logo GDC Jewellery Lab",
+      "privacy": "Privacy Policy"
     },
     "share": {
       "button": "Condividi lo Store",
@@ -188,7 +189,10 @@
         "previewAlt": "Anteprima immagine"
       },
       "submit": "Invia Messaggio",
-      "requiredHint": "Campi con * sono obbligatori"
+      "requiredHint": "Campi con * sono obbligatori",
+      "privacyPrefix": "Inviando il modulo accetti la nostra",
+      "privacyLink": "informativa sulla privacy",
+      "privacySuffix": "."
     },
     "infoButton": "Richiedi Informazioni",
     "prefill": {
@@ -306,7 +310,10 @@
         "name": "Inserisci il tuo nome.",
         "email": "Inserisci un indirizzo email valido."
       },
-      "requiredHint": "Campi con * sono obbligatori"
+      "requiredHint": "Campi con * sono obbligatori",
+      "privacyPrefix": "Inviando il modulo accetti la nostra",
+      "privacyLink": "informativa sulla privacy",
+      "privacySuffix": "."
     },
     "v2": {
       "hero": {

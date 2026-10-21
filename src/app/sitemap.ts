@@ -58,6 +58,10 @@ const ROUTES: RouteEntry[] = [
   { path: '/orders', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/collections', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/contact', changeFrequency: 'yearly', priority: 0.7 },
+  // QA 22/10 01:36 (miglioria ciclo): /privacy — informativa sul trattamento
+  // dei dati personali (i moduli del sito raccolgono nome, email, messaggio,
+  // foto). Pagina stabile: yearly, priorità bassa.
+  { path: '/privacy', changeFrequency: 'yearly', priority: 0.3 },
   // /custom-jewel/order-form NON in sitemap: ha robots index:false (noindex)
   // — Google indicizza solo le pagine vetrina (miglioria SEO ciclo 03/10 09:36).
 ];

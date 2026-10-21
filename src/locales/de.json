@@ -21,7 +21,8 @@
     "footer": {
       "tagline": "Zeitlosen Schmuck kreieren, der Ihre Geschichte erzählt.",
       "rights": "Alle Rechte vorbehalten.",
-      "logoAlt": "GDC Jewellery Lab Logo"
+      "logoAlt": "GDC Jewellery Lab Logo",
+      "privacy": "Datenschutzerklärung"
     },
     "share": {
       "button": "Shop teilen",
@@ -188,7 +189,10 @@
         "previewAlt": "Bildvorschau"
       },
       "submit": "Nachricht senden",
-      "requiredHint": "Mit * gekennzeichnete Felder sind Pflichtfelder"
+      "requiredHint": "Mit * gekennzeichnete Felder sind Pflichtfelder",
+      "privacyPrefix": "Mit dem Absenden des Formulars akzeptieren Sie unsere",
+      "privacyLink": "Datenschutzerklärung",
+      "privacySuffix": "."
     },
     "infoButton": "Informationen anfordern",
     "prefill": {
@@ -306,7 +310,10 @@
         "name": "Bitte geben Sie Ihren Namen ein.",
         "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein."
       },
-      "requiredHint": "Mit * gekennzeichnete Felder sind Pflichtfelder"
+      "requiredHint": "Mit * gekennzeichnete Felder sind Pflichtfelder",
+      "privacyPrefix": "Mit dem Absenden des Formulars akzeptieren Sie unsere",
+      "privacyLink": "Datenschutzerklärung",
+      "privacySuffix": "."
     },
     "v2": {
       "hero": {

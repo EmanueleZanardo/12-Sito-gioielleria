@@ -336,8 +336,11 @@ export default function HomeClient() {
           singolo e schema.org le sconsiglia sulla homepage. Le briciole
           restano su tutte le sottopagine (2+ item). Zero cambi visivi. */}
       {/* Hero Section */}
+      {/* QA 21/10 15:36: hero-dvh (globals.css) invece di h-[80vh]/md:h-screen:
+          su iOS Safari la hero segue l'altezza visibile reale (dvh), niente
+          fondo tagliato dietro la toolbar; fallback vh per browser vecchi. */}
       <section
-        className="relative h-[80vh] md:h-screen w-full flex items-center justify-center text-center text-white"
+        className="relative hero-dvh w-full flex items-center justify-center text-center text-white"
       >
         <Image
           src={heroImage.imageUrl}

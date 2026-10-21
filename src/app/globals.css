@@ -198,6 +198,24 @@
   .lux-title {
     text-wrap: balance;
   }
+
+  /* QA 21/10 15:36 (micro-UX da telefono, punto 3 body): altezza hero con
+     unita' viewport dinamiche — su iOS Safari 100vh include l'area sotto la
+     toolbar del browser: la hero risultava piu' alta del visibile (fondo
+     tagliato dietro la toolbar, salto quando la toolbar collassa). 80dvh/
+     100dvh seguono l'altezza visibile reale. Le dichiarazioni vh restano
+     come fallback per i browser senza supporto dvh (dichiarazione non
+     supportata = ignorata, resta il vh). Su desktop dvh == vh: invariato. */
+  .hero-dvh {
+    height: 80vh;
+    height: 80dvh;
+  }
+  @media (min-width: 768px) {
+    .hero-dvh {
+      height: 100vh;
+      height: 100dvh;
+    }
+  }
 }
 
 /* Scrollbar sottile in tema */

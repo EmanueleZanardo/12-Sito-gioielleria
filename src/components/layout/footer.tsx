@@ -55,7 +55,13 @@ export function Footer() {
               <span className="sr-only">{t('newTab')}</span>
             </a>
           </div>
-          <div className="flex flex-wrap justify-center -mx-4">
+          {/* QA 22/10 18:36 (miglioria ciclo, a11y): i link del footer erano in
+              un <div> generico — gli screen reader non li annunciavano come
+              navigazione. Ora <nav> con aria-label distinto dagli altri due
+              landmark (nav.primaryNav / nav.mobileNav dell'header): i tre
+              landmark restano distinguibili. Zero cambi visivi (stesse classi
+              sul nav, nessun reset UA applicato ai link). */}
+          <nav aria-label={t('nav.footerNav')} className="flex flex-wrap justify-center -mx-4">
             {navLinks.map(({ href, label }) => (
               <Link
                 key={label}
@@ -66,7 +72,7 @@ export function Footer() {
                 {label}
               </Link>
             ))}
-          </div>
+          </nav>
         </div>
         <hr className="my-8 border-gold/15" />
         <div className="text-center">

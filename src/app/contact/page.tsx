@@ -155,10 +155,14 @@ function ContactFormComponent() {
   return (
     <Card className="bg-card w-full md:max-w-md">
       <CardHeader>
-        <CardTitle className="font-headline text-2xl">{t('form.title')}</CardTitle>
+        {/* QA 22/10 16:36 (miglioria ciclo, a11y): id per l'aria-labelledby
+            del <form> qui sotto — lo screen reader annuncia il form col suo
+            titolo invece di un generico "modulo". Stesso pattern dell'order-form
+            (aria-labelledby, 10/10). Zero cambi visivi. */}
+        <CardTitle id="contact-form-title" className="font-headline text-2xl">{t('form.title')}</CardTitle>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6">
+        <form onSubmit={handleSubmit(handleFormSubmit)} aria-labelledby="contact-form-title" className="space-y-6">
           {/* QA 12/10 19:36 (miglioria ciclo): honeypot anti-spam — campo
               "website" invisibile agli umani (fuori schermo + hidden, aria-hidden,
               escluso dalla tabulazione, senza label) e NON registrato in

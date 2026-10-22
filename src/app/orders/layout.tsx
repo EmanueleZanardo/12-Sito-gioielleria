@@ -42,6 +42,8 @@ export const metadata: Metadata = {
         // con openGraph proprio: og:image:secure_url e' letto da
         // LinkedIn/Telegram/WhatsApp oltre a og:image. Solo additivo.
         secureUrl: 'https://gdc-jewellery-lab.vercel.app/og-cover.jpg',
+        // QA 22/10 07:36 (miglioria ciclo): type esplicito — og:image:type viene letto da alcuni crawler social per validare l'asset senza fetch extra dei header. Solo additivo, zero cambi visivi.
+        type: 'image/jpeg',
         width: 1200,
         height: 630,
         alt: 'GDC Jewellery Lab — Come ordinare il tuo gioiello su misura',

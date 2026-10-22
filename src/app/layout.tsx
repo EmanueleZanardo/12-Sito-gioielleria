@@ -121,6 +121,8 @@ export const metadata: Metadata = {
         // (LinkedIn, Telegram, WhatsApp) oltre al classico og:image.
         // Solo additivo, zero cambi visivi.
         secureUrl: 'https://gdc-jewellery-lab.vercel.app/og-cover.jpg',
+        // QA 22/10 07:36 (miglioria ciclo): type esplicito — og:image:type viene letto da alcuni crawler social per validare l'asset senza fetch extra dei header. Solo additivo, zero cambi visivi.
+        type: 'image/jpeg',
         width: 1200,
         height: 630,
         alt: 'GDC Jewellery Lab — Gioielli artigianali su misura',

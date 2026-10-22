@@ -17,7 +17,7 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  title: 'Privacy Policy | GDC Jewellery Lab',
+  title: 'Privacy Policy',
   description:
     'Informativa sul trattamento dei dati personali di GDC Jewellery Lab: quali dati raccogliamo dai moduli del sito, perché li usiamo e quali sono i tuoi diritti.',
   alternates: {

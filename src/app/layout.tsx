@@ -6,6 +6,7 @@ import { Footer } from '@/components/layout/footer';
 import { LanguageProvider } from '@/context/language-context';
 import { MotionProvider } from '@/components/motion-provider';
 import { SkipLink } from '@/components/skip-link';
+import { RouteAnnouncer } from '@/components/route-announcer';
 import { serializeJsonLd } from '@/components/json-ld';
 import './globals.css';
 import { ShareDialog } from '@/components/share/share-dialog';
@@ -235,6 +236,7 @@ export default function RootLayout({
         <MotionProvider>
         <LanguageProvider>
             <SkipLink />
+            <RouteAnnouncer />
             <div className="flex min-h-screen flex-col overflow-x-clip">
               <Header />
               {/* tabIndex={-1}: il <main> è il target dello SkipLink ("salta al

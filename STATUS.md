@@ -1,3 +1,11 @@
+**Ultimo aggiornamento: 24/10/2026 ~01:36 CEST**
+
+## 24/10/2026 ~01:36 CEST — ciclo QA orario
+- **Ciclo 24/10 01:36 (verde, 1 miglioria sito, 0 regressioni):** sync via API a inizio ciclo — tree remoto 46656a4d (commit API del push 00:36) = working tree locale, git status pulito; build exit 0 + tsc 0 errori (sequenziali post-sweep, regola anti-race 18/10).
+- **Miglioria ciclo (sito, metadata-only, zero cambi visivi): meta `application-name` in src/app/layout.tsx** — gap reale: nessuna delle 152 sezioni verificava il meta tag application-name; il sito ha manifest con name/short_name (sez. 147) e i meta PWA-capable (sez. 152), ma `<meta name="application-name">` e' un segnale HTML separato letto da browser/crawler come nome dell'app/brand. Aggiunto `other: { 'application-name': 'GDC Jewellery Lab' }` nel metadata del root layout. Verificato nel prerenderizzato locale: il meta e' emesso su tutte le 9 pagine (8 rotte + /privacy + 404).
+- **Nuova sezione sweep 153 APPLICATION-NAME-AUDIT** (presidio della miglioria): R1 tag presente, R2 content non vuoto, R3 content contiene il brand "GDC" (ancora anti-garbage) — sul DOM live delle 9 pagine. Probe probe-2026-10-24-0136-appname.py: 6/6 casi sintetici (pulito, mancante, vuoto, senza-brand, case-insensitive, brand-minuscolo), 0 falsi positivi; live pre-deploy 0/9 OK con 9 KO attesi (tag non ancora live al run dello sweep — denti della probe confermati); verifica post-deploy nel daily log 24/10.
+- Resto dello sweep verde (153 sezioni): 8/8 route 200, /gallery 308→/#gallery, aux 200, 404 OK, immagini/link ok (incl. postimg.cc), meta/OG/Twitter completi, JSON-LD validi (26 blocchi, 0 invalidi), CSP-HEADER 8/8, VISITED-GUARD OK (bottone outline GALLERIA non cambia colore post-click), form con markup corretto e autocomplete, 0 placeholder, 0 freeze-lag. Push: src/app/layout.tsx + STATUS.md (tooling sweep in hidden_files, fuori dal repo). Niente pubblicazioni Instagram (mai autorizzate). Firebase originale non toccato.
+
 **Ultimo aggiornamento: 24/10/2026 ~00:36 CEST**
 
 ## 24/10/2026 ~00:36 CEST — ciclo QA orario

@@ -119,6 +119,12 @@ export const metadata: Metadata = {
   },
   other: {
     'mobile-web-app-capable': 'yes',
+    // QA 24/10 01:36 (miglioria ciclo): application-name — nome breve
+    // dell'app letto da browser/crawler come segnale PWA/brand (il manifest
+    // ha name/short_name per l'installazione, ma il meta HTML e' un segnale
+    // separato: nessuna delle 152 sezioni sweep lo verificava). Solo
+    // additivo, zero cambi visivi.
+    'application-name': 'GDC Jewellery Lab',
   },
   openGraph: {
     title: 'GDC Jewellery Lab | Gioielli Artigianali su Misura',

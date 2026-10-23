@@ -105,6 +105,21 @@ export const metadata: Metadata = {
   formatDetection: {
     telephone: false,
   },
+  // QA 24/10 00:36 (miglioria ciclo): meta PWA-capable per "Aggiungi a
+  // schermata Home". Il manifest da solo non basta su iOS: senza
+  // apple-mobile-web-app-capable l'app aggiunta si apre in Safari con la
+  // chrome del browser invece che standalone. statusBarStyle
+  // black-translucent + title per un lancio coerente col tema scuro.
+  // mobile-web-app-capable e' l'equivalente standardizzato (Chrome/altri).
+  // Solo meta tag: zero cambi visivi.
+  appleWebApp: {
+    capable: true,
+    title: 'GDC Jewellery Lab',
+    statusBarStyle: 'black-translucent',
+  },
+  other: {
+    'mobile-web-app-capable': 'yes',
+  },
   openGraph: {
     title: 'GDC Jewellery Lab | Gioielli Artigianali su Misura',
     description:

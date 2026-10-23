@@ -1,4 +1,12 @@
-**Ultimo aggiornamento: 22/10/2026 ~02:00 CEST**
+**Ultimo aggiornamento: 23/10/2026 ~02:00 CEST**
+
+## 23/10/2026 ~02:00 CEST — aggiornamento documentale giornaliero
+- **Cicli QA 22/10 orari tutti VERDI, 0 bug nel sito, build + tsc sempre puliti, 0 regressioni.** Sweep live: nuove sezioni — ROUTE-ANNOUNCER-AUDIT (10:36), HDR-ALL AUDIT (15:36), NOOPENER-REL AUDIT (20:36), ROBOTS-CONTENT AUDIT (21:36), SKIP-LINK-TARGET AUDIT (22:36), PRIVACY-PAGE AUDIT (23:36). Ciclo 23/10 01:36: sync remoto efd6f68 = tree locale; sweep 0 KO (2 run); nuova sezione 145 OG-IMAGE-DIMENSIONS AUDIT; nessun push (zero modifiche al codice).
+- **Miglioria 10:36 (a11y WCAG 2.4.3/4.1.3) pushata (`bd651b2d`, fail-closed su base 987c63b, VERIFY_OK):** `src/components/route-announcer.tsx` — annuncia il cambio pagina client-side agli screen reader (regione role="status" sr-only). Live 200.
+- **STALLO DEPLOY VERCEL RISOLTO (19:43 → 20:41):** Emanuele ha collegato il connettore Vercel (suo click) → diagnosi via API Vercel: il deploy del commit 16:36 (form contatti) ERA andato online alle 16:50; mancava SOLO il deploy di `efd6f68` (miglioria footer 18:36 — il push delle 18:44 non aveva generato alcun deployment). Redeploy `withLatestCommit` → dpl_4X3FCjuuZvwBs3W5zNmygsDm92GM (commit efd6f68, production) READY. Live verificato: footer <nav> "Navigazione piè di pagina" + RouteAnnouncer serviti, 200. **Sospensione push QA (imposta 19:43) REVOCATA.** Nessun rate limit.
+- **Nota di coordinamento:** il job QA-gioielleria mantiene il suo log cicli direttamente sul STATUS.md remoto (formato proprio); questo job mergia le proprie sezioni giornaliere sulla base live senza sovrascrivere le entry QA.
+- KO-set residuo: DUPLICATE-LINK-DEST 1 reale (fix locale in attesa), IMAGE-WEIGHT informativo. Blocchi: prompt video/immagine approvati da lui PRIMA di lanciare su Gemini; pubblicazione automatica NON autorizzata; Firebase originale non spento.
+
 
 ## 22/10/2026 ~02:00 CEST — aggiornamento documentale giornaliero
 - **SBLOCCO FREEZE 21/10 ~12:21 (ordine esplicito di Emanuele): PUSH FREEZE del 07/10 REVOCATO.** Push cumulativo `e229a7f` (21/10 12:28, 41 file), sito live verificato 200, nessun rate limit Vercel. I push QA riprendono normalmente (resta la regola: solo modifiche reali).

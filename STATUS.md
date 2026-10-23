@@ -1,4 +1,4 @@
-**Ultimo aggiornamento: 23/10/2026 ~02:00 CEST**
+**Ultimo aggiornamento: 23/10/2026 ~07:36 CEST**
 
 ## 23/10/2026 ~02:00 CEST — aggiornamento documentale giornaliero
 - **Cicli QA 22/10 orari tutti VERDI, 0 bug nel sito, build + tsc sempre puliti, 0 regressioni.** Sweep live: nuove sezioni — ROUTE-ANNOUNCER-AUDIT (10:36), HDR-ALL AUDIT (15:36), NOOPENER-REL AUDIT (20:36), ROBOTS-CONTENT AUDIT (21:36), SKIP-LINK-TARGET AUDIT (22:36), PRIVACY-PAGE AUDIT (23:36). Ciclo 23/10 01:36: sync remoto efd6f68 = tree locale; sweep 0 KO (2 run); nuova sezione 145 OG-IMAGE-DIMENSIONS AUDIT; nessun push (zero modifiche al codice).
@@ -6,6 +6,7 @@
 - **STALLO DEPLOY VERCEL RISOLTO (19:43 → 20:41):** Emanuele ha collegato il connettore Vercel (suo click) → diagnosi via API Vercel: il deploy del commit 16:36 (form contatti) ERA andato online alle 16:50; mancava SOLO il deploy di `efd6f68` (miglioria footer 18:36 — il push delle 18:44 non aveva generato alcun deployment). Redeploy `withLatestCommit` → dpl_4X3FCjuuZvwBs3W5zNmygsDm92GM (commit efd6f68, production) READY. Live verificato: footer <nav> "Navigazione piè di pagina" + RouteAnnouncer serviti, 200. **Sospensione push QA (imposta 19:43) REVOCATA.** Nessun rate limit.
 - **Nota di coordinamento:** il job QA-gioielleria mantiene il suo log cicli direttamente sul STATUS.md remoto (formato proprio); questo job mergia le proprie sezioni giornaliere sulla base live senza sovrascrivere le entry QA.
 - KO-set residuo: NESSUNO — DUPLICATE-LINK-DEST verificato RISOLTO live (23/10 06:36: audit sez. 103 ripristinata nello sweep compatto dopo essere sparita dai run 04:36/05:36; 0 gruppi nome+pagina con href diversi su 6 pagine inclusa /collections). IMAGE-WEIGHT solo informativo. Blocchi: prompt video/immagine approvati da lui PRIMA di lanciare su Gemini; pubblicazione automatica NON autorizzata; Firebase originale non spento.
+- **Ciclo 23/10 07:36 (verde, 0 bug, 0 regressioni):** sweep compatto 0 KO reali — 6/6 route 200, /gallery 308→/#gallery, 5/5 aux 200, 404 OK, immagini/link/meta/OG/placeholder puliti; **nuove sezioni audit: ICON-BUTTON-NAME (10/10 probe sintetici, 0 falsi positivi; live OK — nessun bottone/link solo-icone senza nome accessibile) e VISITED-CSS-GUARD (markup visited:text-gold + regola compilata nel CSS live OK — il bottone outline GALLERIA non cambia colore post-click)**; DUPLICATE-LINK-DEST ancora OK. Build exit 0 + tsc 0 errori (sequenziali, dopo lo sweep). Miglioria ciclo: processo (2 nuove sezioni sweep). Push docs STATUS.md.
 
 
 ## 22/10/2026 ~02:00 CEST — aggiornamento documentale giornaliero

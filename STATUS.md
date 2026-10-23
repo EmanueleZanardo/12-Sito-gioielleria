@@ -1,4 +1,9 @@
-**Ultimo aggiornamento: 23/10/2026 ~11:36 CEST**
+**Ultimo aggiornamento: 23/10/2026 ~12:36 CEST**
+
+## 23/10/2026 ~12:36 CEST — ciclo QA orario
+- **Ciclo 23/10 12:36 (verde, 0 bug, 0 regressioni):** sync remoto cc9bb8fc = tree locale (118/118 blob, zero diff); build exit 0 + tsc 0 errori (sequenziali); sweep integrale 0 KO reali / 0 freeze-lag (35 sezioni) — 8/8 route 200, /gallery 308→/#gallery, aux 200, 404 OK, 28/28 image:loc sitemap-images OK, CSP-HEADER 8/8, OG-LOCALE-ALTERNATE 8/8, VISITED-GUARD OK (bottone outline GALLERIA non cambia colore post-click).
+- **Nota tooling:** postimg.cc lento oggi (~13s/HEAD) — il primo run dello sweep è stato SIGTERMato dal runtime a 292s dentro SITEMAP-IMAGES (check sequenziali, ~5+ min); rerun completato exit 0.
+- **Miglioria ciclo: processo — SITEMAP-IMAGES parallelo:** check head_ok ora via ThreadPoolExecutor (stdlib, 8 worker): sezione da ~5+ min a 28s sul live (28 OK, 0 KO); probe-2026-10-23-1236-sitemapimages-par.py 6/6 casi sintetici, 0 falsi positivi; ordine deterministico, ko()/print nel main thread. Backup qa-sweep.py.bak-1236. Push docs STATUS.md.
 
 ## 23/10/2026 ~02:00 CEST — aggiornamento documentale giornaliero
 - **Ciclo 23/10 11:36 (verde, 0 bug, 0 regressioni):** sync remoto 1f26a4e = tree locale (141/141 blob, zero diff, escluso tsconfig.tsbuildinfo); build exit 0 + tsc 0 errori (sequenziali); sweep integrale 0 KO reali / 0 freeze-lag — 8/8 route 200, /gallery 308→/#gallery, aux 200, 404 OK, immagini/link/meta/OG/placeholder puliti; VISITED-GUARD-AUDIT OK (bottone outline GALLERIA non cambia colore post-click); **nuova sezione sweep OG-LOCALE-ALTERNATE-AUDIT (probe 8/8 casi sintetici, 0 falsi positivi; live 8/8 OK al primo run)**: verifica che ogni rotta emetta esattamente 1 og:locale=it_IT e og:locale:alternate={en_US,fr_FR,de_DE} — era l'unico segnale multilingua per i crawler social (single-URL, switch lingua client-side; hreflang non applicabile) e nessuna sezione lo copriva. Miglioria ciclo: processo (nuova sezione sweep). Push docs STATUS.md.

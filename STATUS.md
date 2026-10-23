@@ -1,3 +1,10 @@
+**Ultimo aggiornamento: 23/10/2026 ~22:36 CEST**
+
+## 23/10/2026 ~22:36 CEST — ciclo QA orario
+- **Ciclo 23/10 22:36 (verde, 0 bug nel sito, 0 regressioni):** sync via API a inizio ciclo — tree remoto 18518fe5 = working tree locale (118/118 blob, zero diff); tsc exit 0 + build exit 0 (sequenziali); sweep integrale 2236 (84 sezioni) — 0 KO reali, 0 freeze-lag (nessun transitorio postimg.cc in questo ciclo).
+- **Miglioria ciclo (processo, tooling): nuova sezione sweep 150 THEME-COLOR-AUDIT** — gap reale: nessuna sezione verificava il `<meta name="theme-color">` servito sulle pagine (MANIFEST-CONTENT verifica il JSON del manifest, mai il meta HTML); un layout di sezione che perdesse l'export viewport romperebbe il colore brand #0d0b08 della barra browser mobile, zero segnali altrove. La probe valida R1 esattamente un meta theme-color per pagina (8 rotte + /privacy), R2 content esadecimale valido (#rgb/#rrggbb), R3 content == manifest theme_color (coerenza brand). Probe probe-2026-10-23-2236-themecolor.py: 6/6 casi sintetici (pulito, assente, duplicato, malformato, vuoto, mismatch-manifest), 0 falsi positivi; live: 9/9 OK (#0d0b08 == manifest su tutte). Inoltre qa-sweep.py (master in hidden_files) riallineato alle sezioni 148/149 — i cicli 20:36/21:36 le avevano cablate solo negli snapshot: ora il master contiene tutte le 150 sezioni (backup qa-sweep.py.bak-2236).
+- Resto dello sweep verde: 8/8 route 200, /gallery 308→/#gallery, aux 200, 404 OK, immagini/link ok, meta/OG/Twitter completi, JSON-LD validi, CSP-HEADER 8/8, CANONICAL-SELF-REF 8/8, NOINDEX-GUARD 8/8, MANIFEST-CONTENT 16/16, ICON-DIMENSIONS 5/5, APPLE-TOUCH-ICON 7/7, VISITED-GUARD OK (bottone outline GALLERIA non cambia colore post-click), form con aria-labelledby verificati, 0 placeholder. Push: solo STATUS.md (zero modifiche al codice del sito — la miglioria è tooling in hidden_files, fuori dal repo). Niente pubblicazioni Instagram (mai autorizzate). Firebase originale non toccato.
+
 **Ultimo aggiornamento: 23/10/2026 ~21:36 CEST**
 
 ## 23/10/2026 ~21:36 CEST — ciclo QA orario

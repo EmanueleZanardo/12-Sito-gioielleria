@@ -1,4 +1,11 @@
-**Ultimo aggiornamento: 23/10/2026 ~13:36 CEST**
+**Ultimo aggiornamento: 23/10/2026 ~15:36 CEST**
+
+## 23/10/2026 ~15:36 CEST — ciclo QA orario
+- **Ciclo 23/10 15:36 (1 bug reale trovato e fixato, 0 regressioni):** sync via API a inizio ciclo — tree remoto ad045f75 = working tree locale (141/141 blob, zero diff; l'index git locale era stantio su 3 file, working tree gia' col contenuto pushato); build exit 0 + tsc 0 errori (sequenziali); sweep integrale 79 sezioni — run finale 1536c: 1 KO = transitorio postimg.cc (verificato 206 via curl), 0 freeze-lag.
+- **Bug fix (tooling sweep):** la sezione CANONICAL-SELF-REF-AUDIT (introdotta 13:36) si aspettava il canonical home CON trailing slash, ma il fix 13:36 lo aveva allineato SENZA (Next normalizza il canonical della root — dichiarazione = tag servito): il run 1536 KOava su `/`. Attesa corretta a `BASE` senza slash per `/` (backup qa-sweep.py.bak-1536); run 1536c: 8 OK, 0 KO.
+- **Miglioria ciclo (SEO, processo): nuova sezione sweep NOINDEX-GUARD-AUDIT** — gap reale: nessuna sezione verificava che le 8 pagine vetrina non emettano un noindex accidentale (meta robots o header X-Robots-Tag). Il noindex di /custom-jewel/order-form e' DELIBERATO (decisione QA 03/10: moduli non indicizzati) e la sua assenza e' KO (guardia anti-regressione). Probe probe-2026-10-23-1536-noindex.py: 10/10 casi sintetici, 0 falsi positivi; live 1536c: 8 OK, 0 KO.
+- **Nota tooling:** postimg.cc instabile oggi (connessioni droppate a intermittenza: KO status -1 su 3 immagini diverse nei run 1536/1536b/1536c, ogni volta verificato 206 via curl subito dopo) — transitorio di rete, non bug del sito. Deploy Vercel del push 13:36 verificato: "Deployment has completed".
+- Resto dello sweep verde: 8/8 route 200, /gallery 308→/#gallery, aux 200, 404 OK, CSP-HEADER 8/8, OG-LOCALE-ALTERNATE 8/8, VISITED-GUARD OK (bottone outline GALLERIA non cambia colore post-click), meta/OG/Twitter completi, 0 placeholder. Push: solo STATUS.md (zero modifiche al codice del sito). Niente pubblicazioni Instagram (mai autorizzate). Firebase originale non toccato.
 
 ## 23/10/2026 ~13:36 CEST — ciclo QA orario
 - **Ciclo 23/10 13:36 (1 bug reale trovato e fixato, 0 regressioni):** sync remoto d9a3f62b = tree locale (118/118 blob, zero diff); build exit 0 + tsc 0 errori (sequenziali, prima e dopo il fix); sweep integrale 36 sezioni — 1 KO reale / 0 freeze-lag.

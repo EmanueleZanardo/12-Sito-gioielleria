@@ -62,6 +62,33 @@ const nextConfig = {
           // funzionali/visivi; header rimossi verificati via curl post-deploy.
           // Baseline sicurezza OWASP: zero rischio di rottura, niente CSP (troppo
           // invasiva senza test visivo completo: Next inline scripts/styles, font, postimg).
+          // QA 23/10 08:36 (miglioria ciclo): aggiunta CSP CONSERVATIVA — il sito
+          // e' interamente same-origin (verificato dagli sweep: 0 <img src> diretti
+          // a i.postimg.cc — tutto passa per il proxy /_next/image; font self-hosted
+          // via next/font; zero script/analytics di terze parti; i form inviano via
+          // JS verso wa.me come navigazione <a>, mai POST cross-origin). Quindi:
+          // script/style restano con 'unsafe-inline' (richiesto da Next per
+          // hydration e inline styles) ma NESSUN host esterno puo' fornire script,
+          // style, font, immagini o connessioni; form-action 'self' (i form non
+          // hanno action cross-origin); frame-ancestors 'self' (ridondante con
+          // X-Frame-Options SAMEORIGIN, copertura per browser nuovi); object-src
+          // 'none'; upgrade-insecure-requests (il sito e' HTTPS-only).
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline'",
+              "style-src 'self' 'unsafe-inline'",
+              "img-src 'self' data: blob:",
+              "font-src 'self'",
+              "connect-src 'self'",
+              "form-action 'self'",
+              "frame-ancestors 'self'",
+              "object-src 'none'",
+              "base-uri 'self'",
+              'upgrade-insecure-requests',
+            ].join('; '),
+          },
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           // SAMEORIGIN (non DENY): blocca il clickjacking esterno ma lascia aperta

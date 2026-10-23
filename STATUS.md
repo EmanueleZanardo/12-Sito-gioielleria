@@ -1,4 +1,7 @@
-**Ultimo aggiornamento: 23/10/2026 ~07:36 CEST**
+**Ultimo aggiornamento: 23/10/2026 ~10:36 CEST**
+
+## 23/10/2026 ~02:00 CEST — aggiornamento documentale giornaliero
+- **Ciclo 23/10 10:36 (verde, 0 bug, 0 regressioni):** sync remoto 3ad6f14 = tree locale (118/118 blob, zero diff); sweep 0 KO reali — 6/6 route 200, /gallery 308→/#gallery, aux 200, 404 OK, immagini/link/meta/OG/placeholder puliti; **nuova sezione audit CSP-HEADER (10:36): 11/11 direttive Content-Security-Policy live = next.config.js** (guardia anti-regressione per il CSP introdotto alle 08:36; primo run ha beccato un bug del parser dello sweep — single-quoted 'upgrade-insecure-requests' non catturato — corretto prima del verde). Build exit 0 + tsc 0 errori (sequenziali, dopo lo sweep). Miglioria ciclo: processo (sezione sweep CSP-HEADER). Push docs STATUS.md.
 
 ## 23/10/2026 ~02:00 CEST — aggiornamento documentale giornaliero
 - **Cicli QA 22/10 orari tutti VERDI, 0 bug nel sito, build + tsc sempre puliti, 0 regressioni.** Sweep live: nuove sezioni — ROUTE-ANNOUNCER-AUDIT (10:36), HDR-ALL AUDIT (15:36), NOOPENER-REL AUDIT (20:36), ROBOTS-CONTENT AUDIT (21:36), SKIP-LINK-TARGET AUDIT (22:36), PRIVACY-PAGE AUDIT (23:36). Ciclo 23/10 01:36: sync remoto efd6f68 = tree locale; sweep 0 KO (2 run); nuova sezione 145 OG-IMAGE-DIMENSIONS AUDIT; nessun push (zero modifiche al codice).

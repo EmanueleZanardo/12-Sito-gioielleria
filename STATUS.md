@@ -1,4 +1,7 @@
-**Ultimo aggiornamento: 23/10/2026 ~10:36 CEST**
+**Ultimo aggiornamento: 23/10/2026 ~11:36 CEST**
+
+## 23/10/2026 ~02:00 CEST — aggiornamento documentale giornaliero
+- **Ciclo 23/10 11:36 (verde, 0 bug, 0 regressioni):** sync remoto 1f26a4e = tree locale (141/141 blob, zero diff, escluso tsconfig.tsbuildinfo); build exit 0 + tsc 0 errori (sequenziali); sweep integrale 0 KO reali / 0 freeze-lag — 8/8 route 200, /gallery 308→/#gallery, aux 200, 404 OK, immagini/link/meta/OG/placeholder puliti; VISITED-GUARD-AUDIT OK (bottone outline GALLERIA non cambia colore post-click); **nuova sezione sweep OG-LOCALE-ALTERNATE-AUDIT (probe 8/8 casi sintetici, 0 falsi positivi; live 8/8 OK al primo run)**: verifica che ogni rotta emetta esattamente 1 og:locale=it_IT e og:locale:alternate={en_US,fr_FR,de_DE} — era l'unico segnale multilingua per i crawler social (single-URL, switch lingua client-side; hreflang non applicabile) e nessuna sezione lo copriva. Miglioria ciclo: processo (nuova sezione sweep). Push docs STATUS.md.
 
 ## 23/10/2026 ~02:00 CEST — aggiornamento documentale giornaliero
 - **Ciclo 23/10 10:36 (verde, 0 bug, 0 regressioni):** sync remoto 3ad6f14 = tree locale (118/118 blob, zero diff); sweep 0 KO reali — 6/6 route 200, /gallery 308→/#gallery, aux 200, 404 OK, immagini/link/meta/OG/placeholder puliti; **nuova sezione audit CSP-HEADER (10:36): 11/11 direttive Content-Security-Policy live = next.config.js** (guardia anti-regressione per il CSP introdotto alle 08:36; primo run ha beccato un bug del parser dello sweep — single-quoted 'upgrade-insecure-requests' non catturato — corretto prima del verde). Build exit 0 + tsc 0 errori (sequenziali, dopo lo sweep). Miglioria ciclo: processo (sezione sweep CSP-HEADER). Push docs STATUS.md.

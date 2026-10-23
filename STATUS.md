@@ -1,4 +1,9 @@
-**Ultimo aggiornamento: 23/10/2026 ~15:36 CEST**
+**Ultimo aggiornamento: 23/10/2026 ~16:36 CEST**
+
+## 23/10/2026 ~16:36 CEST — ciclo QA orario
+- **Ciclo 23/10 16:36 (verde, 0 bug, 0 regressioni):** sync via API a inizio ciclo — tree remoto 65a8997e = working tree locale (118/118 blob, zero diff); build exit 0 + tsc 0 errori (sequenziali); sweep integrale 79 sezioni, 3 KO = transitori postimg.cc (status -1, connessioni droppate — verificati tutti 200 via curl subito dopo, come nel ciclo 15:36: instabilita' di rete dell'origin, non bug del sito), 0 freeze-lag.
+- **Miglioria ciclo (processo, tooling): retry transitorio in SITEMAP-IMAGES-AUDIT** — i KO postimg.cc degli ultimi cicli erano falsi allarmi: immagini in realta' raggiungibili. Aggiunto `_si_head_retry` in qa-sweep.py: un solo retry dopo sleep 2s, SOLO su fallimento da eccezione di rete (code == -1); 404/403 restano KO immediati (nessun falso negativo su file morti). Probe probe-2026-10-23-1636-retry.py: 5/5 casi sintetici OK (success primo tentativo, 404/403 nessun retry, transitorio->200 ritentato, doppio -1 un solo retry), 0 falsi positivi. Backup qa-sweep.py.bak-1636.
+- Resto dello sweep verde: 8/8 route 200, /gallery 308→/#gallery, aux 200, 404 OK, 47/47 immagini ok, 13 link interni ok, meta/OG/Twitter completi, JSON-LD validi, CSP-HEADER 8/8, OG-LOCALE-ALTERNATE 8/8, CANONICAL-SELF-REF 8/8, NOINDEX-GUARD 8/8, VISITED-GUARD OK (bottone outline GALLERIA non cambia colore post-click), 0 placeholder. Push: solo STATUS.md (zero modifiche al codice del sito — la miglioria e' tooling in hidden_files, fuori dal repo). Niente pubblicazioni Instagram (mai autorizzate). Firebase originale non toccato.
 
 ## 23/10/2026 ~15:36 CEST — ciclo QA orario
 - **Ciclo 23/10 15:36 (1 bug reale trovato e fixato, 0 regressioni):** sync via API a inizio ciclo — tree remoto ad045f75 = working tree locale (141/141 blob, zero diff; l'index git locale era stantio su 3 file, working tree gia' col contenuto pushato); build exit 0 + tsc 0 errori (sequenziali); sweep integrale 79 sezioni — run finale 1536c: 1 KO = transitorio postimg.cc (verificato 206 via curl), 0 freeze-lag.

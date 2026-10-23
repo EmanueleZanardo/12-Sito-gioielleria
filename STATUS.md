@@ -1,4 +1,10 @@
-**Ultimo aggiornamento: 23/10/2026 ~12:36 CEST**
+**Ultimo aggiornamento: 23/10/2026 ~13:36 CEST**
+
+## 23/10/2026 ~13:36 CEST — ciclo QA orario
+- **Ciclo 23/10 13:36 (1 bug reale trovato e fixato, 0 regressioni):** sync remoto d9a3f62b = tree locale (118/118 blob, zero diff); build exit 0 + tsc 0 errori (sequenziali, prima e dopo il fix); sweep integrale 36 sezioni — 1 KO reale / 0 freeze-lag.
+- **Nuova sezione sweep CANONICAL-SELF-REF-AUDIT:** verifica che ogni rotta serva esattamente 1 `<link rel="canonical">` self-referencing uguale al dichiarato nei metadata (gap reale: fix manuali 03/10 e 07/10 mai coperti da audit). Probe probe-2026-10-23-1336-canonical.py 8/8 casi sintetici, 0 falsi positivi; backup qa-sweep.py.bak-1336. Al primo run live: 7/8 OK, 1 KO su `/` — il tag servito era `href="https://gdc-jewellery-lab.vercel.app"` (senza slash) mentre page.tsx dichiarava `...vercel.app/`: Next normalizza il canonical della root togliendo lo slash finale.
+- **Bug fix (miglioria ciclo):** `src/app/page.tsx` — canonical homepage allineato a `'https://gdc-jewellery-lab.vercel.app'` (senza trailing slash), ora identico al tag servito; verificato nell'HTML del build locale. Zero cambi visivi, SEO invariata (le due forme sono equivalenti per Google), ma la dichiarazione ora coincide col servito e l'audit strict passa.
+- Resto dello sweep verde: 8/8 route 200, /gallery 308→/#gallery, aux 200, 404 OK, 28/28 image:loc sitemap-images OK (parallelo), CSP-HEADER 8/8, OG-LOCALE-ALTERNATE 8/8, VISITED-GUARD OK (bottone outline GALLERIA non cambia colore post-click). Push: STATUS.md + src/app/page.tsx.
 
 ## 23/10/2026 ~12:36 CEST — ciclo QA orario
 - **Ciclo 23/10 12:36 (verde, 0 bug, 0 regressioni):** sync remoto cc9bb8fc = tree locale (118/118 blob, zero diff); build exit 0 + tsc 0 errori (sequenziali); sweep integrale 0 KO reali / 0 freeze-lag (35 sezioni) — 8/8 route 200, /gallery 308→/#gallery, aux 200, 404 OK, 28/28 image:loc sitemap-images OK, CSP-HEADER 8/8, OG-LOCALE-ALTERNATE 8/8, VISITED-GUARD OK (bottone outline GALLERIA non cambia colore post-click).

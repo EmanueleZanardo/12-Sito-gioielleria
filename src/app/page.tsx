@@ -24,7 +24,10 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://gdc-jewellery-lab.vercel.app/',
+    // QA 23/10 13:36: senza trailing slash — Next normalizza il canonical
+    // della root togliendo lo slash finale (live: href senza slash), quindi
+    // la dichiarazione ora coincide con il tag servito. Zero cambi visivi.
+    canonical: 'https://gdc-jewellery-lab.vercel.app',
   },
 };
 

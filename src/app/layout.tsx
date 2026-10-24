@@ -283,7 +283,14 @@ export default function RootLayout({
                 stesse classi), il widget resta raggiungibile da tastiera e
                 da screen reader come landmark. Stesso fix in
                 whatsapp-float.tsx. */}
-            <aside className="fixed bottom-[calc(1.5rem+env(safe-area-inset-bottom))] right-6 z-50">
+            {/* QA 24/10 23:36 (LANDMARK-UNIQUE, axe-core, WCAG 1.3.1/2.4.1):
+                senza aria-label questo complementary duplicava quello di
+                WhatsAppFloat (stesso ruolo, entrambi senza etichetta):
+                nella navigazione per landmark i due risultavano
+                indistinguibili. Etichetta statica in italiano come il
+                default SSR del sito (le nav rendono "Navigazione
+                principale" in SSR); zero cambi visivi. */}
+            <aside aria-label="Condividi" className="fixed bottom-[calc(1.5rem+env(safe-area-inset-bottom))] right-6 z-50">
                 <ShareDialog size="lg" className="rounded-full h-14 w-14 shadow-lg" />
             </aside>
             {/* CTA WhatsApp sempre visibile (bottom-left), con messaggio

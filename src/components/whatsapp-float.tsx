@@ -24,7 +24,12 @@ export function WhatsAppFloat() {
     // axe-core "region"); aside = landmark complementary, zero cambi
     // visivi (block come div, stesse classi). Gemello in layout.tsx
     // (wrapper ShareDialog).
-    <aside className="fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] left-5 z-50">
+    // QA 24/10 23:36 (LANDMARK-UNIQUE, axe-core, WCAG 1.3.1/2.4.1):
+    // aria-label localizzata (stessa chiave del testo del bottone):
+    // senza etichetta questo complementary duplicava quello di
+    // ShareDialog in layout.tsx — ora i due landmark sono distinguibili
+    // ("Scrivici su WhatsApp" vs "Condividi"), zero cambi visivi.
+    <aside aria-label={t('whatsapp.label')} className="fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] left-5 z-50">
       {/* QA 21/10 02:36 (miglioria ciclo): anello di focus visibile da tastiera —
           prima l'<a> del bottone WhatsApp non aveva stili focus-visible: la
           navigazione da tastiera mostrava solo l'outline di default del

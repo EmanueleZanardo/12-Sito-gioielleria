@@ -19,7 +19,12 @@ export function WhatsAppFloat() {
   )}`;
 
   return (
-    <div className="fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] left-5 z-50">
+    // QA 24/10 14:36 (LANDMARK-CONTENT, WCAG 1.3.1/2.4.1): <aside> invece
+    // di <div> — il bottone WhatsApp era fuori da ogni landmark (regola
+    // axe-core "region"); aside = landmark complementary, zero cambi
+    // visivi (block come div, stesse classi). Gemello in layout.tsx
+    // (wrapper ShareDialog).
+    <aside className="fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] left-5 z-50">
       {/* QA 21/10 02:36 (miglioria ciclo): anello di focus visibile da tastiera —
           prima l'<a> del bottone WhatsApp non aveva stili focus-visible: la
           navigazione da tastiera mostrava solo l'outline di default del
@@ -39,6 +44,6 @@ export function WhatsAppFloat() {
         </span>
         <span className="hidden sm:inline">{t('whatsapp.label')}</span>
       </a>
-    </div>
+    </aside>
   );
 }

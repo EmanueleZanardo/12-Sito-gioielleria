@@ -1,4 +1,12 @@
-**Ultimo aggiornamento: 24/10/2026 ~01:36 CEST**
+**Ultimo aggiornamento: 24/10/2026 ~02:00 CEST**
+
+## 24/10/2026 ~02:00 CEST — aggiornamento documentale giornaliero
+- **QA gioielleria 24/10 01:36 — verde, 1 miglioria sito, 0 regressioni.** Sweep 153 sezioni: 8/8 route 200, aux 200, 404 OK, immagini/link ok, meta/OG/Twitter completi, JSON-LD 26 blocchi 0 invalidi, CSP-HEADER 8/8, 0 placeholder, 0 freeze-lag.
+- **Miglioria (metadata-only, zero cambi visivi):** `<meta name="application-name" content="GDC Jewellery Lab">` in src/app/layout.tsx — gap reale: nessuna delle 152 sezioni lo verificava (manifest name/short_name coperti, PWA-capable coperta). Emesso nel prerenderizzato locale su tutte le 9 pagine. Nuova sezione sweep 153 APPLICATION-NAME-AUDIT (probe 6/6 sintetici OK; live pre-deploy 0/9 OK con 9 KO attesi — push appena fatto, deploy Vercel non ancora propagato; da riverificare live al prossimo ciclo).
+- Build exit 0 + tsc 0 errori. Commit locale 1417619; **push API OK `d33cf86`** (fail-closed su base 46656a4d, verificato via GET /commits/main). File: STATUS.md + src/app/layout.tsx. Niente Instagram, Firebase non toccato.
+- **Nota di coordinamento:** il job QA-gioielleria scrive le sue entry direttamente sul STATUS.md remoto; questo job mergia le proprie sezioni giornaliere sulla base live senza sovrascrivere le entry QA.
+- Stallo deploy Vercel RISOLTO 23/10 (sua connessione connettore + redeploy READY, sospensione push QA revocata).
+
 
 ## 24/10/2026 ~01:36 CEST — ciclo QA orario
 - **Ciclo 24/10 01:36 (verde, 1 miglioria sito, 0 regressioni):** sync via API a inizio ciclo — tree remoto 46656a4d (commit API del push 00:36) = working tree locale, git status pulito; build exit 0 + tsc 0 errori (sequenziali post-sweep, regola anti-race 18/10).

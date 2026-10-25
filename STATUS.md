@@ -1,4 +1,14 @@
-**Ultimo aggiornamento: 25/10/2026 ~01:36 CEST**
+**Ultimo aggiornamento: 25/10/2026 ~02:00 CEST**
+
+## 25/10/2026 ~02:00 CEST — aggiornamento documentale giornaliero
+- **QA gioielleria 24/10 — giornata verde, 2 fix accessibilità reali + 2 nuove sezioni sweep.** 11:36: nuova sezione sweep 163 AUTOCOMPLETE-VALID-AUDIT (probe 15/15; push solo STATUS.md `6b3bb461`).
+- **14:36 — fix LANDMARK-CONTENT:** widget flottanti Condividi/WhatsApp in <div> fuori da ogni landmark (dopo </footer>), invisibili alla navigazione per landmark (axe region, WCAG 1.3.1/2.4.1). Fix: wrapper <aside> in layout.tsx e whatsapp-float.tsx, zero cambi visivi; nuova sezione sweep 166 LANDMARK-CONTENT-AUDIT (probe 11/11). Push `6585528e` VERIFY_OK. **15:36 — fix VERIFICATO DEPLOYATO: LANDMARK-CONTENT 9/9 OK live (era 0/9, 18 KO pre-fix).**
+- **23:36 — fix LANDMARK-UNIQUE:** aria-label «Condividi» / «Scrivici su WhatsApp» sugli aside (push `0d426c96` VERIFY_OK).
+- **25/10 00:36 — ciclo verde:** sweep 175 sezioni 0 KO, 0 freeze-lag; verifica live fix 23:36 (LANDMARK-UNIQUE 73 OK, 0 KO vs 9 KO pre-fix); nuova sezione sweep 176 ARIA-REQUIRED-CHILDREN-AUDIT (probe 31/31 sintetici, live 9/9 OK; falso positivo iniziale risolto come regola: <ol tabindex="-1"> vuoto in SSR = viewport toast Radix, popolato a runtime). Push solo STATUS.md `ff0c891b` VERIFY_OK. **25/10 01:36 — ciclo verde (head `308417c`): sweep 177 sezioni 0 KO, 0 freeze-lag.**
+- Deploy-lag Vercel OK (produzione allineata a main), nessun "Deployment rate limited". Niente Instagram, Firebase non toccato.
+- **Nota di coordinamento:** il job QA-gioielleria scrive le sue entry direttamente sul STATUS.md remoto; questo job mergia le proprie sezioni giornaliere sulla base live senza sovrascrivere le entry QA.
+- **Nota tooling:** gh-api via argv FALLISCE con STATUS.md da ~410 KB ("Argument list too long", limite 128 KB/arg) — push via auth surrogate in-process (urllib + dynamic_credentials), lezione registrata 25/10 00:36.
+
 
 ## 25/10/2026 ~01:36 CEST — ciclo QA orario
 - **Ciclo 25/10 01:36 (verde, 0 bug nel sito, 0 regressioni):** sync via API a inizio ciclo — ref remoto ff0c891b5cdab9cbf9b17b8281bbb348d4ca906c (push 00:36); confronto tree remoto ricorsiva vs blob SHA locali (git hash-object, escluso tsconfig.tsbuildinfo non trackato): 118/118, zero diff — working tree in sync, niente da mergiare (l'HEAD git locale resta stantio al 02:36 del 24/10: il confronto con il tree remoto fa fede). tsc 0 errori + build exit 0 (sequenziali, Next.js 14.2.35, 17/17 pagine statiche); sweep integrale 0136 (master a 177 sezioni, incl. la nuova 177) — **0 KO, 0 freeze-lag**.

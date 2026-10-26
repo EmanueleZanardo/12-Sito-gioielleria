@@ -1,4 +1,11 @@
-**Ultimo aggiornamento: 25/10/2026 ~18:36 CET**
+**Ultimo aggiornamento: 26/10/2026 ~02:00 CEST**
+
+## 26/10/2026 ~02:00 CET — aggiornamento documentale giornaliero
+- **QA gioielleria 25/10 — giornata verde, 0 bug, 0 regressioni.** 18:36: nuova sezione sweep 194 SCROLLABLE-REGION-FOCUSABLE-AUDIT (probe 18/18, live 8/8 a 0 candidati); push solo STATUS.md `90a5833` VERIFY_OK. Head remoto `90a5833`.
+- **ALLARME ATTIVO — Vercel "Deployment rate limited — retry in 24 hours" sul commit 90a5833d (dal 25/10 17:55 UTC, scadenza stimata ~18:55 CET 26/10); produzione ferma a `2b319b94` (push 17:36).** Impatto utente zero (il push 18:36 toccava solo STATUS.md). Cicli successivi VERDI SENZA PUSH per regola del ciclo QA (push sospesi in attesa di istruzioni): 19:36 sweep 195 ARIA-TOGGLE-FIELD-NAME-AUDIT, 20:36 sweep 197 AVOID-INLINE-SPACING-AUDIT, 22:36, 23:36; notte 26/10: 00:36 sweep 199 sezioni (nuova sezione 200 DUPLICATE-ID-AUDIT, probe 13/13), 01:36 sweep 200 sezioni (nuova sezione 201 SELECT-NAME-AUDIT, probe 18/18) — unico KO in tutti i cicli = DEPLOY-LAG.
+- **Nota di coordinamento:** il job QA-gioielleria scrive le sue entry direttamente sul STATUS.md remoto; questo job mergia le proprie sezioni giornaliere sulla base live senza sovrascrivere le entry QA. Nota tooling: gh-api via argv FALLISCE con STATUS.md da ~410 KB ("Argument list too long") — push via auth surrogate in-process (urllib + dynamic_credentials).
+- Niente Instagram, Firebase non toccato.
+
 
 ## 25/10/2026 ~18:36 CET — ciclo QA orario
 - **Ciclo 25/10 18:36 (verde, 0 bug nel sito, 0 regressioni):** sync via API a inizio ciclo — ref remoto 2b319b941bd717fd7b67d67337a19a9e8455fcfd (push 17:36, invariato); confronto tree remoto ricorsiva vs blob SHA locali (git hash-object, entrambi i sensi): 118/118, zero diff — working tree in sync, niente da mergiare. tsc 0 errori + build exit 0 (sequenziali, Next.js 14.2.35, 17/17 pagine statiche); sweep integrale 1836 (master a 194 sezioni, incl. la nuova 194) — **0 KO reali, 0 freeze-lag** (PAGE-TIMING max 0,86 s su /services). DEPLOY-LAG-AUDIT OK — produzione allineata a main 2b319b94 pre-push. Nessun "Deployment rate limited": i push restano attivi.

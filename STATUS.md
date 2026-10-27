@@ -1,4 +1,11 @@
-**Ultimo aggiornamento: 26/10/2026 ~02:00 CEST**
+**Ultimo aggiornamento: 27/10/2026 ~02:00 CEST**
+
+## 27/10/2026 ~02:00 CET — aggiornamento documentale giornaliero
+- **QA gioielleria 26/10 — giornata verde, 0 bug, 0 regressioni, NESSUN PUSH** (regola del ciclo QA in attesa di istruzioni: solo tooling in hidden_files). Sweep: 19:36 sezione 219 ARIA-CONDITIONAL-ATTR-AUDIT (probe 18/18), 22:36 sezione 220 ARIA-REQUIRED-PARENT-AUDIT (probe 26/26), 23:36 sezione 221 INPUT-BUTTON-NAME-AUDIT (probe 22/22); notte 27/10 00:36 sezione 222 ARIA-EXPANDED-CONTROLS-AUDIT (probe 20/20, live 1 OK, 0 KO). Sito: tsc + build exit 0 (17/17 pagine), live 6/6 rotte 200, meta/OG OK, nessun placeholder, postimg 8/8 a 200.
+- **ALLARME IN SCADENZA — Vercel "Deployment rate limited — retry in 24 hours" sul commit 24eb317e (dal 26/10 01:03 UTC, scadenza stimata ~02:03 CET 27/10, cioè in questa finestra); produzione ferma a `2b319b94`.** Impatto utente zero (i push dopo il 25/10 17:36 toccavano solo STATUS.md/tooling). Head remoto immobile `24eb317e` (sezione giornaliera 26/10 di questo job).
+- **Nota di coordinamento:** il job QA-gioielleria scrive le sue entry direttamente sul STATUS.md remoto; questo job mergia le proprie sezioni giornaliere sulla base live senza sovrascrivere le entry QA. Nota tooling: gh-api via argv FALLISCE con STATUS.md da ~410 KB ("Argument list too long") — push via auth surrogate in-process (urllib + dynamic_credentials).
+- Niente Instagram, Firebase non toccato.
+
 
 ## 26/10/2026 ~02:00 CET — aggiornamento documentale giornaliero
 - **QA gioielleria 25/10 — giornata verde, 0 bug, 0 regressioni.** 18:36: nuova sezione sweep 194 SCROLLABLE-REGION-FOCUSABLE-AUDIT (probe 18/18, live 8/8 a 0 candidati); push solo STATUS.md `90a5833` VERIFY_OK. Head remoto `90a5833`.

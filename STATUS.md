@@ -1,4 +1,11 @@
-**Ultimo aggiornamento: 27/10/2026 ~02:00 CEST**
+**Ultimo aggiornamento: 28/10/2026 ~02:00 CEST**
+
+## 28/10/2026 ~02:00 CET — aggiornamento documentale giornaliero
+- **QA gioielleria 27/10 — giornata verde, 0 bug, 0 regressioni, NESSUN PUSH** (regola del ciclo QA in attesa di istruzioni: solo tooling in hidden_files). Cicli verificati: 19:36 sweep OG-IMAGE-META-DIMENSIONS (8/8 pagine OK), 20:36 sezione sweep 235 TWITTER-IMAGE-AUDIT (probe 12/12, live 8/8), 21:36 sezione 236 ROBOTS-FIELDS-AUDIT (probe 12/12, live 3/3), 22:36 sezione 237 OG-LOCALE-AUDIT (probe 12/12, live 8/8), 23:36 sezione 238 OG-TYPE-AUDIT (og:type website 8/8, probe 12/12). Sito: tsc + build exit 0 (17/17 pagine), live 9/9 rotte 200, meta/OG OK, nessun placeholder, postimg 8/8 a 200.
+- **Vercel "Deployment rate limited — retry in 24 hours" sul commit 24eb317e (dal 27/10 01:06 UTC, scadenza stimata ~02:06 CET 28/10, cioè in questa finestra); produzione ferma a `2b319b94`.** Impatto utente zero (i push dopo il 25/10 17:36 toccavano solo STATUS.md/tooling). Head remoto `ce4bb793` (sezione giornaliera 27/10 di questo job, unico diff locale STATUS.md accumulato).
+- **Nota di coordinamento:** il job QA-gioielleria scrive le sue entry direttamente sul STATUS.md remoto; questo job mergia le proprie sezioni giornaliere sulla base live senza sovrascrivere le entry QA. Nota tooling: gh-api via argv FALLISCE con STATUS.md da ~410 KB ("Argument list too long") — push via auth surrogate in-process (urllib + dynamic_credentials).
+- Niente Instagram, Firebase non toccato.
+
 
 ## 27/10/2026 ~02:00 CET — aggiornamento documentale giornaliero
 - **QA gioielleria 26/10 — giornata verde, 0 bug, 0 regressioni, NESSUN PUSH** (regola del ciclo QA in attesa di istruzioni: solo tooling in hidden_files). Sweep: 19:36 sezione 219 ARIA-CONDITIONAL-ATTR-AUDIT (probe 18/18), 22:36 sezione 220 ARIA-REQUIRED-PARENT-AUDIT (probe 26/26), 23:36 sezione 221 INPUT-BUTTON-NAME-AUDIT (probe 22/22); notte 27/10 00:36 sezione 222 ARIA-EXPANDED-CONTROLS-AUDIT (probe 20/20, live 1 OK, 0 KO). Sito: tsc + build exit 0 (17/17 pagine), live 6/6 rotte 200, meta/OG OK, nessun placeholder, postimg 8/8 a 200.

@@ -44,7 +44,8 @@
     },
     "carousel": {
       "previous": "Slide precedente",
-      "next": "Slide successiva"
+      "next": "Slide successiva",
+      "label": "Scegli un'opzione"
     },
     "dialog": {
       "close": "Chiudi",

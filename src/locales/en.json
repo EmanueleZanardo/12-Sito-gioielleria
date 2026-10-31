@@ -44,7 +44,8 @@
     },
     "carousel": {
       "previous": "Previous slide",
-      "next": "Next slide"
+      "next": "Next slide",
+      "label": "Choose an option"
     },
     "dialog": {
       "close": "Close",

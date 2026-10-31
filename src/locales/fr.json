@@ -44,7 +44,8 @@
     },
     "carousel": {
       "previous": "Diapositive précédente",
-      "next": "Diapositive suivante"
+      "next": "Diapositive suivante",
+      "label": "Choisissez une option"
     },
     "dialog": {
       "close": "Fermer",

@@ -118,7 +118,12 @@ function SelectionCarousel<T extends {id: string, imageUrl?: string, color?: str
 
   return (
     <div className="relative overflow-hidden">
-      <Carousel setApi={setApi} className="w-full" opts={{ dragFree: true }}>
+      {/* QA 30/10 14:36 (CAROUSEL-LABEL, APG carousel): la region del
+          carosello (role="region" + aria-roledescription="carousel" in
+          ui/carousel.tsx) era anonima — nessun aria-label passato
+          dall'uso. Nome localizzato via common (stesso namespace di
+          carousel.previous/next); zero cambi visivi. */}
+      <Carousel setApi={setApi} className="w-full" opts={{ dragFree: true }} aria-label={tCommon('carousel.label')}>
         <CarouselContent className="-ml-2 px-8">
           {items.map((item) => {
             const isSelected = isMultiple ? field.value?.includes(item.id) : field.value === item.id;

@@ -171,6 +171,20 @@ export default function HomeClient() {
       width: 1200,
       height: 630,
     },
+    // QA 12/11 09:49 (miglioria ciclo): logo sul JewelryStore — il WebSite
+    // globale (layout.tsx) dichiara publisher.logo dal 12/10, ma l'entita'
+    // JewelryStore stessa (LocalBusiness: quella che Google mostra nei
+    // risultati locali/knowledge) non aveva logo; Google associa il logo
+    // all'entita' Organization che lo dichiara. Stesso URL del logo
+    // visibile in header/footer/hero e di publisher.logo, dimensioni
+    // 606x412 MISURATE live sull'IHDR del PNG (12/11, stesso pattern del
+    // ciclo 12/10 09:36). Dato onesto, solo additivo, zero cambi visivi.
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png',
+      width: 606,
+      height: 412,
+    },
     telephone: '+393451114337',
     email: 'laboratorio.ticino@gmail.com',
     priceRange: '€€',

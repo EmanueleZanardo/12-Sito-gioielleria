@@ -35,7 +35,10 @@ export function Footer() {
       <div className="container mx-auto px-6 py-12">
         <div className="flex flex-col items-center text-center">
           <Link href="/" className="flex items-center space-x-2 mb-5">
-            <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt={t('footer.logoAlt')} width={200} height={80} className="object-contain" />
+            {/* QA 14/11 09:49: 118x80 = rapporto reale PNG 606x412 (1,47:1);
+                prima 200x80 (2,5:1) letterboxava il logo a ~118px in un box
+                da 200px. Stessa altezza visiva, box aderente. */}
+            <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt={t('footer.logoAlt')} width={118} height={80} className="object-contain" />
           </Link>
           <div className="gold-divider !my-4" aria-hidden="true" />
           <p className="max-w-md font-headline text-xl italic text-ivory/85 lux-title">

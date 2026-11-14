@@ -105,7 +105,14 @@ export function Header() {
             <Link href="/" className="flex items-center space-x-2">
               {/* Logo sopra la piega su ogni pagina: priority per non
                   ritardare il Largest Contentful Paint. */}
-              <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt="GDC Jewellery Lab Logo" width={160} height={64} className="object-contain" priority />
+              {/* QA 14/11 09:49: width/height 94x64 = rapporto reale del PNG
+                  606x412 (1,47:1). Prima 160x64 (2,5:1): con object-contain
+                  il logo veniva letterboxato a ~94px in un box da 160px su
+                  ogni pagina (box troppo largo, area cliccabile piu' larga
+                  del logo visibile). Stessa altezza visiva di prima, box
+                  ora aderente al logo. Trovato dalla nuova sezione sweep
+                  IMG-INTRINSIC-DIM-PARITY (16 KO live). */}
+              <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt="GDC Jewellery Lab Logo" width={94} height={64} className="object-contain" priority />
             </Link>
         </div>
         
@@ -190,7 +197,9 @@ export function Header() {
                         <SheetHeader className="p-4 border-b">
                           <SheetTitle className="sr-only">{t('nav.mainMenu')}</SheetTitle>
                             <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMobileMenuOpen(false)}>
-                                 <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt="GDC Jewellery Lab Logo" width={160} height={64} className="object-contain" />
+                                 {/* QA 14/11 09:49: 94x64 = rapporto reale PNG 606x412 (1,47:1);
+                                     prima 160x64 (2,5:1) letterboxava il logo — v. header desktop. */}
+                                 <Image src="https://i.postimg.cc/Zqh2P1Cw/Gemini-Generated-Image-9gxeth9gjhvihvixeth9gxe-removebg-preview-(1).png" alt="GDC Jewellery Lab Logo" width={94} height={64} className="object-contain" />
                             </Link>
                         </SheetHeader>
                         <nav aria-label={t('nav.mobileNav')} className="flex-grow mt-6">
